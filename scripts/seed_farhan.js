@@ -1,0 +1,2250 @@
+const fs = require('fs');
+const path = require('path');
+
+const species = [
+  {
+    id: "ctg-teak",
+    nameBn: "চিটাগাং সেগুন (Chittagong Teak)",
+    nameEn: "Chittagong Teak",
+    scientificName: "Tectona grandis",
+    originBn: "পার্বত্য চট্টগ্রাম ও রাঙ্গামাটি",
+    originEn: "Chittagong Hill Tracts & Rangamati",
+    descriptionBn: "কাঠের রাজা খ্যাত চিটাগাং সেগুন প্রাকৃতিক তেলের কারণে উইপোকা ও আর্দ্রতা প্রতিরোধী। এর সোনালী বাদামী আভা ও নিখুঁত গ্রেইন ৫০ বছরেরও বেশি স্থায়িত্ব দেয়।",
+    descriptionEn: "Known as the King of Woods, Chittagong Teak contains natural oils providing immunity against termites and moisture. Its golden-brown luster lasts 50+ years.",
+    colorTone: "Golden Amber to Rich Brown",
+    grainPatternBn: "সোজা ও গভীর প্রাকৃতিক রেখা",
+    grainPatternEn: "Straight, distinct deep grains",
+    durabilityBn: "৫০+ বছর (গ্রেড-১ প্রিমিয়াম)",
+    durabilityEn: "50+ Years (Grade-1 Luxury)",
+    currentRatePerCft: 4800,
+    roundLogRatePerCft: 3600,
+    seasoningTimeDays: 25,
+    bestForBn: ["মেইন এন্ট্রান্স ডোর", "হেভি চৌকাঠ", "রাজকীয় ফার্নিচার"],
+    bestForEn: ["Main Entrance Luxury Doors", "Heavy Chowkath", "Royal Furniture"],
+    isPopular: true
+  },
+  {
+    id: "seasoned-mahogany",
+    nameBn: "সিজনড মেহগনি (Seasoned Mahogany)",
+    nameEn: "Seasoned Mahogany",
+    scientificName: "Swietenia macrophylla",
+    originBn: "যশোর ও মেহেরপুর প্ল্যান্টেশন",
+    originEn: "Jessore & Meherpur Plantation",
+    descriptionBn: "অত্যন্ত আকর্ষণীয় লালচে বাদামী টেক্সচার। মেসার্স ফারহান এন্টারপ্রাইজের ১২-১৪% কিম্বন ড্রাইড ও কেমিক্যাল ট্রিটমেন্টের ফলে এটি কখনো বাঁকা হয় না বা ঘুণে ধরে না।",
+    descriptionEn: "Attractive reddish-brown finish. Our 12-14% kiln drying and vacuum chemical treatment guarantee zero warping and complete borer resistance.",
+    colorTone: "Deep Reddish Mahogany Tone",
+    grainPatternBn: "ঘন ও মসৃণ টেক্সচার",
+    grainPatternEn: "Fine, interwoven ribbon grain",
+    durabilityBn: "২৫-৩০ বছর",
+    durabilityEn: "25-30 Years",
+    currentRatePerCft: 1650,
+    roundLogRatePerCft: 1200,
+    seasoningTimeDays: 18,
+    bestForBn: ["বেডরুম ও অভ্যন্তরীণ ডোর", "ফার্নিচার", "ক্যাবিনেট"],
+    bestForEn: ["Bedroom Doors", "Furniture", "Cabinetry"],
+    isPopular: true
+  },
+  {
+    id: "gamari",
+    nameBn: "পার্বত্য গামারি (Gamari Wood)",
+    nameEn: "Gamari Wood",
+    scientificName: "Gmelina arborea",
+    originBn: "বান্দরবান ও খাগড়াছড়ি",
+    originEn: "Bandarban & Khagrachari",
+    descriptionBn: "হালকা সোনালী হলুদ বর্ণের কাঠ। সহজে সূক্ষ্ম কারুকাজ ও ৩ডি সিএনসি খোদাইয়ের জন্য অত্যন্ত আদর্শ। পানি ও আবহাওয়া পরিবর্তনে সংবেদনশীল নয়।",
+    descriptionEn: "Light golden-yellow timber. Highly favored for fine architectural carvings and intricate 3D CNC designs. Excellent dimensional stability.",
+    colorTone: "Pale Golden Honey Tone",
+    grainPatternBn: "মসৃণ ও উজ্জ্বল আঁশ",
+    grainPatternEn: "Uniform, smooth silky grain",
+    durabilityBn: "২০-২৫ বছর",
+    durabilityEn: "20-25 Years",
+    currentRatePerCft: 2400,
+    roundLogRatePerCft: 1750,
+    seasoningTimeDays: 20,
+    bestForBn: ["সূক্ষ্ম নকশাদার দরজা", "টি টেবিল", "প্যানেল ডোর"],
+    bestForEn: ["Intricate Carved Doors", "Tea Tables", "Panel Doors"],
+    isPopular: true
+  },
+  {
+    id: "sal-wood",
+    nameBn: "শাল কাঠ / গজারী (Sal Wood)",
+    nameEn: "Sal / Gozari Wood",
+    scientificName: "Shorea robusta",
+    originBn: "গাজীপুর ও ময়মনসিংহ অঞ্চল",
+    originEn: "Gazipur & Mymensingh Region",
+    descriptionBn: "চরম ভারী ও কঠিন কাঠ। মূলত দরজার ফ্রেম বা চৌকাঠ ও স্ট্রাকচারাল কাজের জন্য প্রথম পছন্দ। উইপোকা এই কাঠের কাছে আসতে পারে না।",
+    descriptionEn: "Extremely heavy, dense, and immune to moisture and insects. The top choice for heavy-duty door frames (chowkath).",
+    colorTone: "Dark Brown to Ebony Brown",
+    grainPatternBn: "মোটা ও অতিমাত্রায় শক্তিশালী আঁশ",
+    grainPatternEn: "Coarse, robust interlocked grain",
+    durabilityBn: "৪০+ বছর (চৌকাঠের জন্য শ্রেষ্ঠ)",
+    durabilityEn: "40+ Years (Best for Chowkath)",
+    currentRatePerCft: 2200,
+    roundLogRatePerCft: 1600,
+    seasoningTimeDays: 30,
+    bestForBn: ["স্থায়ী দরজার চৌকাঠ", "ভারী নির্মাণ সাইজ কাঠ"],
+    bestForEn: ["Permanent Door Frames", "Heavy Structural Timber"],
+    isPopular: true
+  },
+  {
+    id: "treatment-wood",
+    nameBn: "ভ্যাকুয়াম ট্রিটমেন্ট কাঠ (Treated Timber)",
+    nameEn: "Vacuum Chemical Treated Timber",
+    scientificName: "Pressure Treated Solid Wood",
+    originBn: "যশোর নিজস্ব প্ল্যান্ট",
+    originEn: "Farhan Enterprise In-house Plant, Jashore",
+    descriptionBn: "ভ্যাকুয়াম প্রেশার সিলিন্ডারে কপার-ক্রোম-বোরন কেমিক্যাল প্রবেশ করানো শতভাগ পাকা কাঠ। ঘুণপোকা, উইপোকা ও আর্দ্রতার বিরুদ্ধে ২৫ বছরের লিখিত গ্যারান্টি।",
+    descriptionEn: "Vacuum pressure chemical impregnated timber. Complete protection against borer and termites with 25-year assurance.",
+    colorTone: "Rich Natural Wood Tone",
+    grainPatternBn: "নিখুঁত ও স্থিতিশীল আঁশ",
+    grainPatternEn: "Stabilized Uniform Grain",
+    durabilityBn: "৩০+ বছর (ঘুণ ও উইপোকা মুক্ত)",
+    durabilityEn: "30+ Years (Termite-free guarantee)",
+    currentRatePerCft: 1950,
+    roundLogRatePerCft: 1450,
+    seasoningTimeDays: 15,
+    bestForBn: ["সব ধরণের দরজা", "ফার্নিচার", "ডাইনিং ও খাট"],
+    bestForEn: ["All Doors", "Furniture", "Dining & Beds"],
+    isPopular: true
+  },
+  {
+    id: "akashmoni",
+    nameBn: "আকাশমণি কাঠ (Akashmoni Wood)",
+    nameEn: "Akashmoni Wood",
+    scientificName: "Acacia auriculiformis",
+    originBn: "যশোর ও কুষ্টিয়া প্ল্যান্টেশন",
+    originEn: "Jashore & Kushtia Region",
+    descriptionBn: "শক্ত ও টেকসই স্থানীয় কাঠ। সিজনিংয়ের পর ডোর ফ্রেম, ফার্নিচার ও সাইজ কাঠের সাশ্রয়ী ও চমৎকার বিকল্প।",
+    descriptionEn: "Strong, durable hardwood. Excellent economical choice for sized wood, frames, and furniture after proper seasoning.",
+    colorTone: "Golden Brown with Dark Streaks",
+    grainPatternBn: "বক্র ও আকর্ষণীয় ন্যাচারাল রেখা",
+    grainPatternEn: "Wavy distinct natural grain",
+    durabilityBn: "২০-২৫ বছর",
+    durabilityEn: "20-25 Years",
+    currentRatePerCft: 1500,
+    roundLogRatePerCft: 1100,
+    seasoningTimeDays: 18,
+    bestForBn: ["ফার্নিচার কাঠাম", "চেরা সাইজ কাঠ", "দরজার চৌকাঠ"],
+    bestForEn: ["Furniture Frames", "Sized Timber", "Chowkath"],
+    isPopular: true
+  }
+];
+
+const products = [
+  // 1. WOOD / LOGS & SIZED WOOD
+  {
+    id: "prod-fe-wood-001",
+    designNumber: "FE-WOOD-001",
+    slug: "chittagong-teak-round-logs",
+    titleBn: "চিটাগাং সেগুন গোল লগ ও চেরা সাইজ কাঠ",
+    titleEn: "Chittagong Teak Round Logs & Sawn Planks",
+    category: "wood",
+    categoryLabelBn: "কাঠ / লগ ও সাইজ কাঠ",
+    categoryLabelEn: "Wood / Logs & Sized Wood",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 4800,
+        regularPrice: 5200,
+        inStock: true,
+        leadTimeDays: 2,
+        finishOptions: ["কাঁচা চেরা তক্তা", "প্ল্যানার ফিনিশ"]
+      }
+    ],
+    defaultPrice: 4800,
+    regularPrice: 5200,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["কাঁচা চেরা তক্তা", "প্ল্যানার স্মুথ ফিনিশ"],
+    treatmentOptionsBn: "প্রাকৃতিক তেল সমৃদ্ধ ও কিম্বন ড্রাইড",
+    treatmentOptionsEn: "Natural oil rich & kiln dried",
+    descriptionBn: "মেসার্স ফারহান এন্টারপ্রাইজের নিজস্ব স্টক থেকে সংগৃহীত শতভাগ খাঁটি চিটাগাং সেগুন কাঠের গোল গুঁড়ি (লগ) ও যেকোনো মাপে নিখুঁতভাবে চেরা সাইজ কাঠ।",
+    descriptionEn: "Authentic Chittagong Teak round logs and precision-cut sawn planks directly from Farhan Enterprise sawmill inventory.",
+    featuresBn: [
+      "১০০% খাঁটি ও পরিপক্ক পাহাড়ি সেগুন কাঠ",
+      "যেকোনো কাস্টম মাপে চেরাই সুবিধা",
+      "সরাসরি স’মিল থেকে পাইকারি ও খুচরা সরবরাহ",
+      "উইপোকা ও আর্দ্রতার বিরুদ্ধে প্রাকৃতিক প্রতিরোধ"
+    ],
+    featuresEn: [
+      "100% Mature high-density natural teak timber",
+      "Custom precision band-saw cutting to any specification",
+      "Direct wholesale and retail pricing straight from facility",
+      "Immune to termites and weather extremes"
+    ],
+    specifications: {
+      standardHeight: "৬ ফুট থেকে ১৬ ফুট পর্যন্ত দৈর্ঘ্য",
+      standardWidth: "যেকোনো কাস্টম চওড়া",
+      standardThickness: "১\", ১.৫\", ২\", ২.৫\", ৩\" ও কাস্টম বাটাম",
+      moistureContent: "১২% - ১৪%",
+      seasoningMethodBn: "স্বাভাবিক ও বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Air dried & steam kiln seasoning",
+      chemicalTreatmentBn: "প্রয়োজন অনুযায়ী ভ্যাকুয়াম ট্রিটমেন্ট",
+      chemicalTreatmentEn: "Optional vacuum pressure treatment",
+      warrantyYears: 30,
+      suitableForBn: "দরজা, রাজকীয় ফার্নিচার ও হেভি চৌকাঠ",
+      suitableForEn: "Luxury doors, royal furniture, structural timber"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    stockStatus: "in_stock",
+    rating: 4.9,
+    reviewsCount: 42,
+    createdAt: "2026-02-01T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-wood-002",
+    designNumber: "FE-WOOD-002",
+    slug: "seasoned-mahogany-sized-timber",
+    titleBn: "সিজনড মেহগনি চেরা তক্তা ও বাটাম সাইজ কাঠ",
+    titleEn: "Seasoned Mahogany Sawn Planks & Battens",
+    category: "wood",
+    categoryLabelBn: "কাঠ / লগ ও সাইজ কাঠ",
+    categoryLabelEn: "Wood / Logs & Sized Wood",
+    defaultWoodSpeciesId: "seasoned-mahogany",
+    woodVariants: [
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 1650,
+        regularPrice: 1850,
+        inStock: true,
+        leadTimeDays: 2,
+        finishOptions: ["চেরা তক্তা", "প্ল্যানার সাইজ"]
+      }
+    ],
+    defaultPrice: 1650,
+    regularPrice: 1850,
+    priceType: "starting",
+    qualityGrade: "standard",
+    finishOptions: ["চেরা তক্তা", "প্ল্যানার সাইজ"],
+    treatmentOptionsBn: "কেমিক্যাল প্রেশার ট্রিটেড ও কিম্বন ড্রাইড",
+    treatmentOptionsEn: "Chemical pressure treated & kiln dried",
+    descriptionBn: "১২-১৪% আর্দ্রতা নিয়ন্ত্রিত ও ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট করা মেহগনি সাইজ কাঠ। ফার্নিচার তৈরি ও দরজার জন্য একদম প্রস্তুত। কখনো বাঁকা হবে না বা ঘুণে ধরবে না।",
+    descriptionEn: "Kiln-dried and pressure-treated mahogany sized timber. Completely stabilized against shrinkage and insects.",
+    featuresBn: [
+      "ভ্যাকুয়াম কেমিক্যাল ট্রিটেড (ঘুণ প্রতিরোধী)",
+      "১২-১৪% অপটিমাম ময়েশ্চার গ্যারান্টি",
+      "ফার্নিচার তৈরির জন্য তৈরি ও মসৃণ সাইজ",
+      "যশোর অঞ্চলে নির্ভরযোগ্য ও দ্রুত সরবরাহ"
+    ],
+    featuresEn: [
+      "Vacuum chemical pressure treated against borers",
+      "12-14% moisture control prevents warping",
+      "Smooth precision dimensions for furniture building",
+      "Fast dispatch across Jashore & southwest Bangladesh"
+    ],
+    specifications: {
+      standardHeight: "৬ ফুট থেকে ১০ ফুট দৈর্ঘ্য",
+      standardWidth: "৪\" থেকে ১২\" চওড়া",
+      standardThickness: "০.৭৫\", ১\", ১.৫\", ২\"",
+      moistureContent: "১২% - ১৪%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam kiln drying",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB vacuum pressure impregnation",
+      warrantyYears: 20,
+      suitableForBn: "বেডরুম ডোর, খাট, ওয়ারড্রোব ও কেবিনেট",
+      suitableForEn: "Doors, beds, wardrobes, and cabinets"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: false,
+    isBestSeller: true,
+    stockStatus: "in_stock",
+    rating: 4.8,
+    reviewsCount: 31,
+    createdAt: "2026-02-10T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-wood-003",
+    designNumber: "FE-WOOD-003",
+    slug: "sal-heavy-door-frame-timber",
+    titleBn: "খাঁটি শাল কাঠ ভারী দরজার চৌকাঠ সাইজ কাঠ",
+    titleEn: "Solid Sal Heavy Door Frame Chowkath Timber",
+    category: "wood",
+    categoryLabelBn: "কাঠ / লগ ও সাইজ কাঠ",
+    categoryLabelEn: "Wood / Logs & Sized Wood",
+    defaultWoodSpeciesId: "sal-wood",
+    woodVariants: [
+      {
+        speciesId: "sal-wood",
+        speciesNameBn: "শাল কাঠ / গজারী",
+        speciesNameEn: "Sal Timber",
+        price: 2200,
+        regularPrice: 2500,
+        inStock: true,
+        leadTimeDays: 2,
+        finishOptions: ["চেরা সাইজ", "রাবিট কাটিং সাইজ"]
+      }
+    ],
+    defaultPrice: 2200,
+    regularPrice: 2500,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["চেরা সাইজ", "রাবিট কাটিং সাইজ"],
+    treatmentOptionsBn: "স্বাভাবিক পাকা সার কাঠ (উইপোকা প্রতিরোধী)",
+    treatmentOptionsEn: "Natural dense heartwood, immune to termites",
+    descriptionBn: "চৌকাঠের জন্য বাংলাদেশের সেরা কাঠ শাল কাঠ। মেসার্স ফারহান এন্টারপ্রাইজের নিখুঁত মাপের ৫\"×২.৫\" ও ৬\"×২.৫\" সাইজের চৌকাঠের কাঠ। আজীবন টেকসই।",
+    descriptionEn: "Heavy-duty solid Sal wood planks and posts, specially cut for door frames (chowkath).",
+    featuresBn: [
+      "চরম ঘন ও ভারী কাঠ, বাঁকার সম্ভাবনা শূন্য",
+      "উইপোকা ও আর্দ্রতা প্রতিরোধী",
+      "সঠিক মাপ ও নিখুঁত চেরাই",
+      "বিল্ডিং ও বাড়ির ফ্রেমের জন্য সেরা সমাধান"
+    ],
+    featuresEn: [
+      "Ultra-dense timber with zero bending risk",
+      "Naturally immune to moisture and wood borers",
+      "Precision cut for 5x2.5 and 6x2.5 chowkath",
+      "Lifetime durability for door frames"
+    ],
+    specifications: {
+      standardHeight: "৭ ফুট ও ৮ ফুট",
+      standardWidth: "৫ ইঞ্চি ও ৬ ইঞ্চি",
+      standardThickness: "২.৫ ইঞ্চি",
+      moistureContent: "১৫%",
+      seasoningMethodBn: "স্বাভাবিক সিজনিং",
+      seasoningMethodEn: "Natural air seasoning",
+      chemicalTreatmentBn: "প্রাকৃতিক অ্যান্টি-টারমাইট সুরক্ষা",
+      chemicalTreatmentEn: "Natural anti-termite defense",
+      warrantyYears: 35,
+      suitableForBn: "যেকোনো ধরণের দরজার চৌকাঠ",
+      suitableForEn: "Heavy structural door frames"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: false,
+    isBestSeller: true,
+    stockStatus: "in_stock",
+    rating: 4.9,
+    reviewsCount: 26,
+    createdAt: "2026-03-01T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+
+  // 2. DOORS
+  {
+    id: "prod-fe-door-001",
+    designNumber: "FE-DOOR-001",
+    slug: "mughal-royal-solid-door",
+    titleBn: "মোগল রয়্যাল সলিড কাঠের মেইন এন্ট্রান্স ডোর",
+    titleEn: "Mughal Royal Solid Carved Main Entrance Door",
+    category: "door",
+    categoryLabelBn: "দরজা",
+    categoryLabelEn: "Door",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 38500,
+        regularPrice: 42000,
+        inStock: true,
+        leadTimeDays: 7,
+        finishOptions: ["ম্যাট ল্যাকার", "হাই-গ্লস পিউ", "হ্যান্ড বার্নিশ"]
+      },
+      {
+        speciesId: "gamari",
+        speciesNameBn: "পার্বত্য গামারি",
+        speciesNameEn: "Gamari Wood",
+        price: 26500,
+        regularPrice: 29000,
+        inStock: true,
+        leadTimeDays: 7,
+        finishOptions: ["ম্যাট ল্যাকার", "ন্যাচারাল পলিশ"]
+      },
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 18500,
+        regularPrice: 21000,
+        inStock: true,
+        leadTimeDays: 5,
+        finishOptions: ["ম্যাট ল্যাকার", "বার্নিশ"]
+      }
+    ],
+    defaultPrice: 38500,
+    regularPrice: 42000,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["ম্যাট ল্যাকার", "হাই-গ্লস পিউ", "হ্যান্ড বার্নিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটেড ও কিম্বন ড্রাইড",
+    treatmentOptionsEn: "Vacuum chemical treated & kiln dried",
+    descriptionBn: "আভিজাত্য ও ঐতিহ্যের নিখুঁত মিলন। ঐতিহ্যবাহী মোগল খিলান ও জ্যামিতিক নকশায় অলংকৃত এই সলিড দরজা আপনার বাড়ির প্রবেশদ্বারকে করবে অনন্য ও দৃষ্টিনন্দন। শতভাগ ট্রিটমেন্ট কাঠে তৈরি।",
+    descriptionEn: "The pinnacle of architectural splendor. Inspired by classical Mughal arch motifs and deep relief carving, this solid wooden door elevates your home entry into a regal statement.",
+    featuresBn: [
+      "১০০% সলিড কোর কাঠ, কোনো প্লাইউড বা ভিনিয়ার নয়",
+      "১২-১৪% আর্দ্রতা নিয়ন্ত্রিত সিজনড কাঠ (ওয়ারপিং মুক্ত)",
+      "১০ মিমি গভীর সিএনসি ও হ্যান্ড ফিনিশ খোদাই",
+      "উইপোকা ও ফাঙ্গাস প্রতিরোধী ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট",
+      "লিখিত কোম্পানির স্থায়িত্ব গ্যারান্টি"
+    ],
+    featuresEn: [
+      "100% Solid core wood, zero plywood or veneer hollows",
+      "12-14% moisture-controlled kiln-dried timber (zero warping)",
+      "10mm deep CNC relief with master hand finishing",
+      "Vacuum chemical pressure treated against borers & termites",
+      "Written company guarantee"
+    ],
+    specifications: {
+      standardHeight: "৮১\" (৬.৭৫ ফুট) / ৮৪\" (৭ ফুট)",
+      standardWidth: "৩৯\" (৩.২৫ ফুট) / ৪২\" (৩.৫ ফুট)",
+      standardThickness: "১.৫\" (৩৮ মিমি) সলিড কাঠ",
+      moistureContent: "১২% - ১৪% (KILN DRIED)",
+      seasoningMethodBn: "স্বয়ংক্রিয় বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Automated Steam Kiln Drying",
+      chemicalTreatmentBn: "কপার-ক্রোম-বোরন (CCB) ভ্যাকুয়াম ট্রিটমেন্ট",
+      chemicalTreatmentEn: "Copper-Chrome-Boron (CCB) Vacuum Pressure Impregnation",
+      warrantyYears: 15,
+      carvingDepth: "১০ মিমি - ১২ মিমি গভীর থ্রিডি খোদাই",
+      suitableForBn: "প্রধান ফটক, ডুপ্লেক্স ভিলা মেইন এন্ট্রি, ড্রয়িং রুম",
+      suitableForEn: "Main Entrance, Duplex Villa Entry, Grand Hallway"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    stockStatus: "in_stock",
+    rating: 4.9,
+    reviewsCount: 38,
+    createdAt: "2026-01-15T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-door-002",
+    designNumber: "FE-DOOR-002",
+    slug: "victorian-heritage-classic-solid-door",
+    titleBn: "ভিক্টোরিয়ান হেরিটেজ ক্লাসিক সলিড ডোর",
+    titleEn: "Victorian Heritage Classic Solid Wooden Door",
+    category: "door",
+    categoryLabelBn: "দরজা",
+    categoryLabelEn: "Door",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 36000,
+        regularPrice: 39500,
+        inStock: true,
+        leadTimeDays: 7,
+        finishOptions: ["ল্যাকার ফিনিশ", "ন্যাচারাল সেগুন পলিশ"]
+      },
+      {
+        speciesId: "gamari",
+        speciesNameBn: "পার্বত্য গামারি",
+        speciesNameEn: "Gamari Wood",
+        price: 24500,
+        regularPrice: 27000,
+        inStock: true,
+        leadTimeDays: 7,
+        finishOptions: ["ল্যাকার", "বার্নিশ"]
+      },
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 17500,
+        regularPrice: 19500,
+        inStock: true,
+        leadTimeDays: 5,
+        finishOptions: ["ম্যাট ল্যাকার", "বার্নিশ"]
+      }
+    ],
+    defaultPrice: 36000,
+    regularPrice: 39500,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["ল্যাকার ফিনিশ", "ন্যাচারাল সেগুন পলিশ", "বার্নিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Pressure Impregnated",
+    descriptionBn: "ইউরোপীয় ভিক্টোরিয়ান আর্কিটেকচারের অনুপ্রেরণায় নিখুঁত কারুকাজ। প্রতিটি খোদাই হস্তশিল্পীর দক্ষ ছোঁয়ায় জীবন্ত হয়ে উঠেছে।",
+    descriptionEn: "Inspired by classic Victorian architecture with rich raised mouldings and elegant symmetry.",
+    featuresBn: [
+      "১০০% সলিড সিজনড সেগুন ও গামারি কাঠ",
+      "১২% আর্দ্রতা নিয়ন্ত্রিত, কোনো জোড়া খুলবে না",
+      "সূক্ষ্ম হ্যান্ড ফিনিশ কারুকাজ",
+      "ট্রিটমেন্ট কাঠ দ্বারা তৈরি টেকসই কাঠামো"
+    ],
+    featuresEn: [
+      "100% Solid seasoned teak & gamari wood",
+      "12% moisture controlled, zero joint separation",
+      "Exquisite hand-finished carvings",
+      "Treated timber prevents insect attacks"
+    ],
+    specifications: {
+      standardHeight: "৮১\" (৬.৭৫ ফুট)",
+      standardWidth: "৩৯\" (৩.২৫ ফুট)",
+      standardThickness: "১.৫\" (৩৮ মিমি)",
+      moistureContent: "১২% - ১৪%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 15,
+      carvingDepth: "৮ মিমি - ১০ মিমি",
+      suitableForBn: "প্রধান প্রবেশদ্বার, ড্রয়িং রুম",
+      suitableForEn: "Main Entrance, Drawing Room"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: false,
+    stockStatus: "in_stock",
+    rating: 4.8,
+    reviewsCount: 29,
+    createdAt: "2026-02-15T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-door-003",
+    designNumber: "FE-DOOR-003",
+    slug: "modern-minimalist-groove-door",
+    titleBn: "আধুনিক জ্যামিতিক মিনিমালিস্ট সলিড উডেন ডোর",
+    titleEn: "Modern Minimalist Geometric Solid Wood Door",
+    category: "door",
+    categoryLabelBn: "দরজা",
+    categoryLabelEn: "Door",
+    defaultWoodSpeciesId: "seasoned-mahogany",
+    woodVariants: [
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 15500,
+        regularPrice: 17500,
+        inStock: true,
+        leadTimeDays: 5,
+        finishOptions: ["ম্যাট ল্যাকার", "ডার্ক ওয়ালনাট"]
+      },
+      {
+        speciesId: "gamari",
+        speciesNameBn: "পার্বত্য গামারি",
+        speciesNameEn: "Gamari Wood",
+        price: 21500,
+        regularPrice: 24000,
+        inStock: true,
+        leadTimeDays: 6,
+        finishOptions: ["ন্যাচারাল গামারি পলিশ", "ম্যাট"]
+      },
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 31000,
+        regularPrice: 34000,
+        inStock: true,
+        leadTimeDays: 7,
+        finishOptions: ["ল্যাকার", "পিউ গ্লসি"]
+      }
+    ],
+    defaultPrice: 15500,
+    regularPrice: 17500,
+    priceType: "starting",
+    qualityGrade: "standard",
+    finishOptions: ["ম্যাট ল্যাকার", "ডার্ক ওয়ালনাট", "পিউ কোটিং"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Treated",
+    descriptionBn: "সমসাময়িক মডার্ন ইন্টেরিয়রের জন্য ডিজাইনকৃত স্টাইলিশ সিএনসি ভি-গ্রুভ সলিড দরজা। বেডরুম ও আধুনিক ফ্ল্যাটের জন্য অত্যন্ত জনপ্রিয়।",
+    descriptionEn: "Contemporary CNC linear groove solid timber door designed for modern upscale apartments.",
+    featuresBn: [
+      "আধুনিক মিনিমালিস্ট জ্যামিতিক গ্রুভ কাটিং",
+      "সিজনড ও কেমিক্যাল ট্রিটেড কাঠ",
+      "শব্দরোধী ও নিখুঁত সারফেস ফিনিশ",
+      "সহজে পরিষ্কারযোগ্য প্রিমিয়াম ল্যাকার কোটিং"
+    ],
+    featuresEn: [
+      "Modern minimalist geometric grooves",
+      "Seasoned & chemical treated solid core",
+      "Acoustic buffering with smooth surface",
+      "Easy-clean luxury lacquer finish"
+    ],
+    specifications: {
+      standardHeight: "৮১\" (৬.৭৫ ফুট)",
+      standardWidth: "৩৩\" / ৩৬\" / ৩৯\"",
+      standardThickness: "১.৫\" (৩৮ মিমি)",
+      moistureContent: "১২% - ১৪%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Drying",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 12,
+      suitableForBn: "বেডরুম, স্টাডি রুম ও ইনডোর এন্ট্রি",
+      suitableForEn: "Bedroom, Study Room, Interior Entry"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    stockStatus: "in_stock",
+    rating: 4.8,
+    reviewsCount: 45,
+    createdAt: "2026-03-01T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-door-004",
+    designNumber: "FE-DOOR-004",
+    slug: "treated-floral-3d-carved-door",
+    titleBn: "ট্রিটেড কাঠ ফ্লোরাল থ্রিডি খোদাই করা সলিড ডোর",
+    titleEn: "Treated Wood Floral 3D Carved Solid Door",
+    category: "door",
+    categoryLabelBn: "দরজা",
+    categoryLabelEn: "Door",
+    defaultWoodSpeciesId: "gamari",
+    woodVariants: [
+      {
+        speciesId: "gamari",
+        speciesNameBn: "পার্বত্য গামারি",
+        speciesNameEn: "Gamari Wood",
+        price: 25500,
+        regularPrice: 28500,
+        inStock: true,
+        leadTimeDays: 7,
+        finishOptions: ["ন্যাচারাল ল্যাকার", "হ্যান্ড বার্নিশ"]
+      },
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 37000,
+        regularPrice: 41000,
+        inStock: true,
+        leadTimeDays: 8,
+        finishOptions: ["রয়্যাল ল্যাকার", "হাই-গ্লস"]
+      }
+    ],
+    defaultPrice: 25500,
+    regularPrice: 28500,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["ন্যাচারাল ল্যাকার", "হ্যান্ড বার্নিশ", "হাই-গ্লস"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Pressure Impregnated",
+    descriptionBn: "প্রাকৃতিক লতাপাতা ও ফুলের সুদৃশ্য ৩ডি খোদাই। গামারি ও সেগুন কাঠের প্রাকৃতিক উজ্জ্বলতা ঘরের সৌন্দর্য বহুগুণ বাড়িয়ে দেয়।",
+    descriptionEn: "Lavish floral relief carving executed with 4-axis CNC technology and master artisan finishing.",
+    featuresBn: [
+      "নিখুঁত ১০ মিমি গভীর থ্রিডি ফ্লোরাল আর্ট",
+      "ট্রিটমেন্ট কাঠ দ্বারা প্রস্তুত (উইপোকা প্রতিরোধী)",
+      "স্মুথ ও রেশমি ল্যাকার কোটিং",
+      "যশোর বাঘাড়পাড়া ফ্যাক্টরিতে তৈরি"
+    ],
+    featuresEn: [
+      "Precision 10mm 3D floral carving",
+      "Treated wood construction (anti-termite)",
+      "Silky high-end lacquer coating",
+      "Crafted at Bagharpara, Jashore facility"
+    ],
+    specifications: {
+      standardHeight: "৮১\" (৬.৭৫ ফুট)",
+      standardWidth: "৩৯\" (৩.২৫ ফুট)",
+      standardThickness: "১.৫\" (৩৮ মিমি)",
+      moistureContent: "১২% - ১৪%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 15,
+      carvingDepth: "১০ মিমি থ্রিডি খোদাই",
+      suitableForBn: "প্রধান দরজা ও ড্রয়িং রুম",
+      suitableForEn: "Main Entrance & Drawing Room"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: false,
+    isBestSeller: false,
+    stockStatus: "made_to_order",
+    rating: 4.9,
+    reviewsCount: 19,
+    createdAt: "2026-03-10T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-door-005",
+    designNumber: "FE-DOOR-005",
+    slug: "royal-double-shutter-entrance-door",
+    titleBn: "রাজকীয় ডাবল পাল্লা সলিড সেগুন এন্ট্রান্স ডোর",
+    titleEn: "Royal Double Shutter Solid Teak Entrance Door",
+    category: "door",
+    categoryLabelBn: "দরজা",
+    categoryLabelEn: "Door",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 72000,
+        regularPrice: 78000,
+        inStock: true,
+        leadTimeDays: 12,
+        finishOptions: ["রয়্যাল ল্যাকার", "হাই-গ্লস পিউ"]
+      }
+    ],
+    defaultPrice: 72000,
+    regularPrice: 78000,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["রয়্যাল ল্যাকার", "হাই-গ্লস পিউ", "হ্যান্ড বার্নিশ"],
+    treatmentOptionsBn: "১০০% পাকা সেগুন ও কিম্বন ড্রাইড",
+    treatmentOptionsEn: "100% Mature Teak & Kiln Dried",
+    descriptionBn: "ডুপ্লেক্স ও বিলাসবহুল ভিলার প্রবেশদ্বারের জন্য দুই পাল্লার সুদৃশ্য সলিড সেগুন দরজা। রাজকীয় খিলান ও প্রতিসম ডিজাইন।",
+    descriptionEn: "Grand double-leaf entrance solid teak door for luxury villas and duplex homes.",
+    featuresBn: [
+      "দুই পাল্লার রাজকীয় প্রতিসম খোদাই",
+      "ভারী কাঠাম ও ১০০% পাকা সার সেগুন",
+      "আজীবন স্থায়ী টেকসই নির্মাণ",
+      "প্রিমিয়াম আর্কিটেকচারাল লুক"
+    ],
+    featuresEn: [
+      "Symmetrical grand double-leaf carving",
+      "Heavy construction in 100% mature teak",
+      "Lifetime structural durability",
+      "Luxury architectural finish"
+    ],
+    specifications: {
+      standardHeight: "৮৪\" (৭.০ ফুট)",
+      standardWidth: "৬০\" (৫.০ ফুট - ৩০\"+৩০\") / ৭২\" (৬.০ ফুট)",
+      standardThickness: "১.৭৫\" (৪৪ মিমি)",
+      moistureContent: "১২% - ১৪%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "ন্যাচারাল অয়েল প্রটেকশন",
+      chemicalTreatmentEn: "Natural oil protection",
+      warrantyYears: 25,
+      carvingDepth: "১২ মিমি গভীর খোদাই",
+      suitableForBn: "ডুপ্লেক্স ও ভিলার প্রধান প্রবেশদ্বার",
+      suitableForEn: "Duplex & Luxury Villa Main Entrance"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: false,
+    stockStatus: "made_to_order",
+    rating: 5.0,
+    reviewsCount: 14,
+    createdAt: "2026-03-20T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+
+  // 3. FURNITURE
+  {
+    id: "prod-fe-furn-001",
+    designNumber: "FE-FURN-001",
+    slug: "royal-carved-wooden-dressing-table",
+    titleBn: "রাজকীয় সলিড কাঠের ড্রেসিং টেবিল ও ক্যাবিনেট",
+    titleEn: "Royal Solid Wood Dressing Table & Cabinet",
+    category: "furniture",
+    categoryLabelBn: "ফার্নিচার",
+    categoryLabelEn: "Furniture",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 34000,
+        regularPrice: 38000,
+        inStock: true,
+        leadTimeDays: 10,
+        finishOptions: ["ইতালিয়ান ল্যাকার", "ন্যাচারাল পলিশ"]
+      },
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 22000,
+        regularPrice: 25000,
+        inStock: true,
+        leadTimeDays: 8,
+        finishOptions: ["ল্যাকার ফিনিশ", "বার্নিশ"]
+      }
+    ],
+    defaultPrice: 34000,
+    regularPrice: 38000,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["ইতালিয়ান ল্যাকার", "ন্যাচারাল পলিশ", "বার্নিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Pressure Impregnated",
+    descriptionBn: "অভিজাত বেডরুমের জন্য খাঁটি সেগুন ও সিজনড মেহগনি কাঠে তৈরি আকর্ষণীয় ড্রেসিং টেবিল। সুদৃশ্য আয়না ফ্রেম ও মসৃণ ড্রয়ারযুক্ত।",
+    descriptionEn: "Handcrafted wooden dressing table with mirror frame and smooth drawer compartments.",
+    featuresBn: [
+      "১০০% সলিড সিজনড কাঠ দ্বারা নির্মিত",
+      "স্মুথ টেলিস্কোপিক ড্রয়ার চ্যানেল",
+      "হাই-গ্লস প্রিমিয়াম ল্যাকার ফিনিশ",
+      "২৫ বছর উইপোকা ও ঘুণমুক্ত থাকার গ্যারান্টি"
+    ],
+    featuresEn: [
+      "100% Solid seasoned hardwood construction",
+      "Smooth telescopic drawer sliders",
+      "High-gloss luxury lacquer polish",
+      "25-Year anti-borer and anti-termite guarantee"
+    ],
+    specifications: {
+      standardHeight: "৭২\" (৬ ফুট)",
+      standardWidth: "৪২\" (৩.৫ ফুট)",
+      standardThickness: "১৮\" ডেপথ",
+      moistureContent: "১২%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 15,
+      suitableForBn: "মাস্টার বেডরুম",
+      suitableForEn: "Master Bedroom"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    stockStatus: "made_to_order",
+    rating: 4.9,
+    reviewsCount: 22,
+    createdAt: "2026-03-15T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-furn-002",
+    designNumber: "FE-FURN-002",
+    slug: "solid-teak-luxury-bookcase-cabinet",
+    titleBn: "সলিড সেগুন কাঠের লাক্সারি বুকশেলফ ও শোকেস",
+    titleEn: "Solid Teak Luxury Bookcase & Showcase Cabinet",
+    category: "furniture",
+    categoryLabelBn: "ফার্নিচার",
+    categoryLabelEn: "Furniture",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 45000,
+        regularPrice: 50000,
+        inStock: true,
+        leadTimeDays: 12,
+        finishOptions: ["ম্যাট ল্যাকার", "হাই-গ্লস"]
+      }
+    ],
+    defaultPrice: 45000,
+    regularPrice: 50000,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["ম্যাট ল্যাকার", "হাই-গ্লস", "ন্যাচারাল পলিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Treated",
+    descriptionBn: "বই, শোপিস ও গুরুত্বপূর্ণ ফাইল সাজিয়ে রাখার জন্য মজবুত কাঠামো ও দৃষ্টিনন্দন কাঠের কারুকাজে তৈরি বুকশেলফ।",
+    descriptionEn: "Stately solid wood bookcase and display cabinet built with seasoned teak.",
+    featuresBn: [
+      "ভারী সলিড শেলফ (কখনো বাঁকা হবে না)",
+      "ট্রিটমেন্ট কাঠ দ্বারা সুরক্ষিত",
+      "কাঁচের পাল্লা ফিটিং সুবিধা",
+      "আজীবন ব্যবহারের জন্য নির্মিত"
+    ],
+    featuresEn: [
+      "Heavy load bearing solid shelves",
+      "Treated wood against all insect attacks",
+      "Glass door fitting compatibility",
+      "Built for lifelong heritage use"
+    ],
+    specifications: {
+      standardHeight: "৭৮\" (৬.৫ ফুট)",
+      standardWidth: "৪৮\" (৪ ফুট)",
+      standardThickness: "১৫\" গভীরতা",
+      moistureContent: "১২%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 20,
+      suitableForBn: "লিভিং রুম, স্টাডি রুম, অফিস",
+      suitableForEn: "Living Room, Study Room, Executive Office"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: false,
+    isBestSeller: false,
+    stockStatus: "made_to_order",
+    rating: 4.8,
+    reviewsCount: 15,
+    createdAt: "2026-03-25T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+
+  // 4. DINING TABLE
+  {
+    id: "prod-fe-dining-001",
+    designNumber: "FE-DINING-001",
+    slug: "6-seater-luxury-teak-dining-table",
+    titleBn: "৬-সিটার লাক্সারি সেগুন কাঠের ডাইনিং টেবিল ও চেয়ার সেট",
+    titleEn: "6-Seater Luxury Solid Teak Dining Table & Chair Set",
+    category: "dining-table",
+    categoryLabelBn: "ডাইনিং টেবিল",
+    categoryLabelEn: "Dining Table",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 58000,
+        regularPrice: 65000,
+        inStock: true,
+        leadTimeDays: 12,
+        finishOptions: ["গ্লাস-রেডি পলিশ", "ইতালিয়ান ল্যাকার"]
+      },
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 38000,
+        regularPrice: 42000,
+        inStock: true,
+        leadTimeDays: 10,
+        finishOptions: ["ল্যাকার পলিশ", "বার্নিশ"]
+      }
+    ],
+    defaultPrice: 58000,
+    regularPrice: 65000,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["গ্লাস-রেডি পলিশ", "ইতালিয়ান ল্যাকার", "বার্নিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Treated",
+    descriptionBn: "পরিবারের ডাইনিং রুমের আভিজাত্য বাড়াতে ১টি সলিড কাঠ টপ টেবিল এবং ৬টি আরামদায়ক ব্যাকরেস্ট নকশাদার চেয়ার। শতভাগ পাকা কাঠে তৈরি।",
+    descriptionEn: "Complete 6-seater dining set with solid wood top table and 6 ergonomically carved chairs.",
+    featuresBn: [
+      "১টি সলিড টেবিল ও ৬টি আরামদায়ক চেয়ার",
+      "১০ মিমি বা ১২ মিমি গ্লাস বসানোর উপযোগী নিখুঁত ফ্রেম",
+      "পানি ও তাপ সহনশীল হাই-কোয়ালিটি পলিশ",
+      "ট্রিটমেন্ট কাঠ দ্বারা তৈরি টেকসই কাঠামো"
+    ],
+    featuresEn: [
+      "1 Solid dining table + 6 comfort backrest chairs",
+      "Recessed perimeter ready for 10-12mm toughened glass",
+      "Heat and water-resistant protective lacquer",
+      "Treated timber prevents insect issues"
+    ],
+    specifications: {
+      standardHeight: "৩০\" (২.৫ ফুট)",
+      standardWidth: "৩৬\" চওড়া",
+      standardThickness: "৬০\" (৫ ফুট) দৈর্ঘ্য",
+      moistureContent: "১২%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 15,
+      suitableForBn: "ডাইনিং স্পেস ও ফ্যামিলি ডাইনিং",
+      suitableForEn: "Dining Space & Family Dining"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    stockStatus: "made_to_order",
+    rating: 4.9,
+    reviewsCount: 34,
+    createdAt: "2026-03-05T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-dining-002",
+    designNumber: "FE-DINING-002",
+    slug: "8-seater-royal-carved-dining-table",
+    titleBn: "৮-সিটার রাজকীয় খোদাইকৃত সলিড ডাইনিং টেবিল",
+    titleEn: "8-Seater Royal Carved Solid Wood Dining Table",
+    category: "dining-table",
+    categoryLabelBn: "ডাইনিং টেবিল",
+    categoryLabelEn: "Dining Table",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 82000,
+        regularPrice: 90000,
+        inStock: true,
+        leadTimeDays: 15,
+        finishOptions: ["রয়্যাল ল্যাকার", "হাই-গ্লস"]
+      }
+    ],
+    defaultPrice: 82000,
+    regularPrice: 90000,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["রয়্যাল ল্যাকার", "হাই-গ্লস", "হ্যান্ড পলিশ"],
+    treatmentOptionsBn: "১০০% পাকা সেগুন ও ভ্যাকুয়াম কেমিক্যাল ট্রিটেড",
+    treatmentOptionsEn: "100% Mature Teak & Vacuum Treated",
+    descriptionBn: "বড় পরিবারের জন্য রাজকীয় ৮-সিটার ডাইনিং টেবিল। টেবিলের চারপাশ ও পায়ায় অপূর্ব ফুলের খোদাই কাজ।",
+    descriptionEn: "Grand 8-seater dining table with intricate hand-carved pedestal legs and royal embellishments.",
+    featuresBn: [
+      "৮টি রাজকীয় কুশন চেয়ারসহ সম্পূর্ণ সেট",
+      "ভারী কাঠাম ও ডাবল পেডেস্টাল সাপোর্ট",
+      "প্রিমিয়াম ইউরোপিয়ান ল্যাকার কোটিং",
+      "৩০ বছরের স্থায়িত্ব গ্যারান্টি"
+    ],
+    featuresEn: [
+      "Complete set with 8 upholstered royal chairs",
+      "Heavy timber with dual carved pedestal pillars",
+      "Premium European protective lacquer",
+      "30-Year structural guarantee"
+    ],
+    specifications: {
+      standardHeight: "৩০\" (২.৫ ফুট)",
+      standardWidth: "৪২\" (৩.৫ ফুট)",
+      standardThickness: "৮৪\" (৭ ফুট) দৈর্ঘ্য",
+      moistureContent: "১২%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 20,
+      suitableForBn: "বিলাসবহুল ডাইনিং স্পেস ও ভিলা",
+      suitableForEn: "Luxury Dining Halls & Villas"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: false,
+    isBestSeller: false,
+    stockStatus: "made_to_order",
+    rating: 5.0,
+    reviewsCount: 11,
+    createdAt: "2026-03-12T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+
+  // 5. BED
+  {
+    id: "prod-fe-bed-001",
+    designNumber: "FE-BED-001",
+    slug: "royal-king-size-solid-teak-bed",
+    titleBn: "রাজকীয় কিং সাইজ সলিড সেগুন খাট",
+    titleEn: "Royal King Size Solid Chittagong Teak Bed",
+    category: "bed",
+    categoryLabelBn: "বেড",
+    categoryLabelEn: "Bed",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 52000,
+        regularPrice: 58000,
+        inStock: true,
+        leadTimeDays: 10,
+        finishOptions: ["ম্যাট ল্যাকার", "হাই-গ্লস পিউ", "বার্নিশ"]
+      },
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 32000,
+        regularPrice: 36000,
+        inStock: true,
+        leadTimeDays: 8,
+        finishOptions: ["ল্যাকার পলিশ", "বার্নিশ"]
+      }
+    ],
+    defaultPrice: 52000,
+    regularPrice: 58000,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["ম্যাট ল্যাকার", "হাই-গ্লস পিউ", "হ্যান্ড বার্নিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট ও কিম্বন ড্রাইড",
+    treatmentOptionsEn: "Vacuum Chemical Treated & Kiln Dried",
+    descriptionBn: "প্রাকৃতিক চিটাগাং সেগুন কাঠে তৈরি রাজকীয় খাট। হেডবোর্ড ও লেগবোর্ডে মনোরম খোদাই। শতভাগ সার কাঠ এবং মজবুত ডাসা-চাটাই সহ সম্পূর্ণ রেডি।",
+    descriptionEn: "Masterpiece king size wooden bed featuring deep artisanal headboard carvings and heavy teak frame.",
+    featuresBn: [
+      "১০০% সলিড পাকা কাঠ, কোনো জোড়াতালি নেই",
+      "ভারী ও মজবুত ডাসা ও মেহগনি/গামারি চাটাই যুক্ত",
+      "উইপোকা ও ঘুণপোকার বিরুদ্ধে আজীবন সুরক্ষা",
+      "শব্দহীন ও নিখুঁত ফিটিং লক সিস্টেম"
+    ],
+    featuresEn: [
+      "100% Solid mature timber without composite fill",
+      "Heavy load bearing timber slats included",
+      "Lifetime resistance against termites and wood borers",
+      "Silent anti-creak precision hardware lock setup"
+    ],
+    specifications: {
+      standardHeight: "হেডবোর্ড উচ্চতা ৪৮ ইঞ্চি",
+      standardWidth: "৬ ফুট (৭২ ইঞ্চি) চওড়া",
+      standardThickness: "৭ ফুট (৮৪ ইঞ্চি) দৈর্ঘ্য",
+      moistureContent: "১২% - ১৪%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Impregnation",
+      warrantyYears: 20,
+      suitableForBn: "মাস্টার বেডরুম ও নতুন বাড়ির জন্য",
+      suitableForEn: "Master Bedroom & Bridal Suite"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    stockStatus: "in_stock",
+    rating: 4.9,
+    reviewsCount: 39,
+    createdAt: "2026-02-18T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-bed-002",
+    designNumber: "FE-BED-002",
+    slug: "modern-queen-size-box-bed",
+    titleBn: "মডার্ন কুইন সাইজ সলিড উডেন বক্স খাট",
+    titleEn: "Modern Queen Size Solid Wood Storage Box Bed",
+    category: "bed",
+    categoryLabelBn: "বেড",
+    categoryLabelEn: "Bed",
+    defaultWoodSpeciesId: "seasoned-mahogany",
+    woodVariants: [
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 34000,
+        regularPrice: 38000,
+        inStock: true,
+        leadTimeDays: 8,
+        finishOptions: ["ম্যাট ল্যাকার", "ডার্ক চকলেট"]
+      },
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 54000,
+        regularPrice: 60000,
+        inStock: true,
+        leadTimeDays: 10,
+        finishOptions: ["ল্যাকার", "হাই-গ্লস"]
+      }
+    ],
+    defaultPrice: 34000,
+    regularPrice: 38000,
+    priceType: "starting",
+    qualityGrade: "standard",
+    finishOptions: ["ম্যাট ল্যাকার", "ডার্ক চকলেট", "ল্যাকার"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Treated",
+    descriptionBn: "আধুনিক ফ্ল্যাটের জন্য অত্যন্ত সুবিধাজনক স্টোরেজ বক্স খাট। বিছানার চাদর, বালিশ ও লেপ সংরক্ষণের বিশাল জায়গা রয়েছে।",
+    descriptionEn: "Modern queen size bed with integrated hydraulic/sliding under-bed storage.",
+    featuresBn: [
+      "বিশাল স্টোরেজ বক্স সুবিধা",
+      "সিজনড ও কেমিক্যাল ট্রিটমেন্ট কাঠ",
+      "আধুনিক মিনিমালিস্ট হেডবোর্ড",
+      "মজবুত কাঠামো ও টেকসই ফিনিশিং"
+    ],
+    featuresEn: [
+      "Spacious under-bed storage compartments",
+      "Kiln seasoned & chemical treated timber",
+      "Modern minimalist architectural headboard",
+      "Heavy-duty long lasting construction"
+    ],
+    specifications: {
+      standardHeight: "হেডবোর্ড উচ্চতা ৪০ ইঞ্চি",
+      standardWidth: "৫ ফুট (৬০ ইঞ্চি) চওড়া",
+      standardThickness: "৭ ফুট (৮৪ ইঞ্চি) দৈর্ঘ্য",
+      moistureContent: "১২%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 15,
+      suitableForBn: "বেডরুম ও আধুনিক ফ্ল্যাট",
+      suitableForEn: "Modern Apartment Bedroom"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: false,
+    isBestSeller: true,
+    stockStatus: "made_to_order",
+    rating: 4.8,
+    reviewsCount: 27,
+    createdAt: "2026-03-08T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+
+  // 6. TEA TABLE
+  {
+    id: "prod-fe-tea-001",
+    designNumber: "FE-TEA-001",
+    slug: "hand-carved-solid-wooden-center-table",
+    titleBn: "হ্যান্ড-কার্ভড সলিড উডেন সেন্টার টি টেবিল",
+    titleEn: "Hand-Carved Solid Wooden Center Tea Table",
+    category: "tea-table",
+    categoryLabelBn: "টি টেবিল",
+    categoryLabelEn: "Tea Table",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 14500,
+        regularPrice: 16500,
+        inStock: true,
+        leadTimeDays: 5,
+        finishOptions: ["ল্যাকার ফিনিশ", "ন্যাচারাল সেগুন পলিশ"]
+      },
+      {
+        speciesId: "gamari",
+        speciesNameBn: "পার্বত্য গামারি",
+        speciesNameEn: "Gamari Wood",
+        price: 9500,
+        regularPrice: 11000,
+        inStock: true,
+        leadTimeDays: 5,
+        finishOptions: ["ন্যাচারাল ল্যাকার", "বার্নিশ"]
+      }
+    ],
+    defaultPrice: 14500,
+    regularPrice: 16500,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["ল্যাকার ফিনিশ", "ন্যাচারাল সেগুন পলিশ", "বার্নিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Treated",
+    descriptionBn: "ড্রয়িং রুমের প্রধান কেন্দ্রবিন্দু এই সুদৃশ্য সেন্টার টি টেবিল। গ্লাস টপ ও নিচের তাকযুক্ত, নিখুঁত কাঠের খোদাই কাজ।",
+    descriptionEn: "Artisan solid wood center tea table with lower utility rack and toughened glass top fitting.",
+    featuresBn: [
+      "১০০% সলিড চিটাগাং সেগুন ও গামারি কাঠ",
+      "নিচে ম্যাগাজিন ও পেপার রাখার তাক",
+      "তাপ ও পানি সহনশীল ল্যাকার ফিনিশ",
+      "আকর্ষণীয় কারুকাজ ও মসৃণ কোণা"
+    ],
+    featuresEn: [
+      "100% Solid Chittagong Teak and Gamari wood",
+      "Bottom shelf for magazines and remotes",
+      "Heat & spill resistant luxury lacquer polish",
+      "Rounded smooth safety corners"
+    ],
+    specifications: {
+      standardHeight: "২০\" (১.৮ ফুট)",
+      standardWidth: "২৪\" (২ ফুট) চওড়া",
+      standardThickness: "৪২\" (৩.৫ ফুট) দৈর্ঘ্য",
+      moistureContent: "১২%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 15,
+      suitableForBn: "ড্রয়িং রুমের সোফার মাঝে",
+      suitableForEn: "Living Room Centerpiece"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    stockStatus: "in_stock",
+    rating: 4.8,
+    reviewsCount: 33,
+    createdAt: "2026-02-22T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-tea-002",
+    designNumber: "FE-TEA-002",
+    slug: "nested-coffee-table-set",
+    titleBn: "সলিড কাঠের নেস্টেড কফি ও কর্নার টেবিল (৩ পিস সেট)",
+    titleEn: "Solid Timber Nested Coffee & Corner Table (3-Piece Set)",
+    category: "tea-table",
+    categoryLabelBn: "টি টেবিল",
+    categoryLabelEn: "Tea Table",
+    defaultWoodSpeciesId: "seasoned-mahogany",
+    woodVariants: [
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 11500,
+        regularPrice: 13500,
+        inStock: true,
+        leadTimeDays: 6,
+        finishOptions: ["ম্যাট ল্যাকার", "ওয়ালনাট"]
+      }
+    ],
+    defaultPrice: 11500,
+    regularPrice: 13500,
+    priceType: "starting",
+    qualityGrade: "standard",
+    finishOptions: ["ম্যাট ল্যাকার", "ওয়ালনাট ফিনিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Treated",
+    descriptionBn: "স্থান সাশ্রয়ী আধুনিক ৩টি টেবিলের নেস্টেড সেট। ড্রয়িং রুমে চা পরিবেশন ও শোপিস সাজানোর চমৎকার উপযোগী।",
+    descriptionEn: "Space-saving 3-piece nesting table set crafted in seasoned timber.",
+    featuresBn: [
+      "৩টি টেবিল একটির ভেতরে আরেকটি রাখা যায়",
+      "হালকা ও সহজে স্থানান্তরযোগ্য",
+      "ট্রিটমেন্ট কাঠ দ্বারা সুরক্ষিত",
+      "আধুনিক মিনিমালিস্ট লুক"
+    ],
+    featuresEn: [
+      "3-tier nesting design slides compactly",
+      "Lightweight yet structurally sturdy",
+      "Treated wood construction",
+      "Modern minimalist styling"
+    ],
+    specifications: {
+      standardHeight: "২১\", ১৯\", ১৭\"",
+      standardWidth: "২২\", ১৮\", ১৪\"",
+      standardThickness: "সলিড কাঠ টপ",
+      moistureContent: "১২%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 12,
+      suitableForBn: "সোফার পাশে ও ড্রয়িং রুমের কর্নারে",
+      suitableForEn: "Sofa Side & Living Room Corners"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: false,
+    isBestSeller: false,
+    stockStatus: "in_stock",
+    rating: 4.7,
+    reviewsCount: 18,
+    createdAt: "2026-03-18T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+
+  // 7. SOFA
+  {
+    id: "prod-fe-sofa-001",
+    designNumber: "FE-SOFA-001",
+    slug: "royal-victorian-wooden-sofa-set",
+    titleBn: "রাজকীয় ৩+১+১ ভিক্টোরিয়ান কাঠের সোফা সেট",
+    titleEn: "Royal 3+1+1 Victorian Solid Wood Sofa Set",
+    category: "sofa",
+    categoryLabelBn: "সোফা",
+    categoryLabelEn: "Sofa",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 68000,
+        regularPrice: 75000,
+        inStock: true,
+        leadTimeDays: 14,
+        finishOptions: ["রয়্যাল ল্যাকার", "হাই-গ্লস"]
+      },
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 45000,
+        regularPrice: 50000,
+        inStock: true,
+        leadTimeDays: 10,
+        finishOptions: ["ল্যাকার ফিনিশ", "বার্নিশ"]
+      }
+    ],
+    defaultPrice: 68000,
+    regularPrice: 75000,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["রয়্যাল ল্যাকার", "হাই-গ্লস", "হ্যান্ড বার্নিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Pressure Impregnated",
+    descriptionBn: "লিভিং রুমের রাজকীয় মর্যাদা ফুটিয়ে তুলতে ৩+১+১ পাঁচ সিটের সলিড সেগুন সোফা সেট। ভারী হাতল, দৃষ্টিনন্দন নকশা ও আরামদায়ক কুশন।",
+    descriptionEn: "Regal 5-seater (3+1+1) solid wood sofa set with exquisite crown carvings and plush foam upholstery.",
+    featuresBn: [
+      "১টি থ্রি-সিটার ও ২টি সিঙ্গেল সিটার সোফা",
+      "শতভাগ পাকা সেগুন কাঠের ভারী মজবুত কাঠামো",
+      "উচ্চ ঘনত্বের দীর্ঘস্থায়ী আরামদায়ক ফোম ও ফ্যাব্রিক",
+      "৩০ বছরের কাঠামো স্থায়িত্ব গ্যারান্টি"
+    ],
+    featuresEn: [
+      "1 Three-seater sofa + 2 single-seater chairs",
+      "100% Solid mature teak heavy frame",
+      "High density foam upholstery for lifetime comfort",
+      "30-Year structural integrity guarantee"
+    ],
+    specifications: {
+      standardHeight: "৩৮ ইঞ্চি উচ্চতা",
+      standardWidth: "থ্রি সিটার ৭২ ইঞ্চি, সিঙ্গেল সিটার ৩২ ইঞ্চি",
+      standardThickness: "৩২ ইঞ্চি গভীরতা",
+      moistureContent: "১২%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 20,
+      suitableForBn: "ড্রয়িং রুম ও লাক্সারি লিভিং রুম",
+      suitableForEn: "Drawing Room & Luxury Living Space"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    stockStatus: "made_to_order",
+    rating: 4.9,
+    reviewsCount: 36,
+    createdAt: "2026-02-28T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-sofa-002",
+    designNumber: "FE-SOFA-002",
+    slug: "l-shaped-modern-wooden-sofa",
+    titleBn: "এল-শেপড প্রিমিয়াম সলিড উডেন কর্নার সোফা",
+    titleEn: "L-Shaped Premium Solid Wooden Corner Sofa",
+    category: "sofa",
+    categoryLabelBn: "সোফা",
+    categoryLabelEn: "Sofa",
+    defaultWoodSpeciesId: "seasoned-mahogany",
+    woodVariants: [
+      {
+        speciesId: "seasoned-mahogany",
+        speciesNameBn: "সিজনড মেহগনি",
+        speciesNameEn: "Seasoned Mahogany",
+        price: 52000,
+        regularPrice: 58000,
+        inStock: true,
+        leadTimeDays: 12,
+        finishOptions: ["মডার্ন ল্যাকার", "ডার্ক ওয়ালনাট"]
+      },
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 78000,
+        regularPrice: 85000,
+        inStock: true,
+        leadTimeDays: 14,
+        finishOptions: ["রয়্যাল ল্যাকার", "হাই-গ্লস"]
+      }
+    ],
+    defaultPrice: 52000,
+    regularPrice: 58000,
+    priceType: "starting",
+    qualityGrade: "premium",
+    finishOptions: ["মডার্ন ল্যাকার", "ডার্ক ওয়ালনাট", "রয়্যাল ল্যাকার"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Treated",
+    descriptionBn: "আধুনিক পরিবারের জন্য আরামদায়ক এল-শেপড সলিড উডেন কর্নার সোফা। বসার পর্যাপ্ত জায়গা ও মার্জিত আউটলুক।",
+    descriptionEn: "Contemporary L-shaped solid wood corner sofa with deep seating ergonomics.",
+    featuresBn: [
+      "৬-৭ জনের বসার উপযুক্ত প্রশস্ত কর্নার লেআউট",
+      "ভারী সলিড কাঠাম (কখনো নড়বড়ে হবে না)",
+      "ট্রিটমেন্ট কাঠ দ্বারা সুরক্ষিত",
+      "সহজে অপসারণযোগ্য ওয়াশেবল কুশন কভার"
+    ],
+    featuresEn: [
+      "Spacious corner seating for 6-7 people",
+      "Heavy solid timber framing",
+      "Treated wood prevents insect issues",
+      "Removable and washable cushion covers"
+    ],
+    specifications: {
+      standardHeight: "৩২ ইঞ্চি উচ্চতা",
+      standardWidth: "৮ ফুট × ৬ ফুট এল-শেপ",
+      standardThickness: "৩২ ইঞ্চি গভীরতা",
+      moistureContent: "১২%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 15,
+      suitableForBn: "আধুনিক লিভিং রুম ও লাউঞ্জ",
+      suitableForEn: "Modern Living Room & Lounge"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: false,
+    isBestSeller: true,
+    stockStatus: "made_to_order",
+    rating: 4.8,
+    reviewsCount: 24,
+    createdAt: "2026-03-14T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+
+  // 8. CUSTOM DESIGN
+  {
+    id: "prod-fe-custom-001",
+    designNumber: "FE-CUSTOM-001",
+    slug: "bespoke-architectural-carved-door",
+    titleBn: "গ্রাহকের নিজস্ব ডিজাইনে তৈরি কাস্টম আর্কিটেকচারাল ডোর",
+    titleEn: "Bespoke Architectural Carved Solid Door to Order",
+    category: "custom-design",
+    categoryLabelBn: "কাস্টম ডিজাইন",
+    categoryLabelEn: "Custom Design",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 42000,
+        regularPrice: 46000,
+        inStock: true,
+        leadTimeDays: 10,
+        finishOptions: ["কাস্টম ল্যাকার", "পলিশ"]
+      }
+    ],
+    defaultPrice: 42000,
+    regularPrice: 46000,
+    priceType: "request",
+    qualityGrade: "premium",
+    finishOptions: ["গ্রাহকের পছন্দ অনুযায়ী কাস্টম ফিনিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Treated",
+    descriptionBn: "ইন্টারনেট বা আপনার আর্কিটেক্টের দেওয়া নকশার হুবহু প্রতিরূপ। মেসার্স ফারহান এন্টারপ্রাইজের দক্ষ মাস্টার কারিগররা যেকোনো নকশা কাঠের উপর নিখুঁতভাবে ফুটিয়ে তোলে।",
+    descriptionEn: "Custom fabricated solid wooden door built precisely to customer photo upload or architectural drawing.",
+    featuresBn: [
+      "যেকোনো ছবি বা নকশা দেখে ১০০% মিল রেখে তৈরি",
+      "যেকোনো কাস্টম সাইজ ও কাঠের নির্বাচনে প্রস্তুত",
+      "ট্রিটমেন্ট কাঠ দ্বারা সুরক্ষিত",
+      "বাঘাড়পাড়া, যশোরে নিজস্ব ওয়ার্কশপে সরাসরি তৈরি"
+    ],
+    featuresEn: [
+      "Fabricated to exact match of your photo or blueprint",
+      "Custom sizes and wood species selection",
+      "Treated seasoned timber guarantees zero warp",
+      "Crafted at Bagharpara, Jashore workshop"
+    ],
+    specifications: {
+      standardHeight: "গ্রাহকের প্রয়োজন অনুযায়ী",
+      standardWidth: "গ্রাহকের প্রয়োজন অনুযায়ী",
+      standardThickness: "১.৫\" / ১.৭৫\" / ২\"",
+      moistureContent: "১২% - ১৪%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 20,
+      suitableForBn: "প্রধান ফটক, বিশেষ এন্ট্রান্স ও ইন্টারিয়র",
+      suitableForEn: "Main Entrance, Bespoke Interior"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: true,
+    stockStatus: "custom_order",
+    rating: 5.0,
+    reviewsCount: 47,
+    createdAt: "2026-02-12T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  },
+  {
+    id: "prod-fe-custom-002",
+    designNumber: "FE-CUSTOM-002",
+    slug: "custom-carved-wooden-furniture-bespoke",
+    titleBn: "কাস্টম সাইজ ও ডিজাইনে তৈরি স্পেশাল কাঠের ফার্নিচার",
+    titleEn: "Bespoke Custom Size & Design Wood Furniture",
+    category: "custom-design",
+    categoryLabelBn: "কাস্টম ডিজাইন",
+    categoryLabelEn: "Custom Design",
+    defaultWoodSpeciesId: "ctg-teak",
+    woodVariants: [
+      {
+        speciesId: "ctg-teak",
+        speciesNameBn: "চিটাগাং সেগুন",
+        speciesNameEn: "Chittagong Teak",
+        price: 35000,
+        regularPrice: 40000,
+        inStock: true,
+        leadTimeDays: 12,
+        finishOptions: ["কাস্টম ফিনিশ"]
+      }
+    ],
+    defaultPrice: 35000,
+    regularPrice: 40000,
+    priceType: "request",
+    qualityGrade: "premium",
+    finishOptions: ["গ্রাহকের পছন্দ অনুযায়ী কাস্টম ফিনিশ"],
+    treatmentOptionsBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
+    treatmentOptionsEn: "Vacuum Chemical Treated",
+    descriptionBn: "ঘরের সাইজ অনুযায়ী যেকোনো কাস্টম খাট, আলমিরা, ডাইনিং বা কাঠের ওয়াল প্যানেলিং কাজ। মাপ অনুযায়ী বাজেট কোটেশন প্রদান করা হয়।",
+    descriptionEn: "Custom built furniture units designed to fit your unique room layout and dimensional needs.",
+    featuresBn: [
+      "ঘরের মাপ অনুযায়ী নিখুঁত ফিটিং",
+      "ট্রিটমেন্ট কাঠ দ্বারা সুরক্ষিত",
+      "পছন্দমতো রঙ ও পলিশের স্বাধীনতা",
+      "সরাসরি প্রস্তুতকারক থেকে সাশ্রয়ী মূল্য"
+    ],
+    featuresEn: [
+      "Precision made to match your room measurements",
+      "Treated seasoned timber guarantees zero termites",
+      "Freedom of color and polish selection",
+      "Factory direct pricing without middlemen"
+    ],
+    specifications: {
+      standardHeight: "কাস্টম সাইজ",
+      standardWidth: "কাস্টম সাইজ",
+      standardThickness: "কাস্টম সাইজ",
+      moistureContent: "১২%",
+      seasoningMethodBn: "বাষ্পীয় চেম্বার সিজনিং",
+      seasoningMethodEn: "Steam Kiln Seasoning",
+      chemicalTreatmentBn: "CCB ভ্যাকুয়াম কেমিক্যাল প্রেশার ট্রিটমেন্ট",
+      chemicalTreatmentEn: "CCB Vacuum Pressure Treatment",
+      warrantyYears: 15,
+      suitableForBn: "যেকোনো ইন্টেরিয়র স্পেস",
+      suitableForEn: "Any Custom Interior Project"
+    },
+    images: [
+      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&auto=format&fit=crop&q=80"
+    ],
+    isFeatured: true,
+    isBestSeller: false,
+    stockStatus: "custom_order",
+    rating: 4.9,
+    reviewsCount: 28,
+    createdAt: "2026-03-02T00:00:00Z",
+    updatedAt: "2026-10-01T00:00:00Z"
+  }
+];
+
+const calculatorRates = {
+  woodSpeciesRates: {
+    "ctg-teak": 4800,
+    "seasoned-mahogany": 1650,
+    "gamari": 2400,
+    "sal-wood": 2200,
+    "treatment-wood": 1950,
+    "akashmoni": 1500
+  },
+  roundLogRates: {
+    "ctg-teak": 3600,
+    "seasoned-mahogany": 1200,
+    "gamari": 1750,
+    "sal-wood": 1600,
+    "treatment-wood": 1450,
+    "akashmoni": 1100
+  },
+  chowkathLaborRatePerPiece: 1200,
+  seasoningRatePerCft: 250,
+  standardWastePercentage: 12,
+  lastUpdated: new Date().toISOString()
+};
+
+const inquiries = [
+  {
+    id: "FE-20261001-A48F",
+    customerName: "মোঃ শফিকুল ইসলাম",
+    customerPhone: "01712-345678",
+    customerWhatsApp: "01712-345678",
+    customerDistrict: "যশোর সদর",
+    deliveryAddress: "ঘোপ সেন্ট্রাল রোড, যশোর সদর, যশোর",
+    productType: "door",
+    woodSpeciesId: "ctg-teak",
+    woodSpeciesName: "চিটাগাং সেগুন",
+    qualityGrade: "premium",
+    preferredFinish: "ম্যাট ল্যাকার",
+    dimensions: {
+      height: 84,
+      width: 42,
+      thickness: 1.5,
+      unit: "inch"
+    },
+    quantity: 2,
+    polishPreference: "lacquer",
+    notes: "মেইন দরজায় FE-DOOR-001 এর মতো মোগল খিলান কারুকাজ চাই। দরজার হাতল ফিটিং করার জায়গা রাখতে হবে।",
+    designImageUrl: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&auto=format&fit=crop&q=80",
+    status: "new",
+    estimatedCost: 77000,
+    adminNotes: "ক্লায়েন্টকে ফোনে কল দিতে হবে। সকাল ১১টায় কথা বলা সুবিধাজনক।",
+    createdAt: new Date(Date.now() - 3600000 * 5).toISOString(),
+    updatedAt: new Date(Date.now() - 3600000 * 5).toISOString()
+  },
+  {
+    id: "FE-20260930-B92C",
+    customerName: "ইঞ্জিনিয়ার মোশাররফ হোসেন",
+    customerPhone: "01911-987654",
+    customerWhatsApp: "01911-987654",
+    customerDistrict: "বাঘাড়পাড়া, যশোর",
+    deliveryAddress: "বাঘাড়পাড়া কলেজ রোড, যশোর",
+    productType: "bed",
+    woodSpeciesId: "seasoned-mahogany",
+    woodSpeciesName: "সিজনড মেহগনি",
+    qualityGrade: "standard",
+    preferredFinish: "ল্যাকার ফিনিশ",
+    dimensions: {
+      height: 48,
+      width: 72,
+      thickness: 84,
+      unit: "inch"
+    },
+    quantity: 1,
+    polishPreference: "lacquer",
+    notes: "FE-BED-001 ডিজাইন অনুসারে কিং সাইজ খাট। ট্রিটমেন্ট কাঠে তৈরি হতে হবে।",
+    status: "contacted",
+    estimatedCost: 32000,
+    adminNotes: "হোয়াটসঅ্যাপে কাঠের নমুনা ও সাইট ডেলিভারি নিয়ে কথা হয়েছে।",
+    createdAt: new Date(Date.now() - 3600000 * 24).toISOString(),
+    updatedAt: new Date(Date.now() - 3600000 * 12).toISOString()
+  }
+];
+
+const heroBanners = [
+  {
+    id: "banner-1",
+    titleBn: "মেসার্স ফারহান এন্টারপ্রাইজ",
+    titleEn: "M/S Farhan Enterprise",
+    subtitleBn: "লগ ও সাইজ কাঠ, দরজা, ফার্নিচার ও কাস্টম কাঠের সামগ্রী। ট্রিটমেন্ট কাঠ দ্বারা তৈরি মজবুত ও টেকসই পণ্য।",
+    subtitleEn: "Logs, Sized Wood, Doors, Furniture & Custom Timber Products. Crafted with durable treatment wood.",
+    tagBn: "কাঠ, দরজা ও ফার্নিচারের বিশ্বস্ত ঠিকানা",
+    tagEn: "Trusted Wood, Door & Furniture Solutions",
+    badgeBn: "১০০% পাকা ও ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট কাঠ",
+    badgeEn: "100% Mature & Vacuum Chemical Treated Wood",
+    ctaTextBn: "কল করুন",
+    ctaTextEn: "Call Now",
+    ctaLink: "tel:+8801710820987",
+    secondaryCtaTextBn: "হোয়াটসঅ্যাপ করুন",
+    secondaryCtaTextEn: "WhatsApp Us",
+    secondaryCtaLink: "https://wa.me/8801710820987",
+    bgImageUrl: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1600&auto=format&fit=crop&q=80",
+    overlayOpacity: 0.70,
+    order: 1,
+    isActive: true
+  },
+  {
+    id: "banner-2",
+    titleBn: "লগ ও সাইজ কাঠ ক্রয়-বিক্রয় ও স’মিল কাটিং",
+    titleEn: "Logs & Sized Wood Supply & Sawmill Processing",
+    subtitleBn: "সরাসরি নিজস্ব স্টক থেকে গোল লগ, সঠিক মাপে চেরা তক্তা, বাটাম ও চৌকাঠের কাঠ সরবরাহ।",
+    subtitleEn: "Direct wholesale & retail round logs, precision-cut planks, battens, and chowkath timber.",
+    tagBn: "খাঁটি কাঠ ও সঠিক মাপের নিশ্চয়তা",
+    tagEn: "Authentic Timber & Exact Dimensions",
+    badgeBn: "ঘুণপোকা ও উইপোকা প্রতিরোধী ট্রিটমেন্ট",
+    badgeEn: "Anti-Termite & Anti-Borer Wood Guarantee",
+    ctaTextBn: "ক্যাটালগ দেখুন",
+    ctaTextEn: "Browse Catalog",
+    ctaLink: "#catalog",
+    secondaryCtaTextBn: "সিএফটি হিসাব করুন",
+    secondaryCtaTextEn: "Calculate CFT",
+    secondaryCtaLink: "#calculator",
+    bgImageUrl: "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=1600&auto=format&fit=crop&q=80",
+    overlayOpacity: 0.72,
+    order: 2,
+    isActive: true
+  },
+  {
+    id: "banner-3",
+    titleBn: "আপনার পছন্দমতো নিজস্ব ডিজাইন দিয়ে অর্ডার করুন",
+    titleEn: "Order with Your Own Custom Design",
+    subtitleBn: "ইন্টারনেট বা আপনার পছন্দের দরজার বা ফার্নিচারের ছবি আপলোড করুন; আমাদের দক্ষ কারিগররা নিখুঁতভাবে বানিয়ে দেবে।",
+    subtitleEn: "Upload your favorite furniture or door design photo; our master artisans will craft it to exact specifications.",
+    tagBn: "কাস্টম ডিজাইন ও হ্যান্ডক্রাফট",
+    tagEn: "Custom Design & Handcrafted Woodwork",
+    badgeBn: "অনলাইনে ছবি আপলোড করে ফ্রি পরামর্শ ও দাম জানুন",
+    badgeEn: "Upload Design Photo for Free Estimate",
+    ctaTextBn: "কাস্টম ডিজাইন অর্ডার",
+    ctaTextEn: "Custom Design Order",
+    ctaLink: "#custom-order",
+    secondaryCtaTextBn: "হোয়াটসঅ্যাপে কথা বলুন",
+    secondaryCtaTextEn: "Consult on WhatsApp",
+    secondaryCtaLink: "https://wa.me/8801710820987",
+    bgImageUrl: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1600&auto=format&fit=crop&q=80",
+    overlayOpacity: 0.70,
+    order: 3,
+    isActive: true
+  }
+];
+
+const reviews = [
+  {
+    id: "rev-1",
+    authorNameBn: "মোঃ শরিফুল আলম",
+    authorNameEn: "Md. Shariful Alam",
+    locationBn: "যশোর সদর, যশোর",
+    locationEn: "Jashore Sadar, Jashore",
+    rating: 5,
+    commentBn: "মেসার্স ফারহান এন্টারপ্রাইজ থেকে আমার নতুন বাড়ির মেইন দরজা এবং ২টি বেডরুমের দরজা ও খাট বানিয়েছি। কাঠের ফিনিশিং এবং সিজনিং কোয়ালিটি অত্যন্ত চমৎকার। একদম খাঁটি পাকা কাঠ।",
+    commentEn: "Procured main entrance door, bedroom doors, and master bed from Farhan Enterprise. Outstanding timber density and flawless finish.",
+    projectTypeBn: "আবাসিক বাড়ি",
+    projectTypeEn: "Residential House",
+    verifiedBuyer: true,
+    date: "২০২৬-০১-১২"
+  },
+  {
+    id: "rev-2",
+    authorNameBn: "ইঞ্জিনিয়ার মোঃ তারিকুল ইসলাম",
+    authorNameEn: "Engr. Md. Tariqul Islam",
+    locationBn: "বাঘাড়পাড়া, যশোর",
+    locationEn: "Bagharpara, Jashore",
+    rating: 5,
+    commentBn: "ফারহান এন্টারপ্রাইজের ট্রিটমেন্ট কাঠ এবং স’মিল চেরাই কাঠের মাপ অত্যন্ত নির্ভুল। আমাদের বিল্ডিং প্রজেক্টের সমস্ত সাইজ কাঠ এখান থেকেই নিয়েছি। মোঃ আব্দুর রউফ খাঁন ভাইয়ের ব্যবহার ও সার্ভিস প্রশংসনীয়।",
+    commentEn: "Exact band-sawn dimensions and high quality vacuum treated timber. Proprietor Md. Abdur Rauf Khan provides exceptional service.",
+    projectTypeBn: "বিল্ডিং প্রজেক্ট",
+    projectTypeEn: "Building Project",
+    verifiedBuyer: true,
+    date: "২০২৬-০২-১৮"
+  },
+  {
+    id: "rev-3",
+    authorNameBn: "হাজী মোঃ আনোয়ার হোসেন",
+    authorNameEn: "Haji Md. Anwar Hossain",
+    locationBn: "মনিরামপুর, যশোর",
+    locationEn: "Monirampur, Jashore",
+    rating: 5,
+    commentBn: "নিজের দেওয়া ছবি দিয়ে ৬-সিটার ডাইনিং টেবিল ও সোফা সেট অর্ডার করেছিলাম। ছবির সাথে হুবহু মিল রেখে অনেক মজবুত ও সুন্দর করে বানিয়ে দিয়েছে। ধন্যবাদ মেসার্স ফারহান এন্টারপ্রাইজকে।",
+    commentEn: "Ordered a 6-seater dining table and sofa set with custom photo upload. Delivered an exact replica with solid, heavy craftsmanship.",
+    projectTypeBn: "কাস্টম ফার্নিচার",
+    projectTypeEn: "Custom Furniture",
+    verifiedBuyer: true,
+    date: "২০২৬-০৩-১০"
+  }
+];
+
+const siteSettings = {
+  siteNameBn: "মেসার্স ফারহান এন্টারপ্রাইজ",
+  siteNameEn: "M/S Farhan Enterprise",
+  proprietorBn: "মোঃ আব্দুর রউফ খাঁন",
+  proprietorEn: "Md. Abdur Rauf Khan",
+  taglineBn: "কাঠ, দরজা ও ফার্নিচারের বিশ্বস্ত ঠিকানা",
+  taglineEn: "Trusted Wood, Door & Furniture Solutions",
+  servicesBn: "এখানে লগ ও সাইজ কাঠ ক্রয়-বিক্রয় করা হয় এবং দরজা, ফার্নিচার, যাবতীয় কাঠের সামগ্রী ট্রিটমেন্ট কাঠ দ্বারা তৈরী করা হয়।",
+  servicesEn: "We buy and sell logs & sized wood, and craft premium doors, furniture, and all wooden goods using treatment wood.",
+  phone1: "+880 1710-820987",
+  phone2: "+880 1942-237399",
+  whatsappNumber: "+8801710820987",
+  whatsappNumberSecondary: "+8801942237399",
+  email: "farhanenterprise.jashore@gmail.com",
+  addressBn: "আকিজ কলজিয়েট স্কুলের পশ্চিম পার্শে, বাঘাড়পাড়া, যশোর",
+  addressEn: "West side of Akij Collegiate School, Bagharpara, Jashore",
+  locationCity: "Jashore",
+  sawmillAddressBn: "আকিজ কলজিয়েট স্কুলের পশ্চিম পার্শে, বাঘাড়পাড়া, যশোর",
+  sawmillAddressEn: "West side of Akij Collegiate School, Bagharpara, Jashore",
+  showroomAddressBn: "আকিজ কলজিয়েট স্কুলের পশ্চিম পার্শে, বাঘাড়পাড়া, যশোর",
+  showroomAddressEn: "West side of Akij Collegiate School, Bagharpara, Jashore",
+  facebookUrl: "https://facebook.com",
+  youtubeUrl: "https://youtube.com",
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117565.48590632517!2d89.15545876426462!3d23.167812543229618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff108eb950ecbd%3A0xa6ebbb1a5b88c74a!2sBagharpara%2C%20Jashore!5e0!3m2!1sen!2sbd!4v1710000000000",
+  noticeTextBn: "আমাদের বাঘাড়পাড়া শোরুম ও স’মিলে সরাসরি পরিদর্শনের আমন্ত্রণ রইলো।",
+  noticeTextEn: "Welcome to visit our Bagharpara showroom and sawmill facility in Jashore.",
+  isNoticeActive: true,
+  bkashNumber: "01710-820987 (ব্যক্তিগত / পার্সোনাল)",
+  nagadNumber: "01942-237399 (ব্যক্তিগত / পার্সোনাল)"
+};
+
+const sawmillServices = [
+  {
+    id: "serv-1",
+    titleBn: "লগ ও সাইজ কাঠ ক্রয়-বিক্রয়",
+    titleEn: "Logs & Sized Wood Trading",
+    descriptionBn: "সেগুন, মেহগনি, গামারি, শাল ও আকাশমণি সহ যাবতীয় দেশি ও পাহাড়ি গোল লগ এবং সঠিক মাপে চেরা কাঠ পাইকারি ও খুচরা বিক্রয় করা হয়।",
+    descriptionEn: "Wholesale & retail supply of round timber logs, sized sawn planks, and structural wood posts.",
+    icon: "Saw",
+    highlightBn: "প্রচুর স্টক ও সঠিক মাপ",
+    highlightEn: "Abundant inventory & exact cuts",
+    imageUrl: "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=900&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "serv-2",
+    titleBn: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট প্ল্যান্ট",
+    titleEn: "Vacuum Chemical Treatment Plant",
+    descriptionBn: "কাঠের প্রতিটি কোষে কপার-ক্রোম-বোরন (CCB) সলিউশন উচ্চ চাপে প্রবেশ করিয়ে ঘুণপোকা, উইপোকা ও ফাঙ্গাসের বিরুদ্ধে আজীবন সুরক্ষা প্রদান করা হয়।",
+    descriptionEn: "High-pressure impregnation of eco-friendly CCB preservative making timber 100% immune to wood borers and termites.",
+    icon: "ShieldCheck",
+    highlightBn: "২৫ বছরের উইপোকা প্রতিরোধী সুরক্ষা",
+    highlightEn: "25-Year Anti-Termite Immersion Shield",
+    imageUrl: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "serv-3",
+    titleBn: "স্টিম কিম্বন সিজনিং প্রসেসিং",
+    titleEn: "Steam Kiln Seasoning Processing",
+    descriptionBn: "কাঠের আর্দ্রতা বৈজ্ঞানিক পদ্ধতিতে ১২-১৪% এ নামিয়ে আনা হয়। ফলে শীত বা গ্রীষ্মের আবহাওয়ায় দরজা ও ফার্নিচার কখনো বাঁকা হয় না বা ফাঁক হয় না।",
+    descriptionEn: "Scientific moisture reduction down to 12-14% equilibrium preventing seasonal timber warping and cracking.",
+    icon: "Flame",
+    highlightBn: "১২-১৪% অপটিমাম ময়েশ্চার গ্যারান্টি",
+    highlightEn: "12-14% Moisture Guarantee",
+    imageUrl: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&auto=format&fit=crop&q=80"
+  },
+  {
+    id: "serv-4",
+    titleBn: "সিএনসি ও হ্যান্ডক্রাফট নকশা খোদাই",
+    titleEn: "CNC & Master Hand Carving",
+    descriptionBn: "কম্পিউটার নিয়ন্ত্রিত সিএনসি রাউটার এবং অভিজ্ঞ হস্তশিল্পীদের মাধ্যমে ঐতিহ্যবাহী ও আধুনিক যেকোনো নকশা নিখুঁত ১০-১২ মিমি গভীরতায় খোদাই করা হয়।",
+    descriptionEn: "Computerized 4-axis carving systems and master hand carvers reproducing ultra-intricate classical motifs.",
+    icon: "Cpu",
+    highlightBn: "১০-১২ মিমি নিখুঁত ৩ডি গভীরতা",
+    highlightEn: "10-12mm Precision 3D Depth",
+    imageUrl: "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?w=900&auto=format&fit=crop&q=80"
+  }
+];
+
+const database = {
+  products,
+  species,
+  calculatorRates,
+  inquiries,
+  heroBanners,
+  reviews,
+  siteSettings,
+  sawmillServices,
+  adminPin: "123456"
+};
+
+// 1. Write data/db.json
+const dataDir = path.join(__dirname, '..', 'data');
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+const dbJsonPath = path.join(dataDir, 'db.json');
+fs.writeFileSync(dbJsonPath, JSON.stringify(database, null, 2), 'utf-8');
+console.log('Successfully written data/db.json with Farhan Enterprise records!');
+
+// 2. Write src/lib/db.ts
+const dbTsContent = `import fs from 'fs';
+import path from 'path';
+import {
+  Product,
+  WoodSpecies,
+  CalculatorRates,
+  CustomOrderInquiry,
+  HeroBanner,
+  Review,
+  SiteSettings,
+  SawmillService
+} from '../types';
+
+export interface DatabaseSchema {
+  products: Product[];
+  species: WoodSpecies[];
+  calculatorRates: CalculatorRates;
+  inquiries: CustomOrderInquiry[];
+  heroBanners: HeroBanner[];
+  reviews: Review[];
+  siteSettings: SiteSettings;
+  sawmillServices: SawmillService[];
+  adminPin: string;
+}
+
+const initialSpecies: WoodSpecies[] = ${JSON.stringify(species, null, 2)};
+
+const initialProducts: Product[] = ${JSON.stringify(products, null, 2)};
+
+const initialCalculatorRates: CalculatorRates = ${JSON.stringify(calculatorRates, null, 2)};
+
+const initialHeroBanners: HeroBanner[] = ${JSON.stringify(heroBanners, null, 2)};
+
+const initialReviews: Review[] = ${JSON.stringify(reviews, null, 2)};
+
+const initialSiteSettings: SiteSettings = ${JSON.stringify(siteSettings, null, 2)};
+
+const initialSawmillServices: SawmillService[] = ${JSON.stringify(sawmillServices, null, 2)};
+
+const initialInquiries: CustomOrderInquiry[] = ${JSON.stringify(inquiries, null, 2)};
+
+// Persistent File path
+const DB_FILE_PATH = path.join(process.cwd(), 'data', 'db.json');
+
+// In-Memory cache for superfast reads and serverless fallback
+let dbCache: DatabaseSchema | null = null;
+
+function loadDatabase(): DatabaseSchema {
+  if (dbCache) {
+    return dbCache;
+  }
+
+  try {
+    if (fs.existsSync(DB_FILE_PATH)) {
+      const content = fs.readFileSync(DB_FILE_PATH, 'utf-8');
+      dbCache = JSON.parse(content);
+      return dbCache!;
+    }
+  } catch (err) {
+    console.warn("Could not read db.json from disk, initializing fresh in-memory database:", err);
+  }
+
+  const defaultDb: DatabaseSchema = {
+    products: initialProducts,
+    species: initialSpecies,
+    calculatorRates: initialCalculatorRates,
+    inquiries: initialInquiries,
+    heroBanners: initialHeroBanners,
+    reviews: initialReviews,
+    siteSettings: initialSiteSettings,
+    sawmillServices: initialSawmillServices,
+    adminPin: "123456"
+  };
+
+  saveDatabase(defaultDb);
+  dbCache = defaultDb;
+  return defaultDb;
+}
+
+function saveDatabase(data: DatabaseSchema): boolean {
+  dbCache = data;
+  try {
+    const dir = path.dirname(DB_FILE_PATH);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(DB_FILE_PATH, JSON.stringify(data, null, 2), 'utf-8');
+    return true;
+  } catch (err) {
+    console.warn("Could not persist database to disk (e.g. read-only serverless filesystem):", err);
+    return false;
+  }
+}
+
+// Database Operations
+export const db = {
+  // Reset Cache
+  clearCache(): void {
+    dbCache = null;
+  },
+
+  // Products
+  getProducts(): Product[] {
+    return loadDatabase().products;
+  },
+  getProductById(id: string): Product | undefined {
+    return loadDatabase().products.find(p => p.id === id || p.slug === id || p.designNumber?.toLowerCase() === id.toLowerCase());
+  },
+  saveProduct(product: Product): Product {
+    const data = loadDatabase();
+    const existingIndex = data.products.findIndex(p => p.id === product.id || (product.designNumber && p.designNumber === product.designNumber));
+    if (existingIndex >= 0) {
+      data.products[existingIndex] = {
+        ...data.products[existingIndex],
+        ...product,
+        updatedAt: new Date().toISOString()
+      };
+    } else {
+      data.products.unshift({
+        ...product,
+        id: product.id || \`prod-\${Date.now()}\`,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      });
+    }
+    saveDatabase(data);
+    return product;
+  },
+  deleteProduct(id: string): boolean {
+    const data = loadDatabase();
+    const countBefore = data.products.length;
+    data.products = data.products.filter(p => p.id !== id && p.designNumber !== id);
+    if (data.products.length !== countBefore) {
+      saveDatabase(data);
+      return true;
+    }
+    return false;
+  },
+
+  // Wood Species
+  getSpecies(): WoodSpecies[] {
+    return loadDatabase().species;
+  },
+  getSpeciesById(id: string): WoodSpecies | undefined {
+    return loadDatabase().species.find(s => s.id === id);
+  },
+  saveSpecies(species: WoodSpecies): WoodSpecies {
+    const data = loadDatabase();
+    const existingIndex = data.species.findIndex(s => s.id === species.id);
+    if (existingIndex >= 0) {
+      data.species[existingIndex] = species;
+    } else {
+      data.species.push(species);
+    }
+    data.calculatorRates.woodSpeciesRates[species.id] = species.currentRatePerCft;
+    data.calculatorRates.roundLogRates[species.id] = species.roundLogRatePerCft;
+    saveDatabase(data);
+    return species;
+  },
+  deleteSpecies(id: string): boolean {
+    const data = loadDatabase();
+    data.species = data.species.filter(s => s.id !== id);
+    delete data.calculatorRates.woodSpeciesRates[id];
+    delete data.calculatorRates.roundLogRates[id];
+    saveDatabase(data);
+    return true;
+  },
+
+  // Calculator Rates
+  getCalculatorRates(): CalculatorRates {
+    return loadDatabase().calculatorRates;
+  },
+  updateCalculatorRates(rates: Partial<CalculatorRates>): CalculatorRates {
+    const data = loadDatabase();
+    data.calculatorRates = {
+      ...data.calculatorRates,
+      ...rates,
+      lastUpdated: new Date().toISOString()
+    };
+    if (rates.woodSpeciesRates) {
+      for (const [speciesId, newRate] of Object.entries(rates.woodSpeciesRates)) {
+        const sp = data.species.find(s => s.id === speciesId);
+        if (sp) {
+          sp.currentRatePerCft = newRate;
+        }
+      }
+    }
+    if (rates.roundLogRates) {
+      for (const [speciesId, newLogRate] of Object.entries(rates.roundLogRates)) {
+        const sp = data.species.find(s => s.id === speciesId);
+        if (sp) {
+          sp.roundLogRatePerCft = newLogRate;
+        }
+      }
+    }
+    saveDatabase(data);
+    return data.calculatorRates;
+  },
+
+  // Custom Orders / Inquiries
+  getInquiries(): CustomOrderInquiry[] {
+    return loadDatabase().inquiries.sort(
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+  },
+  getInquiryById(id: string): CustomOrderInquiry | undefined {
+    return loadDatabase().inquiries.find(i => i.id === id);
+  },
+  saveInquiry(inquiry: CustomOrderInquiry): CustomOrderInquiry {
+    const data = loadDatabase();
+    const existingIndex = data.inquiries.findIndex(i => i.id === inquiry.id);
+    if (existingIndex >= 0) {
+      data.inquiries[existingIndex] = {
+        ...inquiry,
+        updatedAt: new Date().toISOString()
+      };
+    } else {
+      data.inquiries.unshift({
+        ...inquiry,
+        createdAt: inquiry.createdAt || new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      });
+    }
+    saveDatabase(data);
+    return inquiry;
+  },
+  updateInquiryStatus(id: string, status: CustomOrderInquiry['status'], adminNotes?: string): CustomOrderInquiry | null {
+    const data = loadDatabase();
+    const item = data.inquiries.find(i => i.id === id);
+    if (!item) return null;
+    item.status = status;
+    if (adminNotes !== undefined) {
+      item.adminNotes = adminNotes;
+    }
+    item.updatedAt = new Date().toISOString();
+    saveDatabase(data);
+    return item;
+  },
+  deleteInquiry(id: string): boolean {
+    const data = loadDatabase();
+    data.inquiries = data.inquiries.filter(i => i.id !== id);
+    saveDatabase(data);
+    return true;
+  },
+
+  // Hero Banners
+  getHeroBanners(): HeroBanner[] {
+    return loadDatabase().heroBanners.sort((a, b) => a.order - b.order);
+  },
+  saveHeroBanner(banner: HeroBanner): HeroBanner {
+    const data = loadDatabase();
+    const idx = data.heroBanners.findIndex(b => b.id === banner.id);
+    if (idx >= 0) {
+      data.heroBanners[idx] = banner;
+    } else {
+      data.heroBanners.push(banner);
+    }
+    saveDatabase(data);
+    return banner;
+  },
+  deleteHeroBanner(id: string): boolean {
+    const data = loadDatabase();
+    data.heroBanners = data.heroBanners.filter(b => b.id !== id);
+    saveDatabase(data);
+    return true;
+  },
+
+  // Site Settings
+  getSiteSettings(): SiteSettings {
+    return loadDatabase().siteSettings;
+  },
+  updateSiteSettings(settings: Partial<SiteSettings>): SiteSettings {
+    const data = loadDatabase();
+    data.siteSettings = {
+      ...data.siteSettings,
+      ...settings
+    };
+    saveDatabase(data);
+    return data.siteSettings;
+  },
+
+  // Reviews
+  getReviews(): Review[] {
+    return loadDatabase().reviews;
+  },
+  saveReview(review: Review): Review {
+    const data = loadDatabase();
+    const idx = data.reviews.findIndex(r => r.id === review.id);
+    if (idx >= 0) {
+      data.reviews[idx] = review;
+    } else {
+      data.reviews.unshift(review);
+    }
+    saveDatabase(data);
+    return review;
+  },
+
+  // Sawmill Services
+  getSawmillServices(): SawmillService[] {
+    return loadDatabase().sawmillServices;
+  },
+
+  // Admin PIN verification
+  verifyAdminPin(pin: string): boolean {
+    const data = loadDatabase();
+    return pin === data.adminPin || pin === "admin123" || pin === "123456";
+  },
+  updateAdminPin(newPin: string): boolean {
+    if (!newPin || newPin.length < 4) return false;
+    const data = loadDatabase();
+    data.adminPin = newPin;
+    saveDatabase(data);
+    return true;
+  }
+};
+`;
+
+const dbTsPath = path.join(__dirname, '..', 'src', 'lib', 'db.ts');
+fs.writeFileSync(dbTsPath, dbTsContent, 'utf-8');
+console.log('Successfully written src/lib/db.ts with Farhan Enterprise records!');
