@@ -8,8 +8,8 @@
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/your-org/sm-door.git
-cd sm-door
+git clone https://github.com/Blackproxya2z/SM-DOOR-.git
+cd SM-DOOR-
 
 # 2. Install dependencies
 npm install

@@ -57,8 +57,8 @@ A high-performance, bilingual (Bengali & English) web platform and management sy
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/sm-door.git
-   cd sm-door
+   git clone https://github.com/Blackproxya2z/SM-DOOR-.git
+   cd SM-DOOR-
    ```
 
 2. **Install dependencies**:
