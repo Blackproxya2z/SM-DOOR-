@@ -84,7 +84,7 @@ export default function ContactPage() {
   const phone2 = settings?.phone2 || "+880 1942-237399";
   const whatsappNumber = settings?.whatsappNumber || "+8801710820987";
   const cleanWhatsApp = whatsappNumber.replace(/[^0-9]/g, '');
-  const proprietorName = settings?.proprietorBn || "মোঃ আব্দুর রউফ খাঁন";
+  const proprietorName = settings?.proprietorBn || "আব্দুস সালাম খাঁন";
   const addressText = settings?.addressBn || "বাদে নাভারন, আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে , ঝিকরগাছা ,যশোর";
 
   const handleSubmit = async (e: React.FormEvent) => {

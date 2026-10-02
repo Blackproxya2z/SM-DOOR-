@@ -75,7 +75,7 @@ export default function AboutPage() {
 
             <div className="mt-6 p-4 rounded-2xl bg-gold-500/10 border border-gold-500/20 text-xs">
               <p className="font-bold text-wood-950 dark:text-white">
-                প্রোপাইটর: মোঃ আব্দুর রউফ খাঁন (Md. Abdur Rauf Khan)
+                প্রোপাইটর: আব্দুস সালাম খাঁন (Abdus Salam Khan)
               </p>
               <p className="text-wood-600 dark:text-wood-300 mt-1">
                 ঠিকানা: বাদে নাভারন, আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে , ঝিকরগাছা ,যশোর

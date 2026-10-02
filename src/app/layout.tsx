@@ -66,8 +66,8 @@ export default function RootLayout({
     "telephone": "+8801710820987",
     "founder": {
       "@type": "Person",
-      "name": "Md. Abdur Rauf Khan",
-      "alternateName": "মোঃ আব্দুর রউফ খাঁন",
+      "name": "Abdus Salam Khan",
+      "alternateName": "আব্দুস সালাম খাঁন",
       "jobTitle": "Proprietor"
     },
     "address": {

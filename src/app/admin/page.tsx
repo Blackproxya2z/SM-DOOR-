@@ -366,7 +366,7 @@ export default function AdminPage() {
             মেসার্স ফারহান এন্টারপ্রাইজ
           </h2>
           <p className="mt-1.5 text-center text-xs text-amber-400 font-semibold">
-            প্রোপাইটর: মোঃ আব্দুর রউফ খাঁন — বাদে নাভারন, ঝিকরগাছা, যশোর
+            প্রোপাইটর: আব্দুস সালাম খাঁন — বাদে নাভারন, ঝিকরগাছা, যশোর
           </p>
           <p className="mt-1 text-center text-[11px] text-stone-400">
             নিরাপদ ওয়েবসাইট ম্যানেজমেন্ট ও অ্যাডমিন কন্ট্রোল প্যানেল
@@ -462,7 +462,7 @@ export default function AdminPage() {
                 <ExternalLink className="w-3.5 h-3.5 text-stone-400" />
               </h1>
               <span className="text-[10px] text-stone-400 block font-medium">
-                প্রোপাইটর: মোঃ আব্দুর রউফ খাঁন — বাদে নাভারন, ঝিকরগাছা, যশোর
+                প্রোপাইটর: আব্দুস সালাম খাঁন — বাদে নাভারন, ঝিকরগাছা, যশোর
               </span>
             </div>
           </Link>
