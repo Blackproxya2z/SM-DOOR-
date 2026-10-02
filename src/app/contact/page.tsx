@@ -13,7 +13,8 @@ import {
   Mail, 
   Send, 
   CheckCircle2, 
-  AlertCircle 
+  AlertCircle,
+  UserCheck
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -26,9 +27,9 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  const phone1 = "+880 1819-345678";
-  const phone2 = "+880 1711-234567";
-  const whatsappNumber = "+8801819345678";
+  const phone1 = "+880 1710-820987";
+  const phone2 = "+880 1942-237399";
+  const whatsappNumber = "+8801710820987";
   const cleanWhatsApp = whatsappNumber.replace(/[^0-9]/g, '');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -97,18 +98,18 @@ export default function ContactPage() {
               </h2>
 
               <div className="flex items-start gap-3 text-xs sm:text-sm">
-                <MapPin className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
+                <UserCheck className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-wood-900 dark:text-white block">স’মিল ও কারখানা:</strong>
-                  <span className="text-wood-600 dark:text-wood-400">মাঝিরঘাট রোড, স্ট্র্যান্ড রোড সংলগ্ন, কোতোয়ালি, চট্টগ্রাম।</span>
+                  <strong className="text-wood-900 dark:text-white block">প্রোপাইটর:</strong>
+                  <span className="text-wood-700 dark:text-wood-300 font-medium">আব্দুস সালাম খাঁন</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 text-xs sm:text-sm">
                 <MapPin className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-wood-900 dark:text-white block">ডিসপ্লে শোরুম:</strong>
-                  <span className="text-wood-600 dark:text-wood-400">বায়েজিদ বোস্তামী রোড, নাসিরাবাদ, চট্টগ্রাম।</span>
+                  <strong className="text-wood-900 dark:text-white block">স’মিল, কারখানা ও শোরুম:</strong>
+                  <span className="text-wood-600 dark:text-wood-400">আকিজ কলজিয়েট স্কুলের পশ্চিম পার্শে, বাঘাড়পাড়া, যশোর।</span>
                 </div>
               </div>
 
@@ -127,7 +128,7 @@ export default function ContactPage() {
                 <Clock className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-wood-900 dark:text-white block">খোলা থাকার সময়:</strong>
-                  <span className="text-wood-600 dark:text-wood-400">সকাল ৯:০০ - রাত ৮:০০ (সপ্তাহের ৭ দিনই খোলা)</span>
+                  <span className="text-wood-600 dark:text-wood-400">সকাল ৮:০০ - রাত ৯:০০ (সপ্তাহের ৭ দিনই খোলা)</span>
                 </div>
               </div>
 

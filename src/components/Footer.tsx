@@ -182,23 +182,24 @@ export function Footer({ settings }: FooterProps) {
               {language === 'bn' ? 'পেমেন্ট সুবিধা' : 'Payment Methods'}
             </h4>
             <div className="space-y-2 text-xs text-stone-300">
-              <div className="p-2.5 rounded-xl bg-stone-900 border border-stone-800">
-                <div className="flex items-center gap-1.5 font-bold text-pink-400 text-xs mb-1">
-                  <CreditCard className="w-3.5 h-3.5" />
-                  <span>bKash (বিকাশ)</span>
+              {settings?.nagadNumber && (
+                <div className="p-2.5 rounded-xl bg-stone-900 border border-stone-800">
+                  <div className="flex items-center gap-1.5 font-bold text-orange-400 text-xs mb-1">
+                    <CreditCard className="w-3.5 h-3.5" />
+                    <span>Nagad (নগদ)</span>
+                  </div>
+                  <span className="font-mono text-[11px] text-stone-200">
+                    {settings.nagadNumber}
+                  </span>
                 </div>
-                <span className="font-mono text-[11px] text-stone-200">
-                  {settings?.bkashNumber || '01710-820987'}
-                </span>
-              </div>
-
+              )}
               <div className="p-2.5 rounded-xl bg-stone-900 border border-stone-800">
-                <div className="flex items-center gap-1.5 font-bold text-orange-400 text-xs mb-1">
+                <div className="flex items-center gap-1.5 font-bold text-emerald-400 text-xs mb-1">
                   <CreditCard className="w-3.5 h-3.5" />
-                  <span>Nagad (নগদ)</span>
+                  <span>{language === 'bn' ? 'ক্যাশ / শোরুম পেমেন্ট' : 'Cash / Showroom'}</span>
                 </div>
-                <span className="font-mono text-[11px] text-stone-200">
-                  {settings?.nagadNumber || '01942-237399'}
+                <span className="text-[11px] text-stone-400">
+                  {language === 'bn' ? 'সরাসরি বা ডেলিভারিতে ক্যাশ' : 'Cash on delivery available'}
                 </span>
               </div>
             </div>

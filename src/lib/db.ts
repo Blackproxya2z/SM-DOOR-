@@ -1975,8 +1975,8 @@ const initialReviews: Review[] = [
     "locationBn": "বাঘাড়পাড়া, যশোর",
     "locationEn": "Bagharpara, Jashore",
     "rating": 5,
-    "commentBn": "ফারহান এন্টারপ্রাইজের ট্রিটমেন্ট কাঠ এবং স’মিল চেরাই কাঠের মাপ অত্যন্ত নির্ভুল। আমাদের বিল্ডিং প্রজেক্টের সমস্ত সাইজ কাঠ এখান থেকেই নিয়েছি। মোঃ আব্দুর রউফ খাঁন ভাইয়ের ব্যবহার ও সার্ভিস প্রশংসনীয়।",
-    "commentEn": "Exact band-sawn dimensions and high quality vacuum treated timber. Proprietor Md. Abdur Rauf Khan provides exceptional service.",
+    "commentBn": "ফারহান এন্টারপ্রাইজের ট্রিটমেন্ট কাঠ এবং স’মিল চেরাই কাঠের মাপ অত্যন্ত নির্ভুল। আমাদের বিল্ডিং প্রজেক্টের সমস্ত সাইজ কাঠ এখান থেকেই নিয়েছি। আব্দুস সালাম খাঁন ভাইয়ের ব্যবহার ও সার্ভিস প্রশংসনীয়।",
+    "commentEn": "Exact band-sawn dimensions and high quality vacuum treated timber. Proprietor Abdus Salam Khan provides exceptional service.",
     "projectTypeBn": "বিল্ডিং প্রজেক্ট",
     "projectTypeEn": "Building Project",
     "verifiedBuyer": true,
@@ -2001,8 +2001,8 @@ const initialReviews: Review[] = [
 const initialSiteSettings: SiteSettings = {
   "siteNameBn": "মেসার্স ফারহান এন্টারপ্রাইজ",
   "siteNameEn": "M/S Farhan Enterprise",
-  "proprietorBn": "মোঃ আব্দুর রউফ খাঁন",
-  "proprietorEn": "Md. Abdur Rauf Khan",
+  "proprietorBn": "আব্দুস সালাম খাঁন",
+  "proprietorEn": "Abdus Salam Khan",
   "taglineBn": "কাঠ, দরজা ও ফার্নিচারের বিশ্বস্ত ঠিকানা",
   "taglineEn": "Trusted Wood, Door & Furniture Solutions",
   "servicesBn": "এখানে লগ ও সাইজ কাঠ ক্রয়-বিক্রয় করা হয় এবং দরজা, ফার্নিচার, যাবতীয় কাঠের সামগ্রী ট্রিটমেন্ট কাঠ দ্বারা তৈরী করা হয়।",
@@ -2025,7 +2025,7 @@ const initialSiteSettings: SiteSettings = {
   "noticeTextBn": "আমাদের বাঘাড়পাড়া শোরুম ও স’মিলে সরাসরি পরিদর্শনের আমন্ত্রণ রইলো।",
   "noticeTextEn": "Welcome to visit our Bagharpara showroom and sawmill facility in Jashore.",
   "isNoticeActive": true,
-  "bkashNumber": "01710-820987 (ব্যক্তিগত / পার্সোনাল)",
+  "bkashNumber": "",
   "nagadNumber": "01942-237399 (ব্যক্তিগত / পার্সোনাল)"
 };
 

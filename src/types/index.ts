@@ -196,8 +196,8 @@ export interface SiteSettings {
   noticeTextBn: string;
   noticeTextEn: string;
   isNoticeActive: boolean;
-  bkashNumber: string;
-  nagadNumber: string;
+  bkashNumber?: string;
+  nagadNumber?: string;
 }
 
 export interface SawmillService {
