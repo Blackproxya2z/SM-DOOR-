@@ -245,7 +245,7 @@ export function CustomOrderWizard({ speciesList, whatsappNumber = "+880181934567
                     </span>
                     <input
                       type="file"
-                      accept="image/png, image/jpeg, image/webp"
+                      accept="image/*,image/jpeg,image/png,image/webp"
                       onChange={handleFileChange}
                       disabled={uploadingImage}
                       className="hidden"

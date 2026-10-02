@@ -21,7 +21,7 @@ export function FloatingActions({
     : 'Hello, I want to inquire with M/S Farhan Enterprise directly.';
 
   return (
-    <div className="fixed right-4 bottom-20 md:bottom-6 z-40 flex flex-col gap-3">
+    <div className="hidden md:flex fixed md:right-6 md:bottom-6 z-40 flex-col gap-3">
       {/* Call Button */}
       <a
         href={`tel:${phone}`}

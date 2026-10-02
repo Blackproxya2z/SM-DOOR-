@@ -1,25 +1,36 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: "#0c0a09",
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
-  title: "এস এম ডোর | SM Door — প্রিমিয়াম কাঠের দরজা, চেরা কাঠ ও স’মিল",
-  description: "চট্টগ্রামের ঐতিহ্যবাহী এস এম ডোর ও স’মিল কমপ্লেক্স। খাঁটি চিটাগাং সেগুন, সিজনড মেহগনি ও গামারি কাঠের সলিড দরজা, চৌকাঠ ও চেরা কাঠ। লাইভ সিএফটি ক্যালকুলেটর ও কাস্টম ডিজাইন অর্ডার।",
+  title: "মেসার্স ফারহান এন্টারপ্রাইজ / এস এম ডোর — প্রিমিয়াম কাঠের দরজা, চেরা কাঠ ও স’মিল",
+  description: "বাঘাড়পাড়া, যশোরের ঐতিহ্যবাহী মেসার্স ফারহান এন্টারপ্রাইজ ও এস এম ডোর। খাঁটি চিটাগাং সেগুন, সিজনড মেহগনি ও গামারি কাঠের সলিড দরজা, চৌকাঠ ও চেরা কাঠ। লাইভ সিএফটি ক্যালকুলেটর ও কাস্টম ডিজাইন অর্ডার।",
   keywords: [
     "SM Door",
     "এস এম ডোর",
+    "Farhan Enterprise",
+    "মেসার্স ফারহান এন্টারপ্রাইজ",
     "Wooden Doors Bangladesh",
     "সেগুন কাঠের দরজা",
     "মেহগনি কাঠের দরজা",
     "চৌকাঠ",
-    "Chittagong Sawmill",
+    "যশোর স’মিল",
     "CFT Calculator",
     "স’মিল কাঠ"
   ],
-  authors: [{ name: "SM Door Complex" }],
+  authors: [{ name: "M/S Farhan Enterprise" }],
   openGraph: {
-    title: "এস এম ডোর | SM Door — Premium Wooden Doors & Sawmill",
+    title: "মেসার্স ফারহান এন্টারপ্রাইজ / এস এম ডোর — Premium Wooden Doors & Sawmill",
     description: "১০০% সিজনড ও কেমিক্যাল ট্রিটেড চিটাগাং সেগুন, মেহগনি ও গামারি কাঠের দরজা ও চৌকাঠ।",
     url: "https://smdoorbd.com",
     siteName: "SM Door",
@@ -48,15 +59,15 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HomeGoodsStore",
-    "name": "SM Door & Sawmill Complex (এস এম ডোর)",
-    "description": "Premium Wooden Doors, Sawn Timber & Sawmill Complex in Chittagong, Bangladesh",
+    "name": "M/S Farhan Enterprise / SM Door (মেসার্স ফারহান এন্টারপ্রাইজ)",
+    "description": "Premium Wooden Doors, Sawn Timber & Sawmill Complex in Bagharpara, Jashore, Bangladesh",
     "url": "https://smdoorbd.com",
-    "telephone": "+8801819345678",
+    "telephone": "+8801710820987",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Majhirghat Road, Strand Road Adjacent",
-      "addressLocality": "Kotwali",
-      "addressRegion": "Chittagong",
+      "streetAddress": "West Side of Akij Collegiate School",
+      "addressLocality": "Bagharpara",
+      "addressRegion": "Jashore",
       "addressCountry": "BD"
     },
     "geo": {

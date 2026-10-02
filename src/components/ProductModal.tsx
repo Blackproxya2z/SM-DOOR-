@@ -83,21 +83,27 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
   const waLink = buildWhatsAppLink(whatsappNumber, whatsappMsg);
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 md:p-6 animate-fade-in">
+    <div 
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 animate-fade-in"
+      onClick={onClose}
+    >
       <div 
-        className="relative w-full max-w-4xl bg-white dark:bg-wood-950 rounded-2xl shadow-2xl overflow-hidden border border-wood-200 dark:border-wood-800 my-8"
+        className="relative w-full max-w-4xl bg-white dark:bg-wood-950 rounded-t-3xl sm:rounded-2xl shadow-2xl overflow-hidden border border-wood-200 dark:border-wood-800 my-0 sm:my-8 max-h-[92vh] sm:max-h-[85vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Mobile Drag Pill */}
+        <div className="sm:hidden w-12 h-1.5 bg-wood-300 dark:bg-wood-700 rounded-full mx-auto mt-2.5 mb-1" />
+
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-wood-900/60 hover:bg-wood-900 text-white transition-colors"
+          className="absolute top-3 sm:top-4 right-3 sm:right-4 z-20 p-2 rounded-full bg-wood-900/70 hover:bg-wood-900 text-white transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 max-h-[85vh] overflow-y-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 overflow-y-auto flex-1">
           {/* Left Column: Image Gallery */}
           <div className="p-6 bg-wood-50 dark:bg-wood-900/40 flex flex-col justify-between border-b md:border-b-0 md:border-r border-wood-200 dark:border-wood-800">
             <div>

@@ -213,11 +213,11 @@ export function CftCalculator({
         </div>
 
         {/* Tab Selection */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex p-1.5 bg-wood-100 dark:bg-wood-900 rounded-2xl border border-wood-200 dark:border-wood-800 shadow-inner">
+        <div className="flex justify-center mb-6 sm:mb-8 w-full">
+          <div className="grid grid-cols-3 sm:inline-flex w-full sm:w-auto p-1 sm:p-1.5 bg-wood-100 dark:bg-wood-900 rounded-2xl border border-wood-200 dark:border-wood-800 shadow-inner">
             <button
               onClick={() => setActiveTab('sawn')}
-              className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              className={`px-2 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-sm font-bold text-center transition-all ${
                 activeTab === 'sawn'
                   ? 'bg-wood-950 text-gold-400 dark:bg-gold-500 dark:text-wood-950 shadow-md'
                   : 'text-wood-700 dark:text-wood-300 hover:text-wood-950'
@@ -227,7 +227,7 @@ export function CftCalculator({
             </button>
             <button
               onClick={() => setActiveTab('log')}
-              className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              className={`px-2 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-sm font-bold text-center transition-all ${
                 activeTab === 'log'
                   ? 'bg-wood-950 text-gold-400 dark:bg-gold-500 dark:text-wood-950 shadow-md'
                   : 'text-wood-700 dark:text-wood-300 hover:text-wood-950'
@@ -237,7 +237,7 @@ export function CftCalculator({
             </button>
             <button
               onClick={() => setActiveTab('frame')}
-              className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              className={`px-2 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-sm font-bold text-center transition-all ${
                 activeTab === 'frame'
                   ? 'bg-wood-950 text-gold-400 dark:bg-gold-500 dark:text-wood-950 shadow-md'
                   : 'text-wood-700 dark:text-wood-300 hover:text-wood-950'

@@ -18,11 +18,11 @@ export default function CustomOrderPage() {
   const speciesList = db.getSpecies();
   const siteSettings = db.getSiteSettings();
 
-  const whatsapp = siteSettings.whatsappNumber || "+8801819345678";
-  const phone = siteSettings.phone1 || "+8801819345678";
+  const whatsapp = siteSettings.whatsappNumber || "+8801710820987";
+  const phone = siteSettings.phone1 || "+880 1710-820987";
 
   return (
-    <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950">
+    <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950 pb-16 md:pb-0 overflow-x-hidden">
       <Header initialSettings={siteSettings} />
 
       <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-wood-800 text-center">
