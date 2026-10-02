@@ -63,7 +63,7 @@ export default function AboutPage() {
                 <span className="text-3xl font-extrabold text-gold-600 dark:text-gold-400 font-serif block">
                   ২৫+ বছর
                 </span>
-                <span className="text-xs text-wood-500">চট্টগ্রামের প্রতিষ্ঠিত ব্যবসায়িক সুনাম</span>
+                <span className="text-xs text-wood-500">যশোর ও দক্ষিণ-পশ্চিমাঞ্চলের প্রতিষ্ঠিত ব্যবসায়িক সুনাম</span>
               </div>
               <div>
                 <span className="text-3xl font-extrabold text-gold-600 dark:text-gold-400 font-serif block">
@@ -71,6 +71,15 @@ export default function AboutPage() {
                 </span>
                 <span className="text-xs text-wood-500">সন্তুষ্ট গৃহমালিক ও প্রজেক্ট ক্লায়েন্ট</span>
               </div>
+            </div>
+
+            <div className="mt-6 p-4 rounded-2xl bg-gold-500/10 border border-gold-500/20 text-xs">
+              <p className="font-bold text-wood-950 dark:text-white">
+                প্রোপাইটর: মোঃ আব্দুর রউফ খাঁন (Md. Abdur Rauf Khan)
+              </p>
+              <p className="text-wood-600 dark:text-wood-300 mt-1">
+                ঠিকানা: বাদে নাভারন, আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে , ঝিকরগাছা ,যশোর
+              </p>
             </div>
           </div>
 

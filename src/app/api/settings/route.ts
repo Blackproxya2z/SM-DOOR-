@@ -8,7 +8,7 @@ export const revalidate = 0;
 
 export async function GET() {
   try {
-    const settings = db.getSiteSettings();
+    const settings = await db.getSiteSettingsAsync();
     return NextResponse.json(
       { success: true, settings },
       {

@@ -1,6 +1,17 @@
 import fs from 'fs';
 import path from 'path';
 import {
+  getCloudSiteSettings,
+  saveCloudSiteSettings,
+  getCloudProducts,
+  saveCloudProduct,
+  deleteCloudProduct,
+  getCloudCalculatorRates,
+  saveCloudCalculatorRates,
+  getCloudInquiries,
+  saveCloudInquiry
+} from './cloudDb';
+import {
   Product,
   WoodSpecies,
   CalculatorRates,
@@ -1975,8 +1986,8 @@ const initialReviews: Review[] = [
     "locationBn": "ঝিকরগাছা, যশোর",
     "locationEn": "Jhikargachha, Jashore",
     "rating": 5,
-    "commentBn": "ফারহান এন্টারপ্রাইজের ট্রিটমেন্ট কাঠ এবং স’মিল চেরাই কাঠের মাপ অত্যন্ত নির্ভুল। আমাদের বিল্ডিং প্রজেক্টের সমস্ত সাইজ কাঠ এখান থেকেই নিয়েছি। আব্দুস সালাম খাঁন ভাইয়ের ব্যবহার ও সার্ভিস প্রশংসনীয়।",
-    "commentEn": "Exact band-sawn dimensions and high quality vacuum treated timber. Proprietor Abdus Salam Khan provides exceptional service.",
+    "commentBn": "ফারহান এন্টারপ্রাইজের ট্রিটমেন্ট কাঠ এবং স’মিল চেরাই কাঠের মাপ অত্যন্ত নির্ভুল। আমাদের বিল্ডিং প্রজেক্টের সমস্ত সাইজ কাঠ এখান থেকেই নিয়েছি। মোঃ আব্দুর রউফ খাঁন ভাইয়ের ব্যবহার ও সার্ভিস প্রশংসনীয়।",
+    "commentEn": "Exact band-sawn dimensions and high quality vacuum treated timber. Proprietor Md. Abdur Rauf Khan provides exceptional service.",
     "projectTypeBn": "বিল্ডিং প্রজেক্ট",
     "projectTypeEn": "Building Project",
     "verifiedBuyer": true,
@@ -2001,8 +2012,8 @@ const initialReviews: Review[] = [
 const initialSiteSettings: SiteSettings = {
   "siteNameBn": "মেসার্স ফারহান এন্টারপ্রাইজ",
   "siteNameEn": "M/S Farhan Enterprise",
-  "proprietorBn": "আব্দুস সালাম খাঁন",
-  "proprietorEn": "Abdus Salam Khan",
+  "proprietorBn": "মোঃ আব্দুর রউফ খাঁন",
+  "proprietorEn": "Md. Abdur Rauf Khan",
   "taglineBn": "কাঠ, দরজা ও ফার্নিচারের বিশ্বস্ত ঠিকানা",
   "taglineEn": "Trusted Wood, Door & Furniture Solutions",
   "servicesBn": "এখানে লগ ও সাইজ কাঠ ক্রয়-বিক্রয় করা হয় এবং দরজা, ফার্নিচার, যাবতীয় কাঠের সামগ্রী ট্রিটমেন্ট কাঠ দ্বারা তৈরী করা হয়।",
@@ -2134,11 +2145,10 @@ const initialInquiries: CustomOrderInquiry[] = [
   }
 ];
 
-// Persistent File paths
+// Persistent File paths (used in local development and build hydration)
 const DB_FILE_PATH = path.join(process.cwd(), 'data', 'db.json');
-const TMP_DB_PATH = path.join(process.platform === 'win32' ? (process.env.TEMP || process.cwd()) : '/tmp', 'sm_door_db.json');
 
-// In-Memory cache for superfast reads and serverless fallback
+// In-Memory cache for high-performance reads and edge execution
 let dbCache: DatabaseSchema | null = null;
 
 function loadDatabase(): DatabaseSchema {
@@ -2146,21 +2156,7 @@ function loadDatabase(): DatabaseSchema {
     return dbCache;
   }
 
-  // 1. Try reading from /tmp persistence (holds runtime admin updates on serverless/Vercel)
-  try {
-    if (fs.existsSync(TMP_DB_PATH)) {
-      const content = fs.readFileSync(TMP_DB_PATH, 'utf-8');
-      const parsed = JSON.parse(content);
-      if (parsed && parsed.siteSettings && Array.isArray(parsed.products)) {
-        dbCache = parsed;
-        return dbCache!;
-      }
-    }
-  } catch {
-    // fallback
-  }
-
-  // 2. Try reading from project bundle data/db.json
+  // 1. Try reading from project bundle data/db.json
   try {
     if (fs.existsSync(DB_FILE_PATH)) {
       const content = fs.readFileSync(DB_FILE_PATH, 'utf-8');
@@ -2168,7 +2164,7 @@ function loadDatabase(): DatabaseSchema {
       return dbCache!;
     }
   } catch (err) {
-    console.warn("Could not read db.json from disk, initializing fresh in-memory database:", err);
+    console.warn("Could not read db.json from disk, initializing fresh database:", err);
   }
 
   const defaultDb: DatabaseSchema = {
@@ -2201,19 +2197,7 @@ function saveDatabase(data: DatabaseSchema): boolean {
     fs.writeFileSync(DB_FILE_PATH, JSON.stringify(data, null, 2), 'utf-8');
     saved = true;
   } catch {
-    // Read-only filesystem on Vercel lambda - expected
-  }
-
-  // Also write to /tmp (writable on Vercel lambda and OS temp)
-  try {
-    const tmpDir = path.dirname(TMP_DB_PATH);
-    if (!fs.existsSync(tmpDir)) {
-      fs.mkdirSync(tmpDir, { recursive: true });
-    }
-    fs.writeFileSync(TMP_DB_PATH, JSON.stringify(data, null, 2), 'utf-8');
-    saved = true;
-  } catch (err) {
-    console.warn("Could not persist to tmp db:", err);
+    // Read-only filesystem in Vercel lambda - data persisted via CloudDB
   }
 
   return saved;
@@ -2251,6 +2235,7 @@ export const db = {
       });
     }
     saveDatabase(data);
+    saveCloudProduct(product).catch(err => console.warn('[CloudDB] Product sync:', err));
     return product;
   },
   deleteProduct(id: string): boolean {
@@ -2259,6 +2244,7 @@ export const db = {
     data.products = data.products.filter(p => p.id !== id && p.designNumber !== id);
     if (data.products.length !== countBefore) {
       saveDatabase(data);
+      deleteCloudProduct(id).catch(err => console.warn('[CloudDB] Product delete sync:', err));
       return true;
     }
     return false;
@@ -2321,6 +2307,7 @@ export const db = {
       }
     }
     saveDatabase(data);
+    saveCloudCalculatorRates(data.calculatorRates).catch(err => console.warn('[CloudDB] Rates sync:', err));
     return data.calculatorRates;
   },
 
@@ -2365,6 +2352,7 @@ export const db = {
     const data = loadDatabase();
     data.inquiries.unshift(newInquiry);
     saveDatabase(data);
+    saveCloudInquiry(newInquiry).catch(err => console.warn('[CloudDB] Inquiry sync:', err));
     return newInquiry;
   },
   updateInquiryStatus(id: string, status: CustomOrderInquiry['status'], adminNotes?: string): CustomOrderInquiry | null {
@@ -2377,6 +2365,7 @@ export const db = {
     }
     item.updatedAt = new Date().toISOString();
     saveDatabase(data);
+    saveCloudInquiry(item).catch(err => console.warn('[CloudDB] Inquiry status sync:', err));
     return item;
   },
   deleteInquiry(id: string): boolean {
@@ -2419,6 +2408,7 @@ export const db = {
       ...settings
     };
     saveDatabase(data);
+    saveCloudSiteSettings(data.siteSettings).catch(err => console.warn('[CloudDB] Site settings sync:', err));
     return data.siteSettings;
   },
 
@@ -2458,5 +2448,43 @@ export const db = {
     data.adminPin = newPin;
     saveDatabase(data);
     return true;
+  },
+
+  // Async Cloud Database Retrieval
+  async getSiteSettingsAsync(): Promise<SiteSettings> {
+    const cloud = await getCloudSiteSettings();
+    if (cloud) {
+      const data = loadDatabase();
+      data.siteSettings = { ...data.siteSettings, ...cloud };
+      return data.siteSettings;
+    }
+    return this.getSiteSettings();
+  },
+  async getProductsAsync(): Promise<Product[]> {
+    const cloud = await getCloudProducts();
+    if (cloud && cloud.length > 0) {
+      const data = loadDatabase();
+      data.products = cloud;
+      return data.products;
+    }
+    return this.getProducts();
+  },
+  async getCalculatorRatesAsync(): Promise<CalculatorRates> {
+    const cloud = await getCloudCalculatorRates();
+    if (cloud) {
+      const data = loadDatabase();
+      data.calculatorRates = { ...data.calculatorRates, ...cloud };
+      return data.calculatorRates;
+    }
+    return this.getCalculatorRates();
+  },
+  async getInquiriesAsync(): Promise<CustomOrderInquiry[]> {
+    const cloud = await getCloudInquiries();
+    if (cloud && cloud.length > 0) {
+      const data = loadDatabase();
+      data.inquiries = cloud;
+      return data.inquiries;
+    }
+    return this.getInquiries();
   }
 };

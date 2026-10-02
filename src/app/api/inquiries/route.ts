@@ -3,6 +3,9 @@ import { db } from '@/lib/db';
 import { isAuthenticatedAdmin } from '@/lib/auth';
 import { checkRateLimit, InquiryFormSchema, safeLog } from '@/lib/security';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
   try {
     if (!isAuthenticatedAdmin(request)) {
@@ -12,7 +15,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status');
 
-    let inquiries = db.getInquiries();
+    let inquiries = await db.getInquiriesAsync();
     if (status && status !== 'all') {
       inquiries = inquiries.filter(i => i.status === status);
     }

@@ -6,6 +6,8 @@ import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { FloatingActions } from "@/components/FloatingActions";
 import { SiteSettings } from '@/types';
+import { firestore } from '@/lib/firebase';
+import { doc, onSnapshot } from 'firebase/firestore';
 import { 
   Phone, 
   MessageCircle, 
@@ -38,7 +40,8 @@ export default function ContactPage() {
       }
     } catch {}
 
-    fetch('/api/settings')
+    // 2. Fresh fetch for multi-device sync
+    fetch('/api/settings', { cache: 'no-store' })
       .then(res => res.json())
       .then(data => {
         if (data.success && data.settings) {
@@ -47,20 +50,41 @@ export default function ContactPage() {
       })
       .catch(() => {});
 
+    // 3. Multi-device real-time listener via Firebase Firestore
+    let unsubscribeFirestore: (() => void) | null = null;
+    try {
+      if (firestore) {
+        unsubscribeFirestore = onSnapshot(
+          doc(firestore, 'sm_settings', 'site'),
+          (docSnap) => {
+            if (docSnap.exists()) {
+              const cloudSettings = docSnap.data() as SiteSettings;
+              setSettings(cloudSettings);
+            }
+          },
+          () => {}
+        );
+      }
+    } catch {}
+
     const handleUpdate = (e: any) => {
       if (e.detail) {
         setSettings(e.detail);
       }
     };
     window.addEventListener('sm_settings_updated', handleUpdate);
-    return () => window.removeEventListener('sm_settings_updated', handleUpdate);
+
+    return () => {
+      window.removeEventListener('sm_settings_updated', handleUpdate);
+      if (unsubscribeFirestore) unsubscribeFirestore();
+    };
   }, []);
 
   const phone1 = settings?.phone1 || "+880 1710-820987";
   const phone2 = settings?.phone2 || "+880 1942-237399";
   const whatsappNumber = settings?.whatsappNumber || "+8801710820987";
   const cleanWhatsApp = whatsappNumber.replace(/[^0-9]/g, '');
-  const proprietorName = settings?.proprietorBn || "আব্দুস সালাম খাঁন";
+  const proprietorName = settings?.proprietorBn || "মোঃ আব্দুর রউফ খাঁন";
   const addressText = settings?.addressBn || "বাদে নাভারন, আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে , ঝিকরগাছা ,যশোর";
 
   const handleSubmit = async (e: React.FormEvent) => {

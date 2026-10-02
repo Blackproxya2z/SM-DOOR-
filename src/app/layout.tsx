@@ -63,6 +63,12 @@ export default function RootLayout({
     "description": "Premium Wooden Doors, Sawn Timber & Sawmill Complex in Bade Nabaran, Jhikargachha, Jashore, Bangladesh",
     "url": "https://smdoorbd.com",
     "telephone": "+8801710820987",
+    "founder": {
+      "@type": "Person",
+      "name": "Md. Abdur Rauf Khan",
+      "alternateName": "মোঃ আব্দুর রউফ খাঁন",
+      "jobTitle": "Proprietor"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Bade Nabaran, West Side of Akij Collegiate School",

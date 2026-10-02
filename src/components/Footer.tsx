@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SiteSettings } from '@/types';
+import { firestore } from '@/lib/firebase';
+import { doc, onSnapshot } from 'firebase/firestore';
 import { useLanguage } from '@/context/LanguageContext';
 import { 
   TreePine, 
@@ -29,16 +31,8 @@ export function Footer({ settings: initialSettings }: FooterProps) {
       setSettings(initialSettings);
     }
 
-    // 2. Check localStorage for instant live preview of admin edits
-    try {
-      const stored = localStorage.getItem('sm_door_settings');
-      if (stored) {
-        setSettings(JSON.parse(stored));
-      }
-    } catch {}
-
-    // 3. Fresh fetch from dynamic API
-    fetch('/api/settings')
+    // 2. Fresh fetch from dynamic API for multi-device sync
+    fetch('/api/settings', { cache: 'no-store' })
       .then(res => res.json())
       .then(data => {
         if (data.success && data.settings) {
@@ -47,6 +41,23 @@ export function Footer({ settings: initialSettings }: FooterProps) {
       })
       .catch(() => {});
 
+    // 3. Multi-device real-time listener via Firebase Firestore
+    let unsubscribeFirestore: (() => void) | null = null;
+    try {
+      if (firestore) {
+        unsubscribeFirestore = onSnapshot(
+          doc(firestore, 'sm_settings', 'site'),
+          (docSnap) => {
+            if (docSnap.exists()) {
+              const cloudSettings = docSnap.data() as SiteSettings;
+              setSettings(cloudSettings);
+            }
+          },
+          () => {}
+        );
+      }
+    } catch {}
+
     // 4. Listen for real-time admin settings update event
     const handleUpdate = (e: any) => {
       if (e.detail) {
@@ -54,7 +65,11 @@ export function Footer({ settings: initialSettings }: FooterProps) {
       }
     };
     window.addEventListener('sm_settings_updated', handleUpdate);
-    return () => window.removeEventListener('sm_settings_updated', handleUpdate);
+
+    return () => {
+      window.removeEventListener('sm_settings_updated', handleUpdate);
+      if (unsubscribeFirestore) unsubscribeFirestore();
+    };
   }, [initialSettings]);
 
   const businessName = language === 'bn'

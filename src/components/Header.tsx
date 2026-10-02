@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 import { useQuote } from '@/context/QuoteContext';
 import { SiteSettings } from '@/types';
+import { firestore } from '@/lib/firebase';
+import { doc, onSnapshot } from 'firebase/firestore';
 import { 
   Phone, 
   MessageCircle, 
@@ -47,14 +49,8 @@ export function Header({ initialSettings }: HeaderProps) {
       setSettings(initialSettings);
     }
 
-    try {
-      const stored = localStorage.getItem('sm_door_settings');
-      if (stored) {
-        setSettings(JSON.parse(stored));
-      }
-    } catch {}
-
-    fetch('/api/settings')
+    // Fresh fetch for multi-device sync
+    fetch('/api/settings', { cache: 'no-store' })
       .then(res => res.json())
       .then(data => {
         if (data.success && data.settings) {
@@ -63,13 +59,34 @@ export function Header({ initialSettings }: HeaderProps) {
       })
       .catch(() => {});
 
+    // Multi-device real-time listener via Firebase Firestore
+    let unsubscribeFirestore: (() => void) | null = null;
+    try {
+      if (firestore) {
+        unsubscribeFirestore = onSnapshot(
+          doc(firestore, 'sm_settings', 'site'),
+          (docSnap) => {
+            if (docSnap.exists()) {
+              const cloudSettings = docSnap.data() as SiteSettings;
+              setSettings(cloudSettings);
+            }
+          },
+          () => {}
+        );
+      }
+    } catch {}
+
     const handleUpdate = (e: any) => {
       if (e.detail) {
         setSettings(e.detail);
       }
     };
     window.addEventListener('sm_settings_updated', handleUpdate);
-    return () => window.removeEventListener('sm_settings_updated', handleUpdate);
+
+    return () => {
+      window.removeEventListener('sm_settings_updated', handleUpdate);
+      if (unsubscribeFirestore) unsubscribeFirestore();
+    };
   }, [initialSettings]);
 
   // Close mobile drawer and dropdown on route change

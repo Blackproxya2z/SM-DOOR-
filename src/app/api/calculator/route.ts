@@ -2,10 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { isAuthenticatedAdmin } from '@/lib/auth';
 import { calculateSawnTimberCFT, calculateWoodLogCFT, calculateDoorFrame } from '@/lib/calculator';
+import { revalidatePath } from 'next/cache';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function GET() {
   try {
-    const rates = db.getCalculatorRates();
+    const rates = await db.getCalculatorRatesAsync();
     const species = db.getSpecies();
     return NextResponse.json({ success: true, rates, species });
   } catch (error) {
@@ -45,6 +49,14 @@ export async function PUT(request: NextRequest) {
 
     const body = await request.json();
     const updatedRates = db.updateCalculatorRates(body);
+
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/calculator');
+      revalidatePath('/admin');
+    } catch (e) {
+      console.warn('Revalidation warning:', e);
+    }
 
     return NextResponse.json({ success: true, rates: updatedRates });
   } catch (error) {

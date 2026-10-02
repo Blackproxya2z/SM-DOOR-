@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Public Catalog & Settings: readable by anyone, writable only by authenticated admin
+    match /sm_settings/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    match /sm_products/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    match /sm_species/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    match /sm_calculator_rates/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    // Customer Inquiries & Quotes:
+    // Clients can submit a quote inquiry (create only).
+    // Inquiries can NEVER be read publicly (only authenticated admins).
+    match /sm_inquiries/{inquiryId} {
+      allow create: if request.resource.data.customerName is string 
+                    && request.resource.data.customerPhone is string;
+      allow read, update, delete: if request.auth != null && request.auth.token.admin == true;
+    }
+  }
+}

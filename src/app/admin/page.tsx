@@ -366,7 +366,7 @@ export default function AdminPage() {
             মেসার্স ফারহান এন্টারপ্রাইজ
           </h2>
           <p className="mt-1.5 text-center text-xs text-amber-400 font-semibold">
-            প্রোপাইটর: আব্দুস সালাম খাঁন — বাদে নাভারন, ঝিকরগাছা, যশোর
+            প্রোপাইটর: মোঃ আব্দুর রউফ খাঁন — বাদে নাভারন, ঝিকরগাছা, যশোর
           </p>
           <p className="mt-1 text-center text-[11px] text-stone-400">
             নিরাপদ ওয়েবসাইট ম্যানেজমেন্ট ও অ্যাডমিন কন্ট্রোল প্যানেল
@@ -462,7 +462,7 @@ export default function AdminPage() {
                 <ExternalLink className="w-3.5 h-3.5 text-stone-400" />
               </h1>
               <span className="text-[10px] text-stone-400 block font-medium">
-                প্রোপাইটর: আব্দুস সালাম খাঁন — বাদে নাভারন, ঝিকরগাছা, যশোর
+                প্রোপাইটর: মোঃ আব্দুর রউফ খাঁন — বাদে নাভারন, ঝিকরগাছা, যশোর
               </span>
             </div>
           </Link>
@@ -1050,49 +1050,170 @@ export default function AdminPage() {
         {/* MODULE 6: CALCULATOR RATES */}
         {activeTab === 'rates' && rates && (
           <div className="space-y-6 animate-in fade-in duration-200">
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white">ক্যালকুলেটর সেটিংস ও রেট আপডেট</h3>
-              <p className="text-xs text-stone-400">সিএফটি ক্যালকুলেটরে ব্যবহৃত প্রতি কাঠের দর পরিবর্তন করুন</p>
-            </div>
-
-            <div className="bg-stone-900 border border-stone-800 rounded-3xl p-6 sm:p-8 max-w-2xl">
-              <div className="space-y-4">
-                {Object.entries(rates.woodSpeciesRates).map(([spId, rate]) => (
-                  <div key={spId} className="flex items-center justify-between gap-4 py-2 border-b border-stone-800">
-                    <span className="text-xs font-bold text-stone-200 capitalize">{spId.replace('-', ' ')}</span>
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="number"
-                        value={rate}
-                        onChange={(e) => {
-                          const val = parseFloat(e.target.value) || 0;
-                          setRates({
-                            ...rates,
-                            woodSpeciesRates: { ...rates.woodSpeciesRates, [spId]: val }
-                          });
-                        }}
-                        className="w-32 px-3 py-1.5 rounded-xl bg-stone-950 border border-stone-700 text-right font-mono text-emerald-400 font-bold text-xs"
-                      />
-                      <span className="text-xs text-stone-400">৳/CFT</span>
-                    </div>
-                  </div>
-                ))}
-
-                <button
-                  type="button"
-                  onClick={async () => {
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-white">সিএফটি ক্যালকুলেটর রেট সেটিংস</h3>
+                <p className="text-xs text-stone-400">প্রতিটি কাঠের চেরা কাঠ ও গোল গুঁড়ি রেট এবং চৌকাঠ তৈরির মজুরি পরিবর্তন করুন</p>
+              </div>
+              <button
+                type="button"
+                onClick={async () => {
+                  try {
                     const res = await fetch('/api/calculator', {
                       method: 'PUT',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify(rates)
                     });
                     const d = await res.json();
-                    if (d.success) showNotification('ক্যালকুলেটর রেট সফলভাবে আপডেট হয়েছে!');
-                  }}
-                  className="w-full mt-4 py-3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs rounded-xl shadow transition-all"
-                >
-                  রেট সংরক্ষণ করুন (Save Calculator Rates)
-                </button>
+                    if (d.success) {
+                      showNotification('ক্যালকুলেটর রেট সফলভাবে ক্লাউডে সংরক্ষিত হয়েছে!');
+                      loadAllData();
+                    } else {
+                      alert('রেট সংরক্ষণ করা যায়নি');
+                    }
+                  } catch {
+                    alert('নেটওয়ার্ক ত্রুটি');
+                  }
+                }}
+                className="px-6 py-2.5 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"
+              >
+                <Save className="w-4 h-4" />
+                <span>রেট পরিবর্তন সংরক্ষণ করুন</span>
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              {/* Wood Species Rates */}
+              <div className="lg:col-span-8 bg-stone-900 border border-stone-800 rounded-3xl p-6 sm:p-7 space-y-4">
+                <h4 className="text-sm font-bold text-amber-400 border-b border-stone-800 pb-3 flex items-center gap-2">
+                  <TreePine className="w-4 h-4" />
+                  <span>কাঠের প্রজাতি অনুযায়ী সিএফটি (CFT) দর তালিকা</span>
+                </h4>
+
+                <div className="space-y-3">
+                  {speciesList.map((sp) => {
+                    const sawnRate = rates.woodSpeciesRates[sp.id] ?? sp.currentRatePerCft;
+                    const logRate = rates.roundLogRates[sp.id] ?? sp.roundLogRatePerCft;
+                    return (
+                      <div key={sp.id} className="p-4 rounded-2xl bg-stone-950/70 border border-stone-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                          <p className="font-bold text-white text-sm">{sp.nameBn}</p>
+                          <p className="text-[11px] text-stone-400 font-mono">{sp.nameEn} ({sp.scientificName})</p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 flex-shrink-0">
+                          <div>
+                            <label className="block text-[10px] text-stone-400 font-medium mb-1">চেরা কাঠ (৳/CFT)</label>
+                            <input
+                              type="text"
+                              inputMode="decimal"
+                              value={sawnRate === 0 ? '' : String(sawnRate)}
+                              placeholder="0"
+                              onChange={(e) => {
+                                const val = e.target.value === '' ? 0 : (parseFloat(e.target.value) || 0);
+                                setRates({
+                                  ...rates,
+                                  woodSpeciesRates: { ...rates.woodSpeciesRates, [sp.id]: val }
+                                });
+                              }}
+                              className="w-28 px-3 py-1.5 rounded-xl bg-stone-900 border border-stone-700 text-right font-mono text-emerald-400 font-bold text-xs"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[10px] text-stone-400 font-medium mb-1">গোল গুঁড়ি (৳/CFT)</label>
+                            <input
+                              type="text"
+                              inputMode="decimal"
+                              value={logRate === 0 ? '' : String(logRate)}
+                              placeholder="0"
+                              onChange={(e) => {
+                                const val = e.target.value === '' ? 0 : (parseFloat(e.target.value) || 0);
+                                setRates({
+                                  ...rates,
+                                  roundLogRates: { ...rates.roundLogRates, [sp.id]: val }
+                                });
+                              }}
+                              className="w-28 px-3 py-1.5 rounded-xl bg-stone-900 border border-stone-700 text-right font-mono text-amber-400 font-bold text-xs"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Chowkath & Additional Charges */}
+              <div className="lg:col-span-4 bg-stone-900 border border-stone-800 rounded-3xl p-6 sm:p-7 space-y-5">
+                <h4 className="text-sm font-bold text-amber-400 border-b border-stone-800 pb-3 flex items-center gap-2">
+                  <Calculator className="w-4 h-4" />
+                  <span>চৌকাঠ ও অতিরিক্ত খরচ</span>
+                </h4>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-stone-300 mb-1">
+                      চৌকাঠ রাবিট কাটিং মজুরি (প্রতি সেট)
+                    </label>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="text"
+                        inputMode="decimal"
+                        value={rates.chowkathLaborRatePerPiece === 0 ? '' : String(rates.chowkathLaborRatePerPiece)}
+                        placeholder="700"
+                        onChange={(e) => {
+                          const val = e.target.value === '' ? 0 : (parseFloat(e.target.value) || 0);
+                          setRates({ ...rates, chowkathLaborRatePerPiece: val });
+                        }}
+                        className="w-full px-3.5 py-2 rounded-xl bg-stone-950 border border-stone-700 text-right font-mono text-white text-xs font-bold"
+                      />
+                      <span className="text-xs text-stone-400 font-mono">৳</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-stone-300 mb-1">
+                      সিজনিং ও কেমিক্যাল ট্রিটমেন্ট
+                    </label>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="text"
+                        inputMode="decimal"
+                        value={rates.seasoningRatePerCft === 0 ? '' : String(rates.seasoningRatePerCft)}
+                        placeholder="180"
+                        onChange={(e) => {
+                          const val = e.target.value === '' ? 0 : (parseFloat(e.target.value) || 0);
+                          setRates({ ...rates, seasoningRatePerCft: val });
+                        }}
+                        className="w-full px-3.5 py-2 rounded-xl bg-stone-950 border border-stone-700 text-right font-mono text-white text-xs font-bold"
+                      />
+                      <span className="text-xs text-stone-400 font-mono">৳/CFT</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-stone-300 mb-1">
+                      আদর্শ অপচয় পারসেন্টেজ (Wastage %)
+                    </label>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="text"
+                        inputMode="decimal"
+                        value={rates.standardWastePercentage === 0 ? '' : String(rates.standardWastePercentage)}
+                        placeholder="15"
+                        onChange={(e) => {
+                          const val = e.target.value === '' ? 0 : (parseFloat(e.target.value) || 0);
+                          setRates({ ...rates, standardWastePercentage: val });
+                        }}
+                        className="w-full px-3.5 py-2 rounded-xl bg-stone-950 border border-stone-700 text-right font-mono text-white text-xs font-bold"
+                      />
+                      <span className="text-xs text-stone-400 font-mono">%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-stone-950 border border-stone-800 text-[11px] text-stone-400 leading-relaxed">
+                  💡 <strong>টিপস:</strong> রেট পরিবর্তন করে উপরের বোতামে চাপ দিলে ওয়েবসাইটে তাৎক্ষণিকভাবে নতুন দরে হিসাব কার্যকর হবে।
+                </div>
               </div>
             </div>
           </div>

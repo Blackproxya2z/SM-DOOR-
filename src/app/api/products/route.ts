@@ -3,6 +3,9 @@ import { db } from '@/lib/db';
 import { isAuthenticatedAdmin } from '@/lib/auth';
 import { revalidatePath } from 'next/cache';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -10,7 +13,7 @@ export async function GET(request: NextRequest) {
     const species = searchParams.get('species');
     const featured = searchParams.get('featured');
 
-    let products = db.getProducts();
+    let products = await db.getProductsAsync();
 
     if (category && category !== 'all') {
       products = products.filter(p => p.category === category);
