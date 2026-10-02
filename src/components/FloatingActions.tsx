@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MessageCircle, Phone } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -10,11 +10,34 @@ interface FloatingActionsProps {
 }
 
 export function FloatingActions({ 
-  whatsappNumber = "+8801710820987", 
-  phone = "+8801710820987" 
+  whatsappNumber: initialWhatsapp = "+8801710820987", 
+  phone: initialPhone = "+8801710820987" 
 }: FloatingActionsProps) {
   const { language } = useLanguage();
-  const cleanWhatsApp = whatsappNumber.replace(/[^0-9]/g, '');
+  const [waNum, setWaNum] = useState(initialWhatsapp);
+  const [phoneNum, setPhoneNum] = useState(initialPhone);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('sm_door_settings');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed.whatsappNumber) setWaNum(parsed.whatsappNumber);
+        if (parsed.phone1) setPhoneNum(parsed.phone1);
+      }
+    } catch {}
+
+    const handleUpdate = (e: any) => {
+      if (e.detail) {
+        if (e.detail.whatsappNumber) setWaNum(e.detail.whatsappNumber);
+        if (e.detail.phone1) setPhoneNum(e.detail.phone1);
+      }
+    };
+    window.addEventListener('sm_settings_updated', handleUpdate);
+    return () => window.removeEventListener('sm_settings_updated', handleUpdate);
+  }, []);
+
+  const cleanWhatsApp = waNum.replace(/[^0-9]/g, '');
 
   const waText = language === 'bn'
     ? 'আসসালামু আলাইকুম, মেসার্স ফারহান এন্টারপ্রাইজ থেকে কাঠ, দরজা বা ফার্নিচার সম্পর্কে জানতে চাই।'
@@ -24,13 +47,13 @@ export function FloatingActions({
     <div className="hidden md:flex fixed md:right-6 md:bottom-6 z-40 flex-col gap-3">
       {/* Call Button */}
       <a
-        href={`tel:${phone}`}
+        href={`tel:${phoneNum}`}
         className="w-12 h-12 rounded-full bg-wood-900 border border-wood-700 text-gold-400 hover:text-white hover:bg-wood-850 shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 group relative"
         aria-label="Direct Phone Call"
       >
         <Phone className="w-5 h-5" />
         <span className="absolute right-14 bg-wood-950 text-white text-[11px] font-bold py-1 px-2.5 rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg border border-wood-800">
-          {phone}
+          {phoneNum}
         </span>
       </a>
 

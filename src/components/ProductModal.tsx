@@ -27,7 +27,7 @@ interface ProductModalProps {
   whatsappNumber?: string;
 }
 
-export function ProductModal({ product, speciesList, onClose, whatsappNumber = "+8801819345678" }: ProductModalProps) {
+export function ProductModal({ product, speciesList, onClose, whatsappNumber = "+8801710820987" }: ProductModalProps) {
   const { language, t, formatPrice } = useLanguage();
   const { addItem } = useQuote();
   const [addedToQuote, setAddedToQuote] = useState(false);

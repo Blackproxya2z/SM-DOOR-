@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
@@ -11,11 +11,31 @@ interface BottomNavProps {
   whatsappNumber?: string;
 }
 
-export function BottomNav({ whatsappNumber = "+8801710820987" }: BottomNavProps) {
+export function BottomNav({ whatsappNumber: initialWhatsapp = "+8801710820987" }: BottomNavProps) {
   const pathname = usePathname();
   const { language, t, toLocalDigits } = useLanguage();
   const { itemCount } = useQuote();
-  const cleanPhone = whatsappNumber.replace(/[^0-9]/g, '');
+  const [waNum, setWaNum] = useState(initialWhatsapp);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('sm_door_settings');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed.whatsappNumber) setWaNum(parsed.whatsappNumber);
+      }
+    } catch {}
+
+    const handleUpdate = (e: any) => {
+      if (e.detail && e.detail.whatsappNumber) {
+        setWaNum(e.detail.whatsappNumber);
+      }
+    };
+    window.addEventListener('sm_settings_updated', handleUpdate);
+    return () => window.removeEventListener('sm_settings_updated', handleUpdate);
+  }, []);
+
+  const cleanPhone = waNum.replace(/[^0-9]/g, '');
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-stone-950/95 backdrop-blur-lg border-t border-stone-800/80 px-2 pt-1.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">

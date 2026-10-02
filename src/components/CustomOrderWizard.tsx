@@ -20,7 +20,7 @@ interface CustomOrderWizardProps {
   whatsappNumber?: string;
 }
 
-export function CustomOrderWizard({ speciesList, whatsappNumber = "+8801819345678" }: CustomOrderWizardProps) {
+export function CustomOrderWizard({ speciesList, whatsappNumber = "+8801710820987" }: CustomOrderWizardProps) {
   const { language, t } = useLanguage();
 
   const [customerName, setCustomerName] = useState('');

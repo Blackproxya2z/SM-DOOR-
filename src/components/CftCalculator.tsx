@@ -33,7 +33,7 @@ interface CftCalculatorProps {
 export function CftCalculator({ 
   initialSpecies, 
   initialRates, 
-  whatsappNumber = "+8801819345678",
+  whatsappNumber = "+8801710820987",
   defaultTab = 'sawn'
 }: CftCalculatorProps) {
   const { language, t, formatPrice, formatNum, toLocalDigits } = useLanguage();
