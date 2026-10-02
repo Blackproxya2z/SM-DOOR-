@@ -18,8 +18,8 @@ export default function FactoryPage() {
   const sawmillServices = db.getSawmillServices();
   const siteSettings = db.getSiteSettings();
 
-  const whatsapp = siteSettings.whatsappNumber || "+8801819345678";
-  const phone = siteSettings.phone1 || "+8801819345678";
+  const whatsapp = siteSettings.whatsappNumber || "+8801710820987";
+  const phone = siteSettings.phone1 || "+880 1710-820987";
 
   const processSteps = [
     {

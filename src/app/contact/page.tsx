@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { FloatingActions } from "@/components/FloatingActions";
+import { SiteSettings } from '@/types';
 import { 
   Phone, 
   MessageCircle, 
@@ -27,10 +28,40 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  const phone1 = "+880 1710-820987";
-  const phone2 = "+880 1942-237399";
-  const whatsappNumber = "+8801710820987";
+  const [settings, setSettings] = useState<SiteSettings | null>(null);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('sm_door_settings');
+      if (stored) {
+        setSettings(JSON.parse(stored));
+      }
+    } catch {}
+
+    fetch('/api/settings')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.settings) {
+          setSettings(data.settings);
+        }
+      })
+      .catch(() => {});
+
+    const handleUpdate = (e: any) => {
+      if (e.detail) {
+        setSettings(e.detail);
+      }
+    };
+    window.addEventListener('sm_settings_updated', handleUpdate);
+    return () => window.removeEventListener('sm_settings_updated', handleUpdate);
+  }, []);
+
+  const phone1 = settings?.phone1 || "+880 1710-820987";
+  const phone2 = settings?.phone2 || "+880 1942-237399";
+  const whatsappNumber = settings?.whatsappNumber || "+8801710820987";
   const cleanWhatsApp = whatsappNumber.replace(/[^0-9]/g, '');
+  const proprietorName = settings?.proprietorBn || "আব্দুস সালাম খাঁন";
+  const addressText = settings?.addressBn || "বাদে নাভারন, আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে , ঝিকরগাছা ,যশোর";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,7 +100,7 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950 pb-16 md:pb-0 overflow-x-hidden">
-      <Header />
+      <Header initialSettings={settings || undefined} />
 
       {/* Banner */}
       <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-wood-800 text-center">
@@ -101,7 +132,7 @@ export default function ContactPage() {
                 <UserCheck className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-wood-900 dark:text-white block">প্রোপাইটর:</strong>
-                  <span className="text-wood-700 dark:text-wood-300 font-medium">আব্দুস সালাম খাঁন</span>
+                  <span className="text-wood-700 dark:text-wood-300 font-medium">{proprietorName}</span>
                 </div>
               </div>
 
@@ -109,7 +140,7 @@ export default function ContactPage() {
                 <MapPin className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-wood-900 dark:text-white block">স’মিল, কারখানা ও শোরুম:</strong>
-                  <span className="text-wood-600 dark:text-wood-400">আকিজ কলজিয়েট স্কুলের পশ্চিম পার্শে, বাঘাড়পাড়া, যশোর।</span>
+                  <span className="text-wood-600 dark:text-wood-400">{addressText}</span>
                 </div>
               </div>
 
@@ -259,7 +290,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer settings={settings || undefined} />
       <BottomNav whatsappNumber={whatsappNumber} />
       <FloatingActions whatsappNumber={whatsappNumber} phone={phone1} />
     </main>

@@ -8,16 +8,16 @@ import type { Metadata } from "next";
 import { TreePine, Award, ShieldCheck, HeartHandshake, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "আমাদের পরিচিতি ও ঐতিহ্য | SM Door",
-  description: "২৫ বছরেরও বেশি সময় ধরে চট্টগ্রামের ঐতিহ্যবাহী এস এম ডোর ও স’মিল কমপ্লেক্স বিশ্বস্ততার সাথে আসল কাঠের দরজা ও কাঠ সরবরাহ করে আসছে।",
+  title: "আমাদের পরিচিতি ও ঐতিহ্য | মেসার্স ফারহান এন্টারপ্রাইজ / SM Door",
+  description: "২৫ বছরেরও বেশি সময় ধরে যশোরের ঐতিহ্যবাহী মেসার্স ফারহান এন্টারপ্রাইজ ও এস এম ডোর বিশ্বস্ততার সাথে আসল কাঠের দরজা, সাইজ কাঠ ও ফার্নিচার সরবরাহ করে আসছে।",
 };
 
 export const revalidate = 0;
 
 export default function AboutPage() {
   const siteSettings = db.getSiteSettings();
-  const whatsapp = siteSettings.whatsappNumber || "+8801819345678";
-  const phone = siteSettings.phone1 || "+8801819345678";
+  const whatsapp = siteSettings.whatsappNumber || "+8801710820987";
+  const phone = siteSettings.phone1 || "+880 1710-820987";
 
   return (
     <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950">
@@ -31,10 +31,10 @@ export default function AboutPage() {
             আমাদের ঐতিহ্য
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif mb-4">
-            এস এম ডোর — খাঁটি কাঠের বিশ্বস্ত ঠিকানা
+            মেসার্স ফারহান এন্টারপ্রাইজ — খাঁটি কাঠের বিশ্বস্ত ঠিকানা
           </h1>
           <p className="max-w-2xl mx-auto text-sm sm:text-base text-wood-300">
-            ২০০০ সাল থেকে চট্টগ্রামের মাঝিরঘাট ও নাসিরাবাদে নিজস্ব স’মিল ও সিজনিং প্ল্যান্টের মাধ্যমে সততা ও আভিজাত্যের সাথে কাঠের সেবা প্রদান।
+            যশোরের ঝিকরগাছায় (বাদে নাভারন) নিজস্ব স’মিল ও সিজনিং প্ল্যান্টের মাধ্যমে সততা ও আভিজাত্যের সাথে কাঠের সেবা প্রদান।
           </p>
         </div>
       </section>

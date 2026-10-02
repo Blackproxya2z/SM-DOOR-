@@ -43,16 +43,33 @@ export function Header({ initialSettings }: HeaderProps) {
   }, []);
 
   useEffect(() => {
-    if (!initialSettings) {
-      fetch('/api/settings')
-        .then(res => res.json())
-        .then(data => {
-          if (data.success && data.settings) {
-            setSettings(data.settings);
-          }
-        })
-        .catch(() => {});
+    if (initialSettings) {
+      setSettings(initialSettings);
     }
+
+    try {
+      const stored = localStorage.getItem('sm_door_settings');
+      if (stored) {
+        setSettings(JSON.parse(stored));
+      }
+    } catch {}
+
+    fetch('/api/settings')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.settings) {
+          setSettings(data.settings);
+        }
+      })
+      .catch(() => {});
+
+    const handleUpdate = (e: any) => {
+      if (e.detail) {
+        setSettings(e.detail);
+      }
+    };
+    window.addEventListener('sm_settings_updated', handleUpdate);
+    return () => window.removeEventListener('sm_settings_updated', handleUpdate);
   }, [initialSettings]);
 
   // Close mobile drawer and dropdown on route change
@@ -108,8 +125,8 @@ export function Header({ initialSettings }: HeaderProps) {
 
   const factoryMenu = [
     { href: '/factory', labelBn: 'ট্রিটমেন্ট ও সিজনিং প্ল্যান্ট', labelEn: 'Treatment & Plant Tour', descBn: 'ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট ও সিজনিং', descEn: 'Vacuum chemical treatment & seasoning' },
-    { href: '/about', labelBn: 'আমাদের পরিচিতি', labelEn: 'About Farhan Enterprise', descBn: 'বাঘাড়পাড়া, যশোরে বিশ্বস্ত সেবা', descEn: 'Trusted timber craftsmanship in Jashore' },
-    { href: '/contact', labelBn: 'শোরুম ও যোগাযোগ', labelEn: 'Showrooms & Contact', descBn: 'আকিজ কলজিয়েট স্কুলের পাশে, বাঘাড়পাড়া', descEn: 'Near Akij Collegiate School, Bagharpara' },
+    { href: '/about', labelBn: 'আমাদের পরিচিতি', labelEn: 'About Farhan Enterprise', descBn: 'ঝিকরগাছা, যশোরে বিশ্বস্ত সেবা', descEn: 'Trusted timber craftsmanship in Jashore' },
+    { href: '/contact', labelBn: 'শোরুম ও যোগাযোগ', labelEn: 'Showrooms & Contact', descBn: 'আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে, ঝিকরগাছা', descEn: 'West side of Akij Collegiate School, Jhikargachha' },
   ];
 
   return (

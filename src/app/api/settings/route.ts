@@ -3,10 +3,20 @@ import { db } from '@/lib/db';
 import { isAuthenticatedAdmin } from '@/lib/auth';
 import { revalidatePath } from 'next/cache';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const settings = db.getSiteSettings();
-    return NextResponse.json({ success: true, settings });
+    return NextResponse.json(
+      { success: true, settings },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+        },
+      }
+    );
   } catch (error) {
     console.error('Error getting settings:', error);
     return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
@@ -24,22 +34,34 @@ export async function PUT(request: NextRequest) {
 
     try {
       revalidatePath('/', 'layout');
+      revalidatePath('/', 'page');
       revalidatePath('/contact');
       revalidatePath('/about');
       revalidatePath('/doors');
-      revalidatePath('/catalog');
+      revalidatePath('/calculator');
+      revalidatePath('/wood');
+      revalidatePath('/factory');
+      revalidatePath('/custom-order');
     } catch (e) {
       console.warn('Revalidation warning:', e);
     }
 
-    return NextResponse.json({ 
-      success: true, 
-      settings: updated,
-      messageBn: 'আপডেট সফল হয়েছে। ওয়েবসাইটে দেখা যাচ্ছে।',
-      messageEn: 'Update successful. Changes are now live on website.'
-    });
+    return NextResponse.json(
+      { 
+        success: true, 
+        settings: updated,
+        messageBn: 'আপডেট সফল হয়েছে। ওয়েবসাইটে দেখা যাচ্ছে।',
+        messageEn: 'Update successful. Changes are now live on website.'
+      },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+        },
+      }
+    );
   } catch (error) {
     console.error('Error updating settings:', error);
     return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
   }
 }
+

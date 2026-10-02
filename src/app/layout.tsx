@@ -14,7 +14,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "মেসার্স ফারহান এন্টারপ্রাইজ / এস এম ডোর — প্রিমিয়াম কাঠের দরজা, চেরা কাঠ ও স’মিল",
-  description: "বাঘাড়পাড়া, যশোরের ঐতিহ্যবাহী মেসার্স ফারহান এন্টারপ্রাইজ ও এস এম ডোর। খাঁটি চিটাগাং সেগুন, সিজনড মেহগনি ও গামারি কাঠের সলিড দরজা, চৌকাঠ ও চেরা কাঠ। লাইভ সিএফটি ক্যালকুলেটর ও কাস্টম ডিজাইন অর্ডার।",
+  description: "বাদে নাভারন, ঝিকরগাছা, যশোরের ঐতিহ্যবাহী মেসার্স ফারহান এন্টারপ্রাইজ ও এস এম ডোর। খাঁটি চিটাগাং সেগুন, সিজনড মেহগনি ও গামারি কাঠের সলিড দরজা, চৌকাঠ ও চেরা কাঠ। লাইভ সিএফটি ক্যালকুলেটর ও কাস্টম ডিজাইন অর্ডার।",
   keywords: [
     "SM Door",
     "এস এম ডোর",
@@ -60,13 +60,13 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "HomeGoodsStore",
     "name": "M/S Farhan Enterprise / SM Door (মেসার্স ফারহান এন্টারপ্রাইজ)",
-    "description": "Premium Wooden Doors, Sawn Timber & Sawmill Complex in Bagharpara, Jashore, Bangladesh",
+    "description": "Premium Wooden Doors, Sawn Timber & Sawmill Complex in Bade Nabaran, Jhikargachha, Jashore, Bangladesh",
     "url": "https://smdoorbd.com",
     "telephone": "+8801710820987",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "West Side of Akij Collegiate School",
-      "addressLocality": "Bagharpara",
+      "streetAddress": "Bade Nabaran, West Side of Akij Collegiate School",
+      "addressLocality": "Jhikargachha",
       "addressRegion": "Jashore",
       "addressCountry": "BD"
     },

@@ -150,7 +150,7 @@ export function HeroSlider({ banners }: HeroSliderProps) {
               </div>
               <div className="min-w-0">
                 <p className="text-xs sm:text-sm font-bold text-white tracking-wide truncate">{t.hero.statsYears}</p>
-                <p className="text-[10px] sm:text-xs text-wood-400 truncate">{language === 'bn' ? 'বাঘাড়পাড়া, যশোর' : 'Jashore Heritage'}</p>
+                <p className="text-[10px] sm:text-xs text-wood-400 truncate">{language === 'bn' ? 'ঝিকরগাছা, যশোর' : 'Jashore Heritage'}</p>
               </div>
             </div>
 

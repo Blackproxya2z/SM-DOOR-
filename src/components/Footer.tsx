@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SiteSettings } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
@@ -19,8 +19,43 @@ interface FooterProps {
   settings?: SiteSettings;
 }
 
-export function Footer({ settings }: FooterProps) {
+export function Footer({ settings: initialSettings }: FooterProps) {
   const { language, t } = useLanguage();
+  const [settings, setSettings] = useState<SiteSettings | undefined>(initialSettings);
+
+  React.useEffect(() => {
+    // 1. Initial settings prop
+    if (initialSettings) {
+      setSettings(initialSettings);
+    }
+
+    // 2. Check localStorage for instant live preview of admin edits
+    try {
+      const stored = localStorage.getItem('sm_door_settings');
+      if (stored) {
+        setSettings(JSON.parse(stored));
+      }
+    } catch {}
+
+    // 3. Fresh fetch from dynamic API
+    fetch('/api/settings')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.settings) {
+          setSettings(data.settings);
+        }
+      })
+      .catch(() => {});
+
+    // 4. Listen for real-time admin settings update event
+    const handleUpdate = (e: any) => {
+      if (e.detail) {
+        setSettings(e.detail);
+      }
+    };
+    window.addEventListener('sm_settings_updated', handleUpdate);
+    return () => window.removeEventListener('sm_settings_updated', handleUpdate);
+  }, [initialSettings]);
 
   const businessName = language === 'bn'
     ? (settings?.siteNameBn || t.brand.name)
@@ -226,7 +261,7 @@ export function Footer({ settings }: FooterProps) {
           </div>
 
           <div className="text-[11px] text-stone-500">
-            <span>বাঘাড়পাড়া, যশোর, বাংলাদেশ</span>
+            <span>{language === 'bn' ? 'বাদে নাভারন, ঝিকরগাছা, যশোর, বাংলাদেশ' : 'Bade Nabaran, Jhikargachha, Jashore, Bangladesh'}</span>
           </div>
         </div>
       </div>

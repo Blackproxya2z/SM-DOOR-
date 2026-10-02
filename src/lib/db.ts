@@ -780,13 +780,13 @@ const initialProducts: Product[] = [
       "নিখুঁত ১০ মিমি গভীর থ্রিডি ফ্লোরাল আর্ট",
       "ট্রিটমেন্ট কাঠ দ্বারা প্রস্তুত (উইপোকা প্রতিরোধী)",
       "স্মুথ ও রেশমি ল্যাকার কোটিং",
-      "যশোর বাঘাড়পাড়া ফ্যাক্টরিতে তৈরি"
+      "যশোর ঝিকরগাছা ফ্যাক্টরিতে তৈরি"
     ],
     "featuresEn": [
       "Precision 10mm 3D floral carving",
       "Treated wood construction (anti-termite)",
       "Silky high-end lacquer coating",
-      "Crafted at Bagharpara, Jashore facility"
+      "Crafted at Jhikargachha, Jashore facility"
     ],
     "specifications": {
       "standardHeight": "৮১\" (৬.৭৫ ফুট)",
@@ -1759,13 +1759,13 @@ const initialProducts: Product[] = [
       "যেকোনো ছবি বা নকশা দেখে ১০০% মিল রেখে তৈরি",
       "যেকোনো কাস্টম সাইজ ও কাঠের নির্বাচনে প্রস্তুত",
       "ট্রিটমেন্ট কাঠ দ্বারা সুরক্ষিত",
-      "বাঘাড়পাড়া, যশোরে নিজস্ব ওয়ার্কশপে সরাসরি তৈরি"
+      "ঝিকরগাছা, যশোরে নিজস্ব ওয়ার্কশপে সরাসরি তৈরি"
     ],
     "featuresEn": [
       "Fabricated to exact match of your photo or blueprint",
       "Custom sizes and wood species selection",
       "Treated seasoned timber guarantees zero warp",
-      "Crafted at Bagharpara, Jashore workshop"
+      "Crafted at Jhikargachha, Jashore workshop"
     ],
     "specifications": {
       "standardHeight": "গ্রাহকের প্রয়োজন অনুযায়ী",
@@ -1972,8 +1972,8 @@ const initialReviews: Review[] = [
     "id": "rev-2",
     "authorNameBn": "ইঞ্জিনিয়ার মোঃ তারিকুল ইসলাম",
     "authorNameEn": "Engr. Md. Tariqul Islam",
-    "locationBn": "বাঘাড়পাড়া, যশোর",
-    "locationEn": "Bagharpara, Jashore",
+    "locationBn": "ঝিকরগাছা, যশোর",
+    "locationEn": "Jhikargachha, Jashore",
     "rating": 5,
     "commentBn": "ফারহান এন্টারপ্রাইজের ট্রিটমেন্ট কাঠ এবং স’মিল চেরাই কাঠের মাপ অত্যন্ত নির্ভুল। আমাদের বিল্ডিং প্রজেক্টের সমস্ত সাইজ কাঠ এখান থেকেই নিয়েছি। আব্দুস সালাম খাঁন ভাইয়ের ব্যবহার ও সার্ভিস প্রশংসনীয়।",
     "commentEn": "Exact band-sawn dimensions and high quality vacuum treated timber. Proprietor Abdus Salam Khan provides exceptional service.",
@@ -2012,18 +2012,18 @@ const initialSiteSettings: SiteSettings = {
   "whatsappNumber": "+8801710820987",
   "whatsappNumberSecondary": "+8801942237399",
   "email": "farhanenterprise.jashore@gmail.com",
-  "addressBn": "আকিজ কলজিয়েট স্কুলের পশ্চিম পার্শে, বাঘাড়পাড়া, যশোর",
-  "addressEn": "West side of Akij Collegiate School, Bagharpara, Jashore",
+  "addressBn": "বাদে নাভারন, আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে , ঝিকরগাছা ,যশোর",
+  "addressEn": "Bade Nabaran, West Side of Akij Collegiate School, Jhikargachha, Jashore",
   "locationCity": "Jashore",
-  "sawmillAddressBn": "আকিজ কলজিয়েট স্কুলের পশ্চিম পার্শে, বাঘাড়পাড়া, যশোর",
-  "sawmillAddressEn": "West side of Akij Collegiate School, Bagharpara, Jashore",
-  "showroomAddressBn": "আকিজ কলজিয়েট স্কুলের পশ্চিম পার্শে, বাঘাড়পাড়া, যশোর",
-  "showroomAddressEn": "West side of Akij Collegiate School, Bagharpara, Jashore",
+  "sawmillAddressBn": "বাদে নাভারন, আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে , ঝিকরগাছা ,যশোর",
+  "sawmillAddressEn": "Bade Nabaran, West Side of Akij Collegiate School, Jhikargachha, Jashore",
+  "showroomAddressBn": "বাদে নাভারন, আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে , ঝিকরগাছা ,যশোর",
+  "showroomAddressEn": "Bade Nabaran, West Side of Akij Collegiate School, Jhikargachha, Jashore",
   "facebookUrl": "https://facebook.com",
   "youtubeUrl": "https://youtube.com",
-  "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117565.48590632517!2d89.15545876426462!3d23.167812543229618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff108eb950ecbd%3A0xa6ebbb1a5b88c74a!2sBagharpara%2C%20Jashore!5e0!3m2!1sen!2sbd!4v1710000000000",
-  "noticeTextBn": "আমাদের বাঘাড়পাড়া শোরুম ও স’মিলে সরাসরি পরিদর্শনের আমন্ত্রণ রইলো।",
-  "noticeTextEn": "Welcome to visit our Bagharpara showroom and sawmill facility in Jashore.",
+  "mapEmbedUrl": "https://maps.google.com/maps?q=Akij+Collegiate+School+Navaran+Jhikargachha+Jashore&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  "noticeTextBn": "আমাদের শোরুম ও স’মিলে সরাসরি পরিদর্শনের আমন্ত্রণ রইলো। বাদে নাভারন, ঝিকরগাছা, যশোর।",
+  "noticeTextEn": "Welcome to visit our showroom and sawmill facility at Bade Nabaran, Jhikargachha, Jashore.",
   "isNoticeActive": true,
   "bkashNumber": "",
   "nagadNumber": "01942-237399 (ব্যক্তিগত / পার্সোনাল)"
@@ -2110,8 +2110,8 @@ const initialInquiries: CustomOrderInquiry[] = [
     "customerName": "ইঞ্জিনিয়ার মোশাররফ হোসেন",
     "customerPhone": "01911-987654",
     "customerWhatsApp": "01911-987654",
-    "customerDistrict": "বাঘাড়পাড়া, যশোর",
-    "deliveryAddress": "বাঘাড়পাড়া কলেজ রোড, যশোর",
+    "customerDistrict": "ঝিকরগাছা, যশোর",
+    "deliveryAddress": "বাদে নাভারন, ঝিকরগাছা, যশোর",
     "productType": "bed",
     "woodSpeciesId": "seasoned-mahogany",
     "woodSpeciesName": "সিজনড মেহগনি",
@@ -2134,8 +2134,9 @@ const initialInquiries: CustomOrderInquiry[] = [
   }
 ];
 
-// Persistent File path
+// Persistent File paths
 const DB_FILE_PATH = path.join(process.cwd(), 'data', 'db.json');
+const TMP_DB_PATH = path.join(process.platform === 'win32' ? (process.env.TEMP || process.cwd()) : '/tmp', 'sm_door_db.json');
 
 // In-Memory cache for superfast reads and serverless fallback
 let dbCache: DatabaseSchema | null = null;
@@ -2145,6 +2146,21 @@ function loadDatabase(): DatabaseSchema {
     return dbCache;
   }
 
+  // 1. Try reading from /tmp persistence (holds runtime admin updates on serverless/Vercel)
+  try {
+    if (fs.existsSync(TMP_DB_PATH)) {
+      const content = fs.readFileSync(TMP_DB_PATH, 'utf-8');
+      const parsed = JSON.parse(content);
+      if (parsed && parsed.siteSettings && Array.isArray(parsed.products)) {
+        dbCache = parsed;
+        return dbCache!;
+      }
+    }
+  } catch {
+    // fallback
+  }
+
+  // 2. Try reading from project bundle data/db.json
   try {
     if (fs.existsSync(DB_FILE_PATH)) {
       const content = fs.readFileSync(DB_FILE_PATH, 'utf-8');
@@ -2174,17 +2190,33 @@ function loadDatabase(): DatabaseSchema {
 
 function saveDatabase(data: DatabaseSchema): boolean {
   dbCache = data;
+  let saved = false;
+
+  // Try writing to data/db.json (works in local dev / persistent disk)
   try {
     const dir = path.dirname(DB_FILE_PATH);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
     fs.writeFileSync(DB_FILE_PATH, JSON.stringify(data, null, 2), 'utf-8');
-    return true;
-  } catch (err) {
-    console.warn("Could not persist database to disk (e.g. read-only serverless filesystem):", err);
-    return false;
+    saved = true;
+  } catch {
+    // Read-only filesystem on Vercel lambda - expected
   }
+
+  // Also write to /tmp (writable on Vercel lambda and OS temp)
+  try {
+    const tmpDir = path.dirname(TMP_DB_PATH);
+    if (!fs.existsSync(tmpDir)) {
+      fs.mkdirSync(tmpDir, { recursive: true });
+    }
+    fs.writeFileSync(TMP_DB_PATH, JSON.stringify(data, null, 2), 'utf-8');
+    saved = true;
+  } catch (err) {
+    console.warn("Could not persist to tmp db:", err);
+  }
+
+  return saved;
 }
 
 // Database Operations
