@@ -2176,7 +2176,7 @@ function loadDatabase(): DatabaseSchema {
     reviews: initialReviews,
     siteSettings: initialSiteSettings,
     sawmillServices: initialSawmillServices,
-    adminPin: "123456"
+    adminPin: process.env.ADMIN_PASSWORD || ""
   };
 
   saveDatabase(defaultDb);
@@ -2436,11 +2436,11 @@ export const db = {
   // Admin PIN verification
   verifyAdminPin(pin: string): boolean {
     const envPassword = process.env.ADMIN_PASSWORD || process.env.ADMIN_PIN;
-    if (envPassword && pin === envPassword) {
-      return true;
+    if (envPassword) {
+      return pin === envPassword;
     }
     const data = loadDatabase();
-    return pin === data.adminPin || pin === "admin123" || pin === "123456";
+    return Boolean(data.adminPin && pin === data.adminPin);
   },
   updateAdminPin(newPin: string): boolean {
     if (!newPin || newPin.length < 4) return false;

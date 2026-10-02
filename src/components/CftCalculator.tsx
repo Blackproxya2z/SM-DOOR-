@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useStringNumberInput } from '@/hooks/useStringNumberInput';
 import { WoodSpecies, CalculatorRates } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { useQuote } from '@/context/QuoteContext';
@@ -44,93 +45,76 @@ export function CftCalculator({
   const [speciesList, setSpeciesList] = useState<WoodSpecies[]>(initialSpecies);
   const [rates, setRates] = useState<CalculatorRates>(initialRates);
 
-  // Sawn Timber State (string states allow clearing, backspacing to empty, and no 0-deletion bug)
-  const [sawnLengthFeet, setSawnLengthFeet] = useState<string>("7");
-  const [sawnLengthInches, setSawnLengthInches] = useState<string>("0");
-  const [sawnWidthInches, setSawnWidthInches] = useState<string>("10");
-  const [sawnThicknessInches, setSawnThicknessInches] = useState<string>("1.5");
-  const [sawnQuantity, setSawnQuantity] = useState<string>("1");
+  // Sawn Timber State using useStringNumberInput hook
+  const sawnLengthFeetInput = useStringNumberInput("7", { placeholder: "7" });
+  const sawnLengthInchesInput = useStringNumberInput("0", { placeholder: "0", max: 11 });
+  const sawnWidthInchesInput = useStringNumberInput("10", { placeholder: "10" });
+  const sawnThicknessInchesInput = useStringNumberInput("1.5", { placeholder: "1.5" });
+  const sawnQuantityInput = useStringNumberInput("1", { allowDecimal: false, placeholder: "1", min: 1 });
   const [sawnSpeciesId, setSawnSpeciesId] = useState<string>(initialSpecies[0]?.id || 'ctg-teak');
-  const [customSawnRate, setCustomSawnRate] = useState<string>('');
+  const customSawnRateInput = useStringNumberInput("", { placeholder: "Default" });
 
-  // Round Log State
-  const [logLengthFeet, setLogLengthFeet] = useState<string>("10");
-  const [logLengthInches, setLogLengthInches] = useState<string>("0");
-  const [logGirthInches, setLogGirthInches] = useState<string>("36");
-  const [logQuantity, setLogQuantity] = useState<string>("1");
+  // Round Log State using useStringNumberInput hook
+  const logLengthFeetInput = useStringNumberInput("10", { placeholder: "10" });
+  const logLengthInchesInput = useStringNumberInput("0", { placeholder: "0", max: 11 });
+  const logGirthInchesInput = useStringNumberInput("36", { placeholder: "36" });
+  const logQuantityInput = useStringNumberInput("1", { allowDecimal: false, placeholder: "1", min: 1 });
   const [logSpeciesId, setLogSpeciesId] = useState<string>(initialSpecies[0]?.id || 'ctg-teak');
-  const [customLogRate, setCustomLogRate] = useState<string>('');
+  const customLogRateInput = useStringNumberInput("", { placeholder: "Default" });
 
-  // Door Frame (চৌকাঠ) State
-  const [frameHeightFeet, setFrameHeightFeet] = useState<string>("7");
-  const [frameHeightInches, setFrameHeightInches] = useState<string>("0");
-  const [frameWidthFeet, setFrameWidthFeet] = useState<string>("3.25"); // 39 inches = 3.25 ft
+  // Door Frame (চৌকাঠ) State using useStringNumberInput hook
+  const frameHeightFeetInput = useStringNumberInput("7", { placeholder: "7" });
+  const frameHeightInchesInput = useStringNumberInput("0", { placeholder: "0", max: 11 });
+  const frameWidthFeetInput = useStringNumberInput("3.25", { placeholder: "3.25" });
   const [frameSectionW, setFrameSectionW] = useState<number>(5); // 5 inches
   const [frameSectionT, setFrameSectionT] = useState<number>(2.5); // 2.5 inches
-  const [frameQuantity, setFrameQuantity] = useState<string>("1");
+  const frameQuantityInput = useStringNumberInput("1", { allowDecimal: false, placeholder: "1", min: 1 });
   const [frameSpeciesId, setFrameSpeciesId] = useState<string>('sal-wood');
   const [includeTreatment, setIncludeTreatment] = useState<boolean>(true);
-  const [customFrameRate, setCustomFrameRate] = useState<string>('');
-
-  // Parsed numeric values for calculation
-  const parsedSawnLengthFeet = parseFloat(sawnLengthFeet) || 0;
-  const parsedSawnLengthInches = parseFloat(sawnLengthInches) || 0;
-  const parsedSawnWidthInches = parseFloat(sawnWidthInches) || 0;
-  const parsedSawnThicknessInches = parseFloat(sawnThicknessInches) || 0;
-  const parsedSawnQuantity = parseInt(sawnQuantity) || 0;
-
-  const parsedLogLengthFeet = parseFloat(logLengthFeet) || 0;
-  const parsedLogLengthInches = parseFloat(logLengthInches) || 0;
-  const parsedLogGirthInches = parseFloat(logGirthInches) || 0;
-  const parsedLogQuantity = parseInt(logQuantity) || 0;
-
-  const parsedFrameHeightFeet = parseFloat(frameHeightFeet) || 0;
-  const parsedFrameHeightInches = parseFloat(frameHeightInches) || 0;
-  const parsedFrameWidthFeet = parseFloat(frameWidthFeet) || 0;
-  const parsedFrameQuantity = parseInt(frameQuantity) || 0;
+  const customFrameRateInput = useStringNumberInput("", { placeholder: "Default" });
 
   // Effective Rates
-  const effectiveSawnRate = customSawnRate.trim() !== '' 
-    ? (parseFloat(customSawnRate) || 0) 
+  const effectiveSawnRate = customSawnRateInput.value.trim() !== '' 
+    ? customSawnRateInput.numericValue 
     : (rates.woodSpeciesRates[sawnSpeciesId] || 1650);
 
-  const effectiveLogRate = customLogRate.trim() !== '' 
-    ? (parseFloat(customLogRate) || 0) 
+  const effectiveLogRate = customLogRateInput.value.trim() !== '' 
+    ? customLogRateInput.numericValue 
     : (rates.roundLogRates[logSpeciesId] || 1200);
 
-  const effectiveFrameRate = customFrameRate.trim() !== '' 
-    ? (parseFloat(customFrameRate) || 0) 
+  const effectiveFrameRate = customFrameRateInput.value.trim() !== '' 
+    ? customFrameRateInput.numericValue 
     : (rates.woodSpeciesRates[frameSpeciesId] || 2200);
 
   // Calculations
   const sawnResult = calculateSawnTimberCFT({
-    lengthFeet: parsedSawnLengthFeet,
-    lengthInches: parsedSawnLengthInches,
-    widthInches: parsedSawnWidthInches,
-    thicknessInches: parsedSawnThicknessInches,
-    quantity: parsedSawnQuantity,
+    lengthFeet: sawnLengthFeetInput.numericValue,
+    lengthInches: sawnLengthInchesInput.numericValue,
+    widthInches: sawnWidthInchesInput.numericValue,
+    thicknessInches: sawnThicknessInchesInput.numericValue,
+    quantity: sawnQuantityInput.numericValue || 1,
     ratePerCft: effectiveSawnRate,
   });
 
   const logResult = calculateWoodLogCFT({
-    lengthFeet: parsedLogLengthFeet,
-    lengthInches: parsedLogLengthInches,
-    girthInches: parsedLogGirthInches,
-    quantity: parsedLogQuantity,
+    lengthFeet: logLengthFeetInput.numericValue,
+    lengthInches: logLengthInchesInput.numericValue,
+    girthInches: logGirthInchesInput.numericValue,
+    quantity: logQuantityInput.numericValue || 1,
     ratePerCft: effectiveLogRate,
   });
 
   const frameResult = calculateDoorFrame({
-    doorHeightFeet: parsedFrameHeightFeet,
-    doorHeightInches: parsedFrameHeightInches,
-    doorWidthFeet: parsedFrameWidthFeet,
+    doorHeightFeet: frameHeightFeetInput.numericValue,
+    doorHeightInches: frameHeightInchesInput.numericValue,
+    doorWidthFeet: frameWidthFeetInput.numericValue,
     sectionWidthInches: frameSectionW,
     sectionThicknessInches: frameSectionT,
     woodRatePerCft: effectiveFrameRate,
     laborRatePerPiece: rates.chowkathLaborRatePerPiece,
     seasoningRatePerCft: rates.seasoningRatePerCft,
     includeSeasoning: includeTreatment,
-    quantity: parsedFrameQuantity,
+    quantity: frameQuantityInput.numericValue || 1,
     wastagePercent: rates.standardWastePercentage,
   });
 
@@ -143,19 +127,34 @@ export function CftCalculator({
   const getWhatsAppQuoteText = () => {
     if (activeTab === 'sawn') {
       const speciesName = language === 'bn' ? sawnSpeciesObj?.nameBn : sawnSpeciesObj?.nameEn;
+      const lenFt = sawnLengthFeetInput.value || '0';
+      const lenIn = sawnLengthInchesInput.value;
+      const wIn = sawnWidthInchesInput.value || '0';
+      const tIn = sawnThicknessInchesInput.value || '0';
+      const qty = sawnQuantityInput.value || '1';
+
       return language === 'bn'
-        ? `*এস এম ডোর — চেরা কাঠ (Sawn Timber) সিএফটি কোটেশন*\n• কাঠ: ${speciesName}\n• সাইজ: ${sawnLengthFeet}'${sawnLengthInches ? ` ${sawnLengthInches}"` : ''} × ${sawnWidthInches}" × ${sawnThicknessInches}"\n• পরিমাণ: ${sawnQuantity} পিস\n• প্রতি পিস CFT: ${sawnResult.singleItemCft}\n• মোট CFT: ${sawnResult.totalCft}\n• রেট: ${formatPrice(effectiveSawnRate)} / CFT\n*মোট আনুমানিক মূল্য: ${formatPrice(sawnResult.totalPrice)}*\n\nআমি এই পরিমাপে অর্ডার/কনফার্ম করতে চাই।`
-        : `*SM Door — Sawn Timber CFT Quotation*\n• Timber: ${speciesName}\n• Size: ${sawnLengthFeet}' × ${sawnWidthInches}" × ${sawnThicknessInches}"\n• Qty: ${sawnQuantity} pcs\n• Single CFT: ${sawnResult.singleItemCft}\n• Total CFT: ${sawnResult.totalCft}\n• Rate: ${formatPrice(effectiveSawnRate)} / CFT\n*Total Estimated Price: ${formatPrice(sawnResult.totalPrice)}*\n\nPlease confirm availability and delivery.`;
+        ? `*এস এম ডোর — চেরা কাঠ (Sawn Timber) সিএফটি কোটেশন*\n• কাঠ: ${speciesName}\n• সাইজ: ${lenFt}'${lenIn ? ` ${lenIn}"` : ''} × ${wIn}" × ${tIn}"\n• পরিমাণ: ${qty} পিস\n• প্রতি পিস CFT: ${sawnResult.singleItemCft}\n• মোট CFT: ${sawnResult.totalCft}\n• রেট: ${formatPrice(effectiveSawnRate)} / CFT\n*মোট আনুমানিক মূল্য: ${formatPrice(sawnResult.totalPrice)}*\n\nআমি এই পরিমাপে অর্ডার/কনফার্ম করতে চাই।`
+        : `*SM Door — Sawn Timber CFT Quotation*\n• Timber: ${speciesName}\n• Size: ${lenFt}' × ${wIn}" × ${tIn}"\n• Qty: ${qty} pcs\n• Single CFT: ${sawnResult.singleItemCft}\n• Total CFT: ${sawnResult.totalCft}\n• Rate: ${formatPrice(effectiveSawnRate)} / CFT\n*Total Estimated Price: ${formatPrice(sawnResult.totalPrice)}*\n\nPlease confirm availability and delivery.`;
     } else if (activeTab === 'log') {
       const speciesName = language === 'bn' ? logSpeciesObj?.nameBn : logSpeciesObj?.nameEn;
+      const lenFt = logLengthFeetInput.value || '0';
+      const lenIn = logLengthInchesInput.value;
+      const girthIn = logGirthInchesInput.value || '0';
+      const qty = logQuantityInput.value || '1';
+
       return language === 'bn'
-        ? `*এস এম ডোর — গোল কাঠ (Wood Log) সিএফটি কোটেশন*\n• কাঠ: ${speciesName}\n• দৈর্ঘ্য: ${logLengthFeet}'${logLengthInches ? ` ${logLengthInches}"` : ''}, বেড়: ${logGirthInches}"\n• পরিমাণ: ${logQuantity} পিস\n• মোট CFT: ${logResult.totalCft} (Hoppus Rule)\n• রেট: ${formatPrice(effectiveLogRate)} / CFT\n*মোট মূল্য: ${formatPrice(logResult.totalPrice)}*`
-        : `*SM Door — Round Log CFT Quotation*\n• Timber: ${speciesName}\n• Length: ${logLengthFeet}', Girth: ${logGirthInches}"\n• Qty: ${logQuantity}\n• Total CFT: ${logResult.totalCft}\n• Rate: ${formatPrice(effectiveLogRate)} / CFT\n*Total Price: ${formatPrice(logResult.totalPrice)}*`;
+        ? `*এস এম ডোর — গোল কাঠ (Wood Log) সিএফটি কোটেশন*\n• কাঠ: ${speciesName}\n• দৈর্ঘ্য: ${lenFt}'${lenIn ? ` ${lenIn}"` : ''}, বেড়: ${girthIn}"\n• পরিমাণ: ${qty} পিস\n• মোট CFT: ${logResult.totalCft} (Hoppus Rule)\n• রেট: ${formatPrice(effectiveLogRate)} / CFT\n*মোট মূল্য: ${formatPrice(logResult.totalPrice)}*`
+        : `*SM Door — Round Log CFT Quotation*\n• Timber: ${speciesName}\n• Length: ${lenFt}', Girth: ${girthIn}"\n• Qty: ${qty}\n• Total CFT: ${logResult.totalCft}\n• Rate: ${formatPrice(effectiveLogRate)} / CFT\n*Total Price: ${formatPrice(logResult.totalPrice)}*`;
     } else {
       const speciesName = language === 'bn' ? frameSpeciesObj?.nameBn : frameSpeciesObj?.nameEn;
+      const hFt = frameHeightFeetInput.value || '0';
+      const wFt = frameWidthFeetInput.value || '0';
+      const qty = frameQuantityInput.value || '1';
+
       return language === 'bn'
-        ? `*এস এম ডোর — চৌকাঠ (Door Frame) কোটেশন*\n• কাঠ: ${speciesName}\n• দরজার মাপ: ${frameHeightFeet}' × ${frameWidthFeet}'\n• চৌকাঠের ক্রস-সেকশন: ${frameSectionW}" × ${frameSectionT}"\n• পরিমাণ: ${frameQuantity} সেট\n• প্রয়োজনীয় গ্রস কাঠ: ${frameResult.grossCftWithWastage} CFT\n• প্রতিটি চৌকাঠের খরচ: ${formatPrice(frameResult.costPerFrame)}\n*সর্বমোট প্রাক্কলন: ${formatPrice(frameResult.totalCost)}*\n(কাঠ, রাবিট কাটিং মজুরি ও সিজনিং সহ)`
-        : `*SM Door — Door Frame (Chowkath) Quotation*\n• Timber: ${speciesName}\n• Opening: ${frameHeightFeet}' × ${frameWidthFeet}'\n• Frame Section: ${frameSectionW}" × ${frameSectionT}"\n• Qty: ${frameQuantity} sets\n• Total Timber: ${frameResult.grossCftWithWastage} CFT\n*Total Estimate: ${formatPrice(frameResult.totalCost)}*`;
+        ? `*এস এম ডোর — চৌকাঠ (Door Frame) কোটেশন*\n• কাঠ: ${speciesName}\n• দরজার মাপ: ${hFt}' × ${wFt}'\n• চৌকাঠের ক্রস-সেকশন: ${frameSectionW}" × ${frameSectionT}"\n• পরিমাণ: ${qty} সেট\n• প্রয়োজনীয় গ্রস কাঠ: ${frameResult.grossCftWithWastage} CFT\n• প্রতিটি চৌকাঠের খরচ: ${formatPrice(frameResult.costPerFrame)}\n*সর্বমোট প্রাক্কলন: ${formatPrice(frameResult.totalCost)}*\n(কাঠ, রাবিট কাটিং মজুরি ও সিজনিং সহ)`
+        : `*SM Door — Door Frame (Chowkath) Quotation*\n• Timber: ${speciesName}\n• Opening: ${hFt}' × ${wFt}'\n• Frame Section: ${frameSectionW}" × ${frameSectionT}"\n• Qty: ${qty} sets\n• Total Timber: ${frameResult.grossCftWithWastage} CFT\n*Total Estimate: ${formatPrice(frameResult.totalCost)}*`;
     }
   };
 
@@ -174,33 +173,37 @@ export function CftCalculator({
         woodSpeciesEn: sawnSpeciesObj?.nameEn,
         measurementsBn: sawnResult.dimensionsSummaryBn,
         measurementsEn: sawnResult.dimensionsSummaryEn,
-        quantity: parsedSawnQuantity || 1,
+        quantity: sawnQuantityInput.numericValue || 1,
         sourceUrl: '/calculator/cft',
       });
     } else if (activeTab === 'log') {
+      const lenFt = logLengthFeetInput.value || '0';
+      const girthIn = logGirthInchesInput.value || '0';
       addItem({
         type: 'calculator',
         titleBn: `গোল কাঠ / গুঁড়ি (${logSpeciesObj?.nameBn || 'কাঠ'})`,
         titleEn: `Round Log (${logSpeciesObj?.nameEn || 'Log'})`,
-        subtitleBn: `দৈর্ঘ্য: ${logLengthFeet} ফুট, বেড়: ${logGirthInches} ইঞ্চি = ${logResult.totalCft} CFT`,
-        subtitleEn: `Length: ${logLengthFeet} ft, Girth: ${logGirthInches} in = ${logResult.totalCft} CFT`,
+        subtitleBn: `দৈর্ঘ্য: ${lenFt} ফুট, বেড়: ${girthIn} ইঞ্চি = ${logResult.totalCft} CFT`,
+        subtitleEn: `Length: ${lenFt} ft, Girth: ${girthIn} in = ${logResult.totalCft} CFT`,
         price: logResult.totalPrice,
         woodSpeciesBn: logSpeciesObj?.nameBn,
         woodSpeciesEn: logSpeciesObj?.nameEn,
-        quantity: parsedLogQuantity || 1,
+        quantity: logQuantityInput.numericValue || 1,
         sourceUrl: '/calculator/log',
       });
     } else {
+      const hFt = frameHeightFeetInput.value || '0';
+      const wFt = frameWidthFeetInput.value || '0';
       addItem({
         type: 'calculator',
         titleBn: `দরজার চৌকাঠ (${frameSpeciesObj?.nameBn || 'শাল কাঠ'})`,
         titleEn: `Door Frame (${frameSpeciesObj?.nameEn || 'Sal Wood'})`,
-        subtitleBn: `উচ্চতা: ${frameHeightFeet} ফুট, চওড়া: ${frameWidthFeet} ফুট (সেকশন: ${frameSectionW}" × ${frameSectionT}")`,
-        subtitleEn: `H: ${frameHeightFeet} ft, W: ${frameWidthFeet} ft (Section: ${frameSectionW}" × ${frameSectionT}")`,
+        subtitleBn: `উচ্চতা: ${hFt} ফুট, চওড়া: ${wFt} ফুট (সেকশন: ${frameSectionW}" × ${frameSectionT}")`,
+        subtitleEn: `H: ${hFt} ft, W: ${wFt} ft (Section: ${frameSectionW}" × ${frameSectionT}")`,
         price: frameResult.totalCost,
         woodSpeciesBn: frameSpeciesObj?.nameBn,
         woodSpeciesEn: frameSpeciesObj?.nameEn,
-        quantity: parsedFrameQuantity || 1,
+        quantity: frameQuantityInput.numericValue || 1,
         sourceUrl: '/calculator/frame',
       });
     }
@@ -281,7 +284,7 @@ export function CftCalculator({
                     value={sawnSpeciesId}
                     onChange={(e) => {
                       setSawnSpeciesId(e.target.value);
-                      setCustomSawnRate('');
+                      customSawnRateInput.setValue('');
                     }}
                     className="w-full px-4 py-3 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-medium text-wood-900 dark:text-white cursor-pointer shadow-sm"
                   >
@@ -301,10 +304,7 @@ export function CftCalculator({
                       {t.calculator.lengthFeet}
                     </label>
                     <input
-                      type="text"
-                      inputMode="decimal"
-                      value={sawnLengthFeet}
-                      onChange={(e) => setSawnLengthFeet(e.target.value)}
+                      {...sawnLengthFeetInput.inputProps}
                       placeholder="7"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
@@ -316,10 +316,7 @@ export function CftCalculator({
                       {t.calculator.lengthInches}
                     </label>
                     <input
-                      type="text"
-                      inputMode="decimal"
-                      value={sawnLengthInches}
-                      onChange={(e) => setSawnLengthInches(e.target.value)}
+                      {...sawnLengthInchesInput.inputProps}
                       placeholder="0"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
@@ -331,10 +328,7 @@ export function CftCalculator({
                       {t.calculator.widthInches}
                     </label>
                     <input
-                      type="text"
-                      inputMode="decimal"
-                      value={sawnWidthInches}
-                      onChange={(e) => setSawnWidthInches(e.target.value)}
+                      {...sawnWidthInchesInput.inputProps}
                       placeholder="10"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
@@ -346,10 +340,7 @@ export function CftCalculator({
                       {t.calculator.thicknessInches}
                     </label>
                     <input
-                      type="text"
-                      inputMode="decimal"
-                      value={sawnThicknessInches}
-                      onChange={(e) => setSawnThicknessInches(e.target.value)}
+                      {...sawnThicknessInchesInput.inputProps}
                       placeholder="1.5"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
@@ -363,10 +354,7 @@ export function CftCalculator({
                       {t.calculator.quantity}
                     </label>
                     <input
-                      type="text"
-                      inputMode="numeric"
-                      value={sawnQuantity}
-                      onChange={(e) => setSawnQuantity(e.target.value)}
+                      {...sawnQuantityInput.inputProps}
                       placeholder="1"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
@@ -377,11 +365,8 @@ export function CftCalculator({
                       {t.calculator.ratePerCft}
                     </label>
                     <input
-                      type="text"
-                      inputMode="decimal"
-                      value={customSawnRate}
+                      {...customSawnRateInput.inputProps}
                       placeholder={String(effectiveSawnRate)}
-                      onChange={(e) => setCustomSawnRate(e.target.value)}
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
                   </div>
@@ -404,7 +389,7 @@ export function CftCalculator({
                     value={logSpeciesId}
                     onChange={(e) => {
                       setLogSpeciesId(e.target.value);
-                      setCustomLogRate('');
+                      customLogRateInput.setValue('');
                     }}
                     className="w-full px-4 py-3 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-medium text-wood-900 dark:text-white cursor-pointer shadow-sm"
                   >
@@ -422,10 +407,7 @@ export function CftCalculator({
                       {t.calculator.lengthFeet}
                     </label>
                     <input
-                      type="text"
-                      inputMode="decimal"
-                      value={logLengthFeet}
-                      onChange={(e) => setLogLengthFeet(e.target.value)}
+                      {...logLengthFeetInput.inputProps}
                       placeholder="10"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
@@ -436,10 +418,7 @@ export function CftCalculator({
                       {t.calculator.girthInches} (ফিতা মাপ)
                     </label>
                     <input
-                      type="text"
-                      inputMode="decimal"
-                      value={logGirthInches}
-                      onChange={(e) => setLogGirthInches(e.target.value)}
+                      {...logGirthInchesInput.inputProps}
                       placeholder="36"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
@@ -450,10 +429,7 @@ export function CftCalculator({
                       {t.calculator.quantity}
                     </label>
                     <input
-                      type="text"
-                      inputMode="numeric"
-                      value={logQuantity}
-                      onChange={(e) => setLogQuantity(e.target.value)}
+                      {...logQuantityInput.inputProps}
                       placeholder="1"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
@@ -465,11 +441,8 @@ export function CftCalculator({
                     {t.calculator.ratePerCft} (গোল কাঠ)
                   </label>
                   <input
-                    type="text"
-                    inputMode="decimal"
-                    value={customLogRate}
+                    {...customLogRateInput.inputProps}
                     placeholder={String(effectiveLogRate)}
-                    onChange={(e) => setCustomLogRate(e.target.value)}
                     className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                   />
                 </div>
@@ -491,7 +464,7 @@ export function CftCalculator({
                     value={frameSpeciesId}
                     onChange={(e) => {
                       setFrameSpeciesId(e.target.value);
-                      setCustomFrameRate('');
+                      customFrameRateInput.setValue('');
                     }}
                     className="w-full px-4 py-3 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-medium text-wood-900 dark:text-white cursor-pointer shadow-sm"
                   >
@@ -509,10 +482,7 @@ export function CftCalculator({
                       {t.calculator.frameOpeningHeight}
                     </label>
                     <input
-                      type="text"
-                      inputMode="decimal"
-                      value={frameHeightFeet}
-                      onChange={(e) => setFrameHeightFeet(e.target.value)}
+                      {...frameHeightFeetInput.inputProps}
                       placeholder="7"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
@@ -523,10 +493,7 @@ export function CftCalculator({
                       {t.calculator.frameOpeningWidth}
                     </label>
                     <input
-                      type="text"
-                      inputMode="decimal"
-                      value={frameWidthFeet}
-                      onChange={(e) => setFrameWidthFeet(e.target.value)}
+                      {...frameWidthFeetInput.inputProps}
                       placeholder="3.25"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />
@@ -569,10 +536,7 @@ export function CftCalculator({
                       {t.calculator.frameQuantity}
                     </label>
                     <input
-                      type="text"
-                      inputMode="numeric"
-                      value={frameQuantity}
-                      onChange={(e) => setFrameQuantity(e.target.value)}
+                      {...frameQuantityInput.inputProps}
                       placeholder="1"
                       className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
                     />

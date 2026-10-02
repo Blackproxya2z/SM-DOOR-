@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
+import { RealtimeSyncProvider } from "@/context/RealtimeSyncContext";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -109,7 +110,9 @@ export default function RootLayout({
       <body className="antialiased selection:bg-gold-500 selection:text-wood-950">
         <LanguageProvider>
           <QuoteProvider>
-            {children}
+            <RealtimeSyncProvider>
+              {children}
+            </RealtimeSyncProvider>
           </QuoteProvider>
         </LanguageProvider>
       </body>

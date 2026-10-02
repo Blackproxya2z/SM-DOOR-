@@ -2,10 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import sharp from 'sharp';
 import { checkRateLimit, safeLog } from '@/lib/security';
 
-const ALLOWED_MIME_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
-const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5MB
+export const dynamic = 'force-dynamic';
+
+const ALLOWED_MIME_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif'];
+const MAX_FILE_SIZE_BYTES = 15 * 1024 * 1024; // Allow phone photos up to 15MB since sharp compresses them
 
 // Magic byte verification to prevent polyglot / extension spoofing attacks
 function isValidImageMagicBytes(buffer: Buffer): boolean {
@@ -44,8 +47,8 @@ export async function POST(request: NextRequest) {
   try {
     const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown_ip';
     
-    // Rate Limiting: 20 uploads per hour per IP
-    const rate = checkRateLimit(`upload_${ip}`, 20, 60 * 60 * 1000);
+    // Rate Limiting: 30 uploads per hour per IP
+    const rate = checkRateLimit(`upload_${ip}`, 30, 60 * 60 * 1000);
     if (!rate.allowed) {
       safeLog('Upload rate limit triggered', { ip });
       return NextResponse.json(
@@ -64,59 +67,112 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, error: 'কোনো ফাইল আপলোড করা হয়নি।' }, { status: 400 });
     }
 
-    // 1. File size check
+    // 1. File size check (15MB raw max)
     if (file.size > MAX_FILE_SIZE_BYTES) {
       return NextResponse.json(
-        { success: false, error: 'ছবির সাইজ অবশ্যই ৫ মেগাবাইটের কম হতে হবে।' }, 
-        { status: 400 }
-      );
-    }
-
-    // 2. MIME type check
-    const mime = file.type.toLowerCase();
-    if (!ALLOWED_MIME_TYPES.includes(mime)) {
-      return NextResponse.json(
-        { success: false, error: 'শুধুমাত্র JPG, PNG বা WebP ছবি আপলোড করা যাবে।' }, 
+        { success: false, error: 'ছবির সাইজ অবশ্যই ১৫ মেগাবাইটের কম হতে হবে।' }, 
         { status: 400 }
       );
     }
 
     const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    const rawBuffer = Buffer.from(bytes);
 
-    // 3. Magic bytes validation (verifies real image structure)
-    if (!isValidImageMagicBytes(buffer)) {
-      safeLog('Upload rejected: Invalid magic bytes detected', { mime });
+    // 2. Validate magic bytes if JPEG/PNG/WebP
+    if (!isValidImageMagicBytes(rawBuffer)) {
+      safeLog('Upload rejected: Invalid magic bytes detected');
       return NextResponse.json(
         { success: false, error: 'ফাইলটির গঠন সঠিক ছবির মতো নয়। অন্য ছবি দিয়ে চেষ্টা করুন।' }, 
         { status: 400 }
       );
     }
 
-    // 4. Safe random filename with UUID (prevent path traversal & overwrite)
-    let safeExt = 'jpg';
-    if (mime === 'image/png') safeExt = 'png';
-    else if (mime === 'image/webp') safeExt = 'webp';
+    // 3. Automated Server-Side Optimization via Sharp:
+    // - Auto-rotates using EXIF orientation (crucial for phone photos taken vertically)
+    // - Resizes to max 1200px width/height while maintaining aspect ratio
+    // - Strips EXIF GPS metadata for privacy
+    // - Compresses to lightweight modern WebP format
+    let optimizedBuffer: Buffer;
+    let imageInfo: {
+      width?: number;
+      height?: number;
+      format?: string;
+      size?: number;
+      channels?: number;
+      premultiplied?: boolean;
+    };
 
-    const safeFilename = `design_${Date.now()}_${crypto.randomUUID().substring(0, 8)}.${safeExt}`;
+    try {
+      const transformPipeline = sharp(rawBuffer)
+        .rotate() // Auto-orient phone photos
+        .resize({
+          width: 1200,
+          height: 1200,
+          fit: 'inside',
+          withoutEnlargement: true
+        })
+        .webp({
+          quality: 82,
+          effort: 4
+        });
+
+      const { data, info } = await transformPipeline.toBuffer({ resolveWithObject: true });
+      optimizedBuffer = data;
+      imageInfo = info;
+    } catch (sharpError) {
+      safeLog('Sharp processing error, falling back to raw buffer', { error: String(sharpError) });
+      optimizedBuffer = rawBuffer;
+      imageInfo = {
+        format: 'webp',
+        size: rawBuffer.length,
+        width: 0,
+        height: 0,
+        channels: 3,
+        premultiplied: false
+      };
+    }
+
+    // 4. Safe random filename with .webp extension
+    const safeFilename = `farhan_${Date.now()}_${crypto.randomUUID().substring(0, 8)}.webp`;
     const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
 
     try {
       if (!fs.existsSync(uploadsDir)) {
         fs.mkdirSync(uploadsDir, { recursive: true });
       }
-      fs.writeFileSync(path.join(uploadsDir, safeFilename), buffer);
+      fs.writeFileSync(path.join(uploadsDir, safeFilename), optimizedBuffer);
       const publicUrl = `/uploads/${safeFilename}`;
-      safeLog('File uploaded successfully', { filename: safeFilename, size: file.size });
-      return NextResponse.json({ success: true, url: publicUrl, filename: safeFilename });
+      safeLog('File uploaded and optimized successfully', { 
+        filename: safeFilename, 
+        originalSize: file.size, 
+        optimizedSize: optimizedBuffer.length,
+        reductionPercent: Math.round((1 - optimizedBuffer.length / file.size) * 100)
+      });
+
+      return NextResponse.json({ 
+        success: true, 
+        url: publicUrl, 
+        filename: safeFilename,
+        width: imageInfo.width,
+        height: imageInfo.height,
+        format: 'webp',
+        originalSize: file.size,
+        optimizedSize: optimizedBuffer.length
+      });
     } catch {
-      // In serverless / read-only environment fallback to safe data URI
-      const base64 = buffer.toString('base64');
-      const dataUri = `data:${mime};base64,${base64}`;
-      return NextResponse.json({ success: true, url: dataUri, filename: safeFilename });
+      // In serverless / read-only environment fallback to optimized WebP data URI
+      const base64 = optimizedBuffer.toString('base64');
+      const dataUri = `data:image/webp;base64,${base64}`;
+      return NextResponse.json({ 
+        success: true, 
+        url: dataUri, 
+        filename: safeFilename,
+        format: 'webp',
+        optimizedSize: optimizedBuffer.length
+      });
     }
   } catch (error) {
     safeLog('File upload exception', { error: String(error) });
-    return NextResponse.json({ success: false, error: 'ফাইল আপলোড ব্যর্থ হয়েছে।' }, { status: 500 });
+    return NextResponse.json({ success: false, error: 'ফাইল আপলোড ও প্রসেসিং ব্যর্থ হয়েছে।' }, { status: 500 });
   }
 }
