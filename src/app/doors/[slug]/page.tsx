@@ -82,7 +82,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
       "priceCurrency": "BDT",
       "price": product.defaultPrice,
       "availability": product.stockStatus === "in_stock" ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
-      "url": `https://smdoorbd.com/doors/${product.slug}`,
+      "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://smdoorbd.com'}/doors/${product.slug}`,
     },
   };
 

@@ -28,7 +28,10 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://smdoorbd.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "মেসার্স ফারহান এন্টারপ্রাইজ / এস এম ডোর — প্রিমিয়াম কাঠের দরজা, চেরা কাঠ ও স’মিল",
   description: "বাদে নাভারন, ঝিকরগাছা, যশোরের ঐতিহ্যবাহী মেসার্স ফারহান এন্টারপ্রাইজ ও এস এম ডোর। খাঁটি চিটাগাং সেগুন, সিজনড মেহগনি ও গামারি কাঠের সলিড দরজা, চৌকাঠ ও চেরা কাঠ। লাইভ সিএফটি ক্যালকুলেটর ও কাস্টম ডিজাইন অর্ডার।",
   keywords: [
@@ -48,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "মেসার্স ফারহান এন্টারপ্রাইজ / এস এম ডোর — খাঁটি কাঠ ও স’মিল কমপ্লেক্স",
     description: "যশোরের ঝিকরগাছায় নিজস্ব স’মিল ও সিজনিং প্ল্যান্ট। ১০০% সিজনড ও কেমিক্যাল ট্রিটেড চিটাগাং সেগুন, মেহগনি ও গামারি কাঠের দরজা ও চৌকাঠ।",
-    url: "https://smdoorbd.com",
+    url: siteUrl,
     siteName: "মেসার্স ফারহান এন্টারপ্রাইজ",
     images: [
       {
@@ -89,7 +92,7 @@ export default function RootLayout({
     "@type": "HomeGoodsStore",
     "name": "M/S Farhan Enterprise / SM Door (মেসার্স ফারহান এন্টারপ্রাইজ)",
     "description": "Premium Wooden Doors, Sawn Timber & Sawmill Complex in Bade Nabaran, Jhikargachha, Jashore, Bangladesh",
-    "url": "https://smdoorbd.com",
+    "url": siteUrl,
     "telephone": "+8801710820987",
     "founder": {
       "@type": "Person",
