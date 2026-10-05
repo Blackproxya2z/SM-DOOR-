@@ -47,34 +47,17 @@ export function Header({ initialSettings }: HeaderProps) {
   useEffect(() => {
     if (initialSettings) {
       setSettings(initialSettings);
+    } else {
+      // Only fetch if initialSettings was not passed from SSR
+      fetch('/api/settings')
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && data.settings) {
+            setSettings(data.settings);
+          }
+        })
+        .catch(() => {});
     }
-
-    // Fresh fetch for multi-device sync
-    fetch('/api/settings', { cache: 'no-store' })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.settings) {
-          setSettings(data.settings);
-        }
-      })
-      .catch(() => {});
-
-    // Multi-device real-time listener via Firebase Firestore
-    let unsubscribeFirestore: (() => void) | null = null;
-    try {
-      if (firestore) {
-        unsubscribeFirestore = onSnapshot(
-          doc(firestore, 'sm_settings', 'site'),
-          (docSnap) => {
-            if (docSnap.exists()) {
-              const cloudSettings = docSnap.data() as SiteSettings;
-              setSettings(cloudSettings);
-            }
-          },
-          () => {}
-        );
-      }
-    } catch {}
 
     const handleUpdate = (e: any) => {
       if (e.detail) {
@@ -85,7 +68,6 @@ export function Header({ initialSettings }: HeaderProps) {
 
     return () => {
       window.removeEventListener('sm_settings_updated', handleUpdate);
-      if (unsubscribeFirestore) unsubscribeFirestore();
     };
   }, [initialSettings]);
 

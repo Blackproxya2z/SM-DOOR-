@@ -5,26 +5,13 @@
  * - Category inference engine
  */
 
-// Shimmer SVG base64 generator for Next.js Image blur placeholder
-export function getShimmerBlurDataUrl(w = 700, h = 525): string {
-  const shimmer = `
-    <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <defs>
-        <linearGradient id="g">
-          <stop stop-color="#2c1a0e" offset="20%" />
-          <stop stop-color="#4a2e1b" offset="50%" />
-          <stop stop-color="#2c1a0e" offset="70%" />
-        </linearGradient>
-      </defs>
-      <rect width="${w}" height="${h}" fill="#2c1a0e" />
-      <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
-      <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1.2s" repeatCount="indefinite"  />
-    </svg>
-  `;
-  return `data:image/svg+xml;base64,${Buffer.from(shimmer).toString('base64')}`;
+// Ultra-lightweight static cream placeholder data URL for Next.js Image
+export function getShimmerBlurDataUrl(w = 400, h = 300): string {
+  const svg = `<svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#F4ECE1"/></svg>`;
+  return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
 }
 
-export const DEFAULT_BLUR_DATA_URL = getShimmerBlurDataUrl(400, 300);
+export const DEFAULT_BLUR_DATA_URL = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjRjRFQ0UxIi8+PC9zdmc+';
 
 /**
  * Clean and standardize image filenames:

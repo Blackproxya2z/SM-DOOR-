@@ -26,39 +26,20 @@ export function Footer({ settings: initialSettings }: FooterProps) {
   const [settings, setSettings] = useState<SiteSettings | undefined>(initialSettings);
 
   React.useEffect(() => {
-    // 1. Initial settings prop
     if (initialSettings) {
       setSettings(initialSettings);
+    } else {
+      // Only fetch if initialSettings was not passed from SSR
+      fetch('/api/settings')
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && data.settings) {
+            setSettings(data.settings);
+          }
+        })
+        .catch(() => {});
     }
 
-    // 2. Fresh fetch from dynamic API for multi-device sync
-    fetch('/api/settings', { cache: 'no-store' })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.settings) {
-          setSettings(data.settings);
-        }
-      })
-      .catch(() => {});
-
-    // 3. Multi-device real-time listener via Firebase Firestore
-    let unsubscribeFirestore: (() => void) | null = null;
-    try {
-      if (firestore) {
-        unsubscribeFirestore = onSnapshot(
-          doc(firestore, 'sm_settings', 'site'),
-          (docSnap) => {
-            if (docSnap.exists()) {
-              const cloudSettings = docSnap.data() as SiteSettings;
-              setSettings(cloudSettings);
-            }
-          },
-          () => {}
-        );
-      }
-    } catch {}
-
-    // 4. Listen for real-time admin settings update event
     const handleUpdate = (e: any) => {
       if (e.detail) {
         setSettings(e.detail);
@@ -68,7 +49,6 @@ export function Footer({ settings: initialSettings }: FooterProps) {
 
     return () => {
       window.removeEventListener('sm_settings_updated', handleUpdate);
-      if (unsubscribeFirestore) unsubscribeFirestore();
     };
   }, [initialSettings]);
 

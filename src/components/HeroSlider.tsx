@@ -229,7 +229,7 @@ export function HeroSlider({
                 alt="মেসার্স ফারহান এন্টারপ্রাইজ স’মিল ইয়ার্ড"
                 fill
                 priority
-                quality={90}
+                quality={82}
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover object-center transition-all duration-700 group-hover:scale-105"
               />
