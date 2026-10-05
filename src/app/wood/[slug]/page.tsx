@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { db } from "@/lib/db";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -195,11 +196,13 @@ export default function WoodDetailPage({ params }: WoodDetailPageProps) {
                     href={`/doors/${prod.slug}`}
                     className="group bg-white dark:bg-wood-900 rounded-3xl overflow-hidden border border-wood-200 dark:border-wood-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
                   >
-                    <div className="aspect-[4/3] w-full overflow-hidden bg-wood-100">
-                      <img
-                        src={prod.images[0]}
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-wood-100 dark:bg-wood-850">
+                      <Image
+                        src={(prod.images && prod.images[0]) || prod.imageUrl || '/images/hero/hero-timber-logs.webp'}
                         alt={prod.titleBn}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div className="p-6">
