@@ -85,6 +85,7 @@ export interface Product {
   featuresEn: string[];
   specifications: ProductSpecification;
   imagePath?: string;
+  imageUrl?: string;
   images: string[];
   altText?: string;
   altBn?: string;

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { 
   Maximize2, 
   X, 
@@ -132,10 +133,13 @@ export function ProductZoomViewer({ images, title, badge }: ProductZoomViewerPro
         className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-wood-100 dark:bg-wood-900 border border-wood-200 dark:border-wood-800 shadow-md group cursor-zoom-in"
       >
         {/* Base Image */}
-        <img
+        <Image
           src={activeImage}
           alt={title}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className={`object-cover transition-opacity duration-300 ${
             isHovered ? 'opacity-0 md:opacity-0' : 'opacity-100'
           }`}
         />
@@ -210,7 +214,7 @@ export function ProductZoomViewer({ images, title, badge }: ProductZoomViewerPro
               }`}
               aria-label={`Select product image ${idx + 1}`}
             >
-              <img src={img} alt={`${title} thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+              <Image src={img} alt={`${title} thumbnail ${idx + 1}`} fill sizes="80px" className="object-cover" />
             </button>
           ))}
         </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Product, WoodSpecies } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { useQuote } from '@/context/QuoteContext';
@@ -463,11 +464,13 @@ export function ProductDetailView({
                   href={`/doors/${rel.slug}`}
                   className="group bg-white dark:bg-wood-900 rounded-2xl overflow-hidden border border-wood-200 dark:border-wood-800 shadow-sm hover:shadow-xl transition-all"
                 >
-                  <div className="aspect-[3/4] w-full overflow-hidden bg-wood-100">
-                    <img
-                      src={rel.images[0]}
+                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-wood-100 dark:bg-wood-850">
+                    <Image
+                      src={(rel.images && rel.images[0]) || rel.imageUrl || '/images/hero/hero-timber-logs.webp'}
                       alt={relTitle}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-4">

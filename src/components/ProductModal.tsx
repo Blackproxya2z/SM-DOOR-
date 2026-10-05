@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Product, WoodSpecies } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { useQuote } from '@/context/QuoteContext';
@@ -108,21 +109,23 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
           <div className="p-6 bg-wood-50 dark:bg-wood-900/40 flex flex-col justify-between border-b md:border-b-0 md:border-r border-wood-200 dark:border-wood-800">
             <div>
               {/* Main Image */}
-              <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-wood-200 shadow-md mb-4">
-                <img
-                  src={product.images[activeImageIdx] || product.images[0]}
+              <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-wood-200 dark:bg-wood-850 shadow-md mb-4">
+                <Image
+                  src={(product.images && product.images[activeImageIdx]) || (product.images && product.images[0]) || product.imageUrl || '/images/hero/hero-timber-logs.webp'}
                   alt={title}
-                  className="w-full h-full object-cover transition-all duration-300"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-all duration-300"
                 />
                 {product.isBestSeller && (
-                  <span className="absolute top-3 left-3 bg-gradient-to-r from-amber-600 to-gold-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md uppercase tracking-wider">
+                  <span className="absolute top-3 left-3 bg-gradient-to-r from-amber-600 to-gold-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md uppercase tracking-wider z-10">
                     ★ Best Seller
                   </span>
                 )}
               </div>
 
               {/* Thumbnails */}
-              {product.images.length > 1 && (
+              {product.images && product.images.length > 1 && (
                 <div className="flex gap-2 overflow-x-auto pb-2">
                   {product.images.map((img, idx) => (
                     <button
@@ -132,7 +135,7 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
                         activeImageIdx === idx ? 'border-gold-500 scale-105' : 'border-transparent opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <img src={img} alt="Thumbnail" className="w-full h-full object-cover" />
+                      <Image src={img} alt="Thumbnail" fill sizes="64px" className="object-cover" />
                     </button>
                   ))}
                 </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { useQuote } from '@/context/QuoteContext';
 import { 
@@ -190,8 +191,8 @@ export function QuoteListView({ whatsappNumber }: QuoteListViewProps) {
               >
                 <div className="flex items-center gap-4">
                   {item.image && (
-                    <div className="w-16 h-20 rounded-xl overflow-hidden bg-wood-100 flex-shrink-0">
-                      <img src={item.image} alt={title} className="w-full h-full object-cover" />
+                    <div className="relative w-16 h-20 rounded-xl overflow-hidden bg-wood-100 flex-shrink-0">
+                      <Image src={item.image} alt={title} fill sizes="64px" className="object-cover" />
                     </div>
                   )}
                   <div>
