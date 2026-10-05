@@ -130,7 +130,7 @@ export function ProductZoomViewer({ images, title, badge }: ProductZoomViewerPro
         onClick={() => setIsFullscreen(true)}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-wood-100 dark:bg-wood-900 border border-wood-200 dark:border-wood-800 shadow-md group cursor-zoom-in"
+        className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-[#FAF8F5] border border-[#E8DED4] shadow-md group cursor-zoom-in"
       >
         {/* Base Image */}
         <Image
@@ -157,9 +157,9 @@ export function ProductZoomViewer({ images, title, badge }: ProductZoomViewerPro
         )}
 
         {/* Top Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1.5 pointer-events-none z-10">
+        <div className="absolute top-3 left-3 flex flex-col gap-1.5 pointer-events-none z-10 font-[family-name:var(--font-hind-siliguri)]">
           {badge && (
-            <span className="inline-flex items-center gap-1 bg-gradient-to-r from-amber-600 to-gold-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1 bg-[#C59B27] text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider">
               <Sparkles className="w-3 h-3" />
               {badge}
             </span>
@@ -167,8 +167,8 @@ export function ProductZoomViewer({ images, title, badge }: ProductZoomViewerPro
         </div>
 
         {/* Hover / Tap Zoom Action Indicator */}
-        <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-wood-950/80 backdrop-blur-md text-white text-xs font-medium border border-wood-700/60 shadow-lg group-hover:scale-105 transition-all">
-          <Maximize2 className="w-3.5 h-3.5 text-gold-400" />
+        <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2B1A12]/85 backdrop-blur-md text-white text-xs font-medium border border-[#C59B27]/40 shadow-lg group-hover:scale-105 transition-all font-[family-name:var(--font-hind-siliguri)]">
+          <Maximize2 className="w-3.5 h-3.5 text-[#C59B27]" />
           <span className="hidden sm:inline">পূর্ণাঙ্গ ভিউ ও জুম</span>
           <span className="sm:hidden">জুম করুন</span>
         </div>
@@ -181,7 +181,7 @@ export function ProductZoomViewer({ images, title, badge }: ProductZoomViewerPro
                 e.stopPropagation();
                 setActiveIdx((prev) => (prev - 1 + images.length) % images.length);
               }}
-              className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-wood-950/60 text-white hover:bg-wood-900 transition-opacity opacity-70 hover:opacity-100 sm:opacity-0 sm:group-hover:opacity-100 z-10"
+              className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#2B1A12]/70 text-white hover:bg-[#2B1A12] transition-opacity opacity-70 hover:opacity-100 sm:opacity-0 sm:group-hover:opacity-100 z-10"
               aria-label="Previous image"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -191,7 +191,7 @@ export function ProductZoomViewer({ images, title, badge }: ProductZoomViewerPro
                 e.stopPropagation();
                 setActiveIdx((prev) => (prev + 1) % images.length);
               }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-wood-950/60 text-white hover:bg-wood-900 transition-opacity opacity-70 hover:opacity-100 sm:opacity-0 sm:group-hover:opacity-100 z-10"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-[#2B1A12]/70 text-white hover:bg-[#2B1A12] transition-opacity opacity-70 hover:opacity-100 sm:opacity-0 sm:group-hover:opacity-100 z-10"
               aria-label="Next image"
             >
               <ChevronRight className="w-5 h-5" />
@@ -209,8 +209,8 @@ export function ProductZoomViewer({ images, title, badge }: ProductZoomViewerPro
               onClick={() => setActiveIdx(idx)}
               className={`relative aspect-[3/4] w-16 sm:w-20 rounded-xl overflow-hidden border-2 flex-shrink-0 transition-all ${
                 activeIdx === idx
-                  ? 'border-gold-500 scale-105 shadow-md ring-2 ring-gold-400/30'
-                  : 'border-wood-200 dark:border-wood-800 opacity-60 hover:opacity-100'
+                  ? 'border-[#C59B27] scale-105 shadow-md ring-2 ring-[#C59B27]/30'
+                  : 'border-[#E8DED4] opacity-60 hover:opacity-100'
               }`}
               aria-label={`Select product image ${idx + 1}`}
             >

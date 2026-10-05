@@ -87,7 +87,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-wood-50/30 dark:bg-wood-950">
+    <main className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2B1A12] pb-16 md:pb-0 overflow-x-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}

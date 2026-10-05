@@ -5,42 +5,33 @@
 /* ─── Google Fonts ─── */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
 
-/* ─── Design Tokens (Light Theme Default) ─── */
+/* ─── Design Tokens (Light Premium Theme) ─── */
 :root {
-  /* Brand Colors */
-  --cream:       #FAF7F2;
-  --cream-dark:  #F2ECE3;
-  --ivory:       #EDE6DB;
-  --brown-50:    #F9F3EC;
-  --brown-100:   #EFE1CE;
-  --brown-200:   #DBBF9C;
-  --brown-300:   #C49A6C;
-  --brown-400:   #A8744A;
-  --brown-500:   #8B5A2B;
-  --brown-600:   #6F4320;
-  --brown-700:   #55311A;
-  --brown-800:   #3D2210;
-  --brown-900:   #2A1609;
-  --brown-950:   #1A0D05;
+  /* Brand Colors (Light Premium Specification) */
+  --cream:          #FAF8F5; /* Warm Cream Primary Background */
+  --cream-dark:     #F3ECE2;
+  --ivory:          #EFE7DC;
+  
+  --surface:        #FFFFFF; /* Surface Card Background */
+  --surface-alt:    #FAF8F5;
+  --chip-bg:        #F4ECE1; /* Category chips */
 
-  --gold:        #C8972A;
-  --gold-light:  #E8B84B;
-  --gold-pale:   #FBF0D9;
-  --gold-border: rgba(200, 151, 42, 0.3);
+  --text-primary:   #2B1A12; /* Deep Wood Brown */
+  --text-secondary: #7A6A5F; /* Muted Wood Brown */
+  --text-muted:     #9C8A7E;
+  --border:         #E8DED4; /* Soft Beige Border */
 
-  --text-primary:   #2A1609;
-  --text-secondary: #6B4F38;
-  --text-muted:     #9C7A62;
-  --border:         #E2D5C3;
-  --surface:        #FFFFFF;
-  --surface-alt:    #FAF7F2;
+  --gold:           #C59B27; /* Rich Accent Gold */
+  --gold-light:     #D8AE3A;
+  --gold-pale:      #FAF1D6;
+  --gold-border:    rgba(197, 155, 39, 0.3);
 
-  /* Shadows */
-  --shadow-sm:  0 1px 3px rgba(42,22,9,0.06), 0 1px 2px rgba(42,22,9,0.04);
-  --shadow-md:  0 4px 16px -2px rgba(42,22,9,0.10), 0 2px 6px -1px rgba(42,22,9,0.06);
-  --shadow-lg:  0 12px 40px -8px rgba(42,22,9,0.14), 0 4px 12px -2px rgba(42,22,9,0.08);
-  --shadow-xl:  0 24px 64px -12px rgba(42,22,9,0.18), 0 8px 20px -4px rgba(42,22,9,0.10);
-  --shadow-gold: 0 8px 30px -6px rgba(200,151,42,0.35);
+  /* Shadows - Soft Light Premium Elevation */
+  --shadow-sm:  0 1px 3px rgba(43, 26, 18, 0.04), 0 1px 2px rgba(43, 26, 18, 0.03);
+  --shadow-md:  0 4px 16px -2px rgba(43, 26, 18, 0.06), 0 2px 6px -1px rgba(43, 26, 18, 0.04);
+  --shadow-lg:  0 12px 32px -6px rgba(43, 26, 18, 0.08), 0 4px 12px -2px rgba(43, 26, 18, 0.04);
+  --shadow-xl:  0 20px 48px -10px rgba(43, 26, 18, 0.12), 0 8px 20px -4px rgba(43, 26, 18, 0.06);
+  --shadow-gold: 0 8px 25px -4px rgba(197, 155, 39, 0.35);
 
   --radius-sm:  0.5rem;
   --radius-md:  0.875rem;
@@ -61,10 +52,12 @@ html {
   overflow-x: hidden;
   max-width: 100vw;
   width: 100%;
+  background-color: #FAF8F5;
+  color: #2B1A12;
 }
 
 body {
-  font-family: 'Inter', 'Hind Siliguri', system-ui, sans-serif;
+  font-family: var(--font-hind-siliguri), 'Hind Siliguri', 'Inter', system-ui, sans-serif;
   color: var(--text-primary);
   background-color: var(--cream);
   overflow-x: hidden;
@@ -75,16 +68,25 @@ body {
   touch-action: manipulation;
 }
 
-/* ─── Typography ─── */
+/* ─── Typography Hierarchy (Tiro Bangla & Hind Siliguri) ─── */
 h1, h2, h3 {
-  font-family: 'Playfair Display', 'Hind Siliguri', Georgia, serif;
-  line-height: 1.2;
+  font-family: var(--font-tiro-bangla), 'Tiro Bangla', 'Playfair Display', Georgia, serif;
+  color: #2B1A12;
+  line-height: 1.25;
   letter-spacing: -0.01em;
 }
 
-h4, h5, h6 {
-  font-family: 'Inter', 'Hind Siliguri', system-ui, sans-serif;
-  line-height: 1.35;
+h4, h5, h6, p, span, button, input, select, textarea {
+  font-family: var(--font-hind-siliguri), 'Hind Siliguri', 'Inter', system-ui, sans-serif;
+}
+
+/* Micro-interaction: Fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { 
+  animation: fadeIn 0.5s ease-out forwards; 
 }
 
 /* ─── Scrollbar ─── */

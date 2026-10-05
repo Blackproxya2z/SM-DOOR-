@@ -25,7 +25,7 @@ export default function Home() {
   const phone = siteSettings.phone1 || "+880 1710-820987";
 
   return (
-    <main className="min-h-screen flex flex-col bg-wood-50/30 dark:bg-wood-950 pb-16 md:pb-0 overflow-x-hidden">
+    <main className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2B1A12] pb-16 md:pb-0 overflow-x-hidden">
       {/* 1. Top Navbar */}
       <Header initialSettings={siteSettings} />
 

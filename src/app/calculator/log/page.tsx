@@ -22,18 +22,18 @@ export default function RoundLogCalculatorPage() {
   const phone = siteSettings.phone1 || "+880 1710-820987";
 
   return (
-    <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950">
+    <main className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2B1A12] pb-16 md:pb-0 overflow-x-hidden">
       <Header initialSettings={siteSettings} />
 
-      <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-wood-800 text-center">
+      <section className="bg-white text-[#2B1A12] py-12 px-4 sm:px-6 lg:px-8 border-b border-[#E8DED4] text-center">
         <div className="max-w-7xl mx-auto">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mb-3">
+          <span className="inline-block px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#C59B27]/10 text-[#C59B27] border border-[#C59B27]/25 mb-3 font-[family-name:var(--font-hind-siliguri)]">
             গোল কাঠের গুঁড়ি (Log Timber)
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold font-serif mb-3">
+          <h1 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-tiro-bangla)] text-[#2B1A12] mb-3">
             গোল কাঠ সিএফটি (CFT) ক্যালকুলেটর
           </h1>
-          <p className="max-w-2xl mx-auto text-xs sm:text-sm text-wood-300">
+          <p className="max-w-2xl mx-auto text-sm sm:text-base text-[#7A6A5F] font-[family-name:var(--font-hind-siliguri)]">
             হোপের নিয়ম (Hoppus Rule): (বেড় ইঞ্চি ÷ ৪)² × দৈর্ঘ্য ফুট ÷ ১৪৪ = সিএফটি (CFT)
           </p>
         </div>

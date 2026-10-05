@@ -123,20 +123,20 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950 pb-16 md:pb-0 overflow-x-hidden">
+    <main className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2B1A12] pb-16 md:pb-0 overflow-x-hidden">
       <Header initialSettings={settings || undefined} />
 
       {/* Banner */}
-      <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-wood-800 text-center">
+      <section className="bg-white text-[#2B1A12] py-14 px-4 sm:px-6 lg:px-8 border-b border-[#E8DED4] text-center">
         <div className="max-w-7xl mx-auto">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gold-500/20 text-gold-400 border border-gold-500/30 mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#C59B27]/10 text-[#C59B27] border border-[#C59B27]/25 mb-3 font-[family-name:var(--font-hind-siliguri)]">
             <Phone className="w-3.5 h-3.5" />
             যোগাযোগ
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif mb-4">
-            এস এম ডোর কন্টাক্ট ও সাপোর্ট
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-tiro-bangla)] text-[#2B1A12] mb-4">
+            মেসার্স ফারহান এন্টারপ্রাইজ কন্টাক্ট ও সাপোর্ট
           </h1>
-          <p className="max-w-2xl mx-auto text-sm sm:text-base text-wood-300">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg text-[#7A6A5F] font-[family-name:var(--font-hind-siliguri)] leading-relaxed">
             কাঠের দরজা, সাইজ কাঠ বা কাস্টম ফার্নিচার বিষয়ে যেকোনো জিজ্ঞাসা ও কোটেশনের জন্য আমাদের সাথে যোগাযোগ করুন।
           </p>
         </div>
@@ -147,32 +147,32 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Details (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 rounded-3xl bg-white dark:bg-wood-900 border border-wood-200 dark:border-wood-800 shadow-sm space-y-6">
-              <h2 className="text-xl font-bold text-wood-950 dark:text-white font-serif border-b border-wood-100 dark:border-wood-800 pb-3">
+            <div className="p-6 rounded-3xl bg-white border border-[#E8DED4] shadow-sm space-y-6">
+              <h2 className="text-xl font-bold text-[#2B1A12] font-[family-name:var(--font-tiro-bangla)] border-b border-[#E8DED4] pb-3">
                 সরাসরি যোগাযোগের ঠিকানা
               </h2>
 
               <div className="flex items-start gap-3 text-xs sm:text-sm">
-                <UserCheck className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
+                <UserCheck className="w-5 h-5 text-[#C59B27] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-wood-900 dark:text-white block">প্রোপাইটর:</strong>
-                  <span className="text-wood-700 dark:text-wood-300 font-medium">{proprietorName}</span>
+                  <strong className="text-[#2B1A12] block">প্রোপাইটর:</strong>
+                  <span className="text-[#7A6A5F] font-medium">{proprietorName}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 text-xs sm:text-sm">
-                <MapPin className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-[#C59B27] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-wood-900 dark:text-white block">স’মিল, কারখানা ও শোরুম:</strong>
-                  <span className="text-wood-600 dark:text-wood-400">{addressText}</span>
+                  <strong className="text-[#2B1A12] block">স’মিল, কারখানা ও শোরুম:</strong>
+                  <span className="text-[#7A6A5F]">{addressText}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 text-xs sm:text-sm">
-                <Phone className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
+                <Phone className="w-5 h-5 text-[#C59B27] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-wood-900 dark:text-white block">ফোন কল:</strong>
-                  <div className="space-y-1 mt-1 text-gold-600 dark:text-gold-400 font-semibold">
+                  <strong className="text-[#2B1A12] block">ফোন কল:</strong>
+                  <div className="space-y-1 mt-1 text-[#C59B27] font-semibold">
                     <a href={`tel:${phone1}`} className="block hover:underline">{phone1}</a>
                     <a href={`tel:${phone2}`} className="block hover:underline">{phone2}</a>
                   </div>
@@ -180,10 +180,10 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-3 text-xs sm:text-sm">
-                <Clock className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-[#C59B27] flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-wood-900 dark:text-white block">খোলা থাকার সময়:</strong>
-                  <span className="text-wood-600 dark:text-wood-400">সকাল ৮:০০ - রাত ৯:০০ (সপ্তাহের ৭ দিনই খোলা)</span>
+                  <strong className="text-[#2B1A12] block">খোলা থাকার সময়:</strong>
+                  <span className="text-[#7A6A5F]">সকাল ৮:০০ - রাত ৯:০০ (সপ্তাহের ৭ দিনই খোলা)</span>
                 </div>
               </div>
 
@@ -192,7 +192,7 @@ export default function ContactPage() {
                   href={`https://wa.me/${cleanWhatsApp}?text=${encodeURIComponent('আসসালামু আলাইকুম, আমি সরাসরি কাঠের দরজা বা স’মিল সম্পর্কে জানতে আগ্রহী।')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow flex items-center justify-center gap-2 transition-all active:scale-95"
+                  className="w-full py-3.5 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow flex items-center justify-center gap-2 transition-all active:scale-95 font-[family-name:var(--font-hind-siliguri)]"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>সরাসরি হোয়াটসঅ্যাপে চ্যাট করুন</span>
@@ -203,22 +203,22 @@ export default function ContactPage() {
 
           {/* Right Form (7 Cols) */}
           <div className="lg:col-span-7">
-            <div className="p-8 rounded-3xl bg-white dark:bg-wood-900 border border-wood-200 dark:border-wood-800 shadow-sm">
-              <h2 className="text-xl sm:text-2xl font-bold text-wood-950 dark:text-white font-serif mb-2">
+            <div className="p-8 rounded-3xl bg-white border border-[#E8DED4] shadow-sm">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#2B1A12] font-[family-name:var(--font-tiro-bangla)] mb-2">
                 মেসেজ পাঠান বা কলব্যাক চান
               </h2>
-              <p className="text-xs sm:text-sm text-wood-500 mb-6">
+              <p className="text-xs sm:text-sm text-[#7A6A5F] mb-6 font-[family-name:var(--font-hind-siliguri)]">
                 আপনার বার্তা ও যোগাযোগ নম্বর লিখে সাবমিট করুন। আমরা দ্রুত আপনার সাথে কথা বলব।
               </p>
 
               {submitted ? (
-                <div className="p-8 text-center rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300">
+                <div className="p-8 text-center rounded-2xl bg-emerald-50 border border-emerald-300">
                   <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto mb-3" />
-                  <h3 className="text-lg font-bold text-emerald-900 dark:text-emerald-200 mb-2">
+                  <h3 className="text-lg font-bold text-emerald-900 mb-2 font-[family-name:var(--font-tiro-bangla)]">
                     আপনার বার্তা গৃহীত হয়েছে!
                   </h3>
-                  <p className="text-xs text-emerald-800 dark:text-emerald-300 mb-6">
-                    এস এম ডোর-এর প্রতিনিধি শীঘ্রই আপনার নম্বরে যোগাযোগ করবেন।
+                  <p className="text-xs sm:text-sm text-emerald-800 mb-6 font-[family-name:var(--font-hind-siliguri)]">
+                    মেসার্স ফারহান এন্টারপ্রাইজ-এর প্রতিনিধি শীঘ্রই আপনার নম্বরে যোগাযোগ করবেন।
                   </p>
                   <button
                     onClick={() => {
@@ -228,13 +228,13 @@ export default function ContactPage() {
                       setEmail('');
                       setMessage('');
                     }}
-                    className="text-xs font-bold text-emerald-700 underline"
+                    className="text-xs font-bold text-emerald-700 underline font-[family-name:var(--font-hind-siliguri)]"
                   >
                     আরেকটি বার্তা পাঠান
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4 font-[family-name:var(--font-hind-siliguri)]">
                   {error && (
                     <div className="p-3 rounded-xl bg-red-50 text-red-700 text-xs flex items-center gap-2">
                       <AlertCircle className="w-4 h-4 flex-shrink-0" />
@@ -244,7 +244,7 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                      <label className="block text-xs font-semibold text-[#2B1A12] mb-1">
                         আপনার নাম *
                       </label>
                       <input
@@ -253,12 +253,12 @@ export default function ContactPage() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="আপনার পূর্ণ নাম"
-                        className="w-full px-4 py-3 rounded-xl border border-wood-200 dark:border-wood-700 bg-wood-50/50 dark:bg-wood-950 text-xs text-wood-900 dark:text-white"
+                        className="w-full px-4 py-3 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] text-xs sm:text-sm text-[#2B1A12] placeholder-[#7A6A5F]/60 focus:outline-none focus:border-[#C59B27]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                      <label className="block text-xs font-semibold text-[#2B1A12] mb-1">
                         মোবাইল নম্বর *
                       </label>
                       <input
@@ -267,13 +267,13 @@ export default function ContactPage() {
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="018XXXXXXXX"
-                        className="w-full px-4 py-3 rounded-xl border border-wood-200 dark:border-wood-700 bg-wood-50/50 dark:bg-wood-950 text-xs text-wood-900 dark:text-white"
+                        className="w-full px-4 py-3 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] text-xs sm:text-sm text-[#2B1A12] placeholder-[#7A6A5F]/60 focus:outline-none focus:border-[#C59B27]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#2B1A12] mb-1">
                       ইমেইল ঠিকানা (ঐচ্ছিক)
                     </label>
                     <input
@@ -281,12 +281,12 @@ export default function ContactPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="name@example.com"
-                      className="w-full px-4 py-3 rounded-xl border border-wood-200 dark:border-wood-700 bg-wood-50/50 dark:bg-wood-950 text-xs text-wood-900 dark:text-white"
+                      className="w-full px-4 py-3 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] text-xs sm:text-sm text-[#2B1A12] placeholder-[#7A6A5F]/60 focus:outline-none focus:border-[#C59B27]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#2B1A12] mb-1">
                       আপনার জিজ্ঞাসা বা বার্তা *
                     </label>
                     <textarea
@@ -295,14 +295,14 @@ export default function ContactPage() {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="আপনার প্রয়োজনীয় দরজার সাইজ, কাঠের পছন্দ বা প্রজেক্টের বিবরণ লিখুন..."
-                      className="w-full px-4 py-3 rounded-xl border border-wood-200 dark:border-wood-700 bg-wood-50/50 dark:bg-wood-950 text-xs text-wood-900 dark:text-white"
+                      className="w-full px-4 py-3 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] text-xs sm:text-sm text-[#2B1A12] placeholder-[#7A6A5F]/60 focus:outline-none focus:border-[#C59B27]"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-3.5 px-6 rounded-xl bg-wood-950 dark:bg-gold-500 text-gold-400 dark:text-wood-950 font-bold text-xs sm:text-sm hover:opacity-95 shadow transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-6 rounded-xl bg-[#2B1A12] text-white hover:bg-[#C59B27] font-bold text-xs sm:text-sm shadow transition-all flex items-center justify-center gap-2"
                   >
                     <Send className="w-4 h-4" />
                     <span>{submitting ? 'পাঠানো হচ্ছে...' : 'বার্তা পাঠান'}</span>

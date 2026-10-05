@@ -22,19 +22,19 @@ export default function CustomOrderPage() {
   const phone = siteSettings.phone1 || "+880 1710-820987";
 
   return (
-    <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950 pb-16 md:pb-0 overflow-x-hidden">
+    <main className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2B1A12] pb-16 md:pb-0 overflow-x-hidden">
       <Header initialSettings={siteSettings} />
 
-      <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-wood-800 text-center">
+      <section className="bg-white text-[#2B1A12] py-14 px-4 sm:px-6 lg:px-8 border-b border-[#E8DED4] text-center">
         <div className="max-w-7xl mx-auto">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gold-500/20 text-gold-400 border border-gold-500/30 mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#C59B27]/10 text-[#C59B27] border border-[#C59B27]/25 mb-3 font-[family-name:var(--font-hind-siliguri)]">
             <Upload className="w-3.5 h-3.5" />
             কাস্টম অর্ডার সিস্টেম
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-tiro-bangla)] text-[#2B1A12] mb-4">
             আপনার পছন্দের দরজার ডিজাইন আপলোড করুন
           </h1>
-          <p className="max-w-2xl mx-auto text-sm sm:text-base text-wood-300">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg text-[#7A6A5F] font-[family-name:var(--font-hind-siliguri)] leading-relaxed">
             ইন্টারনেট বা ক্যাটালগের যেকোনো ছবি আপলোড করে কাঠের প্রজাতি ও সাইজ নির্বাচন করলে আমাদের ইঞ্জিনিয়াররা আপনাকে ফ্রি কোটেশন ও পরামর্শ প্রদান করবেন।
           </p>
         </div>

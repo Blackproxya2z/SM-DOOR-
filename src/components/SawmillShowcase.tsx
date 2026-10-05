@@ -120,30 +120,30 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Flame': return <Flame className="w-6 h-6 text-amber-500" />;
-      case 'ShieldCheck': return <ShieldCheck className="w-6 h-6 text-emerald-500" />;
-      case 'Cpu': return <Cpu className="w-6 h-6 text-cyan-500" />;
-      default: return <Factory className="w-6 h-6 text-gold-500" />;
+      case 'Flame': return <Flame className="w-6 h-6 text-amber-600" />;
+      case 'ShieldCheck': return <ShieldCheck className="w-6 h-6 text-emerald-600" />;
+      case 'Cpu': return <Cpu className="w-6 h-6 text-sky-600" />;
+      default: return <Factory className="w-6 h-6 text-[#C59B27]" />;
     }
   };
 
   return (
-    <section id="sawmill" className="py-16 sm:py-24 bg-wood-950 text-white relative overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-900/10 rounded-full blur-[120px] pointer-events-none" />
+    <section id="sawmill" className="py-16 sm:py-24 bg-[#FAF8F5] text-[#2B1A12] relative overflow-hidden">
+      {/* Background warm radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#C59B27]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold-500/15 text-gold-400 text-xs font-bold uppercase tracking-wider mb-3 border border-gold-500/30">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#C59B27]/10 text-[#C59B27] text-xs font-bold uppercase tracking-wider mb-3 border border-[#C59B27]/25">
             <Factory className="w-3.5 h-3.5" />
-            <span>{language === 'bn' ? 'স্টেট-অব-দ্য-আর্ট স’মিল কমপ্লেক্স • State-of-the-Art Complex' : 'State-of-the-Art Sawmill Complex'}</span>
+            <span className="font-[family-name:var(--font-hind-siliguri)]">{language === 'bn' ? 'স্টেট-অব-দ্য-আর্ট স’মিল কমপ্লেক্স • State-of-the-Art Complex' : 'State-of-the-Art Sawmill Complex'}</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+          <h2 className="font-[family-name:var(--font-tiro-bangla)] text-3xl sm:text-5xl font-bold text-[#2B1A12] tracking-tight mb-4">
             {language === 'bn' ? 'মেসার্স ফারহান এন্টারপ্রাইজ — নিজস্ব স’মিল ও প্রসেসিং কমপ্লেক্স' : t.sawmill.title}
           </h2>
-          <p className="text-sm sm:text-base text-wood-300">
+          <p className="font-[family-name:var(--font-hind-siliguri)] text-base sm:text-lg text-[#7A6A5F] leading-relaxed">
             {language === 'bn' 
               ? 'গোল কাঠের গুঁড়ি চেরাই থেকে শুরু করে ফার্নেস কিম্বন সিজনিং, কেমিক্যাল ট্রিটমেন্ট এবং নিখুঁত দরজা ও ফার্নিচার তৈরির প্রতিটি ধাপ আমাদের নিজস্ব তত্ত্বাবধানে সম্পন্ন হয়।'
               : t.sawmill.subtitle}
@@ -153,17 +153,17 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
           <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-wood-950 font-bold text-xs sm:text-sm shadow-gold transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#2B1A12] hover:bg-[#C59B27] text-white font-bold text-xs sm:text-sm shadow-md transition-all duration-300"
             >
-              <span>{language === 'bn' ? 'মেসার্স ফারহান এন্টারপ্রাইজ সম্পর্কে জানুন' : 'About Farhan Enterprise'}</span>
+              <span className="font-[family-name:var(--font-hind-siliguri)]">{language === 'bn' ? 'মেসার্স ফারহান এন্টারপ্রাইজ সম্পর্কে জানুন' : 'About Farhan Enterprise'}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/factory"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-wood-900/90 hover:bg-wood-800 text-white font-semibold text-xs sm:text-sm border border-wood-700 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-[#F4ECE1] text-[#2B1A12] font-semibold text-xs sm:text-sm border border-[#E8DED4] transition-all duration-300 shadow-sm"
             >
-              <Factory className="w-4 h-4 text-gold-400" />
-              <span>{language === 'bn' ? 'কারখানা ওভারভিউ' : 'Factory Overview'}</span>
+              <Factory className="w-4 h-4 text-[#C59B27]" />
+              <span className="font-[family-name:var(--font-hind-siliguri)]">{language === 'bn' ? 'কারখানা ওভারভিউ' : 'Factory Overview'}</span>
             </Link>
           </div>
         </div>
@@ -178,29 +178,29 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
             return (
               <div
                 key={item.id}
-                className="bg-wood-900/80 rounded-2xl p-6 border border-wood-800 hover:border-gold-500/60 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 shadow-lg"
+                className="bg-white rounded-2xl p-6 border border-[#E8DED4] hover:border-[#C59B27] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 shadow-md hover:shadow-xl"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-wood-950 flex items-center justify-center border border-wood-700/80 shadow-inner group-hover:scale-105 transition-transform">
+                    <div className="w-12 h-12 rounded-xl bg-[#FAF8F5] flex items-center justify-center border border-[#E8DED4] shadow-sm group-hover:scale-105 transition-transform">
                       {getIcon(item.icon)}
                     </div>
-                    <span className="text-2xl font-black text-wood-700 group-hover:text-gold-500/30 transition-colors">
+                    <span className="text-2xl font-black text-[#E8DED4] group-hover:text-[#C59B27]/40 transition-colors">
                       0{idx + 1}
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-gold-400 transition-colors">
+                  <h3 className="font-[family-name:var(--font-tiro-bangla)] text-lg font-bold text-[#2B1A12] mb-2 group-hover:text-[#C59B27] transition-colors">
                     {title}
                   </h3>
-                  <p className="text-xs text-wood-300 leading-relaxed mb-4">
+                  <p className="font-[family-name:var(--font-hind-siliguri)] text-sm text-[#7A6A5F] leading-relaxed mb-4">
                     {desc}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-wood-800 flex items-center gap-1.5 text-[11px] font-semibold text-gold-400">
+                <div className="pt-3 border-t border-[#E8DED4] flex items-center gap-1.5 text-xs font-semibold text-[#C59B27]">
                   <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span>{highlight}</span>
+                  <span className="font-[family-name:var(--font-hind-siliguri)]">{highlight}</span>
                 </div>
               </div>
             );
@@ -208,33 +208,33 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
         </div>
 
         {/* Visual Factory Feature Banner with Real Photo */}
-        <div className="relative rounded-3xl overflow-hidden border border-wood-800 bg-wood-900 shadow-2xl mb-20">
+        <div className="relative rounded-3xl overflow-hidden border border-[#E8DED4] bg-white shadow-xl mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-6 p-8 sm:p-12">
-              <span className="inline-block text-xs font-bold uppercase tracking-wider text-gold-400 mb-2">
+              <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#C59B27] mb-2 font-[family-name:var(--font-hind-siliguri)]">
                 {language === 'bn' ? 'সরাসরি কারখানার পরিচিতি' : t.sawmill.videoBadge}
               </span>
-              <h3 className="text-xl sm:text-3xl font-extrabold text-white mb-4">
+              <h3 className="font-[family-name:var(--font-tiro-bangla)] text-2xl sm:text-3xl font-bold text-[#2B1A12] mb-4">
                 {language === 'bn' ? 'যশোরের বাদে নাভারনে আমাদের সুবিশাল সমিল প্রাঙ্গণ' : t.sawmill.videoTitle}
               </h3>
-              <p className="text-xs sm:text-sm text-wood-300 leading-relaxed mb-6">
+              <p className="font-[family-name:var(--font-hind-siliguri)] text-sm text-[#7A6A5F] leading-relaxed mb-6">
                 {language === 'bn'
                   ? 'মেসার্স ফারহান এন্টারপ্রাইজ কোনো থার্ড পার্টি রি-সেলার নয়। ঝিকরগাছার আকিজ কলেজিয়েট স্কুলের পাশেই আমাদের নিজস্ব স’মিলে সরাসরি পার্বত্য চট্টগ্রাম থেকে সংগৃহীত চিটাগাং সেগুন, এবং যশোর-মেহেরপুর অঞ্চলের পরিপক্ক মেহগনি গাছের চেরাই ও প্রি-সিজনিং করা হয়।'
                   : 'Every raw timber log is meticulously hand-graded. Following precision band slabbing, computerized steam chambers lock cellular moisture at 12-14%.'}
               </p>
 
-              <div className="space-y-3 text-xs text-wood-200 mb-8">
+              <div className="space-y-3 text-xs sm:text-sm text-[#2B1A12] mb-8 font-[family-name:var(--font-hind-siliguri)]">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-2 h-2 rounded-full bg-gold-400 flex-shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-[#C59B27] flex-shrink-0" />
                   <span>{language === 'bn' ? '১০০% ফার্নেস কিম্বন ড্রাইড ও কেমিক্যাল ট্রিটমেন্ট কাঠ গ্যারান্টি' : '100% Kiln-seasoned & CCB treated timber'}</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <div className="w-2 h-2 rounded-full bg-gold-400 flex-shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-[#C59B27] flex-shrink-0" />
                   <span>{language === 'bn' ? 'কোনো কৃত্রিম ফিলার, প্লাইউড বা প্লাস্টিক ভিনিয়ার মিশ্রণ নেই' : 'Zero artificial fillers or synthetic veneers'}</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <div className="w-2 h-2 rounded-full bg-gold-400 flex-shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-[#C59B27] flex-shrink-0" />
                   <span>{language === 'bn' ? 'সরাসরি কারখানা ও স’মিল সশরীরে পরিদর্শন করার সাদর আমন্ত্রণ' : 'Open factory tours available upon appointment'}</span>
                 </div>
               </div>
@@ -242,26 +242,26 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
               <div className="flex flex-wrap items-center gap-3">
                 <a
                   href="tel:+8801710820987"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-wood-950 font-bold text-xs transition-colors shadow-gold"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#2B1A12] hover:bg-[#C59B27] text-white font-bold text-xs sm:text-sm transition-colors shadow-md"
                 >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span>{language === 'bn' ? 'কল করুন: ০১৭১০-৮২০৯৮৭' : 'Call: +880 1710-820987'}</span>
+                  <Phone className="w-4 h-4" />
+                  <span className="font-[family-name:var(--font-hind-siliguri)]">{language === 'bn' ? 'কল করুন: ০১৭১০-৮২০৯৮৭' : 'Call: +880 1710-820987'}</span>
                 </a>
                 <a
                   href="https://wa.me/8801710820987"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-wood-800 hover:bg-wood-700 text-white font-semibold text-xs border border-wood-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#10B981] hover:bg-[#059669] text-white font-bold text-xs sm:text-sm transition-colors shadow-md"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>{language === 'bn' ? 'হোয়াটসঅ্যাপ মেসেজ' : 'WhatsApp Us'}</span>
+                  <MessageCircle className="w-4 h-4" />
+                  <span className="font-[family-name:var(--font-hind-siliguri)]">{language === 'bn' ? 'হোয়াটসঅ্যাপ মেসেজ' : 'WhatsApp Us'}</span>
                 </a>
               </div>
             </div>
 
             {/* Right Image Feature with Actual Band Saw Slicing */}
             <div 
-              className="lg:col-span-6 relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-wood-950 cursor-pointer group"
+              className="lg:col-span-6 relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-[#FAF8F5] cursor-pointer group"
               onClick={() => setActivePhotoIdx(2)}
             >
               <Image
@@ -274,17 +274,17 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
                 blurDataURL={DEFAULT_BLUR_DATA_URL}
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-wood-950 via-wood-950/20 to-transparent opacity-80" />
-              <div className="absolute bottom-4 left-4 right-4 bg-wood-950/90 backdrop-blur-md p-3.5 rounded-2xl border border-wood-800 flex items-center justify-between">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2B1A12]/80 via-[#2B1A12]/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border border-[#E8DED4] shadow-lg flex items-center justify-between">
                 <div>
-                  <span className="text-xs font-bold text-white block">
+                  <span className="text-xs font-bold text-[#2B1A12] block font-[family-name:var(--font-hind-siliguri)]">
                     {language === 'bn' ? 'সরাসরি কারখানায় ব্যান্ড স চেরাই দৃশ্য' : 'Live Sawmill Band Saw Slicing'}
                   </span>
-                  <span className="text-[11px] text-wood-400">
+                  <span className="text-[11px] text-[#7A6A5F]">
                     {language === 'bn' ? '১.৫ ইঞ্চি সুনির্দিষ্ট দরজার পাল্লা কাটিং' : 'Precision door frame slicing'}
                   </span>
                 </div>
-                <span className="inline-flex items-center gap-1 text-[10px] uppercase font-bold text-gold-400 bg-gold-500/10 px-2.5 py-1 rounded-full border border-gold-500/30">
+                <span className="inline-flex items-center gap-1 text-[10px] uppercase font-bold text-[#C59B27] bg-[#C59B27]/10 px-2.5 py-1 rounded-full border border-[#C59B27]/30">
                   <Eye className="w-3 h-3" />
                   <span>{language === 'bn' ? 'জুম ভিউ' : 'ZOOM'}</span>
                 </span>
@@ -294,24 +294,24 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
         </div>
 
         {/* Real Factory Photo Gallery & Detailed Breakdown */}
-        <div className="pt-6 border-t border-wood-800/80">
+        <div className="pt-6 border-t border-[#E8DED4]">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/10 text-gold-400 text-xs font-bold uppercase tracking-wider mb-2 border border-gold-500/20">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C59B27]/10 text-[#C59B27] text-xs font-bold uppercase tracking-wider mb-2 border border-[#C59B27]/25">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>{language === 'bn' ? 'বাস্তব কারখানার চিত্রশালা • Authentic Workshop Tour' : 'Live Factory Photo Showcase'}</span>
+                <span className="font-[family-name:var(--font-hind-siliguri)]">{language === 'bn' ? 'বাস্তব কারখানার চিত্রশালা • Authentic Workshop Tour' : 'Live Factory Photo Showcase'}</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <h3 className="font-[family-name:var(--font-tiro-bangla)] text-2xl sm:text-3xl font-bold text-[#2B1A12] tracking-tight">
                 {language === 'bn' ? 'আমাদের নিজস্ব সমিল ও ওয়ার্কশপের বাস্তব কাজের চিত্র' : 'Live Working Moments from Farhan Enterprise'}
               </h3>
-              <p className="text-xs sm:text-sm text-wood-400 mt-1 max-w-2xl">
+              <p className="font-[family-name:var(--font-hind-siliguri)] text-sm text-[#7A6A5F] mt-1 max-w-2xl">
                 {language === 'bn' 
                   ? 'নিচে আমাদের কারখানার প্রতিটি বাস্তব ছবি থেকে দেখে কাঠ প্রসেসিং, চেরাই ও কারিগরদের কাজের বিস্তারিত বিবরণ দেখুন।' 
                   : 'Real photography walkthrough documenting our logs, slicing machines, and craftsmanship.'}
               </p>
             </div>
 
-            <div className="flex items-center gap-2 text-xs text-wood-400">
+            <div className="flex items-center gap-2 text-xs text-[#7A6A5F] font-[family-name:var(--font-hind-siliguri)]">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>{language === 'bn' ? 'ছবিতে ক্লিক করে ফুল-স্ক্রিনে জুম করে দেখুন' : 'Click photo for fullscreen high-res zoom'}</span>
             </div>
@@ -322,12 +322,12 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
             {factoryPhotos.map((photo, idx) => (
               <div
                 key={photo.id}
-                className="bg-wood-900/90 rounded-2xl overflow-hidden border border-wood-800 hover:border-gold-500/70 transition-all duration-300 flex flex-col justify-between group hover:shadow-2xl hover:-translate-y-1"
+                className="bg-white rounded-2xl overflow-hidden border border-[#E8DED4] hover:border-[#C59B27] transition-all duration-300 flex flex-col justify-between group hover:shadow-xl hover:-translate-y-1 shadow-md"
               >
                 <div>
                   {/* Photo Frame */}
                   <div 
-                    className="relative aspect-[4/3] w-full overflow-hidden bg-wood-950 cursor-pointer"
+                    className="relative aspect-[4/3] w-full overflow-hidden bg-[#FAF8F5] cursor-pointer"
                     onClick={() => setActivePhotoIdx(idx)}
                   >
                     <Image
@@ -343,14 +343,14 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
                     
                     {/* Hover Zoom Indicator */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                      <span className="p-3 rounded-full bg-wood-950/80 text-gold-400 border border-gold-500/40 shadow-xl">
+                      <span className="p-3 rounded-full bg-white/90 text-[#C59B27] border border-[#E8DED4] shadow-xl">
                         <Maximize2 className="w-5 h-5" />
                       </span>
                     </div>
 
                     {/* Step Tag */}
                     <div className="absolute top-3 left-3 z-10 pointer-events-none">
-                      <span className="px-2.5 py-1 rounded-lg bg-wood-950/90 backdrop-blur-md text-gold-400 border border-gold-500/30 text-[11px] font-bold shadow">
+                      <span className="px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-md text-[#2B1A12] border border-[#E8DED4] text-[11px] font-bold shadow-sm font-[family-name:var(--font-hind-siliguri)]">
                         {language === 'bn' ? photo.stepBn : photo.stepEn}
                       </span>
                     </div>
@@ -360,24 +360,24 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
                   <div className="p-5 sm:p-6">
                     <h4 
                       onClick={() => setActivePhotoIdx(idx)}
-                      className="text-base sm:text-lg font-bold text-white hover:text-gold-400 transition-colors mb-2.5 cursor-pointer leading-snug"
+                      className="font-[family-name:var(--font-tiro-bangla)] text-base sm:text-lg font-bold text-[#2B1A12] hover:text-[#C59B27] transition-colors mb-2.5 cursor-pointer leading-snug"
                     >
                       {language === 'bn' ? photo.titleBn : photo.titleEn}
                     </h4>
                     
-                    <p className="text-xs text-wood-300 leading-relaxed mb-4 text-justify">
+                    <p className="font-[family-name:var(--font-hind-siliguri)] text-xs sm:text-sm text-[#7A6A5F] leading-relaxed mb-4 text-justify">
                       {language === 'bn' ? photo.detailsBn : photo.detailsEn}
                     </p>
                   </div>
                 </div>
 
                 {/* Highlight Pills */}
-                <div className="px-5 sm:px-6 pb-5 pt-3 border-t border-wood-800/80">
+                <div className="px-5 sm:px-6 pb-5 pt-3 border-t border-[#E8DED4]">
                   <div className="flex flex-wrap gap-1.5">
                     {photo.highlights.map((hl, hIdx) => (
                       <span 
                         key={hIdx}
-                        className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-wood-950 text-gold-300 border border-wood-750"
+                        className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-[#F4ECE1] text-[#7A6A5F] border border-[#E8DED4] font-[family-name:var(--font-hind-siliguri)]"
                       >
                         ✓ {hl}
                       </span>
@@ -389,16 +389,16 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
           </div>
 
           {/* Location & Workshop Address Strip */}
-          <div className="mt-12 bg-gradient-to-r from-wood-900 via-wood-850 to-wood-900 rounded-2xl p-5 sm:p-6 border border-wood-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="mt-12 bg-white rounded-2xl p-5 sm:p-6 border border-[#E8DED4] shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3.5 text-center md:text-left">
-              <div className="w-12 h-12 rounded-xl bg-gold-500/15 border border-gold-500/30 flex items-center justify-center flex-shrink-0 text-gold-400">
+              <div className="w-12 h-12 rounded-xl bg-[#C59B27]/10 border border-[#C59B27]/25 flex items-center justify-center flex-shrink-0 text-[#C59B27]">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-white">
+                <h4 className="font-[family-name:var(--font-tiro-bangla)] text-base font-bold text-[#2B1A12]">
                   {language === 'bn' ? 'মেসার্স ফারহান এন্টারপ্রাইজ কারখানা লোকেশন' : 'Farhan Enterprise Factory Location'}
                 </h4>
-                <p className="text-xs text-wood-300 mt-0.5">
+                <p className="font-[family-name:var(--font-hind-siliguri)] text-xs sm:text-sm text-[#7A6A5F] mt-0.5">
                   {language === 'bn'
                     ? 'আকিজ কলেজিয়েট স্কুলের পশ্চিম পার্শ্বে, বাদে নাভারন, ঝিকরগাছা, যশোর। সরাসরি কারখানা ভিজিট করে কাঠ পছন্দ করার সুবিধা।'
                     : 'West side of Akij Collegiate School, Bade Nabaran, Jhikargachha, Jashore. Open for client timber inspections.'}
@@ -409,19 +409,19 @@ export function SawmillShowcase({ services }: SawmillShowcaseProps) {
             <div className="flex flex-wrap items-center gap-2.5 flex-shrink-0 w-full md:w-auto">
               <Link
                 href="/about"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-wood-950 font-bold text-xs shadow-gold transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#2B1A12] hover:bg-[#C59B27] text-white font-bold text-xs sm:text-sm shadow-md transition-colors"
               >
-                <span>{language === 'bn' ? 'ফারহান এন্টারপ্রাইজ সম্পর্কে জানুন' : 'About Farhan Enterprise'}</span>
+                <span className="font-[family-name:var(--font-hind-siliguri)]">{language === 'bn' ? 'ফারহান এন্টারপ্রাইজ সম্পর্কে জানুন' : 'About Farhan Enterprise'}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <a
                 href="https://wa.me/8801710820987?text=Hello%20Farhan%20Enterprise,%20I%20want%20to%20visit%20the%20sawmill%20factory"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#10B981] hover:bg-[#059669] text-white font-bold text-xs sm:text-sm shadow transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>{language === 'bn' ? 'ভিজিট করতে মেসেজ দিন' : 'Plan a Visit'}</span>
+                <span className="font-[family-name:var(--font-hind-siliguri)]">{language === 'bn' ? 'ভিজিট করতে মেসেজ দিন' : 'Plan a Visit'}</span>
               </a>
             </div>
           </div>

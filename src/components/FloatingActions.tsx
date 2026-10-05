@@ -44,15 +44,15 @@ export function FloatingActions({
     : 'Hello, I want to inquire with M/S Farhan Enterprise directly.';
 
   return (
-    <div className="hidden md:flex fixed md:right-6 md:bottom-6 z-40 flex-col gap-3">
+    <div className="hidden md:flex fixed md:right-6 md:bottom-6 z-40 flex-col gap-3 font-[family-name:var(--font-hind-siliguri)]">
       {/* Call Button */}
       <a
         href={`tel:${phoneNum}`}
-        className="w-12 h-12 rounded-full bg-wood-900 border border-wood-700 text-gold-400 hover:text-white hover:bg-wood-850 shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 group relative"
+        className="w-12 h-12 rounded-full bg-[#2B1A12] border border-[#E8DED4] text-[#C59B27] hover:text-white hover:bg-[#C59B27] shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 group relative"
         aria-label="Direct Phone Call"
       >
         <Phone className="w-5 h-5" />
-        <span className="absolute right-14 bg-wood-950 text-white text-[11px] font-bold py-1 px-2.5 rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg border border-wood-800">
+        <span className="absolute right-14 bg-[#2B1A12] text-white text-xs font-bold py-1.5 px-3 rounded-xl opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg border border-[#E8DED4]">
           {phoneNum}
         </span>
       </a>
@@ -62,11 +62,11 @@ export function FloatingActions({
         href={`https://wa.me/${cleanWhatsApp}?text=${encodeURIComponent(waText)}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-12 h-12 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 animate-pulse-subtle group relative"
+        className="w-12 h-12 rounded-full bg-[#10B981] hover:bg-[#059669] text-white shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 group relative"
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle className="w-6 h-6" />
-        <span className="absolute right-14 bg-emerald-950 text-emerald-200 text-[11px] font-bold py-1 px-2.5 rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg border border-emerald-800">
+        <span className="absolute right-14 bg-[#2B1A12] text-white text-xs font-bold py-1.5 px-3 rounded-xl opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg border border-[#E8DED4]">
           {language === 'bn' ? 'সরাসরি হোয়াটসঅ্যাপে কথা বলুন' : 'Chat on WhatsApp'}
         </span>
       </a>

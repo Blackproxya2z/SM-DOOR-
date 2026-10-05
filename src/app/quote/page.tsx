@@ -19,18 +19,18 @@ export default function QuotePage() {
   const phone = siteSettings.phone1 || "+880 1710-820987";
 
   return (
-    <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950 pb-16 md:pb-0 overflow-x-hidden">
+    <main className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2B1A12] pb-16 md:pb-0 overflow-x-hidden">
       <Header initialSettings={siteSettings} />
 
-      <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-wood-800 text-center">
+      <section className="bg-white text-[#2B1A12] py-12 px-4 sm:px-6 lg:px-8 border-b border-[#E8DED4] text-center">
         <div className="max-w-7xl mx-auto">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-gold-500/20 text-gold-400 border border-gold-500/30 mb-2">
+          <span className="inline-block px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#C59B27]/10 text-[#C59B27] border border-[#C59B27]/25 mb-2 font-[family-name:var(--font-hind-siliguri)]">
             কোটেশন ড্রাফট ও ইনকোয়ারি
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold font-serif mb-2">
+          <h1 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-tiro-bangla)] text-[#2B1A12] mb-2">
             আপনার কোটেশন তালিকা
           </h1>
-          <p className="max-w-xl mx-auto text-xs sm:text-sm text-wood-300">
+          <p className="max-w-xl mx-auto text-sm text-[#7A6A5F] font-[family-name:var(--font-hind-siliguri)]">
             এক সাথে একাধিক পণ্যের মাপ ও কাঠের ধরন একত্রিত করে সরাসরি অফিশিয়াল কোটেশন গ্রহণ করুন।
           </p>
         </div>

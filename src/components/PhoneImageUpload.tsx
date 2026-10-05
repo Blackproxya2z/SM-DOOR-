@@ -119,7 +119,7 @@ export function PhoneImageUpload({
   };
 
   return (
-    <div className={`bg-stone-50 dark:bg-stone-900/60 p-4 rounded-2xl border border-stone-200 dark:border-stone-800 ${className}`}>
+    <div className={`bg-[#FAF8F5] p-4 rounded-2xl border border-[#E8DED4] ${className}`}>
       
       {/* Hidden Inputs */}
       <input
@@ -141,13 +141,13 @@ export function PhoneImageUpload({
 
       {/* Target Section Selection */}
       <div className="mb-3">
-        <label className="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">
+        <label className="block text-xs font-semibold text-[#2B1A12] mb-1 font-[family-name:var(--font-hind-siliguri)]">
           ছবি প্রদর্শনের সেকশন (Image Section):
         </label>
         <select
           value={selectedSection}
           onChange={(e) => setSelectedSection(e.target.value)}
-          className="w-full text-xs font-medium bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-xl px-3 py-2 text-stone-900 dark:text-stone-100 focus:ring-2 focus:ring-amber-700 outline-none"
+          className="w-full text-xs font-medium bg-white border border-[#E8DED4] rounded-xl px-3 py-2 text-[#2B1A12] focus:ring-2 focus:ring-[#C59B27] outline-none font-[family-name:var(--font-hind-siliguri)]"
         >
           {sections.map((sec) => (
             <option key={sec} value={sec}>
@@ -159,17 +159,17 @@ export function PhoneImageUpload({
 
       {/* Preview Area */}
       {preview ? (
-        <div className="relative rounded-xl overflow-hidden border border-stone-200 dark:border-stone-700 bg-stone-900 group">
+        <div className="relative rounded-xl overflow-hidden border border-[#E8DED4] bg-white group">
           <img
             src={preview}
             alt="Upload Preview"
             className="w-full h-48 sm:h-56 object-contain mx-auto"
           />
-          <div className="absolute inset-0 bg-stone-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+          <div className="absolute inset-0 bg-[#2B1A12]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="px-3 py-2 bg-white text-stone-900 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg hover:bg-stone-100"
+              className="px-3 py-2 bg-white text-[#2B1A12] rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg hover:bg-[#F4ECE1]"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               ছবি পরিবর্তন করুন
@@ -184,8 +184,8 @@ export function PhoneImageUpload({
             </button>
           </div>
           {compressionStats && (
-            <div className="absolute bottom-2 left-2 right-2 bg-stone-950/80 backdrop-blur-sm text-stone-200 text-[11px] py-1 px-2.5 rounded-lg flex items-center justify-between border border-stone-700/60">
-              <span className="flex items-center gap-1 text-emerald-400 font-semibold">
+            <div className="absolute bottom-2 left-2 right-2 bg-[#2B1A12]/85 backdrop-blur-sm text-white text-[11px] py-1 px-2.5 rounded-lg flex items-center justify-between border border-[#E8DED4]/40 font-[family-name:var(--font-hind-siliguri)]">
+              <span className="flex items-center gap-1 text-[#C59B27] font-semibold">
                 <Sparkles className="w-3 h-3" /> অটো-অপ্টিমাইজড
               </span>
               <span>{compressionStats}</span>
@@ -194,15 +194,15 @@ export function PhoneImageUpload({
         </div>
       ) : (
         /* Upload Action Buttons */
-        <div className="border-2 border-dashed border-stone-300 dark:border-stone-700 rounded-2xl p-6 text-center hover:border-amber-600 transition-colors bg-white/60 dark:bg-stone-800/40">
-          <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 flex items-center justify-center mx-auto mb-3">
+        <div className="border-2 border-dashed border-[#E8DED4] rounded-2xl p-6 text-center hover:border-[#C59B27] transition-colors bg-white font-[family-name:var(--font-hind-siliguri)]">
+          <div className="w-12 h-12 rounded-full bg-[#C59B27]/10 text-[#C59B27] flex items-center justify-center mx-auto mb-3">
             <Upload className="w-6 h-6" />
           </div>
 
-          <p className="text-sm font-bold text-stone-900 dark:text-white mb-1">
+          <p className="text-sm font-bold text-[#2B1A12] mb-1 font-[family-name:var(--font-tiro-bangla)]">
             ফোন থেকে ছবি আপলোড করুন
           </p>
-          <p className="text-xs text-stone-500 dark:text-stone-400 mb-4">
+          <p className="text-xs text-[#7A6A5F] mb-4">
             ক্যামেরা দিয়ে ছবি তুলুন অথবা গ্যালারি থেকে বেছে নিন। স্বয়ংক্রিয়ভাবে কম্প্রেস ও রিসাইজ হবে।
           </p>
 
@@ -212,7 +212,7 @@ export function PhoneImageUpload({
               type="button"
               disabled={isProcessing}
               onClick={() => fileInputRef.current?.click()}
-              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-amber-700 hover:bg-amber-800 active:scale-95 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
+              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[#2B1A12] hover:bg-[#C59B27] active:scale-95 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
             >
               {isProcessing ? (
                 <Loader2 className="w-4 h-4 animate-spin" />
@@ -227,7 +227,7 @@ export function PhoneImageUpload({
               type="button"
               disabled={isProcessing}
               onClick={() => cameraInputRef.current?.click()}
-              className="w-full sm:w-auto px-4 py-3 rounded-xl bg-stone-200 dark:bg-stone-700 hover:bg-stone-300 dark:hover:bg-stone-600 active:scale-95 text-stone-800 dark:text-stone-100 font-bold text-xs flex items-center justify-center gap-2 transition-all"
+              className="w-full sm:w-auto px-4 py-3 rounded-xl bg-[#F4ECE1] hover:bg-[#E8DED4] active:scale-95 text-[#2B1A12] font-bold text-xs flex items-center justify-center gap-2 transition-all border border-[#E8DED4]"
             >
               <Camera className="w-4 h-4" />
               <span>ছবি তুলুন (Take Photo)</span>
@@ -238,8 +238,8 @@ export function PhoneImageUpload({
 
       {/* Loading state indicator */}
       {isProcessing && (
-        <div className="mt-3 p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-xl flex items-center gap-2.5 text-xs text-amber-900 dark:text-amber-200">
-          <Loader2 className="w-4 h-4 animate-spin text-amber-700 flex-shrink-0" />
+        <div className="mt-3 p-3 bg-[#C59B27]/10 border border-[#C59B27]/25 rounded-xl flex items-center gap-2.5 text-xs text-[#2B1A12] font-[family-name:var(--font-hind-siliguri)]">
+          <Loader2 className="w-4 h-4 animate-spin text-[#C59B27] flex-shrink-0" />
           <span>ছবি সাইজ ও কোয়ালিটি অপ্টিমাইজ হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...</span>
         </div>
       )}
@@ -247,16 +247,16 @@ export function PhoneImageUpload({
       {/* Status Messages */}
       {statusMessage && (
         <div
-          className={`mt-3 p-3 rounded-xl flex items-center gap-2 text-xs font-semibold ${
+          className={`mt-3 p-3 rounded-xl flex items-center gap-2 text-xs font-semibold font-[family-name:var(--font-hind-siliguri)] ${
             statusMessage.type === 'success'
-              ? 'bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300'
-              : 'bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-300'
+              ? 'bg-emerald-50 border border-emerald-300 text-emerald-800'
+              : 'bg-red-50 border border-red-300 text-red-800'
           }`}
         >
           {statusMessage.type === 'success' ? (
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-emerald-600" />
           ) : (
-            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-600" />
           )}
           <span>{statusMessage.text}</span>
         </div>

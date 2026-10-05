@@ -38,30 +38,30 @@ export function BottomNav({ whatsappNumber: initialWhatsapp = "+8801710820987" }
   const cleanPhone = waNum.replace(/[^0-9]/g, '');
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-stone-950/95 backdrop-blur-lg border-t border-stone-800/80 px-2 pt-1.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-[0_-4px_25px_rgba(0,0,0,0.5)]">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-[#E8DED4] px-2 pt-1.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-[0_-4px_20px_rgba(43,26,18,0.08)] font-[family-name:var(--font-hind-siliguri)]">
       <div className="grid grid-cols-5 items-center justify-around">
         {/* Home */}
         <Link 
           href="/"
           className={`flex flex-col items-center justify-center py-1 transition-all active:scale-95 ${
-            pathname === '/' ? 'text-amber-400 font-semibold' : 'text-stone-300 hover:text-amber-400'
+            pathname === '/' ? 'text-[#C59B27] font-bold' : 'text-[#7A6A5F] hover:text-[#2B1A12]'
           }`}
         >
           <Home className="w-5 h-5 mb-0.5" />
           <span className="text-[10px] leading-tight">{t.bottomNav.home}</span>
-          {pathname === '/' && <span className="w-1 h-1 rounded-full bg-amber-400 mt-0.5" />}
+          {pathname === '/' && <span className="w-1.5 h-1.5 rounded-full bg-[#C59B27] mt-0.5" />}
         </Link>
 
         {/* Doors Catalog */}
         <Link 
           href="/doors"
           className={`flex flex-col items-center justify-center py-1 transition-all active:scale-95 ${
-            pathname.startsWith('/doors') ? 'text-amber-400 font-semibold' : 'text-stone-300 hover:text-amber-400'
+            pathname.startsWith('/doors') ? 'text-[#C59B27] font-bold' : 'text-[#7A6A5F] hover:text-[#2B1A12]'
           }`}
         >
           <Compass className="w-5 h-5 mb-0.5" />
           <span className="text-[10px] leading-tight">{language === 'bn' ? 'ক্যাটালগ' : 'Catalog'}</span>
-          {pathname.startsWith('/doors') && <span className="w-1 h-1 rounded-full bg-amber-400 mt-0.5" />}
+          {pathname.startsWith('/doors') && <span className="w-1.5 h-1.5 rounded-full bg-[#C59B27] mt-0.5" />}
         </Link>
 
         {/* CFT Calculator (Center Action) */}
@@ -69,28 +69,28 @@ export function BottomNav({ whatsappNumber: initialWhatsapp = "+8801710820987" }
           href="/calculator"
           className="flex flex-col items-center justify-center -mt-5 group active:scale-95 transition-transform"
         >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-600 via-amber-500 to-amber-400 p-0.5 shadow-lg flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#2B1A12] to-[#452b1e] p-0.5 shadow-lg flex items-center justify-center">
             <div className={`w-full h-full rounded-full flex items-center justify-center transition-colors ${
-              pathname.startsWith('/calculator') ? 'bg-amber-500' : 'bg-stone-950'
+              pathname.startsWith('/calculator') ? 'bg-[#C59B27]' : 'bg-[#2B1A12]'
             }`}>
-              <Calculator className={`w-6 h-6 ${
-                pathname.startsWith('/calculator') ? 'text-stone-950 font-bold' : 'text-amber-400 group-hover:text-amber-300'
+              <Calculator className={`w-5 h-5 ${
+                pathname.startsWith('/calculator') ? 'text-white' : 'text-[#C59B27]'
               }`} />
             </div>
           </div>
-          <span className="text-[10px] font-semibold text-amber-400 mt-0.5 leading-tight">{t.bottomNav.calculator}</span>
+          <span className="text-[10px] font-semibold text-[#2B1A12] mt-0.5 leading-tight">{t.bottomNav.calculator}</span>
         </Link>
 
         {/* Custom Order / Quote */}
         <Link 
           href="/custom-order"
           className={`relative flex flex-col items-center justify-center py-1 transition-all active:scale-95 ${
-            pathname === '/custom-order' ? 'text-amber-400 font-semibold' : 'text-stone-300 hover:text-amber-400'
+            pathname === '/custom-order' ? 'text-[#C59B27] font-bold' : 'text-[#7A6A5F] hover:text-[#2B1A12]'
           }`}
         >
           <Upload className="w-5 h-5 mb-0.5" />
           <span className="text-[10px] leading-tight">{language === 'bn' ? 'কাস্টম অর্ডার' : 'Custom'}</span>
-          {pathname === '/custom-order' && <span className="w-1 h-1 rounded-full bg-amber-400 mt-0.5" />}
+          {pathname === '/custom-order' && <span className="w-1.5 h-1.5 rounded-full bg-[#C59B27] mt-0.5" />}
         </Link>
 
         {/* WhatsApp Direct */}
@@ -102,7 +102,7 @@ export function BottomNav({ whatsappNumber: initialWhatsapp = "+8801710820987" }
           )}`}
           target="_blank" 
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center py-1 text-emerald-400 hover:text-emerald-300 active:scale-95 transition-all"
+          className="flex flex-col items-center justify-center py-1 text-[#10B981] hover:text-[#059669] active:scale-95 transition-all"
         >
           <MessageCircle className="w-5 h-5 mb-0.5" />
           <span className="text-[10px] leading-tight">{t.bottomNav.whatsapp}</span>

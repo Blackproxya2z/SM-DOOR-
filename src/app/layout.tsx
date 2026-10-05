@@ -1,15 +1,30 @@
 import type { Metadata, Viewport } from "next";
+import { Tiro_Bangla, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
 import { RealtimeSyncProvider } from "@/context/RealtimeSyncContext";
+
+const tiroBangla = Tiro_Bangla({
+  subsets: ["bengali"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-tiro-bangla",
+});
+
+const hindSiliguri = Hind_Siliguri({
+  subsets: ["bengali"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-hind-siliguri",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: "#0c0a09",
+  themeColor: "#FAF8F5",
   viewportFit: "cover",
 };
 
@@ -112,14 +127,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="bn" className="scroll-smooth">
+    <html lang="bn" className={`scroll-smooth ${tiroBangla.variable} ${hindSiliguri.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased selection:bg-gold-500 selection:text-wood-950">
+      <body className="antialiased font-sans bg-[#FAF8F5] text-[#2B1A12] selection:bg-[#C59B27]/20 selection:text-[#2B1A12]">
         <LanguageProvider>
           <QuoteProvider>
             <RealtimeSyncProvider>

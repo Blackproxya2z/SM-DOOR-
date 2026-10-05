@@ -212,55 +212,55 @@ export function CftCalculator({
   };
 
   return (
-    <section id="calculator" className="py-16 sm:py-24 bg-white dark:bg-wood-950 relative overflow-hidden">
-      {/* Background Subtle Woodgrain Accents */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-wood-700/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="calculator" className="py-16 sm:py-24 bg-[#FAF8F5] relative overflow-hidden">
+      {/* Background Subtle Accents */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#C59B27]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#2B1A12]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/10 text-gold-700 dark:text-gold-400 text-xs font-bold uppercase tracking-wider mb-3 border border-gold-500/20">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#C59B27]/10 text-[#C59B27] text-xs font-bold uppercase tracking-wider mb-3 border border-[#C59B27]/25 font-[family-name:var(--font-hind-siliguri)]">
             <Calculator className="w-3.5 h-3.5" />
             <span>{t.calculator.badge}</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-wood-950 dark:text-white tracking-tight mb-4">
+          <h2 className="font-[family-name:var(--font-tiro-bangla)] text-3xl sm:text-5xl font-bold text-[#2B1A12] tracking-tight mb-4">
             {t.calculator.title}
           </h2>
-          <p className="text-sm sm:text-base text-wood-600 dark:text-wood-300">
+          <p className="font-[family-name:var(--font-hind-siliguri)] text-base sm:text-lg text-[#7A6A5F] leading-relaxed">
             {t.calculator.subtitle}
           </p>
         </div>
 
         {/* Tab Selection */}
         <div className="flex justify-center mb-6 sm:mb-8 w-full">
-          <div className="grid grid-cols-3 sm:inline-flex w-full sm:w-auto p-1 sm:p-1.5 bg-wood-100 dark:bg-wood-900 rounded-2xl border border-wood-200 dark:border-wood-800 shadow-inner">
+          <div className="grid grid-cols-3 sm:inline-flex w-full sm:w-auto p-1.5 bg-white rounded-2xl border border-[#E8DED4] shadow-sm">
             <button
               onClick={() => setActiveTab('sawn')}
-              className={`px-2 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-sm font-bold text-center transition-all ${
+              className={`px-3 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-center transition-all font-[family-name:var(--font-hind-siliguri)] ${
                 activeTab === 'sawn'
-                  ? 'bg-wood-950 text-gold-400 dark:bg-gold-500 dark:text-wood-950 shadow-md'
-                  : 'text-wood-700 dark:text-wood-300 hover:text-wood-950'
+                  ? 'bg-[#2B1A12] text-white shadow-md'
+                  : 'text-[#7A6A5F] hover:text-[#2B1A12]'
               }`}
             >
               {t.calculator.tabSawn}
             </button>
             <button
               onClick={() => setActiveTab('log')}
-              className={`px-2 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-sm font-bold text-center transition-all ${
+              className={`px-3 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-center transition-all font-[family-name:var(--font-hind-siliguri)] ${
                 activeTab === 'log'
-                  ? 'bg-wood-950 text-gold-400 dark:bg-gold-500 dark:text-wood-950 shadow-md'
-                  : 'text-wood-700 dark:text-wood-300 hover:text-wood-950'
+                  ? 'bg-[#2B1A12] text-white shadow-md'
+                  : 'text-[#7A6A5F] hover:text-[#2B1A12]'
               }`}
             >
               {t.calculator.tabLog}
             </button>
             <button
               onClick={() => setActiveTab('frame')}
-              className={`px-2 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-sm font-bold text-center transition-all ${
+              className={`px-3 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-center transition-all font-[family-name:var(--font-hind-siliguri)] ${
                 activeTab === 'frame'
-                  ? 'bg-wood-950 text-gold-400 dark:bg-gold-500 dark:text-wood-950 shadow-md'
-                  : 'text-wood-700 dark:text-wood-300 hover:text-wood-950'
+                  ? 'bg-[#2B1A12] text-white shadow-md'
+                  : 'text-[#7A6A5F] hover:text-[#2B1A12]'
               }`}
             >
               {t.calculator.tabFrame}
@@ -271,13 +271,13 @@ export function CftCalculator({
         {/* Calculator Main Panel */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Inputs Column */}
-          <div className="lg:col-span-7 bg-wood-50/70 dark:bg-wood-900/60 rounded-3xl p-6 sm:p-8 border border-wood-200 dark:border-wood-800 shadow-sm">
+          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DED4] shadow-md">
             {/* TAB 1: Sawn Timber */}
             {activeTab === 'sawn' && (
               <div className="space-y-6">
                 {/* Wood Species Selection */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-wood-800 dark:text-wood-200 mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#2B1A12] mb-2 font-[family-name:var(--font-hind-siliguri)]">
                     {t.calculator.selectWoodSpecies}
                   </label>
                   <select
@@ -286,7 +286,7 @@ export function CftCalculator({
                       setSawnSpeciesId(e.target.value);
                       customSawnRateInput.setValue('');
                     }}
-                    className="w-full px-4 py-3 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-medium text-wood-900 dark:text-white cursor-pointer shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-medium text-[#2B1A12] cursor-pointer shadow-sm outline-none transition-colors"
                   >
                     {speciesList.map((sp) => (
                       <option key={sp.id} value={sp.id}>
@@ -300,49 +300,49 @@ export function CftCalculator({
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   {/* Length Feet */}
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.lengthFeet}
                     </label>
                     <input
                       {...sawnLengthFeetInput.inputProps}
                       placeholder="7"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
 
                   {/* Length Inches */}
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.lengthInches}
                     </label>
                     <input
                       {...sawnLengthInchesInput.inputProps}
                       placeholder="0"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
 
                   {/* Width Inches */}
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.widthInches}
                     </label>
                     <input
                       {...sawnWidthInchesInput.inputProps}
                       placeholder="10"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
 
                   {/* Thickness Inches */}
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.thicknessInches}
                     </label>
                     <input
                       {...sawnThicknessInchesInput.inputProps}
                       placeholder="1.5"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -350,29 +350,29 @@ export function CftCalculator({
                 {/* Quantity and Custom Rate */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.quantity}
                     </label>
                     <input
                       {...sawnQuantityInput.inputProps}
                       placeholder="1"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.ratePerCft}
                     </label>
                     <input
                       {...customSawnRateInput.inputProps}
                       placeholder={String(effectiveSawnRate)}
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
                 </div>
 
-                <div className="text-[11px] text-wood-500 dark:text-wood-400 bg-wood-100/60 dark:bg-wood-950/40 p-3 rounded-xl border border-wood-200/60 dark:border-wood-800">
+                <div className="text-xs text-[#7A6A5F] bg-[#FAF8F5] p-3.5 rounded-xl border border-[#E8DED4] font-[family-name:var(--font-hind-siliguri)]">
                   <span>📐 <strong>{language === 'bn' ? 'চেরা কাঠের ফর্মুলা:' : 'Formula:'}</strong> (দৈর্ঘ্য ফুট × প্রস্থ ইঞ্চি × পুরুত্ব ইঞ্চি) ÷ ১৪৪ = সিএফটি (CFT)</span>
                 </div>
               </div>
@@ -382,7 +382,7 @@ export function CftCalculator({
             {activeTab === 'log' && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-wood-800 dark:text-wood-200 mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#2B1A12] mb-2 font-[family-name:var(--font-hind-siliguri)]">
                     {t.calculator.selectWoodSpecies}
                   </label>
                   <select
@@ -391,7 +391,7 @@ export function CftCalculator({
                       setLogSpeciesId(e.target.value);
                       customLogRateInput.setValue('');
                     }}
-                    className="w-full px-4 py-3 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-medium text-wood-900 dark:text-white cursor-pointer shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-medium text-[#2B1A12] cursor-pointer shadow-sm outline-none transition-colors"
                   >
                     {speciesList.map((sp) => (
                       <option key={sp.id} value={sp.id}>
@@ -403,51 +403,51 @@ export function CftCalculator({
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.lengthFeet}
                     </label>
                     <input
                       {...logLengthFeetInput.inputProps}
                       placeholder="10"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.girthInches} (ফিতা মাপ)
                     </label>
                     <input
                       {...logGirthInchesInput.inputProps}
                       placeholder="36"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.quantity}
                     </label>
                     <input
                       {...logQuantityInput.inputProps}
                       placeholder="1"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                  <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                     {t.calculator.ratePerCft} (গোল কাঠ)
                   </label>
                   <input
                     {...customLogRateInput.inputProps}
                     placeholder={String(effectiveLogRate)}
-                    className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                    className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                   />
                 </div>
 
-                <div className="text-[11px] text-wood-500 dark:text-wood-400 bg-wood-100/60 dark:bg-wood-950/40 p-3 rounded-xl border border-wood-200/60 dark:border-wood-800">
+                <div className="text-xs text-[#7A6A5F] bg-[#FAF8F5] p-3.5 rounded-xl border border-[#E8DED4] font-[family-name:var(--font-hind-siliguri)]">
                   <span>📐 <strong>{language === 'bn' ? 'গোল কাঠের হোপের নিয়ম:' : 'Hoppus Rule:'}</strong> (বেড় ÷ ৪)² × দৈর্ঘ্য ফুট ÷ ১৪৪ = সিএফটি (CFT)</span>
                 </div>
               </div>
@@ -457,7 +457,7 @@ export function CftCalculator({
             {activeTab === 'frame' && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-wood-800 dark:text-wood-200 mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#2B1A12] mb-2 font-[family-name:var(--font-hind-siliguri)]">
                     {t.calculator.selectWoodSpecies}
                   </label>
                   <select
@@ -466,7 +466,7 @@ export function CftCalculator({
                       setFrameSpeciesId(e.target.value);
                       customFrameRateInput.setValue('');
                     }}
-                    className="w-full px-4 py-3 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-medium text-wood-900 dark:text-white cursor-pointer shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-medium text-[#2B1A12] cursor-pointer shadow-sm outline-none transition-colors"
                   >
                     {speciesList.map((sp) => (
                       <option key={sp.id} value={sp.id}>
@@ -478,35 +478,35 @@ export function CftCalculator({
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.frameOpeningHeight}
                     </label>
                     <input
                       {...frameHeightFeetInput.inputProps}
                       placeholder="7"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.frameOpeningWidth}
                     </label>
                     <input
                       {...frameWidthFeetInput.inputProps}
                       placeholder="3.25"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.sectionWidth}
                     </label>
                     <select
                       value={frameSectionW}
                       onChange={(e) => setFrameSectionW(parseFloat(e.target.value))}
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white cursor-pointer"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] cursor-pointer outline-none transition-colors"
                     >
                       <option value={4}>4 inch</option>
                       <option value={5}>5 inch (Standard)</option>
@@ -515,13 +515,13 @@ export function CftCalculator({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.sectionThickness}
                     </label>
                     <select
                       value={frameSectionT}
                       onChange={(e) => setFrameSectionT(parseFloat(e.target.value))}
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white cursor-pointer"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] cursor-pointer outline-none transition-colors"
                     >
                       <option value={2.25}>2.25 inch</option>
                       <option value={2.5}>2.5 inch (Standard)</option>
@@ -532,13 +532,13 @@ export function CftCalculator({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
                   <div>
-                    <label className="block text-xs font-semibold text-wood-700 dark:text-wood-300 mb-1">
+                    <label className="block text-xs font-semibold text-[#7A6A5F] mb-1 font-[family-name:var(--font-hind-siliguri)]">
                       {t.calculator.frameQuantity}
                     </label>
                     <input
                       {...frameQuantityInput.inputProps}
                       placeholder="1"
-                      className="w-full px-3 py-2.5 rounded-xl border border-wood-200 dark:border-wood-750 bg-white dark:bg-wood-950 text-sm font-bold text-wood-900 dark:text-white"
+                      className="w-full px-3 py-2.5 rounded-xl border border-[#E8DED4] bg-[#FAF8F5] focus:bg-white focus:border-[#C59B27] text-sm font-bold text-[#2B1A12] outline-none transition-colors"
                     />
                   </div>
 
@@ -548,9 +548,9 @@ export function CftCalculator({
                         type="checkbox"
                         checked={includeTreatment}
                         onChange={(e) => setIncludeTreatment(e.target.checked)}
-                        className="w-4 h-4 rounded text-gold-600 focus:ring-gold-500 border-wood-300"
+                        className="w-4 h-4 rounded text-[#C59B27] focus:ring-[#C59B27] border-[#E8DED4]"
                       />
-                      <span className="text-xs font-semibold text-wood-800 dark:text-wood-200">
+                      <span className="text-xs font-semibold text-[#2B1A12] font-[family-name:var(--font-hind-siliguri)]">
                         {t.calculator.includeTreatment}
                       </span>
                     </label>
@@ -561,16 +561,16 @@ export function CftCalculator({
           </div>
 
           {/* Results Summary Card */}
-          <div className="lg:col-span-5 bg-gradient-to-b from-wood-950 to-wood-900 text-white rounded-3xl p-6 sm:p-8 shadow-luxury border border-wood-800 flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-white text-[#2B1A12] rounded-3xl p-6 sm:p-8 shadow-xl border border-[#E8DED4] flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-wood-800">
+              <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#E8DED4]">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-gold-400" />
-                  <h3 className="text-base font-bold text-white tracking-wide">
+                  <Sparkles className="w-5 h-5 text-[#C59B27]" />
+                  <h3 className="font-[family-name:var(--font-tiro-bangla)] text-lg font-bold text-[#2B1A12] tracking-wide">
                     {t.calculator.resultHeading}
                   </h3>
                 </div>
-                <span className="text-[11px] font-semibold text-gold-400/90 bg-gold-500/10 px-2 py-0.5 rounded border border-gold-500/20">
+                <span className="text-xs font-semibold text-[#C59B27] bg-[#C59B27]/10 px-2.5 py-1 rounded-full border border-[#C59B27]/30 font-[family-name:var(--font-hind-siliguri)]">
                   {language === 'bn' ? 'সরাসরি প্রাক্কলন' : 'Live Estimate'}
                 </span>
               </div>
@@ -578,22 +578,22 @@ export function CftCalculator({
               {/* Sawn Summary */}
               {activeTab === 'sawn' && (
                 <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center text-sm text-wood-200">
-                    <span>{t.calculator.cftPerPiece}</span>
-                    <strong className="text-white text-base font-mono">{formatNum(sawnResult.singleItemCft, 3)} CFT</strong>
+                  <div className="flex justify-between items-center text-sm text-[#7A6A5F]">
+                    <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.cftPerPiece}</span>
+                    <strong className="text-[#2B1A12] text-base font-mono">{formatNum(sawnResult.singleItemCft, 3)} CFT</strong>
                   </div>
-                  <div className="flex justify-between items-center text-sm text-wood-200">
-                    <span>{t.calculator.totalCft}</span>
-                    <strong className="text-gold-400 text-lg font-mono">{formatNum(sawnResult.totalCft, 3)} CFT</strong>
+                  <div className="flex justify-between items-center text-sm text-[#7A6A5F]">
+                    <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.totalCft}</span>
+                    <strong className="text-[#C59B27] text-lg font-mono font-bold">{formatNum(sawnResult.totalCft, 3)} CFT</strong>
                   </div>
-                  <div className="flex justify-between items-center text-sm text-wood-200">
-                    <span>{t.calculator.ratePerCft}</span>
-                    <span className="text-white font-mono">{formatPrice(effectiveSawnRate)}</span>
+                  <div className="flex justify-between items-center text-sm text-[#7A6A5F]">
+                    <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.ratePerCft}</span>
+                    <span className="text-[#2B1A12] font-mono">{formatPrice(effectiveSawnRate)}</span>
                   </div>
 
-                  <div className="pt-4 border-t border-wood-800/80">
-                    <span className="text-xs text-wood-300 block mb-1">{t.calculator.totalCost}</span>
-                    <span className="text-3xl sm:text-4xl font-black text-gold-400">
+                  <div className="pt-4 border-t border-[#E8DED4]">
+                    <span className="text-xs text-[#7A6A5F] block mb-1 font-[family-name:var(--font-hind-siliguri)]">{t.calculator.totalCost}</span>
+                    <span className="text-3xl sm:text-4xl font-black text-[#C59B27]">
                       {formatPrice(sawnResult.totalPrice)}
                     </span>
                   </div>
@@ -603,22 +603,22 @@ export function CftCalculator({
               {/* Log Summary */}
               {activeTab === 'log' && (
                 <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center text-sm text-wood-200">
-                    <span>{t.calculator.cftPerPiece}</span>
-                    <strong className="text-white text-base font-mono">{formatNum(logResult.singleItemCft, 3)} CFT</strong>
+                  <div className="flex justify-between items-center text-sm text-[#7A6A5F]">
+                    <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.cftPerPiece}</span>
+                    <strong className="text-[#2B1A12] text-base font-mono">{formatNum(logResult.singleItemCft, 3)} CFT</strong>
                   </div>
-                  <div className="flex justify-between items-center text-sm text-wood-200">
-                    <span>{t.calculator.totalCft}</span>
-                    <strong className="text-gold-400 text-lg font-mono">{formatNum(logResult.totalCft, 3)} CFT</strong>
+                  <div className="flex justify-between items-center text-sm text-[#7A6A5F]">
+                    <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.totalCft}</span>
+                    <strong className="text-[#C59B27] text-lg font-mono font-bold">{formatNum(logResult.totalCft, 3)} CFT</strong>
                   </div>
-                  <div className="flex justify-between items-center text-sm text-wood-200">
-                    <span>{t.calculator.ratePerCft}</span>
-                    <span className="text-white font-mono">{formatPrice(effectiveLogRate)}</span>
+                  <div className="flex justify-between items-center text-sm text-[#7A6A5F]">
+                    <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.ratePerCft}</span>
+                    <span className="text-[#2B1A12] font-mono">{formatPrice(effectiveLogRate)}</span>
                   </div>
 
-                  <div className="pt-4 border-t border-wood-800/80">
-                    <span className="text-xs text-wood-300 block mb-1">{t.calculator.totalCost}</span>
-                    <span className="text-3xl sm:text-4xl font-black text-gold-400">
+                  <div className="pt-4 border-t border-[#E8DED4]">
+                    <span className="text-xs text-[#7A6A5F] block mb-1 font-[family-name:var(--font-hind-siliguri)]">{t.calculator.totalCost}</span>
+                    <span className="text-3xl sm:text-4xl font-black text-[#C59B27]">
                       {formatPrice(logResult.totalPrice)}
                     </span>
                   </div>
@@ -628,35 +628,35 @@ export function CftCalculator({
               {/* Frame Summary */}
               {activeTab === 'frame' && (
                 <div className="space-y-3 mb-8 text-xs sm:text-sm">
-                  <div className="flex justify-between items-center text-wood-200">
-                    <span>{t.calculator.frameTotalLinearFeet}</span>
-                    <strong className="text-white font-mono">{formatNum(frameResult.totalLinearFeet, 1)} ft</strong>
+                  <div className="flex justify-between items-center text-[#7A6A5F]">
+                    <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.frameTotalLinearFeet}</span>
+                    <strong className="text-[#2B1A12] font-mono">{formatNum(frameResult.totalLinearFeet, 1)} ft</strong>
                   </div>
-                  <div className="flex justify-between items-center text-wood-200">
-                    <span>মোট কাঠ প্রয়োজন (১২% ঘাটতি সহ):</span>
-                    <strong className="text-gold-400 font-mono">{formatNum(frameResult.grossCftWithWastage, 3)} CFT</strong>
+                  <div className="flex justify-between items-center text-[#7A6A5F]">
+                    <span className="font-[family-name:var(--font-hind-siliguri)]">মোট কাঠ প্রয়োজন (১২% ঘাটতি সহ):</span>
+                    <strong className="text-[#C59B27] font-mono font-bold">{formatNum(frameResult.grossCftWithWastage, 3)} CFT</strong>
                   </div>
-                  <div className="flex justify-between items-center text-wood-300 text-xs">
-                    <span>{t.calculator.timberCost}</span>
+                  <div className="flex justify-between items-center text-[#7A6A5F] text-xs">
+                    <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.timberCost}</span>
                     <span>{formatPrice(frameResult.timberCost)}</span>
                   </div>
-                  <div className="flex justify-between items-center text-wood-300 text-xs">
-                    <span>{t.calculator.laborCost}</span>
+                  <div className="flex justify-between items-center text-[#7A6A5F] text-xs">
+                    <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.laborCost}</span>
                     <span>{formatPrice(frameResult.laborCost)}</span>
                   </div>
                   {includeTreatment && (
-                    <div className="flex justify-between items-center text-wood-300 text-xs">
-                      <span>{t.calculator.treatmentCost}</span>
+                    <div className="flex justify-between items-center text-[#7A6A5F] text-xs">
+                      <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.treatmentCost}</span>
                       <span>{formatPrice(frameResult.seasoningCost)}</span>
                     </div>
                   )}
 
-                  <div className="pt-4 border-t border-wood-800/80">
+                  <div className="pt-4 border-t border-[#E8DED4]">
                     <div className="flex justify-between items-baseline mb-1">
-                      <span className="text-xs text-wood-300">{t.calculator.frameCostPerPiece}</span>
-                      <span className="text-base font-bold text-white">{formatPrice(frameResult.costPerFrame)}</span>
+                      <span className="text-xs text-[#7A6A5F] font-[family-name:var(--font-hind-siliguri)]">{t.calculator.frameCostPerPiece}</span>
+                      <span className="text-base font-bold text-[#2B1A12]">{formatPrice(frameResult.costPerFrame)}</span>
                     </div>
-                    <div className="text-2xl sm:text-3xl font-black text-gold-400">
+                    <div className="text-2xl sm:text-3xl font-black text-[#C59B27]">
                       {formatPrice(frameResult.totalCost)}
                     </div>
                   </div>
@@ -665,14 +665,14 @@ export function CftCalculator({
             </div>
 
             {/* Action Buttons: Add to Quote and WhatsApp */}
-            <div className="space-y-2.5">
+            <div className="space-y-3">
               {addedNotice && (
-                <div className="p-2.5 rounded-xl bg-gold-500/20 border border-gold-500/40 text-gold-300 text-xs flex items-center justify-between animate-fade-in">
-                  <span className="flex items-center gap-1.5 font-semibold">
-                    <Check className="w-3.5 h-3.5 text-gold-400" />
+                <div className="p-3 rounded-xl bg-[#C59B27]/15 border border-[#C59B27]/30 text-[#2B1A12] text-xs flex items-center justify-between animate-fade-in">
+                  <span className="flex items-center gap-1.5 font-semibold font-[family-name:var(--font-hind-siliguri)]">
+                    <Check className="w-4 h-4 text-[#C59B27]" />
                     {language === 'bn' ? 'কোটেশন লিস্টে যোগ করা হয়েছে!' : 'Added to quote list!'}
                   </span>
-                  <a href="/quote" className="underline font-bold text-gold-400">
+                  <a href="/quote" className="underline font-bold text-[#C59B27] font-[family-name:var(--font-hind-siliguri)]">
                     {language === 'bn' ? 'লিস্ট দেখুন →' : 'View →'}
                   </a>
                 </div>
@@ -681,22 +681,22 @@ export function CftCalculator({
               <button
                 type="button"
                 onClick={handleAddToQuote}
-                className="w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm text-gold-300 bg-wood-900 hover:bg-wood-850 border border-gold-500/40 shadow flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+                className="w-full py-3.5 px-4 rounded-xl font-bold text-xs sm:text-sm text-[#2B1A12] bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DED4] shadow-sm flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
               >
-                <ClipboardList className="w-4 h-4 text-gold-400" />
-                <span>{language === 'bn' ? 'এই হিসাবটি কোটেশন তালিকায় রাখুন' : 'Save Estimate to Quote List'}</span>
+                <ClipboardList className="w-4 h-4 text-[#C59B27]" />
+                <span className="font-[family-name:var(--font-hind-siliguri)]">{language === 'bn' ? 'এই হিসাবটি কোটেশন তালিকায় রাখুন' : 'Save Estimate to Quote List'}</span>
               </button>
 
               <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 px-4 rounded-xl font-bold text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+                className="w-full py-3.5 px-4 rounded-xl font-bold text-sm text-white bg-[#10B981] hover:bg-[#059669] shadow-md flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
               >
                 <MessageCircle className="w-5 h-5" />
-                <span>{t.calculator.sendWhatsAppQuote}</span>
+                <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.sendWhatsAppQuote}</span>
               </a>
-              <p className="text-[11px] text-wood-400 text-center">
+              <p className="text-[11px] text-[#7A6A5F] text-center font-[family-name:var(--font-hind-siliguri)]">
                 {t.calculator.liveRateNote}
               </p>
             </div>

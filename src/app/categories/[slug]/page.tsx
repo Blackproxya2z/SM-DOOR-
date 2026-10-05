@@ -53,29 +53,29 @@ export default function CategoryDetailPage({ params }: CategoryPageProps) {
   const phone = siteSettings.phone1 || "+880 1710-820987";
 
   return (
-    <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950">
+    <main className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2B1A12] pb-16 md:pb-0 overflow-x-hidden">
       <Header initialSettings={siteSettings} />
 
       {/* Category Hero Banner */}
-      <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-wood-800">
+      <section className="bg-white text-[#2B1A12] py-14 px-4 sm:px-6 lg:px-8 border-b border-[#E8DED4]">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-xs sm:text-sm text-wood-400 mb-4">
-            <Link href="/" className="hover:text-gold-400 transition-colors">হোম</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-wood-600" />
-            <Link href="/categories" className="hover:text-gold-400 transition-colors">ক্যাটাগরি</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-wood-600" />
-            <span className="text-gold-400 font-semibold">{category.nameBn}</span>
+          <nav className="flex items-center gap-2 text-xs sm:text-sm text-[#7A6A5F] mb-4 font-[family-name:var(--font-hind-siliguri)]">
+            <Link href="/" className="hover:text-[#C59B27] transition-colors">হোম</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-[#7A6A5F]/60" />
+            <Link href="/categories" className="hover:text-[#C59B27] transition-colors">ক্যাটাগরি</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-[#7A6A5F]/60" />
+            <span className="text-[#C59B27] font-semibold">{category.nameBn}</span>
           </nav>
 
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif mb-3">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-tiro-bangla)] text-[#2B1A12] mb-3">
               {category.nameBn}
             </h1>
-            <p className="text-xs sm:text-sm text-wood-400 uppercase tracking-widest font-mono mb-4">
+            <p className="text-xs sm:text-sm text-[#7A6A5F] uppercase tracking-widest font-mono mb-4">
               {category.nameEn}
             </p>
-            <p className="text-sm sm:text-base text-wood-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-[#7A6A5F] leading-relaxed font-[family-name:var(--font-hind-siliguri)]">
               {category.descriptionBn}
             </p>
           </div>

@@ -166,12 +166,12 @@ export function Header({ initialSettings }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
-      {/* Main Glassmorphic Navigation Bar */}
+      {/* Light Premium Navigation Bar */}
       <div 
-        className={`w-full transition-all duration-300 ${
+        className={`w-full transition-all duration-300 bg-[#FAF8F5] border-b border-[#E8DED4] ${
           scrolled 
-            ? 'bg-white/95 dark:bg-stone-900/95 backdrop-blur-md shadow-[0_10px_30px_-10px_rgba(42,22,9,0.08)] py-3 border-b border-amber-900/10 dark:border-stone-800' 
-            : 'bg-white/90 dark:bg-stone-900/90 backdrop-blur-md py-4 border-b border-stone-200/80 dark:border-stone-800'
+            ? 'shadow-[0_4px_20px_-4px_rgba(43,26,18,0.06)] py-3' 
+            : 'py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -179,21 +179,21 @@ export function Header({ initialSettings }: HeaderProps) {
             
             {/* Logo: Modern Architectural Brand Mark */}
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group min-w-0 flex-shrink">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-600 via-amber-700 to-stone-900 p-[1.5px] shadow-sm transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
-                <div className="w-full h-full bg-stone-900 rounded-[10px] flex items-center justify-center">
-                  <TreePine className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 group-hover:text-amber-300 transition-colors" />
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#C59B27] to-[#2B1A12] p-[1.5px] shadow-sm transition-transform duration-300 group-hover:scale-105 flex-shrink-0">
+                <div className="w-full h-full bg-[#2B1A12] rounded-[10px] flex items-center justify-center">
+                  <TreePine className="w-5 h-5 sm:w-6 sm:h-6 text-[#C59B27] group-hover:text-amber-300 transition-colors" />
                 </div>
               </div>
               <div className="flex flex-col min-w-0">
                 <div className="flex items-center gap-1 sm:gap-1.5">
-                  <span className="text-sm sm:text-lg lg:text-xl font-bold font-serif tracking-tight text-stone-900 dark:text-white group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors truncate">
+                  <span className="text-sm sm:text-lg lg:text-xl font-bold font-serif tracking-tight text-[#2B1A12] group-hover:text-[#C59B27] transition-colors truncate">
                     {language === 'bn' ? (settings?.siteNameBn || 'মেসার্স ফারহান এন্টারপ্রাইজ') : (settings?.siteNameEn || 'M/S Farhan Enterprise')}
                   </span>
-                  <span className="hidden sm:inline-block text-[10px] font-bold tracking-wider uppercase px-1.5 py-0.5 bg-amber-100 dark:bg-amber-950/60 text-amber-900 dark:text-amber-300 border border-amber-300/50 dark:border-amber-700/50 rounded flex-shrink-0">
+                  <span className="hidden sm:inline-block text-[10px] font-bold tracking-wider uppercase px-1.5 py-0.5 bg-[#F4ECE1] text-[#7A6A5F] border border-[#E8DED4] rounded flex-shrink-0">
                     যশোর
                   </span>
                 </div>
-                <span className="text-[11px] text-stone-500 dark:text-stone-400 font-medium tracking-wide hidden sm:block truncate">
+                <span className="text-[11px] text-[#7A6A5F] font-medium tracking-wide hidden sm:block truncate">
                   {language === 'bn' ? (settings?.taglineBn || 'কাঠ, দরজা ও ফার্নিচারের বিশ্বস্ত ঠিকানা') : (settings?.taglineEn || 'Trusted Wood, Door & Furniture Solutions')}
                 </span>
               </div>
@@ -206,8 +206,8 @@ export function Header({ initialSettings }: HeaderProps) {
                 href="/"
                 className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                   pathname === '/'
-                    ? 'text-amber-800 dark:text-amber-400 bg-amber-50/80 dark:bg-stone-800'
-                    : 'text-stone-700 dark:text-stone-300 hover:text-amber-800 dark:hover:text-amber-400 hover:bg-stone-50 dark:hover:bg-stone-800/60'
+                    ? 'text-[#C59B27] bg-[#F4ECE1]'
+                    : 'text-[#2B1A12] hover:text-[#C59B27] hover:bg-[#F4ECE1]/60'
                 }`}
               >
                 {language === 'bn' ? 'হোম' : 'Home'}
@@ -223,19 +223,19 @@ export function Header({ initialSettings }: HeaderProps) {
                   href="/doors"
                   className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                     pathname.startsWith('/doors') || pathname.startsWith('/categories')
-                      ? 'text-amber-800 dark:text-amber-400 bg-amber-50/80 dark:bg-stone-800'
-                      : 'text-stone-700 dark:text-stone-300 hover:text-amber-800 dark:hover:text-amber-400 hover:bg-stone-50 dark:hover:bg-stone-800/60'
+                      ? 'text-[#C59B27] bg-[#F4ECE1]'
+                      : 'text-[#2B1A12] hover:text-[#C59B27] hover:bg-[#F4ECE1]/60'
                   }`}
                 >
                   <span>{language === 'bn' ? 'দরজার ক্যাটালগ' : 'Doors & Catalog'}</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'doors' ? 'rotate-180 text-amber-700' : 'text-stone-400'}`} />
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'doors' ? 'rotate-180 text-[#C59B27]' : 'text-[#7A6A5F]'}`} />
                 </Link>
 
                 {activeDropdown === 'doors' && (
                   <div className="absolute top-full left-0 w-80 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
-                    <div className="bg-white dark:bg-stone-900 rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 p-2 overflow-hidden">
-                      <div className="px-3 py-2 border-b border-stone-100 dark:border-stone-800 mb-1">
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400">
+                    <div className="bg-white rounded-2xl shadow-xl border border-[#E8DED4] p-2 overflow-hidden">
+                      <div className="px-3 py-2 border-b border-[#E8DED4]/60 mb-1">
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-[#C59B27]">
                           {language === 'bn' ? 'দরজার কালেকশন' : 'Door Collections'}
                         </p>
                       </div>
@@ -244,13 +244,13 @@ export function Header({ initialSettings }: HeaderProps) {
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="block px-3 py-2 rounded-xl hover:bg-amber-50/60 dark:hover:bg-stone-800 transition-colors group"
+                            className="block px-3 py-2 rounded-xl hover:bg-[#FAF8F5] transition-colors group"
                           >
-                            <p className="text-sm font-semibold text-stone-800 dark:text-stone-200 group-hover:text-amber-800 dark:group-hover:text-amber-400 flex items-center justify-between">
+                            <p className="text-sm font-semibold text-[#2B1A12] group-hover:text-[#C59B27] flex items-center justify-between">
                               {language === 'bn' ? item.labelBn : item.labelEn}
-                              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-amber-700" />
+                              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#C59B27]" />
                             </p>
-                            <p className="text-[12px] text-stone-500 dark:text-stone-400 mt-0.5 line-clamp-1">
+                            <p className="text-[12px] text-[#7A6A5F] mt-0.5 line-clamp-1">
                               {language === 'bn' ? item.descBn : item.descEn}
                             </p>
                           </Link>
@@ -271,19 +271,19 @@ export function Header({ initialSettings }: HeaderProps) {
                   href="/wood"
                   className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                     pathname.startsWith('/wood')
-                      ? 'text-amber-800 dark:text-amber-400 bg-amber-50/80 dark:bg-stone-800'
-                      : 'text-stone-700 dark:text-stone-300 hover:text-amber-800 dark:hover:text-amber-400 hover:bg-stone-50 dark:hover:bg-stone-800/60'
+                      ? 'text-[#C59B27] bg-[#F4ECE1]'
+                      : 'text-[#2B1A12] hover:text-[#C59B27] hover:bg-[#F4ECE1]/60'
                   }`}
                 >
                   <span>{language === 'bn' ? 'কাঠের প্রজাতি' : 'Wood Species'}</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'wood' ? 'rotate-180 text-amber-700' : 'text-stone-400'}`} />
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'wood' ? 'rotate-180 text-[#C59B27]' : 'text-[#7A6A5F]'}`} />
                 </Link>
 
                 {activeDropdown === 'wood' && (
                   <div className="absolute top-full left-0 w-84 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
-                    <div className="bg-white dark:bg-stone-900 rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 p-2 overflow-hidden">
-                      <div className="px-3 py-2 border-b border-stone-100 dark:border-stone-800 mb-1">
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400">
+                    <div className="bg-white rounded-2xl shadow-xl border border-[#E8DED4] p-2 overflow-hidden">
+                      <div className="px-3 py-2 border-b border-[#E8DED4]/60 mb-1">
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-[#C59B27]">
                           {language === 'bn' ? 'কাঠের গাইড ও দর' : 'Timber Species & Rates'}
                         </p>
                       </div>
@@ -292,13 +292,13 @@ export function Header({ initialSettings }: HeaderProps) {
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="block px-3 py-2 rounded-xl hover:bg-amber-50/60 dark:hover:bg-stone-800 transition-colors group"
+                            className="block px-3 py-2 rounded-xl hover:bg-[#FAF8F5] transition-colors group"
                           >
-                            <p className="text-sm font-semibold text-stone-800 dark:text-stone-200 group-hover:text-amber-800 dark:group-hover:text-amber-400 flex items-center justify-between">
+                            <p className="text-sm font-semibold text-[#2B1A12] group-hover:text-[#C59B27] flex items-center justify-between">
                               {language === 'bn' ? item.labelBn : item.labelEn}
-                              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-amber-700" />
+                              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#C59B27]" />
                             </p>
-                            <p className="text-[12px] text-stone-500 dark:text-stone-400 mt-0.5 line-clamp-1">
+                            <p className="text-[12px] text-[#7A6A5F] mt-0.5 line-clamp-1">
                               {language === 'bn' ? item.descBn : item.descEn}
                             </p>
                           </Link>
@@ -319,20 +319,20 @@ export function Header({ initialSettings }: HeaderProps) {
                   href="/calculator"
                   className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                     pathname.startsWith('/calculator')
-                      ? 'text-amber-800 dark:text-amber-400 bg-amber-50/80 dark:bg-stone-800'
-                      : 'text-stone-700 dark:text-stone-300 hover:text-amber-800 dark:hover:text-amber-400 hover:bg-stone-50 dark:hover:bg-stone-800/60'
+                      ? 'text-[#C59B27] bg-[#F4ECE1]'
+                      : 'text-[#2B1A12] hover:text-[#C59B27] hover:bg-[#F4ECE1]/60'
                   }`}
                 >
-                  <Calculator className="w-4 h-4 text-amber-700 dark:text-amber-400" />
+                  <Calculator className="w-4 h-4 text-[#C59B27]" />
                   <span>{language === 'bn' ? 'ক্যালকুলেটর' : 'Calculator'}</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'calc' ? 'rotate-180 text-amber-700' : 'text-stone-400'}`} />
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'calc' ? 'rotate-180 text-[#C59B27]' : 'text-[#7A6A5F]'}`} />
                 </Link>
 
                 {activeDropdown === 'calc' && (
                   <div className="absolute top-full left-0 w-84 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
-                    <div className="bg-white dark:bg-stone-900 rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 p-2 overflow-hidden">
-                      <div className="px-3 py-2 border-b border-stone-100 dark:border-stone-800 mb-1">
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400">
+                    <div className="bg-white rounded-2xl shadow-xl border border-[#E8DED4] p-2 overflow-hidden">
+                      <div className="px-3 py-2 border-b border-[#E8DED4]/60 mb-1">
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-[#C59B27]">
                           {language === 'bn' ? 'টিম্বার মেজারমেন্ট টুলস' : 'Timber Estimation Tools'}
                         </p>
                       </div>
@@ -341,13 +341,13 @@ export function Header({ initialSettings }: HeaderProps) {
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="block px-3 py-2 rounded-xl hover:bg-amber-50/60 dark:hover:bg-stone-800 transition-colors group"
+                            className="block px-3 py-2 rounded-xl hover:bg-[#FAF8F5] transition-colors group"
                           >
-                            <p className="text-sm font-semibold text-stone-800 dark:text-stone-200 group-hover:text-amber-800 dark:group-hover:text-amber-400 flex items-center justify-between">
+                            <p className="text-sm font-semibold text-[#2B1A12] group-hover:text-[#C59B27] flex items-center justify-between">
                               {language === 'bn' ? item.labelBn : item.labelEn}
-                              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-amber-700" />
+                              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#C59B27]" />
                             </p>
-                            <p className="text-[12px] text-stone-500 dark:text-stone-400 mt-0.5 line-clamp-1">
+                            <p className="text-[12px] text-[#7A6A5F] mt-0.5 line-clamp-1">
                               {language === 'bn' ? item.descBn : item.descEn}
                             </p>
                           </Link>
@@ -363,12 +363,12 @@ export function Header({ initialSettings }: HeaderProps) {
                 href="/custom-order"
                 className={`relative px-3 py-2 rounded-lg text-sm font-semibold transition-all flex items-center gap-1.5 ${
                   pathname === '/custom-order'
-                    ? 'text-amber-800 dark:text-amber-400 bg-amber-50/80 dark:bg-stone-800'
-                    : 'text-stone-700 dark:text-stone-300 hover:text-amber-800 dark:hover:text-amber-400 hover:bg-stone-50 dark:hover:bg-stone-800/60'
+                    ? 'text-[#C59B27] bg-[#F4ECE1]'
+                    : 'text-[#2B1A12] hover:text-[#C59B27] hover:bg-[#F4ECE1]/60'
                 }`}
               >
                 <span>{language === 'bn' ? 'কাস্টম ডিজাইন' : 'Custom Order'}</span>
-                <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.2 bg-gradient-to-r from-amber-600 to-amber-700 text-white rounded-full shadow-sm">
+                <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.2 bg-[#C59B27] text-white rounded-full shadow-sm">
                   {language === 'bn' ? 'অর্ডার' : 'Bespoke'}
                 </span>
               </Link>
@@ -383,20 +383,20 @@ export function Header({ initialSettings }: HeaderProps) {
                   type="button"
                   className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
                     pathname === '/factory' || pathname === '/about' || pathname === '/contact'
-                      ? 'text-amber-800 dark:text-amber-400 bg-amber-50/80 dark:bg-stone-800'
-                      : 'text-stone-700 dark:text-stone-300 hover:text-amber-800 dark:hover:text-amber-400 hover:bg-stone-50 dark:hover:bg-stone-800/60'
+                      ? 'text-[#C59B27] bg-[#F4ECE1]'
+                      : 'text-[#2B1A12] hover:text-[#C59B27] hover:bg-[#F4ECE1]/60'
                   }`}
                 >
                   <span>{language === 'bn' ? 'কারখানা ও পরিচিতি' : 'Factory & About'}</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180 text-amber-700' : 'text-stone-400'}`} />
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180 text-[#C59B27]' : 'text-[#7A6A5F]'}`} />
                 </button>
 
                 {activeDropdown === 'about' && (
                   <div className="absolute top-full right-0 w-80 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-200">
-                    <div className="bg-white dark:bg-stone-900 rounded-2xl shadow-xl border border-stone-200 dark:border-stone-800 p-2 overflow-hidden">
-                      <div className="px-3 py-2 border-b border-stone-100 dark:border-stone-800 mb-1">
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400">
-                          {language === 'bn' ? 'এস এম ডোর কমপ্লেক্স' : 'SM Door Complex'}
+                    <div className="bg-white rounded-2xl shadow-xl border border-[#E8DED4] p-2 overflow-hidden">
+                      <div className="px-3 py-2 border-b border-[#E8DED4]/60 mb-1">
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-[#C59B27]">
+                          {language === 'bn' ? 'মেসার্স ফারহান এন্টারপ্রাইজ' : 'Farhan Enterprise Complex'}
                         </p>
                       </div>
                       <div className="space-y-1">
@@ -404,13 +404,13 @@ export function Header({ initialSettings }: HeaderProps) {
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="block px-3 py-2 rounded-xl hover:bg-amber-50/60 dark:hover:bg-stone-800 transition-colors group"
+                            className="block px-3 py-2 rounded-xl hover:bg-[#FAF8F5] transition-colors group"
                           >
-                            <p className="text-sm font-semibold text-stone-800 dark:text-stone-200 group-hover:text-amber-800 dark:group-hover:text-amber-400 flex items-center justify-between">
+                            <p className="text-sm font-semibold text-[#2B1A12] group-hover:text-[#C59B27] flex items-center justify-between">
                               {language === 'bn' ? item.labelBn : item.labelEn}
-                              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-amber-700" />
+                              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#C59B27]" />
                             </p>
-                            <p className="text-[12px] text-stone-500 dark:text-stone-400 mt-0.5 line-clamp-1">
+                            <p className="text-[12px] text-[#7A6A5F] mt-0.5 line-clamp-1">
                               {language === 'bn' ? item.descBn : item.descEn}
                             </p>
                           </Link>
@@ -422,32 +422,32 @@ export function Header({ initialSettings }: HeaderProps) {
               </div>
             </nav>
 
-            {/* Header Right Action Elements (Refined Luxury Cluster) */}
+            {/* Header Right Action Elements (Light Premium Cluster) */}
             <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
               
               {/* Quote Cart / List Badge */}
               <Link
                 href="/quote"
-                className="relative p-2.5 rounded-xl bg-stone-50 hover:bg-amber-50 text-stone-700 hover:text-amber-800 dark:bg-stone-800 dark:hover:bg-stone-750 dark:text-stone-200 border border-stone-200 dark:border-stone-700 transition-all flex items-center justify-center group"
+                className="relative p-2.5 rounded-xl bg-white hover:bg-[#F4ECE1] text-[#2B1A12] hover:text-[#C59B27] border border-[#E8DED4] transition-all flex items-center justify-center group shadow-sm"
                 aria-label="View quotation list"
                 title={language === 'bn' ? 'কোটেশন কার্ট' : 'View Quote Cart'}
               >
-                <ClipboardList className="w-5 h-5 text-stone-700 dark:text-stone-300 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors" />
+                <ClipboardList className="w-5 h-5 text-[#2B1A12] group-hover:text-[#C59B27] transition-colors" />
                 {itemCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-amber-600 to-amber-700 text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow-md animate-pulse">
+                  <span className="absolute -top-1.5 -right-1.5 bg-[#C59B27] text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow-md animate-pulse">
                     {toLocalDigits(itemCount)}
                   </span>
                 )}
               </Link>
 
               {/* Minimalist Language Switcher Pill */}
-              <div className="flex items-center bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-full p-0.5">
+              <div className="flex items-center bg-[#F4ECE1] border border-[#E8DED4] rounded-full p-0.5">
                 <button
                   onClick={() => setLanguage('bn')}
                   className={`px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-bold rounded-full transition-all ${
                     language === 'bn'
-                      ? 'bg-white dark:bg-stone-700 text-amber-900 dark:text-amber-300 shadow-sm'
-                      : 'text-stone-500 dark:text-stone-400 hover:text-stone-800'
+                      ? 'bg-white text-[#2B1A12] shadow-sm'
+                      : 'text-[#7A6A5F] hover:text-[#2B1A12]'
                   }`}
                   aria-label="Switch to Bangla"
                 >
@@ -457,8 +457,8 @@ export function Header({ initialSettings }: HeaderProps) {
                   onClick={() => setLanguage('en')}
                   className={`px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-bold rounded-full transition-all ${
                     language === 'en'
-                      ? 'bg-white dark:bg-stone-700 text-amber-900 dark:text-amber-300 shadow-sm'
-                      : 'text-stone-500 dark:text-stone-400 hover:text-stone-800'
+                      ? 'bg-white text-[#2B1A12] shadow-sm'
+                      : 'text-[#7A6A5F] hover:text-[#2B1A12]'
                   }`}
                   aria-label="Switch to English"
                 >
@@ -466,7 +466,7 @@ export function Header({ initialSettings }: HeaderProps) {
                 </button>
               </div>
 
-              {/* Direct WhatsApp Call / Order Button (Refined Luxury Look) */}
+              {/* Direct WhatsApp Call / Order Button (Light Premium Style) */}
               <a
                 href={`https://wa.me/${cleanWhatsApp}?text=${encodeURIComponent(
                   language === 'bn' 
@@ -475,16 +475,16 @@ export function Header({ initialSettings }: HeaderProps) {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 dark:bg-amber-600 dark:hover:bg-amber-500 text-white text-xs font-bold shadow-sm hover:shadow transition-all duration-200 border border-stone-800 dark:border-amber-600 group"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#10B981] hover:bg-[#059669] text-white text-xs font-bold shadow-sm hover:shadow transition-all duration-200 border border-emerald-600 group"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+                <MessageCircle className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
                 <span>{language === 'bn' ? 'হোয়াটসঅ্যাপ' : 'WhatsApp'}</span>
               </a>
 
               {/* Mobile Hamburger Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-xl bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-200 transition-colors"
+                className="lg:hidden p-2 rounded-xl bg-[#F4ECE1] hover:bg-[#E8DED4] text-[#2B1A12] border border-[#E8DED4] transition-colors"
                 aria-label="Toggle Navigation Menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -496,20 +496,20 @@ export function Header({ initialSettings }: HeaderProps) {
 
       {/* 3. Mobile Slide-out Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="lg:hidden bg-[#FAF8F5] border-b border-[#E8DED4] shadow-xl animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="px-4 pt-3 pb-6 space-y-2 max-h-[85vh] overflow-y-auto">
             {/* Home */}
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2.5 rounded-xl text-base font-semibold text-stone-800 dark:text-stone-100 hover:bg-amber-50 dark:hover:bg-stone-800"
+              className="block px-4 py-2.5 rounded-xl text-base font-semibold text-[#2B1A12] hover:bg-[#F4ECE1] hover:text-[#C59B27]"
             >
               {language === 'bn' ? 'হোম' : 'Home'}
             </Link>
 
             {/* Doors & Catalog Group */}
-            <div className="pt-2 pb-1 border-t border-stone-100 dark:border-stone-800">
-              <p className="px-4 text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400 mb-1">
+            <div className="pt-2 pb-1 border-t border-[#E8DED4]">
+              <p className="px-4 text-xs font-bold uppercase tracking-wider text-[#C59B27] mb-1">
                 {language === 'bn' ? 'দরজার ক্যাটালগ' : 'Doors & Catalog'}
               </p>
               {doorsMenu.map((item) => (
@@ -517,7 +517,7 @@ export function Header({ initialSettings }: HeaderProps) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-300 hover:bg-amber-50 dark:hover:bg-stone-800"
+                  className="block px-4 py-2 rounded-xl text-sm font-medium text-[#2B1A12] hover:bg-[#F4ECE1] hover:text-[#C59B27]"
                 >
                   {language === 'bn' ? item.labelBn : item.labelEn}
                 </Link>
@@ -525,8 +525,8 @@ export function Header({ initialSettings }: HeaderProps) {
             </div>
 
             {/* Wood Species */}
-            <div className="pt-2 pb-1 border-t border-stone-100 dark:border-stone-800">
-              <p className="px-4 text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400 mb-1">
+            <div className="pt-2 pb-1 border-t border-[#E8DED4]">
+              <p className="px-4 text-xs font-bold uppercase tracking-wider text-[#C59B27] mb-1">
                 {language === 'bn' ? 'কাঠের প্রজাতি ও রেট' : 'Wood Species & Rates'}
               </p>
               {woodMenu.map((item) => (
@@ -534,7 +534,7 @@ export function Header({ initialSettings }: HeaderProps) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-300 hover:bg-amber-50 dark:hover:bg-stone-800"
+                  className="block px-4 py-2 rounded-xl text-sm font-medium text-[#2B1A12] hover:bg-[#F4ECE1] hover:text-[#C59B27]"
                 >
                   {language === 'bn' ? item.labelBn : item.labelEn}
                 </Link>
@@ -542,8 +542,8 @@ export function Header({ initialSettings }: HeaderProps) {
             </div>
 
             {/* Calculator */}
-            <div className="pt-2 pb-1 border-t border-stone-100 dark:border-stone-800">
-              <p className="px-4 text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400 mb-1">
+            <div className="pt-2 pb-1 border-t border-[#E8DED4]">
+              <p className="px-4 text-xs font-bold uppercase tracking-wider text-[#C59B27] mb-1">
                 {language === 'bn' ? 'টিম্বার ক্যালকুলেটর' : 'Timber Calculators'}
               </p>
               {calculatorMenu.map((item) => (
@@ -551,7 +551,7 @@ export function Header({ initialSettings }: HeaderProps) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-300 hover:bg-amber-50 dark:hover:bg-stone-800"
+                  className="block px-4 py-2 rounded-xl text-sm font-medium text-[#2B1A12] hover:bg-[#F4ECE1] hover:text-[#C59B27]"
                 >
                   {language === 'bn' ? item.labelBn : item.labelEn}
                 </Link>
@@ -562,17 +562,17 @@ export function Header({ initialSettings }: HeaderProps) {
             <Link
               href="/custom-order"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-semibold text-stone-800 dark:text-stone-100 hover:bg-amber-50 dark:hover:bg-stone-800 border-t border-stone-100 dark:border-stone-800"
+              className="flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-semibold text-[#2B1A12] hover:bg-[#F4ECE1] hover:text-[#C59B27] border-t border-[#E8DED4]"
             >
               <span>{language === 'bn' ? 'কাস্টম ডিজাইন অর্ডার' : 'Custom Design Order'}</span>
-              <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 bg-amber-600 text-white rounded-full">
+              <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 bg-[#C59B27] text-white rounded-full">
                 {language === 'bn' ? 'অর্ডার' : 'Bespoke'}
               </span>
             </Link>
 
             {/* Factory & About */}
-            <div className="pt-2 pb-1 border-t border-stone-100 dark:border-stone-800">
-              <p className="px-4 text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400 mb-1">
+            <div className="pt-2 pb-1 border-t border-[#E8DED4]">
+              <p className="px-4 text-xs font-bold uppercase tracking-wider text-[#C59B27] mb-1">
                 {language === 'bn' ? 'কারখানা ও যোগাযোগ' : 'Factory & Contact'}
               </p>
               {factoryMenu.map((item) => (
@@ -580,7 +580,7 @@ export function Header({ initialSettings }: HeaderProps) {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-300 hover:bg-amber-50 dark:hover:bg-stone-800"
+                  className="block px-4 py-2 rounded-xl text-sm font-medium text-[#2B1A12] hover:bg-[#F4ECE1] hover:text-[#C59B27]"
                 >
                   {language === 'bn' ? item.labelBn : item.labelEn}
                 </Link>
@@ -591,31 +591,31 @@ export function Header({ initialSettings }: HeaderProps) {
             <Link
               href="/quote"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-semibold bg-amber-50 dark:bg-stone-800 text-amber-900 dark:text-amber-300 border border-amber-200 dark:border-stone-700"
+              className="flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-semibold bg-white text-[#2B1A12] border border-[#E8DED4] shadow-sm hover:border-[#C59B27]"
             >
               <div className="flex items-center gap-2">
-                <ClipboardList className="w-5 h-5 text-amber-700" />
+                <ClipboardList className="w-5 h-5 text-[#C59B27]" />
                 <span>{language === 'bn' ? 'আপনার কোটেশন তালিকা' : 'Your Quote List'}</span>
               </div>
-              <span className="px-2 py-0.5 rounded-full bg-amber-600 text-white text-xs font-bold">
+              <span className="px-2 py-0.5 rounded-full bg-[#C59B27] text-white text-xs font-bold">
                 {toLocalDigits(itemCount)}
               </span>
             </Link>
 
             {/* Action buttons */}
-            <div className="pt-4 border-t border-stone-200 dark:border-stone-800 flex flex-col gap-2.5">
+            <div className="pt-4 border-t border-[#E8DED4] flex flex-col gap-2.5">
               <a
                 href={`tel:${phone}`}
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-stone-900 text-white font-semibold text-sm hover:bg-stone-800 transition-colors"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#2B1A12] text-white font-semibold text-sm hover:bg-[#3D261B] transition-colors"
               >
-                <PhoneCall className="w-4 h-4 text-amber-400" />
+                <PhoneCall className="w-4 h-4 text-[#C59B27]" />
                 <span>{language === 'bn' ? 'সরাসরি কল করুন:' : 'Call:'} {phone}</span>
               </a>
               <a
                 href={`https://wa.me/${cleanWhatsApp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-500 transition-colors"
+                className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#10B981] text-white font-semibold text-sm hover:bg-[#059669] transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>{language === 'bn' ? 'হোয়াটসঅ্যাপে চ্যাট করুন' : 'Chat on WhatsApp'}</span>
@@ -623,7 +623,7 @@ export function Header({ initialSettings }: HeaderProps) {
               <Link
                 href="/admin"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 text-xs text-stone-500 hover:text-amber-800 py-1"
+                className="flex items-center justify-center gap-2 text-xs text-[#7A6A5F] hover:text-[#C59B27] py-1"
               >
                 <Lock className="w-3.5 h-3.5" />
                 <span>{t.nav.admin}</span>

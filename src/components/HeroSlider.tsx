@@ -48,7 +48,7 @@ export function HeroSlider({ banners }: HeroSliderProps) {
   const secondaryCtaText = language === 'bn' ? banner.secondaryCtaTextBn : banner.secondaryCtaTextEn;
 
   return (
-    <div className="relative w-full overflow-hidden bg-wood-950 min-h-[580px] lg:min-h-[680px] flex flex-col justify-between">
+    <div className="relative w-full overflow-hidden bg-[#FAF8F5] min-h-[580px] lg:min-h-[680px] flex flex-col justify-between">
       {/* High-Performance Hero Banner Image: Desktop 16:9 full-width, Mobile portrait/square crop */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {banner.mobileBgImageUrl ? (
@@ -90,52 +90,73 @@ export function HeroSlider({ banners }: HeroSliderProps) {
           />
         )}
       </div>
-      {/* Multi-layered Wood & Dark Gradients for Maximum Contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-wood-950 via-wood-950/85 to-wood-950/60" />
-      <div className="absolute inset-0 bg-gradient-to-t from-wood-950 via-transparent to-wood-950/40" />
+      {/* Soft Light Premium Gradients for Maximum Contrast with Dark Brown Typography */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/98 via-[#FAF8F5]/85 to-[#FAF8F5]/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#FAF8F5] via-transparent to-[#FAF8F5]/30" />
 
       {/* Decorative Wood Ring Pattern */}
-      <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full border border-gold-500/10 pointer-events-none" />
-      <div className="absolute -right-40 -top-40 w-[500px] h-[500px] rounded-full border border-gold-500/5 pointer-events-none" />
+      <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full border border-[#C59B27]/15 pointer-events-none" />
+      <div className="absolute -right-40 -top-40 w-[500px] h-[500px] rounded-full border border-[#C59B27]/10 pointer-events-none" />
 
       {/* Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32 flex-1 flex flex-col justify-center">
         <div className="max-w-3xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/15 border border-gold-500/40 text-gold-300 text-xs sm:text-sm font-medium mb-6 backdrop-blur-sm shadow-sm animate-fade-in">
-            <ShieldCheck className="w-4 h-4 text-gold-400" />
-            <span>{badge || t.hero.badge}</span>
+          {/* Eyebrow Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C59B27]/10 text-[#C59B27] rounded-full text-xs sm:text-sm font-semibold border border-[#C59B27]/30 mb-6 backdrop-blur-sm shadow-sm animate-fade-in">
+            <ShieldCheck className="w-4 h-4 text-[#C59B27]" />
+            <span>{badge || (language === 'bn' ? '২৫+ বছরের বিশ্বস্ত ঐতিহ্য' : '25+ Years of Trusted Heritage')}</span>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.2] sm:leading-[1.15] mb-4 sm:mb-6">
-            <span className="block text-wood-100">{t.hero.titleMain}</span>
-            <span className="block gold-gradient-text drop-shadow-sm mt-1">
-              {title}
-            </span>
+          {/* Main Headline - Tiro Bangla */}
+          <h1 className="font-[family-name:var(--font-tiro-bangla)] text-3xl sm:text-5xl lg:text-7xl font-bold text-[#2B1A12] leading-[1.2] sm:leading-tight mb-2">
+            {language === 'bn' ? (
+              <>
+                কাঠের শিল্পে গড়া<br />
+                আপনার স্বপ্নের ঘর
+              </>
+            ) : (
+              <>
+                Crafted in Solid Timber<br />
+                Your Dream Living Space
+              </>
+            )}
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-sm sm:text-base lg:text-xl text-wood-200/90 leading-relaxed mb-6 sm:mb-8 max-w-2xl font-light">
-            {subtitle}
+          {/* Business Name - Tiro Bangla Gold */}
+          <p className="font-[family-name:var(--font-tiro-bangla)] text-2xl sm:text-3xl text-[#C59B27] font-semibold mt-1">
+            {language === 'bn' ? 'মেসার্স ফারহান এন্টারপ্রাইজ' : 'M/S Farhan Enterprise'}
+          </p>
+
+          {/* Decorative Divider */}
+          <div className="flex items-center gap-4 my-5 max-w-md">
+            <div className="h-px flex-1 bg-[#C59B27]/30"></div>
+            <span className="text-[#C59B27] text-base">❖</span>
+            <div className="h-px flex-1 bg-[#C59B27]/30"></div>
+          </div>
+
+          {/* Subtitle - Hind Siliguri */}
+          <p className="font-[family-name:var(--font-hind-siliguri)] text-base sm:text-lg text-[#7A6A5F] leading-relaxed mb-8 max-w-2xl font-normal">
+            {language === 'bn' 
+              ? 'যশোরের সেরা কাঠ, দরজা ও ফার্নিচার। ট্রিটমেন্ট কাঠে তৈরি টেকসই ও মজবুত সামগ্রী।' 
+              : (subtitle || 'Premium seasoned wooden doors, timber logs and custom handcrafted furniture.')}
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
             <Link
               href={banner.ctaLink || "#catalog"}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base text-wood-950 bg-gradient-to-r from-gold-400 via-gold-500 to-amber-500 hover:from-gold-300 hover:to-amber-400 shadow-gold transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-center"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base text-white bg-[#2B1A12] hover:bg-[#C59B27] shadow-sm hover:scale-105 active:scale-95 transition-all duration-200 text-center"
             >
-              <Compass className="w-5 h-5 text-wood-950 flex-shrink-0" />
+              <Compass className="w-5 h-5 text-[#C59B27] group-hover:text-white flex-shrink-0" />
               <span>{ctaText || t.hero.ctaCatalog}</span>
               <ArrowRight className="w-4 h-4 ml-1 flex-shrink-0" />
             </Link>
 
             <Link
               href={banner.secondaryCtaLink || "#calculator"}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl font-semibold text-sm sm:text-base text-wood-100 bg-wood-900/80 hover:bg-wood-850 border border-wood-700 hover:border-gold-500/50 backdrop-blur-md transition-all duration-200 transform hover:-translate-y-0.5 text-center"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl font-semibold text-sm sm:text-base border-2 border-[#C59B27] text-[#C59B27] hover:bg-[#C59B27] hover:text-white bg-white/70 shadow-sm hover:scale-105 active:scale-95 transition-all duration-200 text-center"
             >
-              <Calculator className="w-5 h-5 text-gold-400 flex-shrink-0" />
+              <Calculator className="w-5 h-5 flex-shrink-0" />
               <span>{secondaryCtaText || t.hero.ctaCalculator}</span>
             </Link>
           </div>
@@ -151,7 +172,7 @@ export function HeroSlider({ banners }: HeroSliderProps) {
                 key={idx}
                 onClick={() => setCurrentIdx(idx)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  currentIdx === idx ? 'w-8 bg-gold-400' : 'w-2 bg-wood-700 hover:bg-wood-500'
+                  currentIdx === idx ? 'w-8 bg-[#C59B27]' : 'w-2 bg-[#E8DED4] hover:bg-[#C59B27]/60'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -161,14 +182,14 @@ export function HeroSlider({ banners }: HeroSliderProps) {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setCurrentIdx((prev) => (prev === 0 ? activeBanners.length - 1 : prev - 1))}
-              className="p-2 rounded-lg bg-wood-900/60 hover:bg-wood-800 text-wood-200 hover:text-white border border-wood-700/60 transition-colors"
+              className="p-2 rounded-lg bg-white hover:bg-[#FAF8F5] text-[#2B1A12] border border-[#E8DED4] shadow-sm transition-colors"
               aria-label="Previous Slide"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => setCurrentIdx((prev) => (prev + 1) % activeBanners.length)}
-              className="p-2 rounded-lg bg-wood-900/60 hover:bg-wood-800 text-wood-200 hover:text-white border border-wood-700/60 transition-colors"
+              className="p-2 rounded-lg bg-white hover:bg-[#FAF8F5] text-[#2B1A12] border border-[#E8DED4] shadow-sm transition-colors"
               aria-label="Next Slide"
             >
               <ChevronRight className="w-5 h-5" />
@@ -178,46 +199,46 @@ export function HeroSlider({ banners }: HeroSliderProps) {
       )}
 
       {/* Bottom Trust & Feature Stats Bar */}
-      <div className="relative z-10 w-full border-t border-wood-800/80 bg-wood-950/90 backdrop-blur-md">
+      <div className="relative z-10 w-full border-t border-[#E8DED4] bg-white/90 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-5">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
-            <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-0 rounded-xl bg-wood-900/30 sm:bg-transparent">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center flex-shrink-0">
-                <Award className="w-4 h-4 sm:w-5 sm:h-5 text-gold-400" />
+            <div className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-[#FAF8F5] border border-[#E8DED4] shadow-sm">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#C59B27]/10 border border-[#C59B27]/30 flex items-center justify-center flex-shrink-0">
+                <Award className="w-4 h-4 sm:w-5 sm:h-5 text-[#C59B27]" />
               </div>
               <div className="min-w-0">
-                <p className="text-xs sm:text-sm font-bold text-white tracking-wide truncate">{t.hero.statsYears}</p>
-                <p className="text-[10px] sm:text-xs text-wood-400 truncate">{language === 'bn' ? 'ঝিকরগাছা, যশোর' : 'Jashore Heritage'}</p>
+                <p className="text-xs sm:text-sm font-bold text-[#2B1A12] tracking-wide truncate">{t.hero.statsYears}</p>
+                <p className="text-[10px] sm:text-xs text-[#7A6A5F] truncate">{language === 'bn' ? 'ঝিকরগাছা, যশোর' : 'Jashore Heritage'}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-0 rounded-xl bg-wood-900/30 sm:bg-transparent">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center flex-shrink-0">
-                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-gold-400" />
+            <div className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-[#FAF8F5] border border-[#E8DED4] shadow-sm">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#C59B27]/10 border border-[#C59B27]/30 flex items-center justify-center flex-shrink-0">
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-[#C59B27]" />
               </div>
               <div className="min-w-0">
-                <p className="text-xs sm:text-sm font-bold text-white tracking-wide truncate">{t.hero.statsSeasoned}</p>
-                <p className="text-[10px] sm:text-xs text-wood-400 truncate">{language === 'bn' ? 'বাঁকা ও ঘুণ মুক্ত নিশ্চয়তা' : 'Anti-Warp & Borer Free'}</p>
+                <p className="text-xs sm:text-sm font-bold text-[#2B1A12] tracking-wide truncate">{t.hero.statsSeasoned}</p>
+                <p className="text-[10px] sm:text-xs text-[#7A6A5F] truncate">{language === 'bn' ? 'বাঁকা ও ঘুণ মুক্ত নিশ্চয়তা' : 'Anti-Warp & Borer Free'}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-0 rounded-xl bg-wood-900/30 sm:bg-transparent">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center flex-shrink-0">
-                <Users className="w-4 h-4 sm:w-5 sm:h-5 text-gold-400" />
+            <div className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-[#FAF8F5] border border-[#E8DED4] shadow-sm">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#C59B27]/10 border border-[#C59B27]/30 flex items-center justify-center flex-shrink-0">
+                <Users className="w-4 h-4 sm:w-5 sm:h-5 text-[#C59B27]" />
               </div>
               <div className="min-w-0">
-                <p className="text-xs sm:text-sm font-bold text-white tracking-wide truncate">{t.hero.statsClients}</p>
-                <p className="text-[10px] sm:text-xs text-wood-400 truncate">{language === 'bn' ? 'সারা বাংলাদেশে বিশ্বস্ত' : 'Homes Nationwide'}</p>
+                <p className="text-xs sm:text-sm font-bold text-[#2B1A12] tracking-wide truncate">{t.hero.statsClients}</p>
+                <p className="text-[10px] sm:text-xs text-[#7A6A5F] truncate">{language === 'bn' ? 'সারা বাংলাদেশে বিশ্বস্ত' : 'Homes Nationwide'}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-0 rounded-xl bg-wood-900/30 sm:bg-transparent">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center flex-shrink-0">
-                <Factory className="w-4 h-4 sm:w-5 sm:h-5 text-gold-400" />
+            <div className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-[#FAF8F5] border border-[#E8DED4] shadow-sm">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#C59B27]/10 border border-[#C59B27]/30 flex items-center justify-center flex-shrink-0">
+                <Factory className="w-4 h-4 sm:w-5 sm:h-5 text-[#C59B27]" />
               </div>
               <div className="min-w-0">
-                <p className="text-xs sm:text-sm font-bold text-white tracking-wide truncate">{t.hero.statsSawmill}</p>
-                <p className="text-[10px] sm:text-xs text-wood-400 truncate">{language === 'bn' ? '১০০% নিজস্ব উৎপাদন' : 'In-House Quality'}</p>
+                <p className="text-xs sm:text-sm font-bold text-[#2B1A12] tracking-wide truncate">{t.hero.statsSawmill}</p>
+                <p className="text-[10px] sm:text-xs text-[#7A6A5F] truncate">{language === 'bn' ? '১০০% নিজস্ব উৎপাদন' : 'In-House Quality'}</p>
               </div>
             </div>
           </div>

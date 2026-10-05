@@ -85,31 +85,31 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
 
   return (
     <div 
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 animate-fade-in"
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 animate-fade-in"
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-4xl bg-white dark:bg-wood-950 rounded-t-3xl sm:rounded-2xl shadow-2xl overflow-hidden border border-wood-200 dark:border-wood-800 my-0 sm:my-8 max-h-[92vh] sm:max-h-[85vh] flex flex-col"
+        className="relative w-full max-w-4xl bg-white text-[#2B1A12] rounded-t-3xl sm:rounded-2xl shadow-2xl overflow-hidden border border-[#E8DED4] my-0 sm:my-8 max-h-[92vh] sm:max-h-[85vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Mobile Drag Pill */}
-        <div className="sm:hidden w-12 h-1.5 bg-wood-300 dark:bg-wood-700 rounded-full mx-auto mt-2.5 mb-1" />
+        <div className="sm:hidden w-12 h-1.5 bg-[#E8DED4] rounded-full mx-auto mt-2.5 mb-1" />
 
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 sm:top-4 right-3 sm:right-4 z-20 p-2 rounded-full bg-wood-900/70 hover:bg-wood-900 text-white transition-colors"
+          className="absolute top-3 sm:top-4 right-3 sm:right-4 z-20 p-2 rounded-full bg-[#2B1A12]/80 hover:bg-[#2B1A12] text-white transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 overflow-y-auto flex-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 overflow-y-auto flex-1 font-[family-name:var(--font-hind-siliguri)]">
           {/* Left Column: Image Gallery */}
-          <div className="p-6 bg-wood-50 dark:bg-wood-900/40 flex flex-col justify-between border-b md:border-b-0 md:border-r border-wood-200 dark:border-wood-800">
+          <div className="p-6 bg-[#FAF8F5] flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#E8DED4]">
             <div>
               {/* Main Image */}
-              <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-wood-200 dark:bg-wood-850 shadow-md mb-4">
+              <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-[#F4ECE1] shadow-md mb-4 border border-[#E8DED4]">
                 <Image
                   src={(product.images && product.images[activeImageIdx]) || (product.images && product.images[0]) || product.imageUrl || '/images/hero/hero-timber-logs.webp'}
                   alt={title}
@@ -118,8 +118,8 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
                   className="object-cover transition-all duration-300"
                 />
                 {product.isBestSeller && (
-                  <span className="absolute top-3 left-3 bg-gradient-to-r from-amber-600 to-gold-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md uppercase tracking-wider z-10">
-                    ★ Best Seller
+                  <span className="absolute top-3 left-3 bg-[#C59B27] text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md uppercase tracking-wider z-10 font-[family-name:var(--font-hind-siliguri)]">
+                    ★ সেরা বিক্রয়
                   </span>
                 )}
               </div>
@@ -132,7 +132,7 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
                       key={idx}
                       onClick={() => setActiveImageIdx(idx)}
                       className={`relative w-16 h-20 rounded-lg overflow-hidden border-2 flex-shrink-0 transition-all ${
-                        activeImageIdx === idx ? 'border-gold-500 scale-105' : 'border-transparent opacity-70 hover:opacity-100'
+                        activeImageIdx === idx ? 'border-[#C59B27] scale-105' : 'border-[#E8DED4] opacity-70 hover:opacity-100'
                       }`}
                     >
                       <Image src={img} alt="Thumbnail" fill sizes="64px" className="object-cover" />
@@ -143,13 +143,13 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
             </div>
 
             {/* Quality Badges */}
-            <div className="mt-6 pt-4 border-t border-wood-200 dark:border-wood-800 grid grid-cols-2 gap-3 text-xs text-wood-700 dark:text-wood-300">
+            <div className="mt-6 pt-4 border-t border-[#E8DED4] grid grid-cols-2 gap-3 text-xs text-[#7A6A5F]">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                 <span>{specs?.warrantyYears} {language === 'bn' ? 'বছরের ওয়ারেন্টি' : 'Years Warranty'}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-gold-500 flex-shrink-0" />
+                <Sparkles className="w-4 h-4 text-[#C59B27] flex-shrink-0" />
                 <span>{specs?.moistureContent}</span>
               </div>
             </div>
@@ -160,35 +160,35 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
             <div>
               {/* Category & Rating */}
               <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gold-600 dark:text-gold-400 bg-gold-50 dark:bg-gold-950/40 px-2.5 py-1 rounded-full border border-gold-300 dark:border-gold-700">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#C59B27] bg-[#C59B27]/10 px-2.5 py-1 rounded-full border border-[#C59B27]/25">
                   {language === 'bn' ? product.categoryLabelBn : product.categoryLabelEn}
                 </span>
-                <div className="flex items-center text-amber-500 text-xs font-bold gap-1">
+                <div className="flex items-center text-[#C59B27] text-xs font-bold gap-1">
                   <span>★ {product.rating}</span>
-                  <span className="text-wood-400">({product.reviewsCount})</span>
+                  <span className="text-[#7A6A5F]">({product.reviewsCount})</span>
                 </div>
               </div>
 
               {/* Title */}
-              <h2 className="text-xl sm:text-2xl font-bold text-wood-950 dark:text-white leading-tight mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#2B1A12] font-[family-name:var(--font-tiro-bangla)] leading-tight mb-3">
                 {title}
               </h2>
 
               {/* Price Block */}
-              <div className="p-4 rounded-xl bg-gradient-to-r from-wood-100 to-amber-50 dark:from-wood-900/60 dark:to-wood-850 border border-wood-200 dark:border-wood-750 mb-6">
-                <span className="text-xs text-wood-600 dark:text-wood-400 block mb-1">
-                  {t.product.priceFor} <strong className="text-wood-900 dark:text-gold-400">{currentWoodName}</strong>
+              <div className="p-4 rounded-xl bg-[#F4ECE1] border border-[#E8DED4] mb-6">
+                <span className="text-xs text-[#7A6A5F] block mb-1">
+                  {t.product.priceFor} <strong className="text-[#2B1A12]">{currentWoodName}</strong>
                 </span>
                 <div className="flex items-baseline gap-3">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-wood-950 dark:text-gold-400">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-[#C59B27] font-serif">
                     {formatPrice(currentPrice)}
                   </span>
                   {currentRegularPrice && currentRegularPrice > currentPrice && (
-                    <span className="text-sm line-through text-wood-400">
+                    <span className="text-sm line-through text-[#7A6A5F]">
                       {formatPrice(currentRegularPrice)}
                     </span>
                   )}
-                  <span className="ml-auto inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                  <span className="ml-auto inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
                     <Check className="w-3 h-3" />
                     {currentVariant?.inStock ? t.product.inStock : t.product.madeToOrder}
                   </span>
@@ -197,7 +197,7 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
 
               {/* Wood Species Variant Selector */}
               <div className="mb-6">
-                <label className="block text-xs font-bold uppercase tracking-wider text-wood-800 dark:text-wood-200 mb-2">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#2B1A12] mb-2">
                   {t.product.woodChoice}
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -210,56 +210,56 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
                         onClick={() => setSelectedWoodId(variant.speciesId)}
                         className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
                           isSelected
-                            ? 'border-gold-500 bg-gold-50/60 dark:bg-gold-950/30 text-wood-950 dark:text-white shadow-sm ring-1 ring-gold-500'
-                            : 'border-wood-200 dark:border-wood-800 hover:border-wood-400 dark:hover:border-wood-700 text-wood-700 dark:text-wood-300 bg-white dark:bg-wood-900'
+                            ? 'border-[#C59B27] bg-[#C59B27]/10 text-[#2B1A12] shadow-sm ring-1 ring-[#C59B27]'
+                            : 'border-[#E8DED4] hover:border-[#C59B27] text-[#7A6A5F] bg-white'
                         }`}
                       >
                         <span className="text-xs font-bold leading-snug">{vName}</span>
-                        <span className="text-xs font-semibold text-amber-700 dark:text-gold-400 mt-1">
+                        <span className="text-xs font-semibold text-[#C59B27] mt-1">
                           {formatPrice(variant.price)}
                         </span>
                       </button>
                     );
                   })}
                 </div>
-                <p className="text-[11px] text-wood-500 dark:text-wood-400 mt-2">
+                <p className="text-[11px] text-[#7A6A5F] mt-2">
                   {t.product.selectWoodToSeePrice}
                 </p>
               </div>
 
               {/* Description */}
-              <p className="text-sm text-wood-700 dark:text-wood-300 leading-relaxed mb-5">
+              <p className="text-sm text-[#7A6A5F] leading-relaxed mb-5">
                 {description}
               </p>
 
               {/* Technical Specifications Table */}
               <div className="mb-6">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-wood-800 dark:text-wood-200 mb-3 flex items-center gap-1.5">
-                  <FileText className="w-4 h-4 text-gold-500" />
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#2B1A12] mb-3 flex items-center gap-1.5">
+                  <FileText className="w-4 h-4 text-[#C59B27]" />
                   {t.product.specifications}
                 </h4>
-                <div className="text-xs border border-wood-200 dark:border-wood-800 rounded-lg overflow-hidden divide-y divide-wood-200 dark:divide-wood-800">
-                  <div className="grid grid-cols-2 p-2 bg-wood-50 dark:bg-wood-900">
-                    <span className="text-wood-600 dark:text-wood-400 font-medium">{t.product.height} & {t.product.width}</span>
-                    <span className="text-wood-900 dark:text-white font-semibold">{specs.standardHeight} × {specs.standardWidth}</span>
+                <div className="text-xs border border-[#E8DED4] rounded-lg overflow-hidden divide-y divide-[#E8DED4]">
+                  <div className="grid grid-cols-2 p-2 bg-[#FAF8F5]">
+                    <span className="text-[#7A6A5F] font-medium">{t.product.height} & {t.product.width}</span>
+                    <span className="text-[#2B1A12] font-semibold">{specs.standardHeight} × {specs.standardWidth}</span>
                   </div>
-                  <div className="grid grid-cols-2 p-2 bg-white dark:bg-wood-950">
-                    <span className="text-wood-600 dark:text-wood-400 font-medium">{t.product.thickness}</span>
-                    <span className="text-wood-900 dark:text-white font-semibold">{specs.standardThickness}</span>
+                  <div className="grid grid-cols-2 p-2 bg-white">
+                    <span className="text-[#7A6A5F] font-medium">{t.product.thickness}</span>
+                    <span className="text-[#2B1A12] font-semibold">{specs.standardThickness}</span>
                   </div>
-                  <div className="grid grid-cols-2 p-2 bg-wood-50 dark:bg-wood-900">
-                    <span className="text-wood-600 dark:text-wood-400 font-medium">{t.product.moisture}</span>
-                    <span className="text-wood-900 dark:text-white font-semibold">{specs.moistureContent}</span>
+                  <div className="grid grid-cols-2 p-2 bg-[#FAF8F5]">
+                    <span className="text-[#7A6A5F] font-medium">{t.product.moisture}</span>
+                    <span className="text-[#2B1A12] font-semibold">{specs.moistureContent}</span>
                   </div>
-                  <div className="grid grid-cols-2 p-2 bg-white dark:bg-wood-950">
-                    <span className="text-wood-600 dark:text-wood-400 font-medium">{t.product.seasoning}</span>
-                    <span className="text-wood-900 dark:text-white font-semibold">
+                  <div className="grid grid-cols-2 p-2 bg-white">
+                    <span className="text-[#7A6A5F] font-medium">{t.product.seasoning}</span>
+                    <span className="text-[#2B1A12] font-semibold">
                       {language === 'bn' ? specs.seasoningMethodBn : specs.seasoningMethodEn}
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 p-2 bg-wood-50 dark:bg-wood-900">
-                    <span className="text-wood-600 dark:text-wood-400 font-medium">{t.product.warranty}</span>
-                    <span className="text-wood-900 dark:text-white font-semibold">
+                  <div className="grid grid-cols-2 p-2 bg-[#FAF8F5]">
+                    <span className="text-[#7A6A5F] font-medium">{t.product.warranty}</span>
+                    <span className="text-[#2B1A12] font-semibold">
                       {specs.warrantyYears} {language === 'bn' ? 'বছর' : 'Years'}
                     </span>
                   </div>
@@ -268,9 +268,9 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
             </div>
 
             {/* Action Buttons */}
-            <div className="pt-4 border-t border-wood-200 dark:border-wood-800 flex flex-col gap-2.5">
+            <div className="pt-4 border-t border-[#E8DED4] flex flex-col gap-2.5">
               {addedToQuote && (
-                <div className="p-2 rounded-xl bg-gold-500/20 text-gold-600 dark:text-gold-400 text-xs text-center font-bold flex items-center justify-center gap-1.5">
+                <div className="p-2 rounded-xl bg-[#C59B27]/15 text-[#C59B27] text-xs text-center font-bold flex items-center justify-center gap-1.5">
                   <Check className="w-3.5 h-3.5" />
                   <span>{language === 'bn' ? 'কোটেশন লিস্টে যোগ করা হয়েছে!' : 'Added to quote list!'}</span>
                 </div>
@@ -280,9 +280,9 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
                 <button
                   type="button"
                   onClick={handleAddToQuote}
-                  className="py-3 px-4 rounded-xl font-bold text-xs sm:text-sm text-gold-700 dark:text-gold-400 bg-gold-500/10 hover:bg-gold-500/20 border border-gold-500/40 flex items-center justify-center gap-1.5 transition-all"
+                  className="py-3 px-4 rounded-xl font-bold text-xs sm:text-sm text-[#2B1A12] bg-[#F4ECE1] hover:bg-[#E8DED4] border border-[#E8DED4] flex items-center justify-center gap-1.5 transition-all"
                 >
-                  <ClipboardList className="w-4 h-4 text-gold-500" />
+                  <ClipboardList className="w-4 h-4 text-[#C59B27]" />
                   <span>{language === 'bn' ? 'কোটেশনে রাখুন' : 'Add to Quote'}</span>
                 </button>
 
@@ -300,9 +300,9 @@ export function ProductModal({ product, speciesList, onClose, whatsappNumber = "
               <Link
                 href={`/doors/${product.slug}`}
                 onClick={onClose}
-                className="py-2.5 px-4 rounded-xl border border-wood-200 dark:border-wood-700 hover:bg-wood-100 dark:hover:bg-wood-850 text-xs font-semibold text-wood-700 dark:text-wood-300 flex items-center justify-center gap-1.5 transition-colors"
+                className="py-2.5 px-4 rounded-xl border border-[#E8DED4] hover:bg-[#F4ECE1] text-xs font-semibold text-[#2B1A12] flex items-center justify-center gap-1.5 transition-colors"
               >
-                <ExternalLink className="w-3.5 h-3.5 text-gold-500" />
+                <ExternalLink className="w-3.5 h-3.5 text-[#C59B27]" />
                 <span>{language === 'bn' ? 'পূর্ণাঙ্গ পেজ ও ছবি জুম ভিউ দেখুন →' : 'View Full Page & Image Zoom →'}</span>
               </Link>
             </div>

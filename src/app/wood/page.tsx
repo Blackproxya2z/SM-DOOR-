@@ -23,20 +23,20 @@ export default function WoodSpeciesPage() {
   const phone = siteSettings.phone1 || "+880 1710-820987";
 
   return (
-    <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950">
+    <main className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2B1A12] pb-16 md:pb-0 overflow-x-hidden">
       <Header initialSettings={siteSettings} />
 
       {/* Banner */}
-      <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-wood-800 text-center">
+      <section className="bg-white text-[#2B1A12] py-14 px-4 sm:px-6 lg:px-8 border-b border-[#E8DED4] text-center">
         <div className="max-w-7xl mx-auto">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gold-500/20 text-gold-400 border border-gold-500/30 mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#C59B27]/10 text-[#C59B27] border border-[#C59B27]/25 mb-3 font-[family-name:var(--font-hind-siliguri)]">
             <TreePine className="w-3.5 h-3.5" />
             কাঠ পরিচিতি ও রেট
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-tiro-bangla)] text-[#2B1A12] mb-4">
             কাঠের প্রজাতি ও গুণাগুণ নির্দেশিকা
           </h1>
-          <p className="max-w-2xl mx-auto text-sm sm:text-base text-wood-300">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg text-[#7A6A5F] font-[family-name:var(--font-hind-siliguri)] leading-relaxed">
             দরজা ও ফার্নিচার বানানোর আগে আসল কাঠের চরিত্র, টেকসই মাত্রা ও বর্তমান বাজারদর জেনে নিন
           </p>
         </div>
@@ -49,56 +49,56 @@ export default function WoodSpeciesPage() {
             return (
               <div
                 key={species.id}
-                className="bg-white dark:bg-wood-900 rounded-3xl overflow-hidden border border-wood-200 dark:border-wood-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-3xl overflow-hidden border border-[#E8DED4] shadow-sm hover:shadow-xl hover:border-[#C59B27] transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Header Strip with Color Swatch Accent */}
-                <div className="p-6 pb-4 border-b border-wood-100 dark:border-wood-800">
+                <div className="p-6 pb-4 border-b border-[#E8DED4]">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[11px] font-mono text-gold-600 dark:text-gold-400 uppercase tracking-widest">
+                    <span className="text-[11px] font-mono text-[#C59B27] uppercase tracking-widest font-semibold">
                       {species.scientificName || 'Solid Timber'}
                     </span>
                     {species.isPopular && (
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30">
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-[#C59B27]/15 text-[#C59B27] border border-[#C59B27]/30 font-[family-name:var(--font-hind-siliguri)]">
                         ★ জনপ্রিয়
                       </span>
                     )}
                   </div>
-                  <h2 className="text-xl sm:text-2xl font-bold text-wood-950 dark:text-white font-serif mb-1">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#2B1A12] font-[family-name:var(--font-tiro-bangla)] mb-1">
                     {species.nameBn}
                   </h2>
-                  <p className="text-xs text-wood-500 font-sans">
+                  <p className="text-xs text-[#7A6A5F] font-sans">
                     {species.nameEn}
                   </p>
                 </div>
 
                 {/* Details */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <p className="text-xs sm:text-sm text-wood-700 dark:text-wood-300 leading-relaxed">
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4 font-[family-name:var(--font-hind-siliguri)]">
+                  <p className="text-xs sm:text-sm text-[#7A6A5F] leading-relaxed">
                     {species.descriptionBn}
                   </p>
 
-                  <div className="space-y-2 py-3 border-y border-wood-100 dark:border-wood-800 text-xs">
+                  <div className="space-y-2 py-3 border-y border-[#E8DED4] text-xs">
                     <div className="flex justify-between">
-                      <span className="text-wood-500">চেরা কাঠ রেট (CFT):</span>
-                      <span className="font-extrabold text-gold-600 dark:text-gold-400 text-sm">
+                      <span className="text-[#7A6A5F]">চেরা কাঠ রেট (CFT):</span>
+                      <span className="font-extrabold text-[#C59B27] text-sm">
                         {formatBDT(species.currentRatePerCft, 'bn')}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-wood-500">গোল গুঁড়ি রেট (CFT):</span>
-                      <span className="font-semibold text-wood-800 dark:text-wood-200">
+                      <span className="text-[#7A6A5F]">গোল গুঁড়ি রেট (CFT):</span>
+                      <span className="font-semibold text-[#2B1A12]">
                         {formatBDT(species.roundLogRatePerCft, 'bn')}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-wood-500">স্থায়িত্ব মাত্রা:</span>
-                      <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                      <span className="text-[#7A6A5F]">স্থায়িত্ব মাত্রা:</span>
+                      <span className="font-semibold text-emerald-600">
                         {species.durabilityBn}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-wood-500">উৎস অঞ্চল:</span>
-                      <span className="font-medium text-wood-800 dark:text-wood-200 truncate max-w-[180px]">
+                      <span className="text-[#7A6A5F]">উৎস অঞ্চল:</span>
+                      <span className="font-medium text-[#2B1A12] truncate max-w-[180px]">
                         {species.originBn}
                       </span>
                     </div>
@@ -106,14 +106,14 @@ export default function WoodSpeciesPage() {
 
                   {/* Best For Tags */}
                   <div>
-                    <span className="text-[11px] font-semibold text-wood-500 block mb-1.5">
+                    <span className="text-[11px] font-semibold text-[#7A6A5F] block mb-1.5">
                       ব্যবহারের জন্য সেরা:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {species.bestForBn.map((item, idx) => (
                         <span
                           key={idx}
-                          className="px-2 py-0.5 rounded-md text-[10px] font-medium bg-wood-100 dark:bg-wood-800 text-wood-700 dark:text-wood-300"
+                          className="px-2.5 py-1 rounded-md text-[10px] font-medium bg-[#F4ECE1] text-[#7A6A5F] border border-[#E8DED4]"
                         >
                           {item}
                         </span>
@@ -125,13 +125,13 @@ export default function WoodSpeciesPage() {
                   <div className="grid grid-cols-2 gap-2 pt-2">
                     <Link
                       href={`/wood/${species.id}`}
-                      className="py-2.5 px-3 rounded-xl border border-wood-300 dark:border-wood-700 hover:bg-wood-100 dark:hover:bg-wood-800 text-xs font-semibold text-wood-800 dark:text-wood-200 text-center transition-colors"
+                      className="py-2.5 px-3 rounded-xl border border-[#E8DED4] hover:bg-[#F4ECE1] text-xs font-semibold text-[#2B1A12] text-center transition-colors"
                     >
                       বিস্তারিত গাইড →
                     </Link>
                     <Link
                       href={`/calculator/cft`}
-                      className="py-2.5 px-3 rounded-xl bg-wood-950 dark:bg-gold-500 text-gold-400 dark:text-wood-950 hover:opacity-90 text-xs font-bold text-center transition-opacity shadow"
+                      className="py-2.5 px-3 rounded-xl bg-[#2B1A12] text-white hover:bg-[#C59B27] text-xs font-bold text-center transition-colors shadow"
                     >
                       সিএফটি হিসাব
                     </Link>

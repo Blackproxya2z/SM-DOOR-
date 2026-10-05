@@ -39,28 +39,45 @@ const config: Config = {
           cream: "#FAF8F5",
           ivory: "#F4EFEA",
           dark: "#140D08",
-          card: "#1C140E",
-        }
+          card: "#FFFFFF",
+        },
+        light: {
+          bg: "#FAF8F5",
+          surface: "#FFFFFF",
+          text: "#2B1A12",
+          muted: "#7A6A5F",
+          accent: "#C59B27",
+          border: "#E8DED4",
+          chip: "#F4ECE1",
+        },
       },
       fontFamily: {
-        serif: ["var(--font-playfair)", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        serif: ["var(--font-tiro-bangla)", "var(--font-playfair)", "serif"],
+        sans: ["var(--font-hind-siliguri)", "var(--font-inter)", "system-ui", "sans-serif"],
+        "tiro-bangla": ["var(--font-tiro-bangla)", "serif"],
+        "hind-siliguri": ["var(--font-hind-siliguri)", "sans-serif"],
       },
       boxShadow: {
-        wood: "0 10px 30px -10px rgba(74, 46, 25, 0.2)",
-        gold: "0 10px 30px -10px rgba(212, 175, 55, 0.25)",
-        luxury: "0 20px 40px -15px rgba(29, 16, 7, 0.35)",
+        wood: "0 10px 30px -10px rgba(43, 26, 18, 0.08)",
+        gold: "0 10px 30px -10px rgba(197, 155, 39, 0.25)",
+        luxury: "0 20px 40px -15px rgba(43, 26, 18, 0.08)",
+        card: "0 4px 20px -2px rgba(43, 26, 18, 0.05)",
       },
       animation: {
         "pulse-subtle": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "float": "float 4s ease-in-out infinite",
+        "fade-in": "fadeIn 0.5s ease-out forwards",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-6px)" },
-        }
-      }
+        },
+        fadeIn: {
+          from: { opacity: "0", transform: "translateY(10px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+      },
     },
   },
   plugins: [],

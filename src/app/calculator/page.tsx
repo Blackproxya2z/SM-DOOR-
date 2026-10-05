@@ -24,20 +24,20 @@ export default function CalculatorHubPage() {
   const phone = siteSettings.phone1 || "+880 1710-820987";
 
   return (
-    <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950 pb-16 md:pb-0 overflow-x-hidden">
+    <main className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2B1A12] pb-16 md:pb-0 overflow-x-hidden">
       <Header initialSettings={siteSettings} />
 
       {/* Header Banner */}
-      <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-wood-800 text-center">
+      <section className="bg-white text-[#2B1A12] py-14 px-4 sm:px-6 lg:px-8 border-b border-[#E8DED4] text-center">
         <div className="max-w-7xl mx-auto">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gold-500/20 text-gold-400 border border-gold-500/30 mb-3">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#C59B27]/10 text-[#C59B27] border border-[#C59B27]/25 mb-3 font-[family-name:var(--font-hind-siliguri)]">
             <Calculator className="w-3.5 h-3.5" />
             রিয়েল-টাইম হিসাব
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-tiro-bangla)] text-[#2B1A12] mb-4">
             কাঠের সিএফটি (CFT) ও চৌকাঠ ক্যালকুলেটর
           </h1>
-          <p className="max-w-2xl mx-auto text-sm sm:text-base text-wood-300">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg text-[#7A6A5F] font-[family-name:var(--font-hind-siliguri)] leading-relaxed">
             চেরা কাঠ, গোল গুঁড়ি ও দরজার চৌকাঠের নিখুঁত মাপ ইনপুট দিয়ে তাৎক্ষণিক সঠিক সিএফটি ও বর্তমান বাজারদরে প্রাক্কলন করুন।
           </p>
         </div>
@@ -48,54 +48,54 @@ export default function CalculatorHubPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Link
             href="/calculator/cft"
-            className="p-6 rounded-3xl bg-white dark:bg-wood-900 border border-wood-200 dark:border-wood-800 shadow-sm hover:shadow-lg transition-all group"
+            className="p-6 rounded-3xl bg-white border border-[#E8DED4] shadow-md hover:shadow-xl hover:border-[#C59B27] transition-all duration-300 hover:-translate-y-1 group"
           >
-            <div className="w-12 h-12 rounded-2xl bg-gold-500/10 text-gold-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <div className="w-12 h-12 rounded-2xl bg-[#C59B27]/10 text-[#C59B27] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <Ruler className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-wood-950 dark:text-white mb-2">
+            <h3 className="text-lg font-bold text-[#2B1A12] mb-2 font-[family-name:var(--font-tiro-bangla)]">
               চেরা কাঠ ক্যালকুলেটর
             </h3>
-            <p className="text-xs text-wood-600 dark:text-wood-400 leading-relaxed mb-4">
+            <p className="text-sm text-[#7A6A5F] leading-relaxed mb-4 font-[family-name:var(--font-hind-siliguri)]">
               দৈর্ঘ্য (ফুট), প্রস্থ (ইঞ্চি) ও পুরুত্ব (ইঞ্চি) দিয়ে তক্তা ও সাইজ কাঠের সঠিক সিএফটি হিসাব।
             </p>
-            <span className="text-xs font-bold text-gold-600 flex items-center gap-1">
+            <span className="text-xs font-bold text-[#C59B27] flex items-center gap-1 font-[family-name:var(--font-hind-siliguri)]">
               হিসাব খুলুন <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </Link>
 
           <Link
             href="/calculator/log"
-            className="p-6 rounded-3xl bg-white dark:bg-wood-900 border border-wood-200 dark:border-wood-800 shadow-sm hover:shadow-lg transition-all group"
+            className="p-6 rounded-3xl bg-white border border-[#E8DED4] shadow-md hover:shadow-xl hover:border-[#C59B27] transition-all duration-300 hover:-translate-y-1 group"
           >
-            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <Layers className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-wood-950 dark:text-white mb-2">
+            <h3 className="text-lg font-bold text-[#2B1A12] mb-2 font-[family-name:var(--font-tiro-bangla)]">
               গোল কাঠ / গুঁড়ি ক্যালকুলেটর
             </h3>
-            <p className="text-xs text-wood-600 dark:text-wood-400 leading-relaxed mb-4">
+            <p className="text-sm text-[#7A6A5F] leading-relaxed mb-4 font-[family-name:var(--font-hind-siliguri)]">
               বাংলাদেশের স’মিল স্ট্যান্ডার্ড হোপের কোয়ার্টার-গার্থ সূত্রে গোল কাঠের নিখুঁত আয়তন হিসাব।
             </p>
-            <span className="text-xs font-bold text-emerald-600 flex items-center gap-1">
+            <span className="text-xs font-bold text-emerald-600 flex items-center gap-1 font-[family-name:var(--font-hind-siliguri)]">
               হিসাব খুলুন <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </Link>
 
           <Link
             href="/calculator/frame"
-            className="p-6 rounded-3xl bg-white dark:bg-wood-900 border border-wood-200 dark:border-wood-800 shadow-sm hover:shadow-lg transition-all group"
+            className="p-6 rounded-3xl bg-white border border-[#E8DED4] shadow-md hover:shadow-xl hover:border-[#C59B27] transition-all duration-300 hover:-translate-y-1 group"
           >
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <div className="w-12 h-12 rounded-2xl bg-[#C59B27]/10 text-[#C59B27] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <DoorOpen className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-wood-950 dark:text-white mb-2">
+            <h3 className="text-lg font-bold text-[#2B1A12] mb-2 font-[family-name:var(--font-tiro-bangla)]">
               চৌকাঠ (Door Frame) ক্যালকুলেটর
             </h3>
-            <p className="text-xs text-wood-600 dark:text-wood-400 leading-relaxed mb-4">
+            <p className="text-sm text-[#7A6A5F] leading-relaxed mb-4 font-[family-name:var(--font-hind-siliguri)]">
               দরজার ওপেনিং সাইজ, ক্রস-সেকশন ও শাল/সেগুন কাঠে মজুরিসহ পূর্ণাঙ্গ চৌকাঠের খরচ এস্টিমেটর।
             </p>
-            <span className="text-xs font-bold text-amber-600 flex items-center gap-1">
+            <span className="text-xs font-bold text-[#C59B27] flex items-center gap-1 font-[family-name:var(--font-hind-siliguri)]">
               হিসাব খুলুন <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </Link>
