@@ -65,8 +65,8 @@ export function PhoneImageUpload({
       const file = fileList[0];
       const originalSizeKb = Math.round(file.size / 1024);
 
-      // Process and optimize (resize <= 2000px, WebP, EXIF stripping)
-      const processed = await processImageForUpload(file, 2000, 0.85);
+      // Process and optimize (resize <= 1600px, WebP, EXIF stripping)
+      const processed = await processImageForUpload(file, 1600, 0.85);
       const newSizeKb = Math.round(processed.sizeBytes / 1024);
 
       setPreview(processed.previewUrl);

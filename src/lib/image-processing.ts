@@ -18,7 +18,7 @@ export interface ProcessedImageResult {
 
 export async function processImageForUpload(
   file: File,
-  maxWidth = 2000,
+  maxWidth = 1600,
   quality = 0.85
 ): Promise<ProcessedImageResult> {
   return new Promise((resolve, reject) => {
@@ -67,8 +67,13 @@ export async function processImageForUpload(
             return reject(new Error('Failed to compress image blob'));
           }
 
-          const baseName = file.name.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_');
-          const newFileName = `${baseName}_${Date.now()}.${ext}`;
+          const baseName = file.name
+            .replace(/\.[^/.]+$/, '')
+            .toLowerCase()
+            .replace(/[^a-z0-9_-]/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-+|-+$/g, '');
+          const newFileName = `${baseName || 'photo'}-${Date.now()}.${ext}`;
 
           const optimizedFile = new File([blob], newFileName, {
             type: exportType,

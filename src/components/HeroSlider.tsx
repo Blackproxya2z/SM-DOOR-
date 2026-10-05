@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { HeroBanner } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { 
@@ -48,11 +49,47 @@ export function HeroSlider({ banners }: HeroSliderProps) {
 
   return (
     <div className="relative w-full overflow-hidden bg-wood-950 min-h-[580px] lg:min-h-[680px] flex flex-col justify-between">
-      {/* Background Image with Parallax-like Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center transition-all duration-1000 transform scale-105"
-        style={{ backgroundImage: `url('${banner.bgImageUrl}')` }}
-      />
+      {/* High-Performance Hero Banner Image: Desktop 16:9 full-width, Mobile portrait/square crop */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {banner.mobileBgImageUrl ? (
+          <>
+            {/* Mobile View: Portrait / Square Crop */}
+            <div className="block sm:hidden relative w-full h-full">
+              <Image
+                src={banner.mobileBgImageUrl}
+                alt={title || "SM Door Luxury Timber and Solid Doors"}
+                fill
+                priority={currentIdx === 0}
+                sizes="100vw"
+                quality={85}
+                className="object-cover object-center transition-transform duration-1000 scale-105"
+              />
+            </div>
+            {/* Desktop View: Full-width 16:9 aspect ratio */}
+            <div className="hidden sm:block relative w-full h-full">
+              <Image
+                src={banner.bgImageUrl}
+                alt={title || "SM Door Luxury Timber and Solid Doors"}
+                fill
+                priority={currentIdx === 0}
+                sizes="100vw"
+                quality={85}
+                className="object-cover object-center transition-transform duration-1000 scale-105"
+              />
+            </div>
+          </>
+        ) : (
+          <Image
+            src={banner.bgImageUrl}
+            alt={title || "SM Door Luxury Timber and Solid Doors"}
+            fill
+            priority={currentIdx === 0}
+            sizes="100vw"
+            quality={85}
+            className="object-cover object-center transition-transform duration-1000 scale-105"
+          />
+        )}
+      </div>
       {/* Multi-layered Wood & Dark Gradients for Maximum Contrast */}
       <div className="absolute inset-0 bg-gradient-to-r from-wood-950 via-wood-950/85 to-wood-950/60" />
       <div className="absolute inset-0 bg-gradient-to-t from-wood-950 via-transparent to-wood-950/40" />

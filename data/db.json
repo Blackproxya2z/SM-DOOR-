@@ -9,6 +9,17 @@
       "category": "wood",
       "categoryLabelBn": "কাঠ / লগ ও সাইজ কাঠ",
       "categoryLabelEn": "Wood / Logs & Sized Wood",
+      "imagePath": "/images/products/wood/fe-wood-001.webp",
+      "images": [
+        "/images/products/wood/fe-wood-001.webp"
+      ],
+      "altText": "চিটাগাং সেগুন গোল লগ ও চেরা সাইজ কাঠ - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "চিটাগাং সেগুন গোল লগ ও চেরা সাইজ কাঠ - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Chittagong Teak Round Logs & Sawn Planks - SM Door Solid Wood Products",
+      "defaultPrice": 90054,
+      "regularPrice": 5200,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -25,16 +36,6 @@
           ]
         }
       ],
-      "defaultPrice": 90054,
-      "regularPrice": 5200,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "কাঁচা চেরা তক্তা",
-        "প্ল্যানার স্মুথ ফিনিশ"
-      ],
-      "treatmentOptionsBn": "প্রাকৃতিক তেল সমৃদ্ধ ও কিম্বন ড্রাইড",
-      "treatmentOptionsEn": "Natural oil rich & kiln dried",
       "descriptionBn": "মেসার্স ফারহান এন্টারপ্রাইজের নিজস্ব স্টক থেকে সংগৃহীত শতভাগ খাঁটি চিটাগাং সেগুন কাঠের গোল গুঁড়ি (লগ) ও যেকোনো মাপে নিখুঁতভাবে চেরা সাইজ কাঠ।",
       "descriptionEn": "Authentic Chittagong Teak round logs and precision-cut sawn planks directly from Farhan Enterprise sawmill inventory.",
       "featuresBn": [
@@ -62,17 +63,13 @@
         "suitableForBn": "দরজা, রাজকীয় ফার্নিচার ও হেভি চৌকাঠ",
         "suitableForEn": "Luxury doors, royal furniture, structural timber"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=900&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": true,
       "stockStatus": "in_stock",
       "rating": 4.9,
       "reviewsCount": 42,
       "createdAt": "2026-02-01T00:00:00Z",
-      "updatedAt": "2026-10-02T04:13:52.889Z"
+      "updatedAt": "2026-10-05T10:46:56.079Z"
     },
     {
       "id": "prod-fe-wood-002",
@@ -83,6 +80,17 @@
       "category": "wood",
       "categoryLabelBn": "কাঠ / লগ ও সাইজ কাঠ",
       "categoryLabelEn": "Wood / Logs & Sized Wood",
+      "imagePath": "/images/products/wood/fe-wood-002.webp",
+      "images": [
+        "/images/products/wood/fe-wood-002.webp"
+      ],
+      "altText": "সিজনড মেহগনি চেরা তক্তা ও বাটাম সাইজ কাঠ - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "সিজনড মেহগনি চেরা তক্তা ও বাটাম সাইজ কাঠ - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Seasoned Mahogany Sawn Planks & Battens - SM Door Solid Wood Products",
+      "defaultPrice": 1650,
+      "regularPrice": 1850,
+      "priceType": "starting",
+      "qualityGrade": "standard",
       "defaultWoodSpeciesId": "seasoned-mahogany",
       "woodVariants": [
         {
@@ -99,16 +107,6 @@
           ]
         }
       ],
-      "defaultPrice": 1650,
-      "regularPrice": 1850,
-      "priceType": "starting",
-      "qualityGrade": "standard",
-      "finishOptions": [
-        "চেরা তক্তা",
-        "প্ল্যানার সাইজ"
-      ],
-      "treatmentOptionsBn": "কেমিক্যাল প্রেশার ট্রিটেড ও কিম্বন ড্রাইড",
-      "treatmentOptionsEn": "Chemical pressure treated & kiln dried",
       "descriptionBn": "১২-১৪% আর্দ্রতা নিয়ন্ত্রিত ও ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট করা মেহগনি সাইজ কাঠ। ফার্নিচার তৈরি ও দরজার জন্য একদম প্রস্তুত। কখনো বাঁকা হবে না বা ঘুণে ধরবে না।",
       "descriptionEn": "Kiln-dried and pressure-treated mahogany sized timber. Completely stabilized against shrinkage and insects.",
       "featuresBn": [
@@ -136,16 +134,13 @@
         "suitableForBn": "বেডরুম ডোর, খাট, ওয়ারড্রোব ও কেবিনেট",
         "suitableForEn": "Doors, beds, wardrobes, and cabinets"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": false,
       "isBestSeller": true,
       "stockStatus": "in_stock",
       "rating": 4.8,
       "reviewsCount": 31,
       "createdAt": "2026-02-10T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:46:56.481Z"
     },
     {
       "id": "prod-fe-wood-003",
@@ -156,6 +151,17 @@
       "category": "wood",
       "categoryLabelBn": "কাঠ / লগ ও সাইজ কাঠ",
       "categoryLabelEn": "Wood / Logs & Sized Wood",
+      "imagePath": "/images/products/wood/fe-wood-003.webp",
+      "images": [
+        "/images/products/wood/fe-wood-003.webp"
+      ],
+      "altText": "খাঁটি শাল কাঠ ভারী দরজার চৌকাঠ সাইজ কাঠ - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "খাঁটি শাল কাঠ ভারী দরজার চৌকাঠ সাইজ কাঠ - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Solid Sal Heavy Door Frame Chowkath Timber - SM Door Solid Wood Products",
+      "defaultPrice": 2200,
+      "regularPrice": 2500,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "sal-wood",
       "woodVariants": [
         {
@@ -172,16 +178,6 @@
           ]
         }
       ],
-      "defaultPrice": 2200,
-      "regularPrice": 2500,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "চেরা সাইজ",
-        "রাবিট কাটিং সাইজ"
-      ],
-      "treatmentOptionsBn": "স্বাভাবিক পাকা সার কাঠ (উইপোকা প্রতিরোধী)",
-      "treatmentOptionsEn": "Natural dense heartwood, immune to termites",
       "descriptionBn": "চৌকাঠের জন্য বাংলাদেশের সেরা কাঠ শাল কাঠ। মেসার্স ফারহান এন্টারপ্রাইজের নিখুঁত মাপের ৫\"×২.৫\" ও ৬\"×২.৫\" সাইজের চৌকাঠের কাঠ। আজীবন টেকসই।",
       "descriptionEn": "Heavy-duty solid Sal wood planks and posts, specially cut for door frames (chowkath).",
       "featuresBn": [
@@ -209,16 +205,13 @@
         "suitableForBn": "যেকোনো ধরণের দরজার চৌকাঠ",
         "suitableForEn": "Heavy structural door frames"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": false,
       "isBestSeller": true,
       "stockStatus": "in_stock",
       "rating": 4.9,
       "reviewsCount": 26,
       "createdAt": "2026-03-01T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:46:56.877Z"
     },
     {
       "id": "prod-fe-door-001",
@@ -229,6 +222,17 @@
       "category": "door",
       "categoryLabelBn": "দরজা",
       "categoryLabelEn": "Door",
+      "imagePath": "/images/products/door/fe-door-001.webp",
+      "images": [
+        "/images/products/door/fe-door-001.webp"
+      ],
+      "altText": "মোগল রয়্যাল সলিড কাঠের মেইন এন্ট্রান্স ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "মোগল রয়্যাল সলিড কাঠের মেইন এন্ট্রান্স ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Mughal Royal Solid Carved Main Entrance Door - SM Door Solid Wood Products",
+      "defaultPrice": 38500,
+      "regularPrice": 42000,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -272,17 +276,6 @@
           ]
         }
       ],
-      "defaultPrice": 38500,
-      "regularPrice": 42000,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "ম্যাট ল্যাকার",
-        "হাই-গ্লস পিউ",
-        "হ্যান্ড বার্নিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটেড ও কিম্বন ড্রাইড",
-      "treatmentOptionsEn": "Vacuum chemical treated & kiln dried",
       "descriptionBn": "আভিজাত্য ও ঐতিহ্যের নিখুঁত মিলন। ঐতিহ্যবাহী মোগল খিলান ও জ্যামিতিক নকশায় অলংকৃত এই সলিড দরজা আপনার বাড়ির প্রবেশদ্বারকে করবে অনন্য ও দৃষ্টিনন্দন। শতভাগ ট্রিটমেন্ট কাঠে তৈরি।",
       "descriptionEn": "The pinnacle of architectural splendor. Inspired by classical Mughal arch motifs and deep relief carving, this solid wooden door elevates your home entry into a regal statement.",
       "featuresBn": [
@@ -313,17 +306,13 @@
         "suitableForBn": "প্রধান ফটক, ডুপ্লেক্স ভিলা মেইন এন্ট্রি, ড্রয়িং রুম",
         "suitableForEn": "Main Entrance, Duplex Villa Entry, Grand Hallway"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": true,
       "stockStatus": "in_stock",
       "rating": 4.9,
       "reviewsCount": 38,
       "createdAt": "2026-01-15T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:46:57.163Z"
     },
     {
       "id": "prod-fe-door-002",
@@ -334,6 +323,17 @@
       "category": "door",
       "categoryLabelBn": "দরজা",
       "categoryLabelEn": "Door",
+      "imagePath": "/images/products/door/fe-door-002.webp",
+      "images": [
+        "/images/products/door/fe-door-002.webp"
+      ],
+      "altText": "ভিক্টোরিয়ান হেরিটেজ ক্লাসিক সলিড ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "ভিক্টোরিয়ান হেরিটেজ ক্লাসিক সলিড ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Victorian Heritage Classic Solid Wooden Door - SM Door Solid Wood Products",
+      "defaultPrice": 36000,
+      "regularPrice": 39500,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -376,17 +376,6 @@
           ]
         }
       ],
-      "defaultPrice": 36000,
-      "regularPrice": 39500,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "ল্যাকার ফিনিশ",
-        "ন্যাচারাল সেগুন পলিশ",
-        "বার্নিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Pressure Impregnated",
       "descriptionBn": "ইউরোপীয় ভিক্টোরিয়ান আর্কিটেকচারের অনুপ্রেরণায় নিখুঁত কারুকাজ। প্রতিটি খোদাই হস্তশিল্পীর দক্ষ ছোঁয়ায় জীবন্ত হয়ে উঠেছে।",
       "descriptionEn": "Inspired by classic Victorian architecture with rich raised mouldings and elegant symmetry.",
       "featuresBn": [
@@ -415,16 +404,13 @@
         "suitableForBn": "প্রধান প্রবেশদ্বার, ড্রয়িং রুম",
         "suitableForEn": "Main Entrance, Drawing Room"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": false,
       "stockStatus": "in_stock",
       "rating": 4.8,
       "reviewsCount": 29,
       "createdAt": "2026-02-15T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:46:57.461Z"
     },
     {
       "id": "prod-fe-door-003",
@@ -435,6 +421,17 @@
       "category": "door",
       "categoryLabelBn": "দরজা",
       "categoryLabelEn": "Door",
+      "imagePath": "/images/products/door/fe-door-003.webp",
+      "images": [
+        "/images/products/door/fe-door-003.webp"
+      ],
+      "altText": "আধুনিক জ্যামিতিক মিনিমালিস্ট সলিড উডেন ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "আধুনিক জ্যামিতিক মিনিমালিস্ট সলিড উডেন ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Modern Minimalist Geometric Solid Wood Door - SM Door Solid Wood Products",
+      "defaultPrice": 15500,
+      "regularPrice": 17500,
+      "priceType": "starting",
+      "qualityGrade": "standard",
       "defaultWoodSpeciesId": "seasoned-mahogany",
       "woodVariants": [
         {
@@ -477,17 +474,6 @@
           ]
         }
       ],
-      "defaultPrice": 15500,
-      "regularPrice": 17500,
-      "priceType": "starting",
-      "qualityGrade": "standard",
-      "finishOptions": [
-        "ম্যাট ল্যাকার",
-        "ডার্ক ওয়ালনাট",
-        "পিউ কোটিং"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Treated",
       "descriptionBn": "সমসাময়িক মডার্ন ইন্টেরিয়রের জন্য ডিজাইনকৃত স্টাইলিশ সিএনসি ভি-গ্রুভ সলিড দরজা। বেডরুম ও আধুনিক ফ্ল্যাটের জন্য অত্যন্ত জনপ্রিয়।",
       "descriptionEn": "Contemporary CNC linear groove solid timber door designed for modern upscale apartments.",
       "featuresBn": [
@@ -515,16 +501,13 @@
         "suitableForBn": "বেডরুম, স্টাডি রুম ও ইনডোর এন্ট্রি",
         "suitableForEn": "Bedroom, Study Room, Interior Entry"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": true,
       "stockStatus": "in_stock",
       "rating": 4.8,
       "reviewsCount": 45,
       "createdAt": "2026-03-01T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:46:57.759Z"
     },
     {
       "id": "prod-fe-door-004",
@@ -535,6 +518,17 @@
       "category": "door",
       "categoryLabelBn": "দরজা",
       "categoryLabelEn": "Door",
+      "imagePath": "/images/products/door/fe-door-004.webp",
+      "images": [
+        "/images/products/door/fe-door-004.webp"
+      ],
+      "altText": "ট্রিটেড কাঠ ফ্লোরাল থ্রিডি খোদাই করা সলিড ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "ট্রিটেড কাঠ ফ্লোরাল থ্রিডি খোদাই করা সলিড ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Treated Wood Floral 3D Carved Solid Door - SM Door Solid Wood Products",
+      "defaultPrice": 25500,
+      "regularPrice": 28500,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "gamari",
       "woodVariants": [
         {
@@ -564,17 +558,6 @@
           ]
         }
       ],
-      "defaultPrice": 25500,
-      "regularPrice": 28500,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "ন্যাচারাল ল্যাকার",
-        "হ্যান্ড বার্নিশ",
-        "হাই-গ্লস"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Pressure Impregnated",
       "descriptionBn": "প্রাকৃতিক লতাপাতা ও ফুলের সুদৃশ্য ৩ডি খোদাই। গামারি ও সেগুন কাঠের প্রাকৃতিক উজ্জ্বলতা ঘরের সৌন্দর্য বহুগুণ বাড়িয়ে দেয়।",
       "descriptionEn": "Lavish floral relief carving executed with 4-axis CNC technology and master artisan finishing.",
       "featuresBn": [
@@ -603,16 +586,13 @@
         "suitableForBn": "প্রধান দরজা ও ড্রয়িং রুম",
         "suitableForEn": "Main Entrance & Drawing Room"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": false,
       "isBestSeller": false,
       "stockStatus": "made_to_order",
       "rating": 4.9,
       "reviewsCount": 19,
       "createdAt": "2026-03-10T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:46:58.205Z"
     },
     {
       "id": "prod-fe-door-005",
@@ -623,6 +603,17 @@
       "category": "door",
       "categoryLabelBn": "দরজা",
       "categoryLabelEn": "Door",
+      "imagePath": "/images/products/door/fe-door-005.webp",
+      "images": [
+        "/images/products/door/fe-door-005.webp"
+      ],
+      "altText": "রাজকীয় ডাবল পাল্লা সলিড সেগুন এন্ট্রান্স ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "রাজকীয় ডাবল পাল্লা সলিড সেগুন এন্ট্রান্স ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Royal Double Shutter Solid Teak Entrance Door - SM Door Solid Wood Products",
+      "defaultPrice": 72000,
+      "regularPrice": 78000,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -639,17 +630,6 @@
           ]
         }
       ],
-      "defaultPrice": 72000,
-      "regularPrice": 78000,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "রয়্যাল ল্যাকার",
-        "হাই-গ্লস পিউ",
-        "হ্যান্ড বার্নিশ"
-      ],
-      "treatmentOptionsBn": "১০০% পাকা সেগুন ও কিম্বন ড্রাইড",
-      "treatmentOptionsEn": "100% Mature Teak & Kiln Dried",
       "descriptionBn": "ডুপ্লেক্স ও বিলাসবহুল ভিলার প্রবেশদ্বারের জন্য দুই পাল্লার সুদৃশ্য সলিড সেগুন দরজা। রাজকীয় খিলান ও প্রতিসম ডিজাইন।",
       "descriptionEn": "Grand double-leaf entrance solid teak door for luxury villas and duplex homes.",
       "featuresBn": [
@@ -678,16 +658,13 @@
         "suitableForBn": "ডুপ্লেক্স ও ভিলার প্রধান প্রবেশদ্বার",
         "suitableForEn": "Duplex & Luxury Villa Main Entrance"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": false,
       "stockStatus": "made_to_order",
       "rating": 5,
       "reviewsCount": 14,
       "createdAt": "2026-03-20T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:46:58.488Z"
     },
     {
       "id": "prod-fe-furn-001",
@@ -698,6 +675,17 @@
       "category": "furniture",
       "categoryLabelBn": "ফার্নিচার",
       "categoryLabelEn": "Furniture",
+      "imagePath": "/images/products/furniture/fe-furn-001.webp",
+      "images": [
+        "/images/products/furniture/fe-furn-001.webp"
+      ],
+      "altText": "রাজকীয় সলিড কাঠের ড্রেসিং টেবিল ও ক্যাবিনেট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "রাজকীয় সলিড কাঠের ড্রেসিং টেবিল ও ক্যাবিনেট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Royal Solid Wood Dressing Table & Cabinet - SM Door Solid Wood Products",
+      "defaultPrice": 34000,
+      "regularPrice": 38000,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -727,17 +715,6 @@
           ]
         }
       ],
-      "defaultPrice": 34000,
-      "regularPrice": 38000,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "ইতালিয়ান ল্যাকার",
-        "ন্যাচারাল পলিশ",
-        "বার্নিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Pressure Impregnated",
       "descriptionBn": "অভিজাত বেডরুমের জন্য খাঁটি সেগুন ও সিজনড মেহগনি কাঠে তৈরি আকর্ষণীয় ড্রেসিং টেবিল। সুদৃশ্য আয়না ফ্রেম ও মসৃণ ড্রয়ারযুক্ত।",
       "descriptionEn": "Handcrafted wooden dressing table with mirror frame and smooth drawer compartments.",
       "featuresBn": [
@@ -765,16 +742,13 @@
         "suitableForBn": "মাস্টার বেডরুম",
         "suitableForEn": "Master Bedroom"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": true,
       "stockStatus": "made_to_order",
       "rating": 4.9,
       "reviewsCount": 22,
       "createdAt": "2026-03-15T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:46:58.900Z"
     },
     {
       "id": "prod-fe-furn-002",
@@ -785,6 +759,17 @@
       "category": "furniture",
       "categoryLabelBn": "ফার্নিচার",
       "categoryLabelEn": "Furniture",
+      "imagePath": "/images/products/furniture/fe-furn-002.webp",
+      "images": [
+        "/images/products/furniture/fe-furn-002.webp"
+      ],
+      "altText": "সলিড সেগুন কাঠের লাক্সারি বুকশেলফ ও শোকেস - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "সলিড সেগুন কাঠের লাক্সারি বুকশেলফ ও শোকেস - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Solid Teak Luxury Bookcase & Showcase Cabinet - SM Door Solid Wood Products",
+      "defaultPrice": 45000,
+      "regularPrice": 50000,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -801,17 +786,6 @@
           ]
         }
       ],
-      "defaultPrice": 45000,
-      "regularPrice": 50000,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "ম্যাট ল্যাকার",
-        "হাই-গ্লস",
-        "ন্যাচারাল পলিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Treated",
       "descriptionBn": "বই, শোপিস ও গুরুত্বপূর্ণ ফাইল সাজিয়ে রাখার জন্য মজবুত কাঠামো ও দৃষ্টিনন্দন কাঠের কারুকাজে তৈরি বুকশেলফ।",
       "descriptionEn": "Stately solid wood bookcase and display cabinet built with seasoned teak.",
       "featuresBn": [
@@ -839,16 +813,13 @@
         "suitableForBn": "লিভিং রুম, স্টাডি রুম, অফিস",
         "suitableForEn": "Living Room, Study Room, Executive Office"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": false,
       "isBestSeller": false,
       "stockStatus": "made_to_order",
       "rating": 4.8,
       "reviewsCount": 15,
       "createdAt": "2026-03-25T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:46:59.306Z"
     },
     {
       "id": "prod-fe-dining-001",
@@ -859,6 +830,17 @@
       "category": "dining-table",
       "categoryLabelBn": "ডাইনিং টেবিল",
       "categoryLabelEn": "Dining Table",
+      "imagePath": "/images/products/dining-table/fe-dining-001.webp",
+      "images": [
+        "/images/products/dining-table/fe-dining-001.webp"
+      ],
+      "altText": "৬-সিটার লাক্সারি সেগুন কাঠের ডাইনিং টেবিল ও চেয়ার সেট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "৬-সিটার লাক্সারি সেগুন কাঠের ডাইনিং টেবিল ও চেয়ার সেট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "6-Seater Luxury Solid Teak Dining Table & Chair Set - SM Door Solid Wood Products",
+      "defaultPrice": 58000,
+      "regularPrice": 65000,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -888,17 +870,6 @@
           ]
         }
       ],
-      "defaultPrice": 58000,
-      "regularPrice": 65000,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "গ্লাস-রেডি পলিশ",
-        "ইতালিয়ান ল্যাকার",
-        "বার্নিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Treated",
       "descriptionBn": "পরিবারের ডাইনিং রুমের আভিজাত্য বাড়াতে ১টি সলিড কাঠ টপ টেবিল এবং ৬টি আরামদায়ক ব্যাকরেস্ট নকশাদার চেয়ার। শতভাগ পাকা কাঠে তৈরি।",
       "descriptionEn": "Complete 6-seater dining set with solid wood top table and 6 ergonomically carved chairs.",
       "featuresBn": [
@@ -926,16 +897,13 @@
         "suitableForBn": "ডাইনিং স্পেস ও ফ্যামিলি ডাইনিং",
         "suitableForEn": "Dining Space & Family Dining"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": true,
       "stockStatus": "made_to_order",
       "rating": 4.9,
       "reviewsCount": 34,
       "createdAt": "2026-03-05T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:46:59.664Z"
     },
     {
       "id": "prod-fe-dining-002",
@@ -946,6 +914,17 @@
       "category": "dining-table",
       "categoryLabelBn": "ডাইনিং টেবিল",
       "categoryLabelEn": "Dining Table",
+      "imagePath": "/images/products/dining-table/fe-dining-002.webp",
+      "images": [
+        "/images/products/dining-table/fe-dining-002.webp"
+      ],
+      "altText": "৮-সিটার রাজকীয় খোদাইকৃত সলিড ডাইনিং টেবিল - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "৮-সিটার রাজকীয় খোদাইকৃত সলিড ডাইনিং টেবিল - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "8-Seater Royal Carved Solid Wood Dining Table - SM Door Solid Wood Products",
+      "defaultPrice": 82000,
+      "regularPrice": 90000,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -962,17 +941,6 @@
           ]
         }
       ],
-      "defaultPrice": 82000,
-      "regularPrice": 90000,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "রয়্যাল ল্যাকার",
-        "হাই-গ্লস",
-        "হ্যান্ড পলিশ"
-      ],
-      "treatmentOptionsBn": "১০০% পাকা সেগুন ও ভ্যাকুয়াম কেমিক্যাল ট্রিটেড",
-      "treatmentOptionsEn": "100% Mature Teak & Vacuum Treated",
       "descriptionBn": "বড় পরিবারের জন্য রাজকীয় ৮-সিটার ডাইনিং টেবিল। টেবিলের চারপাশ ও পায়ায় অপূর্ব ফুলের খোদাই কাজ।",
       "descriptionEn": "Grand 8-seater dining table with intricate hand-carved pedestal legs and royal embellishments.",
       "featuresBn": [
@@ -1000,16 +968,13 @@
         "suitableForBn": "বিলাসবহুল ডাইনিং স্পেস ও ভিলা",
         "suitableForEn": "Luxury Dining Halls & Villas"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": false,
       "isBestSeller": false,
       "stockStatus": "made_to_order",
       "rating": 5,
       "reviewsCount": 11,
       "createdAt": "2026-03-12T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:47:00.025Z"
     },
     {
       "id": "prod-fe-bed-001",
@@ -1020,6 +985,17 @@
       "category": "bed",
       "categoryLabelBn": "বেড",
       "categoryLabelEn": "Bed",
+      "imagePath": "/images/products/bed/fe-bed-001.webp",
+      "images": [
+        "/images/products/bed/fe-bed-001.webp"
+      ],
+      "altText": "রাজকীয় কিং সাইজ সলিড সেগুন খাট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "রাজকীয় কিং সাইজ সলিড সেগুন খাট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Royal King Size Solid Chittagong Teak Bed - SM Door Solid Wood Products",
+      "defaultPrice": 52000,
+      "regularPrice": 58000,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -1050,17 +1026,6 @@
           ]
         }
       ],
-      "defaultPrice": 52000,
-      "regularPrice": 58000,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "ম্যাট ল্যাকার",
-        "হাই-গ্লস পিউ",
-        "হ্যান্ড বার্নিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট ও কিম্বন ড্রাইড",
-      "treatmentOptionsEn": "Vacuum Chemical Treated & Kiln Dried",
       "descriptionBn": "প্রাকৃতিক চিটাগাং সেগুন কাঠে তৈরি রাজকীয় খাট। হেডবোর্ড ও লেগবোর্ডে মনোরম খোদাই। শতভাগ সার কাঠ এবং মজবুত ডাসা-চাটাই সহ সম্পূর্ণ রেডি।",
       "descriptionEn": "Masterpiece king size wooden bed featuring deep artisanal headboard carvings and heavy teak frame.",
       "featuresBn": [
@@ -1088,16 +1053,13 @@
         "suitableForBn": "মাস্টার বেডরুম ও নতুন বাড়ির জন্য",
         "suitableForEn": "Master Bedroom & Bridal Suite"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": true,
       "stockStatus": "in_stock",
       "rating": 4.9,
       "reviewsCount": 39,
       "createdAt": "2026-02-18T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:47:00.498Z"
     },
     {
       "id": "prod-fe-bed-002",
@@ -1108,6 +1070,17 @@
       "category": "bed",
       "categoryLabelBn": "বেড",
       "categoryLabelEn": "Bed",
+      "imagePath": "/images/products/bed/fe-bed-002.webp",
+      "images": [
+        "/images/products/bed/fe-bed-002.webp"
+      ],
+      "altText": "মডার্ন কুইন সাইজ সলিড উডেন বক্স খাট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "মডার্ন কুইন সাইজ সলিড উডেন বক্স খাট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Modern Queen Size Solid Wood Storage Box Bed - SM Door Solid Wood Products",
+      "defaultPrice": 34000,
+      "regularPrice": 38000,
+      "priceType": "starting",
+      "qualityGrade": "standard",
       "defaultWoodSpeciesId": "seasoned-mahogany",
       "woodVariants": [
         {
@@ -1137,17 +1110,6 @@
           ]
         }
       ],
-      "defaultPrice": 34000,
-      "regularPrice": 38000,
-      "priceType": "starting",
-      "qualityGrade": "standard",
-      "finishOptions": [
-        "ম্যাট ল্যাকার",
-        "ডার্ক চকলেট",
-        "ল্যাকার"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Treated",
       "descriptionBn": "আধুনিক ফ্ল্যাটের জন্য অত্যন্ত সুবিধাজনক স্টোরেজ বক্স খাট। বিছানার চাদর, বালিশ ও লেপ সংরক্ষণের বিশাল জায়গা রয়েছে।",
       "descriptionEn": "Modern queen size bed with integrated hydraulic/sliding under-bed storage.",
       "featuresBn": [
@@ -1175,16 +1137,13 @@
         "suitableForBn": "বেডরুম ও আধুনিক ফ্ল্যাট",
         "suitableForEn": "Modern Apartment Bedroom"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": false,
       "isBestSeller": true,
       "stockStatus": "made_to_order",
       "rating": 4.8,
       "reviewsCount": 27,
       "createdAt": "2026-03-08T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:47:00.942Z"
     },
     {
       "id": "prod-fe-tea-001",
@@ -1195,6 +1154,17 @@
       "category": "tea-table",
       "categoryLabelBn": "টি টেবিল",
       "categoryLabelEn": "Tea Table",
+      "imagePath": "/images/products/tea-table/fe-tea-001.webp",
+      "images": [
+        "/images/products/tea-table/fe-tea-001.webp"
+      ],
+      "altText": "হ্যান্ড-কার্ভড সলিড উডেন সেন্টার টি টেবিল - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "হ্যান্ড-কার্ভড সলিড উডেন সেন্টার টি টেবিল - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Hand-Carved Solid Wooden Center Tea Table - SM Door Solid Wood Products",
+      "defaultPrice": 14500,
+      "regularPrice": 16500,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -1224,17 +1194,6 @@
           ]
         }
       ],
-      "defaultPrice": 14500,
-      "regularPrice": 16500,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "ল্যাকার ফিনিশ",
-        "ন্যাচারাল সেগুন পলিশ",
-        "বার্নিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Treated",
       "descriptionBn": "ড্রয়িং রুমের প্রধান কেন্দ্রবিন্দু এই সুদৃশ্য সেন্টার টি টেবিল। গ্লাস টপ ও নিচের তাকযুক্ত, নিখুঁত কাঠের খোদাই কাজ।",
       "descriptionEn": "Artisan solid wood center tea table with lower utility rack and toughened glass top fitting.",
       "featuresBn": [
@@ -1262,16 +1221,13 @@
         "suitableForBn": "ড্রয়িং রুমের সোফার মাঝে",
         "suitableForEn": "Living Room Centerpiece"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": true,
       "stockStatus": "in_stock",
       "rating": 4.8,
       "reviewsCount": 33,
       "createdAt": "2026-02-22T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:47:01.213Z"
     },
     {
       "id": "prod-fe-tea-002",
@@ -1282,6 +1238,17 @@
       "category": "tea-table",
       "categoryLabelBn": "টি টেবিল",
       "categoryLabelEn": "Tea Table",
+      "imagePath": "/images/products/tea-table/fe-tea-002.webp",
+      "images": [
+        "/images/products/tea-table/fe-tea-002.webp"
+      ],
+      "altText": "সলিড কাঠের নেস্টেড কফি ও কর্নার টেবিল (৩ পিস সেট) - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "সলিড কাঠের নেস্টেড কফি ও কর্নার টেবিল (৩ পিস সেট) - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Solid Timber Nested Coffee & Corner Table (3-Piece Set) - SM Door Solid Wood Products",
+      "defaultPrice": 11500,
+      "regularPrice": 13500,
+      "priceType": "starting",
+      "qualityGrade": "standard",
       "defaultWoodSpeciesId": "seasoned-mahogany",
       "woodVariants": [
         {
@@ -1298,16 +1265,6 @@
           ]
         }
       ],
-      "defaultPrice": 11500,
-      "regularPrice": 13500,
-      "priceType": "starting",
-      "qualityGrade": "standard",
-      "finishOptions": [
-        "ম্যাট ল্যাকার",
-        "ওয়ালনাট ফিনিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Treated",
       "descriptionBn": "স্থান সাশ্রয়ী আধুনিক ৩টি টেবিলের নেস্টেড সেট। ড্রয়িং রুমে চা পরিবেশন ও শোপিস সাজানোর চমৎকার উপযোগী।",
       "descriptionEn": "Space-saving 3-piece nesting table set crafted in seasoned timber.",
       "featuresBn": [
@@ -1335,16 +1292,13 @@
         "suitableForBn": "সোফার পাশে ও ড্রয়িং রুমের কর্নারে",
         "suitableForEn": "Sofa Side & Living Room Corners"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": false,
       "isBestSeller": false,
       "stockStatus": "in_stock",
       "rating": 4.7,
       "reviewsCount": 18,
       "createdAt": "2026-03-18T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:47:01.493Z"
     },
     {
       "id": "prod-fe-sofa-001",
@@ -1355,6 +1309,17 @@
       "category": "sofa",
       "categoryLabelBn": "সোফা",
       "categoryLabelEn": "Sofa",
+      "imagePath": "/images/products/sofa/fe-sofa-001.webp",
+      "images": [
+        "/images/products/sofa/fe-sofa-001.webp"
+      ],
+      "altText": "রাজকীয় ৩+১+১ ভিক্টোরিয়ান কাঠের সোফা সেট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "রাজকীয় ৩+১+১ ভিক্টোরিয়ান কাঠের সোফা সেট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Royal 3+1+1 Victorian Solid Wood Sofa Set - SM Door Solid Wood Products",
+      "defaultPrice": 68000,
+      "regularPrice": 75000,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -1384,17 +1349,6 @@
           ]
         }
       ],
-      "defaultPrice": 68000,
-      "regularPrice": 75000,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "রয়্যাল ল্যাকার",
-        "হাই-গ্লস",
-        "হ্যান্ড বার্নিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Pressure Impregnated",
       "descriptionBn": "লিভিং রুমের রাজকীয় মর্যাদা ফুটিয়ে তুলতে ৩+১+১ পাঁচ সিটের সলিড সেগুন সোফা সেট। ভারী হাতল, দৃষ্টিনন্দন নকশা ও আরামদায়ক কুশন।",
       "descriptionEn": "Regal 5-seater (3+1+1) solid wood sofa set with exquisite crown carvings and plush foam upholstery.",
       "featuresBn": [
@@ -1422,16 +1376,13 @@
         "suitableForBn": "ড্রয়িং রুম ও লাক্সারি লিভিং রুম",
         "suitableForEn": "Drawing Room & Luxury Living Space"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": true,
       "stockStatus": "made_to_order",
       "rating": 4.9,
       "reviewsCount": 36,
       "createdAt": "2026-02-28T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:47:01.775Z"
     },
     {
       "id": "prod-fe-sofa-002",
@@ -1442,6 +1393,17 @@
       "category": "sofa",
       "categoryLabelBn": "সোফা",
       "categoryLabelEn": "Sofa",
+      "imagePath": "/images/products/sofa/fe-sofa-002.webp",
+      "images": [
+        "/images/products/sofa/fe-sofa-002.webp"
+      ],
+      "altText": "এল-শেপড প্রিমিয়াম সলিড উডেন কর্নার সোফা - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "এল-শেপড প্রিমিয়াম সলিড উডেন কর্নার সোফা - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "L-Shaped Premium Solid Wooden Corner Sofa - SM Door Solid Wood Products",
+      "defaultPrice": 52000,
+      "regularPrice": 58000,
+      "priceType": "starting",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "seasoned-mahogany",
       "woodVariants": [
         {
@@ -1471,17 +1433,6 @@
           ]
         }
       ],
-      "defaultPrice": 52000,
-      "regularPrice": 58000,
-      "priceType": "starting",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "মডার্ন ল্যাকার",
-        "ডার্ক ওয়ালনাট",
-        "রয়্যাল ল্যাকার"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Treated",
       "descriptionBn": "আধুনিক পরিবারের জন্য আরামদায়ক এল-শেপড সলিড উডেন কর্নার সোফা। বসার পর্যাপ্ত জায়গা ও মার্জিত আউটলুক।",
       "descriptionEn": "Contemporary L-shaped solid wood corner sofa with deep seating ergonomics.",
       "featuresBn": [
@@ -1509,16 +1460,13 @@
         "suitableForBn": "আধুনিক লিভিং রুম ও লাউঞ্জ",
         "suitableForEn": "Modern Living Room & Lounge"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": false,
       "isBestSeller": true,
       "stockStatus": "made_to_order",
       "rating": 4.8,
       "reviewsCount": 24,
       "createdAt": "2026-03-14T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:47:02.050Z"
     },
     {
       "id": "prod-fe-custom-001",
@@ -1529,6 +1477,17 @@
       "category": "custom-design",
       "categoryLabelBn": "কাস্টম ডিজাইন",
       "categoryLabelEn": "Custom Design",
+      "imagePath": "/images/products/custom-design/fe-custom-001.webp",
+      "images": [
+        "/images/products/custom-design/fe-custom-001.webp"
+      ],
+      "altText": "গ্রাহকের নিজস্ব ডিজাইনে তৈরি কাস্টম আর্কিটেকচারাল ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "গ্রাহকের নিজস্ব ডিজাইনে তৈরি কাস্টম আর্কিটেকচারাল ডোর - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Bespoke Architectural Carved Solid Door to Order - SM Door Solid Wood Products",
+      "defaultPrice": 42000,
+      "regularPrice": 46000,
+      "priceType": "request",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -1545,15 +1504,6 @@
           ]
         }
       ],
-      "defaultPrice": 42000,
-      "regularPrice": 46000,
-      "priceType": "request",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "গ্রাহকের পছন্দ অনুযায়ী কাস্টম ফিনিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Treated",
       "descriptionBn": "ইন্টারনেট বা আপনার আর্কিটেক্টের দেওয়া নকশার হুবহু প্রতিরূপ। মেসার্স ফারহান এন্টারপ্রাইজের দক্ষ মাস্টার কারিগররা যেকোনো নকশা কাঠের উপর নিখুঁতভাবে ফুটিয়ে তোলে।",
       "descriptionEn": "Custom fabricated solid wooden door built precisely to customer photo upload or architectural drawing.",
       "featuresBn": [
@@ -1581,16 +1531,13 @@
         "suitableForBn": "প্রধান ফটক, বিশেষ এন্ট্রান্স ও ইন্টারিয়র",
         "suitableForEn": "Main Entrance, Bespoke Interior"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": true,
       "stockStatus": "custom_order",
       "rating": 5,
       "reviewsCount": 47,
       "createdAt": "2026-02-12T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:47:02.344Z"
     },
     {
       "id": "prod-fe-custom-002",
@@ -1601,6 +1548,17 @@
       "category": "custom-design",
       "categoryLabelBn": "কাস্টম ডিজাইন",
       "categoryLabelEn": "Custom Design",
+      "imagePath": "/images/products/custom-design/fe-custom-002.webp",
+      "images": [
+        "/images/products/custom-design/fe-custom-002.webp"
+      ],
+      "altText": "কাস্টম সাইজ ও ডিজাইনে তৈরি স্পেশাল কাঠের ফার্নিচার - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altBn": "কাস্টম সাইজ ও ডিজাইনে তৈরি স্পেশাল কাঠের ফার্নিচার - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের দরজা ও সামগ্রী",
+      "altEn": "Bespoke Custom Size & Design Wood Furniture - SM Door Solid Wood Products",
+      "defaultPrice": 35000,
+      "regularPrice": 40000,
+      "priceType": "request",
+      "qualityGrade": "premium",
       "defaultWoodSpeciesId": "ctg-teak",
       "woodVariants": [
         {
@@ -1616,15 +1574,6 @@
           ]
         }
       ],
-      "defaultPrice": 35000,
-      "regularPrice": 40000,
-      "priceType": "request",
-      "qualityGrade": "premium",
-      "finishOptions": [
-        "গ্রাহকের পছন্দ অনুযায়ী কাস্টম ফিনিশ"
-      ],
-      "treatmentOptionsBn": "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট সম্পন্ন",
-      "treatmentOptionsEn": "Vacuum Chemical Treated",
       "descriptionBn": "ঘরের সাইজ অনুযায়ী যেকোনো কাস্টম খাট, আলমিরা, ডাইনিং বা কাঠের ওয়াল প্যানেলিং কাজ। মাপ অনুযায়ী বাজেট কোটেশন প্রদান করা হয়।",
       "descriptionEn": "Custom built furniture units designed to fit your unique room layout and dimensional needs.",
       "featuresBn": [
@@ -1652,16 +1601,469 @@
         "suitableForBn": "যেকোনো ইন্টেরিয়র স্পেস",
         "suitableForEn": "Any Custom Interior Project"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&auto=format&fit=crop&q=80"
-      ],
       "isFeatured": true,
       "isBestSeller": false,
       "stockStatus": "custom_order",
       "rating": 4.9,
       "reviewsCount": 28,
       "createdAt": "2026-03-02T00:00:00Z",
-      "updatedAt": "2026-10-01T00:00:00Z"
+      "updatedAt": "2026-10-05T10:47:02.633Z"
+    },
+    {
+      "id": "prod-fe-furn-003",
+      "designNumber": "FE-FURN-003",
+      "slug": "luxury-solid-teak-dressing-table-with-showcase",
+      "titleBn": "লাক্সারি সলিড সেগুন কাঠের ড্রেসিং টেবিল ও শোকেস কেবিনেট",
+      "titleEn": "Luxury Solid Teak Wood Dressing Table with Display Showcase",
+      "category": "furniture",
+      "categoryLabelBn": "ফার্নিচার",
+      "categoryLabelEn": "Furniture",
+      "imagePath": "/images/products/furniture/fe-furn-003.webp",
+      "images": [
+        "/images/products/furniture/fe-furn-003.webp"
+      ],
+      "altText": "লাক্সারি সলিড সেগুন কাঠের ড্রেসিং টেবিল ও শোকেস কেবিনেট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের সামগ্রী",
+      "altBn": "লাক্সারি সলিড সেগুন কাঠের ড্রেসিং টেবিল ও শোকেস কেবিনেট - মেসার্স ফারহান এন্টারপ্রাইজ",
+      "altEn": "Luxury Solid Teak Wood Dressing Table with Display Showcase - SM Door Solid Wood",
+      "defaultPrice": 38000,
+      "regularPrice": 43000,
+      "priceType": "starting",
+      "qualityGrade": "luxury",
+      "defaultWoodSpeciesId": "ctg-teak",
+      "woodVariants": [
+        {
+          "speciesId": "ctg-teak",
+          "speciesNameBn": "চিটাগাং সেগুন",
+          "speciesNameEn": "Chittagong Teak",
+          "price": 38000,
+          "regularPrice": 43000,
+          "inStock": true,
+          "leadTimeDays": 7,
+          "finishOptions": [
+            "ল্যাকার পলিশ",
+            "ম্যাট ফিনিশ"
+          ]
+        },
+        {
+          "speciesId": "seasoned-mahogany",
+          "speciesNameBn": "সিজনড মেহগনি",
+          "speciesNameEn": "Seasoned Mahogany",
+          "price": 25000,
+          "regularPrice": 29000,
+          "inStock": true,
+          "leadTimeDays": 7,
+          "finishOptions": [
+            "ল্যাকার পলিশ"
+          ]
+        },
+        {
+          "speciesId": "gamari",
+          "speciesNameBn": "পার্বত্য গামারি",
+          "speciesNameEn": "Gamari Wood",
+          "price": 22000,
+          "regularPrice": 26000,
+          "inStock": true,
+          "leadTimeDays": 10,
+          "finishOptions": [
+            "হ্যান্ড পলিশ",
+            "ল্যাকার পলিশ"
+          ]
+        }
+      ],
+      "descriptionBn": "সম্পূর্ণ খাঁটি সলিড সেগুন কাঠে নির্মিত লাক্সারি ড্রেসিং টেবিল ও ডিসপ্লে শোকেস ইউনিট। শীর্ষে রয়েছে রাজকীয় খোদাই করা খিলান, ডানপাশে ৪-স্তরের গ্লাস শোকেস তাক ও কাঠের টার্নড স্পিন্ডল রেলিং, এবং নিচে সুপরিসর স্টোরেজ ড্রয়ার ও সাইড কেবিনেট।",
+      "descriptionEn": "Mastercrafted solid Chittagong Teak dressing unit featuring an ornate full-length arch mirror, 4-tier glass display shelves with turned railings, and deep-relief carved drawers.",
+      "featuresBn": [
+        "১০০% সিজনড ও কেমিক্যাল ট্রিটমেন্ট সেগুন কাঠ",
+        "৪-স্তরের গ্লাস ডিসপ্লে শোকেস ও ভেলভেট ফিনিশ ড্রয়ার",
+        "প্রাকৃতিক কাঠের গ্রেইন ও প্রিমিয়াম ল্যাকার ফিনিশ",
+        "উইপোকা ও ঘুণপোকার বিরুদ্ধে আজীবন গ্যারান্টি"
+      ],
+      "featuresEn": [
+        "100% Kiln-seasoned & CCB treated solid teak",
+        "4-tier glass showcase shelves & deep carved pull drawers",
+        "Natural honey-amber wood grain with silky lacquer",
+        "Lifetime immunity against borers and termites"
+      ],
+      "specifications": {
+        "standardHeight": "78 inch (6.5 ft)",
+        "standardWidth": "42 inch (3.5 ft)",
+        "standardThickness": "20 inch depth",
+        "moistureContent": "12% - 14% (KILN DRIED)",
+        "seasoningMethodBn": "অটোমেটেড স্টিম কিম্বন ড্রাইং",
+        "seasoningMethodEn": "Automated Steam Kiln Drying",
+        "chemicalTreatmentBn": "ভ্যাকুয়াম প্রেসার CCB ট্রিটমেন্ট",
+        "chemicalTreatmentEn": "High-Pressure Vacuum CCB Treatment",
+        "warrantyYears": 25,
+        "carvingDepth": "10mm Master Hand Carving",
+        "suitableForBn": "মাস্টার বেডরুম ও লাক্সারি ইন্টেরিয়র",
+        "suitableForEn": "Master Bedroom and Luxury Dressing Space"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "stockStatus": "in_stock",
+      "rating": 5,
+      "reviewsCount": 3,
+      "createdAt": "2026-10-05T11:33:09.320Z",
+      "updatedAt": "2026-10-05T11:33:09.321Z"
+    },
+    {
+      "id": "prod-fe-bed-003",
+      "designNumber": "FE-BED-003",
+      "slug": "royal-victorian-master-carved-solid-teak-king-bed",
+      "titleBn": "রাজকীয় ভিক্টোরিয়ান ক্রাউন খোদাইকৃত সলিড কাঠের কিং সাইজ খাট",
+      "titleEn": "Royal Victorian Master-Carved Solid Hardwood King Size Bed",
+      "category": "bed",
+      "categoryLabelBn": "বেড / খাট",
+      "categoryLabelEn": "Beds",
+      "imagePath": "/images/products/bed/fe-bed-003.webp",
+      "images": [
+        "/images/products/bed/fe-bed-003.webp"
+      ],
+      "altText": "রাজকীয় ভিক্টোরিয়ান ক্রাউন খোদাইকৃত সলিড কাঠের কিং সাইজ খাট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের সামগ্রী",
+      "altBn": "রাজকীয় ভিক্টোরিয়ান ক্রাউন খোদাইকৃত সলিড কাঠের কিং সাইজ খাট - মেসার্স ফারহান এন্টারপ্রাইজ",
+      "altEn": "Royal Victorian Master-Carved Solid Hardwood King Size Bed - SM Door Solid Wood",
+      "defaultPrice": 48000,
+      "regularPrice": 55000,
+      "priceType": "starting",
+      "qualityGrade": "luxury",
+      "defaultWoodSpeciesId": "ctg-teak",
+      "woodVariants": [
+        {
+          "speciesId": "ctg-teak",
+          "speciesNameBn": "চিটাগাং সেগুন",
+          "speciesNameEn": "Chittagong Teak",
+          "price": 48000,
+          "regularPrice": 55000,
+          "inStock": true,
+          "leadTimeDays": 10,
+          "finishOptions": [
+            "ল্যাকার পলিশ",
+            "ম্যাট ফিনিশ"
+          ]
+        },
+        {
+          "speciesId": "seasoned-mahogany",
+          "speciesNameBn": "সিজনড মেহগনি",
+          "speciesNameEn": "Seasoned Mahogany",
+          "price": 32000,
+          "regularPrice": 38000,
+          "inStock": true,
+          "leadTimeDays": 8,
+          "finishOptions": [
+            "ল্যাকার পলিশ"
+          ]
+        },
+        {
+          "speciesId": "gamari",
+          "speciesNameBn": "পার্বত্য গামারি",
+          "speciesNameEn": "Gamari Wood",
+          "price": 28000,
+          "regularPrice": 33000,
+          "inStock": true,
+          "leadTimeDays": 10,
+          "finishOptions": [
+            "ল্যাকার পলিশ"
+          ]
+        }
+      ],
+      "descriptionBn": "ভিক্টোরিয়ান রাজকীয় শৈলীতে হস্তনির্মিত এক্সক্লুসিভ কিং সাইজ সলিড কাঠের খাট। হেডবোর্ডের শীর্ষে সুউচ্চ মুকুট (Crown) এবং কেন্দ্রস্থলে নিখুঁত ফ্লোরাল মোটিফ খোদাই। সাথে রয়েছে সামঞ্জস্যপূর্ণ ম্যাচিং খোদাইকৃত ফুটবোর্ড ও ভারী কাঠের পায়া।",
+      "descriptionEn": "Royal master-carved solid teak king size bed featuring an exquisite Victorian crown crest, intricate acanthus leaf relief, and matching engraved footboard.",
+      "featuresBn": [
+        "নিখুঁত হস্তশিল্পে ১২ মিমি গভীর থ্রি-ডি খোদাই নকশা",
+        "১০০% পাকা সলিড কাঠের ফ্রেম ও হেভি-ডিউটি বিম",
+        "প্রাকৃতিক বাদামী-অ্যাম্বার নিখুঁত পিইউ ল্যাকার ফিনিশ",
+        "৫০ বছরের কাঠ স্থায়িত্ব ও আজীবন ঘুণমুক্ত গ্যারান্টি"
+      ],
+      "featuresEn": [
+        "Precision 12mm deep 3D hand-carved floral motif",
+        "Heavy-duty solid timber posts and frame",
+        "Rich amber polyurethane lacquer luster",
+        "50-year structural longevity guarantee"
+      ],
+      "specifications": {
+        "standardHeight": "54 inch Headboard",
+        "standardWidth": "72 inch (6 ft)",
+        "standardThickness": "84 inch Length (7 ft King)",
+        "moistureContent": "12% - 14% (KILN DRIED)",
+        "seasoningMethodBn": "অটোমেটেড স্টিম কিম্বন ড্রাইং",
+        "seasoningMethodEn": "Automated Steam Kiln Drying",
+        "chemicalTreatmentBn": "ভ্যাকুয়াম প্রেসার CCB ট্রিটমেন্ট",
+        "chemicalTreatmentEn": "High-Pressure Vacuum CCB Treatment",
+        "warrantyYears": 25,
+        "carvingDepth": "12mm Deep 3D Relief",
+        "suitableForBn": "মাস্টার বেডরুম ও নবদম্পতির উপহার",
+        "suitableForEn": "Master Suite and Luxury Bridal Bedroom"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "stockStatus": "in_stock",
+      "rating": 5,
+      "reviewsCount": 3,
+      "createdAt": "2026-10-05T11:33:09.714Z",
+      "updatedAt": "2026-10-05T11:33:09.714Z"
+    },
+    {
+      "id": "prod-fe-bed-004",
+      "designNumber": "FE-BED-004",
+      "slug": "modern-minimalist-solid-wood-queen-bed",
+      "titleBn": "মডার্ন মিনিমালিস্ট সলিড কাঠের কুইন সাইজ খাট",
+      "titleEn": "Modern Minimalist Solid Hardwood Bed with Geometric Accents",
+      "category": "bed",
+      "categoryLabelBn": "বেড / খাট",
+      "categoryLabelEn": "Beds",
+      "imagePath": "/images/products/bed/fe-bed-004.webp",
+      "images": [
+        "/images/products/bed/fe-bed-004.webp"
+      ],
+      "altText": "মডার্ন মিনিমালিস্ট সলিড কাঠের কুইন সাইজ খাট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের সামগ্রী",
+      "altBn": "মডার্ন মিনিমালিস্ট সলিড কাঠের কুইন সাইজ খাট - মেসার্স ফারহান এন্টারপ্রাইজ",
+      "altEn": "Modern Minimalist Solid Hardwood Bed with Geometric Accents - SM Door Solid Wood",
+      "defaultPrice": 34000,
+      "regularPrice": 39000,
+      "priceType": "starting",
+      "qualityGrade": "premium",
+      "defaultWoodSpeciesId": "ctg-teak",
+      "woodVariants": [
+        {
+          "speciesId": "ctg-teak",
+          "speciesNameBn": "চিটাগাং সেগুন",
+          "speciesNameEn": "Chittagong Teak",
+          "price": 34000,
+          "regularPrice": 39000,
+          "inStock": true,
+          "leadTimeDays": 7,
+          "finishOptions": [
+            "ল্যাকার পলিশ",
+            "ম্যাট ফিনিশ"
+          ]
+        },
+        {
+          "speciesId": "seasoned-mahogany",
+          "speciesNameBn": "সিজনড মেহগনি",
+          "speciesNameEn": "Seasoned Mahogany",
+          "price": 24000,
+          "regularPrice": 28000,
+          "inStock": true,
+          "leadTimeDays": 6,
+          "finishOptions": [
+            "ল্যাকার পলিশ"
+          ]
+        },
+        {
+          "speciesId": "gamari",
+          "speciesNameBn": "পার্বত্য গামারি",
+          "speciesNameEn": "Gamari Wood",
+          "price": 21000,
+          "regularPrice": 25000,
+          "inStock": true,
+          "leadTimeDays": 8,
+          "finishOptions": [
+            "ল্যাকার পলিশ"
+          ]
+        }
+      ],
+      "descriptionBn": "আধুনিক ফ্ল্যাট ও ইন্টেরিয়রের উপযোগী পরিষ্কার জ্যামিতিক নকশার কুইন সাইজ খাট। চার কোণে আধুনিক তির্যক খাঁজকাটা প্যাটার্ন এবং কেন্দ্রস্থলে মসৃণ লতাপাতার মৃদু নকশা। কাঠের প্রাকৃতিক রেশম গ্রেইন এই মডেলের বিশেষ সৌন্দর্য।",
+      "descriptionEn": "Contemporary minimalist solid wood bed featuring clean rectangular panelling, diagonal corner fluting, and a graceful central scrollwork medallion.",
+      "featuresBn": [
+        "সহজ পরিচ্ছন্ন ও আধুনিক জ্যামিতিক নকশা",
+        "প্রাকৃতিক কাঠের ওয়েভি টেক্সচার দৃশ্যমান",
+        "শব্দহীন ও মজবুত জয়েন্টারি ইন্টারলক সিস্টেম",
+        "২৫ বছরের অ্যান্টি-টার্মাইট কেমিক্যাল সুরক্ষা"
+      ],
+      "featuresEn": [
+        "Sleek modern geometric corner fluting and scroll accent",
+        "Prominent natural wavy wood grain",
+        "Squeak-free heavy timber joint interlocking system",
+        "25-year anti-termite vacuum immersion protection"
+      ],
+      "specifications": {
+        "standardHeight": "42 inch Headboard",
+        "standardWidth": "60 inch (5 ft)",
+        "standardThickness": "84 inch Length (7 ft Queen)",
+        "moistureContent": "12% - 14% (KILN DRIED)",
+        "seasoningMethodBn": "অটোমেটেড স্টিম কিম্বন ড্রাইং",
+        "seasoningMethodEn": "Automated Steam Kiln Drying",
+        "chemicalTreatmentBn": "ভ্যাকুয়াম প্রেসার CCB ট্রিটমেন্ট",
+        "chemicalTreatmentEn": "High-Pressure Vacuum CCB Treatment",
+        "warrantyYears": 25,
+        "carvingDepth": "6mm CNC Geometric Routing",
+        "suitableForBn": "অ্যাপার্টমেন্ট ও যেকোনো আধুনিক বেডরুম",
+        "suitableForEn": "Contemporary Apartments & Modern Homes"
+      },
+      "isFeatured": true,
+      "isBestSeller": false,
+      "stockStatus": "in_stock",
+      "rating": 5,
+      "reviewsCount": 3,
+      "createdAt": "2026-10-05T11:33:10.111Z",
+      "updatedAt": "2026-10-05T11:33:10.111Z"
+    },
+    {
+      "id": "prod-fe-furn-004",
+      "designNumber": "FE-FURN-004",
+      "slug": "solid-hardwood-4-drawer-chest-cabinet-wardrobe",
+      "titleBn": "৪-ড্রয়ার সলিড কাঠের রাজকীয় চেস্ট অব ড্রয়ার ও আলমিরা কেবিনেট",
+      "titleEn": "Solid Hardwood 4-Drawer Chest & Storage Cabinet Wardrobe",
+      "category": "furniture",
+      "categoryLabelBn": "ফার্নিচার",
+      "categoryLabelEn": "Furniture",
+      "imagePath": "/images/products/furniture/fe-furn-004.webp",
+      "images": [
+        "/images/products/furniture/fe-furn-004.webp"
+      ],
+      "altText": "৪-ড্রয়ার সলিড কাঠের রাজকীয় চেস্ট অব ড্রয়ার ও আলমিরা কেবিনেট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের সামগ্রী",
+      "altBn": "৪-ড্রয়ার সলিড কাঠের রাজকীয় চেস্ট অব ড্রয়ার ও আলমিরা কেবিনেট - মেসার্স ফারহান এন্টারপ্রাইজ",
+      "altEn": "Solid Hardwood 4-Drawer Chest & Storage Cabinet Wardrobe - SM Door Solid Wood",
+      "defaultPrice": 36000,
+      "regularPrice": 42000,
+      "priceType": "starting",
+      "qualityGrade": "luxury",
+      "defaultWoodSpeciesId": "ctg-teak",
+      "woodVariants": [
+        {
+          "speciesId": "ctg-teak",
+          "speciesNameBn": "চিটাগাং সেগুন",
+          "speciesNameEn": "Chittagong Teak",
+          "price": 36000,
+          "regularPrice": 42000,
+          "inStock": true,
+          "leadTimeDays": 8,
+          "finishOptions": [
+            "ল্যাকার পলিশ",
+            "ম্যাট ফিনিশ"
+          ]
+        },
+        {
+          "speciesId": "seasoned-mahogany",
+          "speciesNameBn": "সিজনড মেহগনি",
+          "speciesNameEn": "Seasoned Mahogany",
+          "price": 24000,
+          "regularPrice": 28000,
+          "inStock": true,
+          "leadTimeDays": 7,
+          "finishOptions": [
+            "ল্যাকার পলিশ"
+          ]
+        }
+      ],
+      "descriptionBn": "পোশাক ও মূল্যবান সামগ্রী সুরক্ষিত রাখার জন্য সম্পূর্ণ সলিড কাঠে নির্মিত মাল্টিপারপাস চেস্ট অব ড্রয়ার ও আলমিরা কেবিনেট। বামপাশে ৪টি গভীর খোদাইকৃত ড্রয়ার এবং ডানপাশে ডায়মন্ড ফ্লোরাল মোটিফের লম্বা স্টোরেজ আলমিরা পাল্লা।",
+      "descriptionEn": "Versatile solid wood chest of drawers and side storage cabinet featuring four deep relief carved drawers and an ornate full-height wardrobe door.",
+      "featuresBn": [
+        "৪টি গভীর ড্রয়ার ও ১টি সাইড আলমিরা কেবিনেট",
+        "নিখুঁত হস্তশিল্পে ডায়মন্ড ও ফ্লোরাল কার্ভিং",
+        "হেভি-ডিউটি কাঠের চ্যানেল ও স্মুথ স্লাইডিং",
+        "১০০% সিজনড ও কেমিক্যাল ট্রিটমেন্ট কাঠ"
+      ],
+      "featuresEn": [
+        "4 deep glide drawers + 1 full-height wardrobe door",
+        "Artisan-crafted diamond floral relief medallion",
+        "Heavy-duty solid wood sliders and brass keylocks",
+        "100% Kiln-seasoned borer-immune timber"
+      ],
+      "specifications": {
+        "standardHeight": "48 inch (4 ft)",
+        "standardWidth": "45 inch (3.75 ft)",
+        "standardThickness": "22 inch depth",
+        "moistureContent": "12% - 14% (KILN DRIED)",
+        "seasoningMethodBn": "অটোমেটেড স্টিম কিম্বন ড্রাইং",
+        "seasoningMethodEn": "Automated Steam Kiln Drying",
+        "chemicalTreatmentBn": "ভ্যাকুয়াম প্রেসার CCB ট্রিটমেন্ট",
+        "chemicalTreatmentEn": "High-Pressure Vacuum CCB Treatment",
+        "warrantyYears": 25,
+        "carvingDepth": "10mm Relief Carving",
+        "suitableForBn": "বেডরুমের কাপড়চোপড় ও প্রয়োজনীয় স্টোরেজ",
+        "suitableForEn": "Bedroom Clothes, Linens & Valuables Storage"
+      },
+      "isFeatured": false,
+      "isBestSeller": true,
+      "stockStatus": "in_stock",
+      "rating": 5,
+      "reviewsCount": 3,
+      "createdAt": "2026-10-05T11:33:10.424Z",
+      "updatedAt": "2026-10-05T11:33:10.424Z"
+    },
+    {
+      "id": "prod-fe-dining-003",
+      "designNumber": "FE-DINING-003",
+      "slug": "luxury-solid-hardwood-dining-table-and-chairs-set",
+      "titleBn": "৪/৬-সিটার লাক্সারি সলিড কাঠের ডাইনিং টেবিল ও চেয়ার সেট",
+      "titleEn": "Luxury Solid Hardwood Dining Table and Chairs Set",
+      "category": "dining-table",
+      "categoryLabelBn": "ডাইনিং টেবিল",
+      "categoryLabelEn": "Dining Tables",
+      "imagePath": "/images/products/dining-table/fe-dining-003.webp",
+      "images": [
+        "/images/products/dining-table/fe-dining-003.webp"
+      ],
+      "altText": "৪/৬-সিটার লাক্সারি সলিড কাঠের ডাইনিং টেবিল ও চেয়ার সেট - মেসার্স ফারহান এন্টারপ্রাইজ কাঠের সামগ্রী",
+      "altBn": "৪/৬-সিটার লাক্সারি সলিড কাঠের ডাইনিং টেবিল ও চেয়ার সেট - মেসার্স ফারহান এন্টারপ্রাইজ",
+      "altEn": "Luxury Solid Hardwood Dining Table and Chairs Set - SM Door Solid Wood",
+      "defaultPrice": 42000,
+      "regularPrice": 48000,
+      "priceType": "starting",
+      "qualityGrade": "luxury",
+      "defaultWoodSpeciesId": "ctg-teak",
+      "woodVariants": [
+        {
+          "speciesId": "ctg-teak",
+          "speciesNameBn": "চিটাগাং সেগুন",
+          "speciesNameEn": "Chittagong Teak",
+          "price": 42000,
+          "regularPrice": 48000,
+          "inStock": true,
+          "leadTimeDays": 10,
+          "finishOptions": [
+            "ল্যাকার পলিশ",
+            "ম্যাট ফিনিশ"
+          ]
+        },
+        {
+          "speciesId": "seasoned-mahogany",
+          "speciesNameBn": "সিজনড মেহগনি",
+          "speciesNameEn": "Seasoned Mahogany",
+          "price": 29000,
+          "regularPrice": 34000,
+          "inStock": true,
+          "leadTimeDays": 8,
+          "finishOptions": [
+            "ল্যাকার পলিশ"
+          ]
+        }
+      ],
+      "descriptionBn": "পারিবারিক খাবার ঘরের সৌন্দর্য বাড়াতে মজবুত সলিড কাঠে তৈরি ৪ বা ৬ সিটার ডাইনিং টেবিল এবং ম্যাচিং হাই-ব্যাক চেয়ার সেট। ভারী কাঠের পায়া ও চারপাশের স্ট্রেইট স্ট্রেচারের কারণে টেবিলটি আজীবন মজবুত ও অনড় থাকে।",
+      "descriptionEn": "Luxury 4/6-seater solid hardwood dining suite featuring an ultra-sturdy timber table and ergonomic high-back solid wooden dining chairs.",
+      "featuresBn": [
+        "ভারী সলিড কাঠের পায়া ও মজবুত সাপোর্ট কাঠামো",
+        "আরামদায়ক কার্ভড ব্যাকরেস্ট বিশিষ্ট কাঠের চেয়ার",
+        "হট ও কোল্ড স্পিল প্রতিরোধী ওয়াটারপ্রুফ ল্যাকার ফিনিশ",
+        "চিটাগাং সেগুন ও সিজনড মেহগনি কাঠের অপশন"
+      ],
+      "featuresEn": [
+        "Heavy solid timber leg posts with reinforced undercarriage",
+        "Ergonomically shaped contoured wooden dining chairs",
+        "Spill-resistant protective polyurethane dining polish",
+        "Available in mature Chittagong Teak and Mahogany"
+      ],
+      "specifications": {
+        "standardHeight": "30 inch Table Height",
+        "standardWidth": "36 inch (3 ft)",
+        "standardThickness": "54 inch Length (4/6 Seater)",
+        "moistureContent": "12% - 14% (KILN DRIED)",
+        "seasoningMethodBn": "অটোমেটেড স্টিম কিম্বন ড্রাইং",
+        "seasoningMethodEn": "Automated Steam Kiln Drying",
+        "chemicalTreatmentBn": "ভ্যাকুয়াম প্রেসার CCB ট্রিটমেন্ট",
+        "chemicalTreatmentEn": "High-Pressure Vacuum CCB Treatment",
+        "warrantyYears": 25,
+        "suitableForBn": "পারিবারিক ডাইনিং রুম ও কর্পোরেট ডাইনিং স্পেস",
+        "suitableForEn": "Family Dining Rooms & Executive Dining Suites"
+      },
+      "isFeatured": true,
+      "isBestSeller": true,
+      "stockStatus": "in_stock",
+      "rating": 5,
+      "reviewsCount": 3,
+      "createdAt": "2026-10-05T11:33:10.762Z",
+      "updatedAt": "2026-10-05T11:33:10.762Z"
     }
   ],
   "species": [
@@ -1946,64 +2348,67 @@
   "heroBanners": [
     {
       "id": "banner-1",
-      "titleBn": "মেসার্স ফারহান এন্টারপ্রাইজ",
-      "titleEn": "M/S Farhan Enterprise",
-      "subtitleBn": "লগ ও সাইজ কাঠ, দরজা, ফার্নিচার ও কাস্টম কাঠের সামগ্রী। ট্রিটমেন্ট কাঠ দ্বারা তৈরি মজবুত ও টেকসই পণ্য।",
-      "subtitleEn": "Logs, Sized Wood, Doors, Furniture & Custom Timber Products. Crafted with durable treatment wood.",
-      "tagBn": "কাঠ, দরজা ও ফার্নিচারের বিশ্বস্ত ঠিকানা",
-      "tagEn": "Trusted Wood, Door & Furniture Solutions",
-      "badgeBn": "১০০% পাকা ও ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট কাঠ",
-      "badgeEn": "100% Mature & Vacuum Chemical Treated Wood",
-      "ctaTextBn": "কল করুন",
-      "ctaTextEn": "Call Now",
-      "ctaLink": "tel:+8801710820987",
-      "secondaryCtaTextBn": "হোয়াটসঅ্যাপ করুন",
-      "secondaryCtaTextEn": "WhatsApp Us",
-      "secondaryCtaLink": "https://wa.me/8801710820987",
-      "bgImageUrl": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1600&auto=format&fit=crop&q=80",
-      "overlayOpacity": 0.7,
+      "titleBn": "মেসার্স ফারহান এন্টারপ্রাইজ - সমিল ও কাঠের কারখানা",
+      "titleEn": "M/S Farhan Enterprise - Sawmill & Timber Plant",
+      "subtitleBn": "খাঁটি চিটাগাং সেগুন, সিজনড মেহগনি ও গামারি গোল লগ ও চেরা সাইজ কাঠ। ১০০% ট্রিটমেন্ট কাঠ দ্বারা তৈরি টেকসই ও মজবুত পণ্য।",
+      "subtitleEn": "Chittagong Teak, Seasoned Mahogany & Gamari logs and sawn timber. High-pressure vacuum treated durable woodwork.",
+      "tagBn": "খাঁটি কাঠের বিশ্বস্ত কারখানা",
+      "tagEn": "Trusted Hardwood Sawmill & Workshop",
+      "badgeBn": "প্রোঃ মোঃ আব্দুছ ছালাম খাঁন • বাদে নাভারন, ঝিকরগাছা, যশোর",
+      "badgeEn": "Proprietor: Md. Abdus Salam Khan • Jhikargachha, Jashore",
+      "ctaTextBn": "পণ্য ক্যাটালগ দেখুন",
+      "ctaTextEn": "View Catalog",
+      "ctaLink": "#catalog",
+      "secondaryCtaTextBn": "সরাসরি কল করুন",
+      "secondaryCtaTextEn": "Call Now",
+      "secondaryCtaLink": "tel:+8801710820987",
+      "bgImageUrl": "/images/hero/hero-sawmill-yard.webp",
+      "mobileBgImageUrl": "/images/hero/hero-sawmill-yard-mobile.webp",
+      "overlayOpacity": 0.75,
       "order": 1,
       "isActive": true
     },
     {
       "id": "banner-2",
-      "titleBn": "লগ ও সাইজ কাঠ ক্রয়-বিক্রয় ও স’মিল কাটিং",
-      "titleEn": "Logs & Sized Wood Supply & Sawmill Processing",
-      "subtitleBn": "সরাসরি নিজস্ব স্টক থেকে গোল লগ, সঠিক মাপে চেরা তক্তা, বাটাম ও চৌকাঠের কাঠ সরবরাহ।",
-      "subtitleEn": "Direct wholesale & retail round logs, precision-cut planks, battens, and chowkath timber.",
-      "tagBn": "খাঁটি কাঠ ও সঠিক মাপের নিশ্চয়তা",
-      "tagEn": "Authentic Timber & Exact Dimensions",
-      "badgeBn": "ঘুণপোকা ও উইপোকা প্রতিরোধী ট্রিটমেন্ট",
-      "badgeEn": "Anti-Termite & Anti-Borer Wood Guarantee",
-      "ctaTextBn": "ক্যাটালগ দেখুন",
-      "ctaTextEn": "Browse Catalog",
-      "ctaLink": "#catalog",
-      "secondaryCtaTextBn": "সিএফটি হিসাব করুন",
-      "secondaryCtaTextEn": "Calculate CFT",
-      "secondaryCtaLink": "#calculator",
-      "bgImageUrl": "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=1600&auto=format&fit=crop&q=80",
-      "overlayOpacity": 0.72,
+      "titleBn": "লগ ও সাইজ কাঠ ক্রয়-বিক্রয় ও কাস্টম কাঠের সামগ্রী",
+      "titleEn": "Logs & Sized Timber Supply and Custom Woodwork",
+      "subtitleBn": "দরজা, চৌকাঠ ও ফার্নিচার সহ যাবতীয় কাঠের সামগ্রী কিম্বন ড্রাইড ও ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট কাঠে নিজস্ব কারখানায় নিখুঁতভাবে তৈরি।",
+      "subtitleEn": "Doors, chowkaths, and furniture crafted with mature kiln-dried CCB treated timber in our own workshop.",
+      "tagBn": "আকিজ কলেজিয়েট স্কুলের পশ্চিম পার্শ্বে, বাদে নাভারন",
+      "tagEn": "West side of Akij Collegiate School, Bade Nabaran",
+      "badgeBn": "১০০% পাকা ও ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট কাঠ",
+      "badgeEn": "100% Mature & Vacuum CCB Treated Wood",
+      "ctaTextBn": "সিএফটি ক্যালকুলেটর",
+      "ctaTextEn": "CFT Calculator",
+      "ctaLink": "#calculator",
+      "secondaryCtaTextBn": "হোয়াটসঅ্যাপ করুন",
+      "secondaryCtaTextEn": "WhatsApp Us",
+      "secondaryCtaLink": "https://wa.me/8801710820987",
+      "bgImageUrl": "/images/hero/hero-farhan-signboard.webp",
+      "mobileBgImageUrl": "/images/hero/hero-farhan-signboard-mobile.webp",
+      "overlayOpacity": 0.75,
       "order": 2,
       "isActive": true
     },
     {
       "id": "banner-3",
-      "titleBn": "আপনার পছন্দমতো নিজস্ব ডিজাইন দিয়ে অর্ডার করুন",
-      "titleEn": "Order with Your Own Custom Design",
-      "subtitleBn": "ইন্টারনেট বা আপনার পছন্দের দরজার বা ফার্নিচারের ছবি আপলোড করুন; আমাদের দক্ষ কারিগররা নিখুঁতভাবে বানিয়ে দেবে।",
-      "subtitleEn": "Upload your favorite furniture or door design photo; our master artisans will craft it to exact specifications.",
-      "tagBn": "কাস্টম ডিজাইন ও হ্যান্ডক্রাফট",
-      "tagEn": "Custom Design & Handcrafted Woodwork",
-      "badgeBn": "অনলাইনে ছবি আপলোড করে ফ্রি পরামর্শ ও দাম জানুন",
-      "badgeEn": "Upload Design Photo for Free Estimate",
-      "ctaTextBn": "কাস্টম ডিজাইন অর্ডার",
-      "ctaTextEn": "Custom Design Order",
+      "titleBn": "সরাসরি কারখানা থেকে পাইকারি ও খুচরা মূল্যে কাঠ",
+      "titleEn": "Direct Sawmill Factory Sawn Wood & Custom Orders",
+      "subtitleBn": "উইপোকা ও ঘুণপোকার বিরুদ্ধে আজীবন সুরক্ষা। বাড়ির প্রধান দরজা, চৌকাঠ ও যেকোনো সাইজের অর্ডারে দ্রুত ডেলিভারি।",
+      "subtitleEn": "Lifetime immunity against termites and borers. Fast delivery on doors, frames, and custom sized orders.",
+      "tagBn": "মোবাঃ ০১৭১০-৮২০৯৮৭, ০১৯৪২-২৩৭৩৯৯",
+      "tagEn": "Mobile: 01710-820987, 01942-237399",
+      "badgeBn": "২৫ বছরের উইপোকা প্রতিরোধী লাইফটাইম সুরক্ষা",
+      "badgeEn": "25-Year Termite Immersion Shield",
+      "ctaTextBn": "কাস্টম অর্ডার দিন",
+      "ctaTextEn": "Custom Order",
       "ctaLink": "#custom-order",
-      "secondaryCtaTextBn": "হোয়াটসঅ্যাপে কথা বলুন",
-      "secondaryCtaTextEn": "Consult on WhatsApp",
-      "secondaryCtaLink": "https://wa.me/8801710820987",
-      "bgImageUrl": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1600&auto=format&fit=crop&q=80",
-      "overlayOpacity": 0.7,
+      "secondaryCtaTextBn": "দরজা ক্যাটালগ",
+      "secondaryCtaTextEn": "Door Catalog",
+      "secondaryCtaLink": "/doors",
+      "bgImageUrl": "/images/hero/hero-timber-logs.webp",
+      "mobileBgImageUrl": "/images/hero/hero-timber-logs-mobile.webp",
+      "overlayOpacity": 0.75,
       "order": 3,
       "isActive": true
     }
@@ -2092,7 +2497,7 @@
       "icon": "Saw",
       "highlightBn": "প্রচুর স্টক ও সঠিক মাপ",
       "highlightEn": "Abundant inventory & exact cuts",
-      "imageUrl": "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=900&auto=format&fit=crop&q=80"
+      "imageUrl": "/images/factory/factory-log-bandsaw-cutting.webp"
     },
     {
       "id": "serv-2",
@@ -2103,7 +2508,7 @@
       "icon": "ShieldCheck",
       "highlightBn": "২৫ বছরের উইপোকা প্রতিরোধী সুরক্ষা",
       "highlightEn": "25-Year Anti-Termite Immersion Shield",
-      "imageUrl": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&auto=format&fit=crop&q=80"
+      "imageUrl": "/images/factory/factory-timber-yard.webp"
     },
     {
       "id": "serv-3",
@@ -2114,7 +2519,7 @@
       "icon": "Flame",
       "highlightBn": "১২-১৪% অপটিমাম ময়েশ্চার গ্যারান্টি",
       "highlightEn": "12-14% Moisture Guarantee",
-      "imageUrl": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=900&auto=format&fit=crop&q=80"
+      "imageUrl": "/images/factory/factory-surface-planer.webp"
     },
     {
       "id": "serv-4",
@@ -2125,8 +2530,70 @@
       "icon": "Cpu",
       "highlightBn": "১০-১২ মিমি নিখুঁত ৩ডি গভীরতা",
       "highlightEn": "10-12mm Precision 3D Depth",
-      "imageUrl": "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?w=900&auto=format&fit=crop&q=80"
+      "imageUrl": "/images/factory/factory-precision-plank-sizing.webp"
     }
   ],
-  "adminPin": ""
+  "adminPin": "",
+  "factoryPhotos": [
+    {
+      "id": "factory-photo-1",
+      "titleBn": "উন্মুক্ত কাঠ সিজনিং ও চেরা কাঠের সুবিশাল স্টক ইয়ার্ড",
+      "titleEn": "Open Timber Seasoning & Sawn Wood Inventory Yard",
+      "tagBn": "স্টক ইয়ার্ড ও সিজনিং",
+      "tagEn": "Stock Yard & Seasoning",
+      "descriptionBn": "কারখানার খোলামেলা প্রাঙ্গণে প্রাকৃতিক বাতাস ও রোদে ড্রাইড করার জন্য সুশৃঙ্খলভাবে স্তুপীকৃত চেরা কাঠের তক্তা ও বাটাম। সামনে রয়েছে পরিণত গোল কাঠের বিশাল গুঁড়ি, যা থেকে নিখুঁত মাপে সাইজ কাঠ চেরাই করা হয়।",
+      "descriptionEn": "Neatly organized stacks of sawn timber planks drying under open shed and sunshine, ready for kiln seasoning.",
+      "specsBn": "১০০% প্রাকৃতিক এয়ার-ড্রাই ও সিজনিং সুবিধা",
+      "imageUrl": "/images/factory/factory-timber-yard.webp",
+      "order": 1
+    },
+    {
+      "id": "factory-photo-2",
+      "titleBn": "অটোমেটিক উড সারফেস প্ল্যানার ও থিকনেসার প্রসেসিং",
+      "titleEn": "Automated Wood Planing & Thicknessing Unit",
+      "tagBn": "প্ল্যানিং ও সাইজিং",
+      "tagEn": "Planing & Sizing",
+      "descriptionBn": "শিল্পমানের হেভি-ডিউটি সারফেস প্ল্যানার মেশিনের সাহায্যে চেরা কাঠের অসমান আঁশ ছেঁটে একদম মসৃণ ও সঠিক থিকনেসে প্রস্তুত করা হচ্ছে। সামনে চমৎকার প্রাকৃতিক গ্রেইনযুক্ত তৈরি তক্তার সারি।",
+      "descriptionEn": "Industrial surface planers and thicknessers finishing timber planks to absolute flatness and silky texture.",
+      "specsBn": "লেজার-লেভেল সমতল ফিনিশিং ও নিখুঁত থিকনেস",
+      "imageUrl": "/images/factory/factory-surface-planer.webp",
+      "order": 2
+    },
+    {
+      "id": "factory-photo-3",
+      "titleBn": "ফারহান এন্টারপ্রাইজের অভ্যন্তরীণ কাটিং ও জয়েন্টারি কারখানা",
+      "titleEn": "Inside the Farhan Enterprise Woodworking Plant",
+      "tagBn": "কারখানার অভ্যন্তরীণ দৃশ্য",
+      "tagEn": "Interior Workshop",
+      "descriptionBn": "সুবিশাল ছাউনিযুক্ত কারখানার ভেতরের দৃশ্য। পর্যাপ্ত আলো ও ভেন্টিলেশনে দক্ষ কারিগররা দরজা, চৌকাঠ ও ফার্নিচারের কাঠামো অনুযায়ী গ্রেডিং করে সুবিন্যস্তভাবে কাঠ প্রস্তুত করছেন।",
+      "descriptionEn": "Expansive indoor woodworking floor where skilled artisans grade, organize and prep timber for furniture manufacturing.",
+      "specsBn": "নিরাপদ কর্মপরিবেশ ও আধুনিক কাটিং প্রযুক্তি",
+      "imageUrl": "/images/factory/factory-workshop-interior.webp",
+      "order": 3
+    },
+    {
+      "id": "factory-photo-4",
+      "titleBn": "হেভি-ডিউটি ব্যান্ড সমিলে গোল কাঠের গুঁড়ি চেরাই কার্যক্রম",
+      "titleEn": "Heavy-Duty Band Saw Log Slicing in Action",
+      "tagBn": "ব্যান্ড সমিল কাটিং",
+      "tagEn": "Bandsaw Milling",
+      "descriptionBn": "অভিজ্ঞ স’মিল কারিগরদের সরাসরি তত্ত্বাবধানে বড় আকারের পরিণত গাছের গোল গুঁড়ি নিখুঁত সরলরেখায় চেরাই করা হচ্ছে। এতে কাঠের গ্রেইনের স্বাভাবিক সৌন্দর্য বজায় থাকে।",
+      "descriptionEn": "Skilled sawmill artisans expertly guiding heavy mature timber logs through vertical band saw blades.",
+      "specsBn": "অভিজ্ঞ কারিগর দ্বারা নিখুঁত স্ট্রেইট কাটিং",
+      "imageUrl": "/images/factory/factory-log-bandsaw-cutting.webp",
+      "order": 4
+    },
+    {
+      "id": "factory-photo-5",
+      "titleBn": "১০০% খাঁটি হার্টউড (মজ্জা) থেকে নিখুঁত মাপে তক্তা তৈরি",
+      "titleEn": "Precision Timber Plank Sizing from Mature Heartwood",
+      "tagBn": "খাঁটি হার্টউড সাইজিং",
+      "tagEn": "Mature Heartwood Sizing",
+      "descriptionBn": "সামনে রাখা তাজা চেরাই কাঠের গাঢ় লালচে-কমলা খাঁটি হার্টউড বা কাঠের মজ্জা অংশ স্পষ্ট দেখা যাচ্ছে। দক্ষ কারিগররা কাঠের পাতলা তক্তা নিখুঁত পরিমাপে সাইজ করছেন।",
+      "descriptionEn": "Freshly cut timber displaying rich reddish-orange mature heartwood, perfectly sized for door panels and frames.",
+      "specsBn": "ঘুণপোকা ও উইপোকা মুক্ত ১০০% পাকা কাঠ",
+      "imageUrl": "/images/factory/factory-precision-plank-sizing.webp",
+      "order": 5
+    }
+  ]
 }

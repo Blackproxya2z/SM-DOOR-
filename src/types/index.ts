@@ -84,7 +84,11 @@ export interface Product {
   featuresBn: string[];
   featuresEn: string[];
   specifications: ProductSpecification;
+  imagePath?: string;
   images: string[];
+  altText?: string;
+  altBn?: string;
+  altEn?: string;
   isFeatured: boolean;
   isBestSeller: boolean;
   stockStatus: 'in_stock' | 'made_to_order' | 'custom_order' | 'out_of_stock';
@@ -149,6 +153,7 @@ export interface HeroBanner {
   secondaryCtaTextEn?: string;
   secondaryCtaLink?: string;
   bgImageUrl: string;
+  mobileBgImageUrl?: string;
   overlayOpacity?: number;
   order: number;
   isActive: boolean;
@@ -210,6 +215,19 @@ export interface SawmillService {
   highlightBn: string;
   highlightEn: string;
   imageUrl: string;
+}
+
+export interface FactoryPhoto {
+  id: string;
+  titleBn: string;
+  titleEn: string;
+  tagBn: string;
+  tagEn: string;
+  descriptionBn: string;
+  descriptionEn: string;
+  specsBn?: string;
+  imageUrl: string;
+  order: number;
 }
 
 export interface QuoteItem {

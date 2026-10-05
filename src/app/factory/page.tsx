@@ -16,6 +16,7 @@ export const revalidate = 0;
 
 export default function FactoryPage() {
   const sawmillServices = db.getSawmillServices();
+  const factoryPhotos = db.getFactoryPhotos();
   const siteSettings = db.getSiteSettings();
 
   const whatsapp = siteSettings.whatsappNumber || "+8801710820987";
@@ -128,7 +129,7 @@ export default function FactoryPage() {
       </section>
 
       {/* Embedded Showcase Component */}
-      <SawmillShowcase services={sawmillServices} />
+      <SawmillShowcase services={sawmillServices} factoryPhotos={factoryPhotos} />
 
       <Footer settings={siteSettings} />
       <BottomNav whatsappNumber={whatsapp} />

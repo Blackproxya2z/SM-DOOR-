@@ -29,6 +29,8 @@ dist
 # Uploads & User Content
 /public/uploads/*
 !/public/uploads/.gitkeep
+/raw_images/*
+!/raw_images/.gitkeep
 
 # Debug & OS files
 npm-debug.log*
