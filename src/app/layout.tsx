@@ -31,20 +31,32 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "M/S Farhan Enterprise" }],
   openGraph: {
-    title: "মেসার্স ফারহান এন্টারপ্রাইজ / এস এম ডোর — Premium Wooden Doors & Sawmill",
-    description: "১০০% সিজনড ও কেমিক্যাল ট্রিটেড চিটাগাং সেগুন, মেহগনি ও গামারি কাঠের দরজা ও চৌকাঠ।",
+    title: "মেসার্স ফারহান এন্টারপ্রাইজ / এস এম ডোর — খাঁটি কাঠ ও স’মিল কমপ্লেক্স",
+    description: "যশোরের ঝিকরগাছায় নিজস্ব স’মিল ও সিজনিং প্ল্যান্ট। ১০০% সিজনড ও কেমিক্যাল ট্রিটেড চিটাগাং সেগুন, মেহগনি ও গামারি কাঠের দরজা ও চৌকাঠ।",
     url: "https://smdoorbd.com",
-    siteName: "SM Door",
+    siteName: "মেসার্স ফারহান এন্টারপ্রাইজ",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1200",
+        url: "/images/hero/hero-farhan-signboard.webp",
         width: 1200,
         height: 630,
-        alt: "SM Door Premium Wooden Doors",
+        alt: "মেসার্স ফারহান এন্টারপ্রাইজ অফিস ও কারখানা সাইনবোর্ড",
+      },
+      {
+        url: "/images/hero/hero-sawmill-yard.webp",
+        width: 1200,
+        height: 630,
+        alt: "মেসার্স ফারহান এন্টারপ্রাইজ সুবিশাল স’মিল ইয়ার্ড",
       },
     ],
     locale: "bn_BD",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "মেসার্স ফারহান এন্টারপ্রাইজ / এস এম ডোর",
+    description: "খাঁটি কাঠ, স’মিল কমপ্লেক্স ও আধুনিক দরজার কারখানা — যশোর, বাংলাদেশ।",
+    images: ["/images/hero/hero-farhan-signboard.webp"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -66,8 +78,8 @@ export default function RootLayout({
     "telephone": "+8801710820987",
     "founder": {
       "@type": "Person",
-      "name": "Abdus Salam Khan",
-      "alternateName": "আব্দুস সালাম খাঁন",
+      "name": "Md. Abdus Salam Khan",
+      "alternateName": "মোঃ আব্দুছ ছালাম খাঁন",
       "jobTitle": "Proprietor"
     },
     "address": {
