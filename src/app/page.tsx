@@ -10,6 +10,8 @@ import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { FloatingActions } from "@/components/FloatingActions";
 
+import { ScrollRevealSection } from "@/components/ScrollRevealSection";
+
 export const revalidate = 0; // Always fresh data from db
 
 export default function Home() {
@@ -29,34 +31,48 @@ export default function Home() {
       {/* 1. Top Navbar */}
       <Header initialSettings={siteSettings} />
 
-      {/* 2. Hero Carousel & Trust Metrics */}
-      <HeroSlider banners={heroBanners} />
-
-      {/* 3. Interactive Product Catalog */}
-      <ProductCatalog 
-        initialProducts={products} 
-        speciesList={speciesList} 
+      {/* 2. Hero Split-Screen Showcase with Animations */}
+      <HeroSlider 
+        banners={heroBanners} 
+        phone={phone} 
         whatsappNumber={whatsapp} 
       />
 
-      {/* 4. Real-time CFT & Cost Calculator */}
-      <CftCalculator 
-        initialSpecies={speciesList} 
-        initialRates={calculatorRates} 
-        whatsappNumber={whatsapp} 
-      />
+      {/* 3. Interactive Product Catalog with Scroll Reveal */}
+      <ScrollRevealSection delay={100}>
+        <ProductCatalog 
+          initialProducts={products} 
+          speciesList={speciesList} 
+          whatsappNumber={whatsapp} 
+        />
+      </ScrollRevealSection>
 
-      {/* 5. Custom Design Upload & Quotation Form */}
-      <CustomOrderWizard 
-        speciesList={speciesList} 
-        whatsappNumber={whatsapp} 
-      />
+      {/* 4. Real-time CFT & Cost Calculator with Scroll Reveal */}
+      <ScrollRevealSection delay={100}>
+        <CftCalculator 
+          initialSpecies={speciesList} 
+          initialRates={calculatorRates} 
+          whatsappNumber={whatsapp} 
+        />
+      </ScrollRevealSection>
 
-      {/* 6. Sawmill Services & Factory Tour */}
-      <SawmillShowcase services={sawmillServices} />
+      {/* 5. Custom Design Upload & Quotation Form with Scroll Reveal */}
+      <ScrollRevealSection delay={100}>
+        <CustomOrderWizard 
+          speciesList={speciesList} 
+          whatsappNumber={whatsapp} 
+        />
+      </ScrollRevealSection>
 
-      {/* 7. Client Reviews & Testimonials */}
-      <TestimonialsSection reviews={reviews} />
+      {/* 6. Sawmill Services & Factory Tour with Scroll Reveal */}
+      <ScrollRevealSection delay={100}>
+        <SawmillShowcase services={sawmillServices} />
+      </ScrollRevealSection>
+
+      {/* 7. Client Reviews & Testimonials with Scroll Reveal */}
+      <ScrollRevealSection delay={100}>
+        <TestimonialsSection reviews={reviews} />
+      </ScrollRevealSection>
 
       {/* 8. Footer */}
       <Footer settings={siteSettings} />
