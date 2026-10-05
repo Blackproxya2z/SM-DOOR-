@@ -171,6 +171,11 @@ export function Footer({ settings: initialSettings }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/factory" className="hover:text-amber-400 transition-colors">
+                  {language === 'bn' ? 'স’মিল ও কারখানা ট্যুর' : 'Sawmill & Factory Tour'}
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="hover:text-amber-400 transition-colors">
                   {language === 'bn' ? 'যোগাযোগ' : 'Contact'}
                 </Link>

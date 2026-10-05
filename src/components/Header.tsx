@@ -141,9 +141,27 @@ export function Header({ initialSettings }: HeaderProps) {
   ];
 
   const factoryMenu = [
-    { href: '/factory', labelBn: 'ট্রিটমেন্ট ও সিজনিং প্ল্যান্ট', labelEn: 'Treatment & Plant Tour', descBn: 'ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট ও সিজনিং', descEn: 'Vacuum chemical treatment & seasoning' },
-    { href: '/about', labelBn: 'আমাদের পরিচিতি', labelEn: 'About Farhan Enterprise', descBn: 'ঝিকরগাছা, যশোরে বিশ্বস্ত সেবা', descEn: 'Trusted timber craftsmanship in Jashore' },
-    { href: '/contact', labelBn: 'শোরুম ও যোগাযোগ', labelEn: 'Showrooms & Contact', descBn: 'আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে, ঝিকরগাছা', descEn: 'West side of Akij Collegiate School, Jhikargachha' },
+    { 
+      href: '/factory', 
+      labelBn: 'স্টেট-অব-দ্য-আর্ট স’মিল কমপ্লেক্স', 
+      labelEn: 'State-of-the-Art Sawmill Complex', 
+      descBn: 'ভারী ব্যান্ড-স চেরাই, কিম্বন সিজনিং ও কারখানা ট্যুর', 
+      descEn: 'Log slabbing, kiln drying & factory tour' 
+    },
+    { 
+      href: '/about', 
+      labelBn: 'আমাদের পরিচিতি (মেসার্স ফারহান এন্টারপ্রাইজ)', 
+      labelEn: 'About Farhan Enterprise', 
+      descBn: 'প্রোঃ মোঃ আব্দুছ ছালাম খাঁন • ২৫+ বছরের ঐতিহ্য', 
+      descEn: '25+ years trusted legacy & proprietor' 
+    },
+    { 
+      href: '/contact', 
+      labelBn: 'শোরুম ও সরাসরি যোগাযোগ', 
+      labelEn: 'Showrooms & Contact', 
+      descBn: 'আকিজ কলেজিয়েট স্কুলের পশ্চিম পার্শ্বে, বাদে নাভারন, যশোর', 
+      descEn: 'West side of Akij Collegiate School, Jhikargachha' 
+    },
   ];
 
   return (

@@ -20,7 +20,6 @@ export default function Home() {
   const reviews = db.getReviews();
   const siteSettings = db.getSiteSettings();
   const sawmillServices = db.getSawmillServices();
-  const factoryPhotos = db.getFactoryPhotos();
 
   const whatsapp = siteSettings.whatsappNumber || "+8801710820987";
   const phone = siteSettings.phone1 || "+880 1710-820987";
@@ -54,7 +53,7 @@ export default function Home() {
       />
 
       {/* 6. Sawmill Services & Factory Tour */}
-      <SawmillShowcase services={sawmillServices} factoryPhotos={factoryPhotos} />
+      <SawmillShowcase services={sawmillServices} />
 
       {/* 7. Client Reviews & Testimonials */}
       <TestimonialsSection reviews={reviews} />

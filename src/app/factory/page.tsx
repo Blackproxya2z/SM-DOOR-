@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { db } from "@/lib/db";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -5,131 +6,111 @@ import { BottomNav } from "@/components/BottomNav";
 import { FloatingActions } from "@/components/FloatingActions";
 import { SawmillShowcase } from "@/components/SawmillShowcase";
 import type { Metadata } from "next";
-import { Factory, ShieldCheck, Cpu, Flame, Droplets, CheckCircle, Award } from "lucide-react";
+import { 
+  Factory, 
+  ShieldCheck, 
+  Flame, 
+  Droplets, 
+  Cpu, 
+  ArrowRight, 
+  MapPin, 
+  Phone,
+  Sparkles,
+  CheckCircle2
+} from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "আমাদের স’মিল কমপ্লেক্স ও আধুনিক কারখানা | SM Door",
-  description: "ভারী ব্যান্ড-স লোগ কাটিং, ১২-১৪% কিম্বন ড্রাইং সিজনিং চেম্বার, কেমিক্যাল ট্রিটমেন্ট ও থ্রি-ডি সিএনসি খোদাই ফ্যাক্টরি ট্যুর।",
+  title: "স্টেট-অব-দ্য-আর্ট স’মিল কমপ্লেক্স ও প্রসেসিং প্ল্যান্ট | মেসার্স ফারহান এন্টারপ্রাইজ / SM Door",
+  description: "ভারী ব্যান্ড-স লোগ কাটিং, ১২-১৪% কিম্বন ড্রাইং সিজনিং চেম্বার, কেমিক্যাল ট্রিটমেন্ট ও থ্রি-ডি সিএনসি খোদাই ফ্যাক্টরি ট্যুর। বাদে নাভারন, ঝিকরগাছা, যশোর।",
 };
 
 export const revalidate = 0;
 
 export default function FactoryPage() {
   const sawmillServices = db.getSawmillServices();
-  const factoryPhotos = db.getFactoryPhotos();
   const siteSettings = db.getSiteSettings();
 
   const whatsapp = siteSettings.whatsappNumber || "+8801710820987";
   const phone = siteSettings.phone1 || "+880 1710-820987";
 
-  const processSteps = [
-    {
-      num: "০১",
-      title: "গোল কাঠের গুঁড়ি নির্বাচন (Log Selection)",
-      desc: "চট্টগ্রাম পার্বত্য অঞ্চল ও রাঙ্গামাটি থেকে সেরা গ্রেডের সেগুন, মেহগনি ও গামারি গোল কাঠের গুঁড়ি সরাসরি পর্যবেক্ষণ করে সংগ্রহ করা হয়।",
-      icon: Factory,
-    },
-    {
-      num: "০২",
-      title: "হাই-স্পিড স’মিল কাটিং (Sawmill Slicing)",
-      desc: "ভারী স্বয়ংক্রিয় ব্যান্ড-স ব্লেডের মাধ্যমে কাঠের প্রতিটি তক্তা ও বাটাম নিখুঁত ও সমান্তরাল মাপে চেরা হয়।",
-      icon: Cpu,
-    },
-    {
-      num: "০৩",
-      title: "ভ্যাকুয়াম কেমিক্যাল ট্রিটমেন্ট (Chemical Treatment)",
-      desc: "চাপ প্রয়োগ করে কাঠের রন্ধ্রে রন্ধ্রে উইপোকা ও ঘুণপোকা প্রতিরোধী পরিবেশবান্ধব বোরন-ফসফেট কেমিক্যাল প্রবেশ করানো হয়।",
-      icon: Droplets,
-    },
-    {
-      num: "০৪",
-      title: "ফার্নেস কিম্বন সিজনিং (Kiln Drying)",
-      desc: "১৮ থেকে ২৫ দিন নিয়ন্ত্রিত তাপমাত্রায় কাঠের স্বাভাবিক আর্দ্রতা ১২% - ১৪% এ নামিয়ে আনা হয়, যাতে কাঠ কখনো বাঁকা না হয়।",
-      icon: Flame,
-    },
-    {
-      num: "০৫",
-      title: "কম্পিউটারাইজড ৩ডি সিএনসি খোদাই (3D CNC Carving)",
-      desc: "ডিজিটাল সফটওয়্যারের নির্দেশনায় মাইক্রন-লেভেল নিখুঁত খোদাই এবং রাজকীয় নকশা ফুটিয়ে তোলা হয়।",
-      icon: Cpu,
-    },
-    {
-      num: "০৬",
-      title: "হস্তশিল্প ফিনিশিং ও পলিশ (Artisan Finishing)",
-      desc: "অভিজ্ঞ কারিগরদের হাতে স্যান্ডিং, পুটিং এবং গ্রাহকের পছন্দমত ম্যাট ল্যাকার বা হাই-গ্লস পিউ পলিশ প্রয়োগ।",
-      icon: Award,
-    },
-    {
-      num: "০৭",
-      title: "কোয়ালিটি চেক ও প্যাকেজিং (Quality Control)",
-      desc: "আর্দ্রতা মিটার দ্বারা ফাইনাল চেকিং এবং সুরক্ষামূলক ফোম ও প্লাস্টিক র‍্যাপার প্যাকেজিং করে ডেলিভারি।",
-      icon: CheckCircle,
-    },
-  ];
-
   return (
     <main className="min-h-screen flex flex-col bg-wood-50/40 dark:bg-wood-950">
       <Header initialSettings={siteSettings} />
 
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-16 px-4 sm:px-6 lg:px-8 border-b border-wood-800 text-center">
-        <div className="max-w-7xl mx-auto">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gold-500/20 text-gold-400 border border-gold-500/30 mb-3">
+      {/* Hero Banner: State-of-the-Art Sawmill Complex */}
+      <section className="bg-gradient-to-b from-wood-950 via-wood-900 to-wood-950 text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b border-wood-800 text-center relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-gold-500/20 text-gold-400 border border-gold-500/30 mb-4 backdrop-blur-sm">
             <Factory className="w-3.5 h-3.5" />
-            ফ্যাক্টরি ও কারখানা
-          </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif mb-4">
-            এস এম ডোর স’মিল কমপ্লেক্স ও সিজনিং প্ল্যান্ট
+            <span>স্টেট-অব-দ্য-আর্ট স’মিল কমপ্লেক্স</span>
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-extrabold font-serif tracking-tight mb-4 leading-tight">
+            মেসার্স ফারহান এন্টারপ্রাইজ
+            <span className="block text-gold-400 text-xl sm:text-3xl mt-2 font-sans font-bold">
+              স’মিল কমপ্লেক্স, সিজনিং প্ল্যান্ট ও কাটিং ওয়ার্কশপ
+            </span>
           </h1>
-          <p className="max-w-2xl mx-auto text-sm sm:text-base text-wood-300">
-            কাঠের কাঁচা গুঁড়ি থেকে শুরু করে আধুনিক ফার্নেস সিজনিং ও ডিজিটাল ৩ডি সিএনসি খোদাই — প্রতিটি ধাপ আমাদের নিজস্ব তত্ত্বাবধানে।
+          <p className="max-w-3xl mx-auto text-sm sm:text-base text-wood-300 leading-relaxed font-light">
+            কাঠের কাঁচা গোল গুঁড়ি থেকে শুরু করে ভারী ব্যান্ড-স চেরাই, আধুনিক ফার্নেস কিম্বন সিজনিং এবং ডিজিটাল ৩ডি সিএনসি খোদাই — প্রতিটি ধাপ সম্পন্ন হয় যশোরের বাদে নাভারনে আমাদের নিজস্ব কমপ্লেক্সে।
           </p>
+
+          {/* Quick Facility Badges */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mt-8 pt-6 border-t border-wood-800">
+            <div className="p-3 rounded-2xl bg-wood-900/80 border border-wood-800 text-center">
+              <span className="text-base sm:text-lg font-bold text-gold-400 block font-serif">১০০% নিজস্ব</span>
+              <span className="text-[11px] text-wood-300">হেভি ব্যান্ড-স সমিল</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-wood-900/80 border border-wood-800 text-center">
+              <span className="text-base sm:text-lg font-bold text-gold-400 block font-serif">১২% - ১৪%</span>
+              <span className="text-[11px] text-wood-300">কিম্বন ড্রাই সিজনিং</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-wood-900/80 border border-wood-800 text-center">
+              <span className="text-base sm:text-lg font-bold text-gold-400 block font-serif">ভ্যাকুয়াম CCB</span>
+              <span className="text-[11px] text-wood-300">উইপোকা প্রতিরোধী ট্রিটমেন্ট</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-wood-900/80 border border-wood-800 text-center">
+              <span className="text-base sm:text-lg font-bold text-gold-400 block font-serif">৩ডি সিএনসি</span>
+              <span className="text-[11px] text-wood-300">কম্পিউটারাইজড খোদাই</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 7-Step Manufacturing Process */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-wood-950 dark:text-white font-serif mb-3">
-            ৭-ধাপের বৈজ্ঞানিক প্রস্তুত প্রণালী
-          </h2>
-          <p className="text-xs sm:text-sm text-wood-600 dark:text-wood-400">
-            কেন আমাদের কাঠের দরজা ৫০ বছর পর্যন্ত অটুট থাকে তার পেছনের প্রযুক্তিগত ধাপসমূহ
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {processSteps.map((step) => {
-            const Icon = step.icon;
-            return (
-              <div
-                key={step.num}
-                className="p-6 rounded-3xl bg-white dark:bg-wood-900 border border-wood-200 dark:border-wood-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-black text-gold-600 dark:text-gold-400 font-mono">
-                      {step.num}
-                    </span>
-                    <div className="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-600 flex items-center justify-center">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                  </div>
-                  <h3 className="text-base font-bold text-wood-950 dark:text-white mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-wood-600 dark:text-wood-300 leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
+      {/* Prominent Bridge: Link to About Farhan Enterprise Profile */}
+      <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-wood-900 via-wood-850 to-wood-900 rounded-3xl p-6 sm:p-8 border border-gold-500/25 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4 text-center md:text-left">
+            <div className="w-14 h-14 rounded-2xl bg-gold-500/15 border border-gold-500/30 flex items-center justify-center flex-shrink-0 text-gold-400 shadow-inner">
+              <Sparkles className="w-7 h-7" />
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-gold-500/15 text-gold-400 text-[11px] font-bold uppercase tracking-wider mb-1">
+                <span>মূল প্রতিষ্ঠান ও ২৫+ বছরের ঐতিহ্য</span>
               </div>
-            );
-          })}
+              <h3 className="text-xl sm:text-2xl font-bold text-white font-serif">
+                মেসার্স ফারহান এন্টারপ্রাইজ — আমাদের পরিচিতি ও মালিকানা
+              </h3>
+              <p className="text-xs sm:text-sm text-wood-300 mt-1 max-w-2xl">
+                প্রোঃ মোঃ আব্দুছ ছালাম খাঁন • আকিজ কলেজিয়েট স্কুলের পশ্চিম পার্শ্বে, বাদে নাভারন, ঝিকরগাছা, যশোর। প্রতিষ্ঠান সম্পর্কে বিস্তারিত জানুন।
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 flex-shrink-0 w-full md:w-auto">
+            <Link
+              href="/about"
+              className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-wood-950 font-bold text-xs sm:text-sm transition-all shadow-gold"
+            >
+              <span>ফারহান এন্টারপ্রাইজ সম্পর্কে জানুন</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Embedded Showcase Component */}
-      <SawmillShowcase services={sawmillServices} factoryPhotos={factoryPhotos} />
+      {/* Embedded State-of-the-Art Sawmill Complex & Real Workshop Gallery */}
+      <SawmillShowcase services={sawmillServices} />
 
       <Footer settings={siteSettings} />
       <BottomNav whatsappNumber={whatsapp} />

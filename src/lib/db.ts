@@ -19,8 +19,7 @@ import {
   HeroBanner,
   Review,
   SiteSettings,
-  SawmillService,
-  FactoryPhoto
+  SawmillService
 } from '../types';
 
 export interface DatabaseSchema {
@@ -32,7 +31,6 @@ export interface DatabaseSchema {
   reviews: Review[];
   siteSettings: SiteSettings;
   sawmillServices: SawmillService[];
-  factoryPhotos?: FactoryPhoto[];
   adminPin: string;
 }
 
@@ -2451,11 +2449,6 @@ export const db = {
   // Sawmill Services
   getSawmillServices(): SawmillService[] {
     return loadDatabase().sawmillServices;
-  },
-
-  // Factory Real Photos
-  getFactoryPhotos(): FactoryPhoto[] {
-    return loadDatabase().factoryPhotos || [];
   },
 
   // Admin PIN verification

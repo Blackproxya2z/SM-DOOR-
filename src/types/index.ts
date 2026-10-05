@@ -217,19 +217,6 @@ export interface SawmillService {
   imageUrl: string;
 }
 
-export interface FactoryPhoto {
-  id: string;
-  titleBn: string;
-  titleEn: string;
-  tagBn: string;
-  tagEn: string;
-  descriptionBn: string;
-  descriptionEn: string;
-  specsBn?: string;
-  imageUrl: string;
-  order: number;
-}
-
 export interface QuoteItem {
   id: string;
   designNumber?: string;

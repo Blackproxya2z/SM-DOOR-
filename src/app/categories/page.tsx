@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { db } from "@/lib/db";
 import { CATEGORIES } from "@/lib/categories";
 import { Header } from "@/components/Header";
@@ -54,11 +55,16 @@ export default function CategoriesPage() {
                 href={`/categories/${cat.slug}`}
                 className="group relative bg-white dark:bg-wood-900 rounded-3xl overflow-hidden border border-wood-200 dark:border-wood-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-wood-100">
-                  <img
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-wood-100 dark:bg-wood-950">
+                  <Image
                     src={cat.image}
                     alt={cat.nameBn}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={85}
+                    placeholder="blur"
+                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAwIiBoZWlnaHQ9IjUyNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMmMxYTBlIi8+PC9zdmc+"
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <span className="absolute bottom-3 left-4 text-xs font-semibold px-2.5 py-1 rounded-full bg-gold-500 text-wood-950 shadow">
