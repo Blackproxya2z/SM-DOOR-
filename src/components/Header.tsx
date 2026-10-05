@@ -109,6 +109,7 @@ export function Header({ initialSettings }: HeaderProps) {
   };
 
   const phone = settings?.phone1 || t.brand.phone;
+  const cleanPhone = phone.replace(/[^0-9+]/g, '');
   const whatsappNumber = settings?.whatsappNumber || t.brand.whatsapp;
   const cleanWhatsApp = whatsappNumber.replace(/[^0-9]/g, '');
 
@@ -166,6 +167,37 @@ export function Header({ initialSettings }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
+      {/* ─── Ultra-Luxury Desktop Top Announcement Strip ─── */}
+      <div 
+        className={`hidden lg:block bg-[#2B1A12] text-white/90 text-[11px] px-4 sm:px-6 lg:px-8 border-b border-[#C59B27]/30 transition-all duration-300 font-[family-name:var(--font-hind-siliguri)] ${
+          scrolled ? 'max-h-0 py-0 opacity-0 overflow-hidden border-none' : 'max-h-12 py-1.5 opacity-100'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-1.5 text-white/90">
+              <span className="text-[#C59B27]">📍</span>
+              <span>{language === 'bn' ? (settings?.addressBn || 'বাদে নাভারন, আকিজ কলেজিয়েট স্কুলের পশ্চিম পাশে, ঝিকরগাছা, যশোর') : (settings?.addressEn || 'Bade Navaran, West of Akij Collegiate School, Jhikargachha, Jashore')}</span>
+            </span>
+            <span className="text-white/30">•</span>
+            <span className="flex items-center gap-1 text-[#C59B27]">
+              <span>⏱️</span>
+              <span>{language === 'bn' ? 'সকাল ৮:০০ - রাত ৯:০০ (সপ্তাহে ৭ দিন খোলা)' : '8:00 AM - 9:00 PM (Open 7 Days)'}</span>
+            </span>
+          </div>
+          <div className="flex items-center gap-4">
+            <a href={`tel:${cleanPhone}`} className="flex items-center gap-1.5 text-[#C59B27] hover:text-white transition-colors font-bold">
+              <Phone className="w-3 h-3" />
+              <span>{phone}</span>
+            </a>
+            <span className="text-white/30">•</span>
+            <span className="text-amber-200/90 font-medium">
+              {language === 'bn' ? 'প্রোঃ মোঃ আব্দুছ ছালাম খাঁন' : 'Proprietor: Md. Abdus Salam Khan'}
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Light Premium Navigation Bar */}
       <div 
         className={`w-full transition-all duration-300 bg-[#FAF8F5] border-b border-[#E8DED4] ${

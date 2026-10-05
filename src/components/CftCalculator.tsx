@@ -561,16 +561,18 @@ export function CftCalculator({
           </div>
 
           {/* Results Summary Card */}
-          <div className="lg:col-span-5 bg-white text-[#2B1A12] rounded-3xl p-6 sm:p-8 shadow-xl border border-[#E8DED4] flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-gradient-to-b from-white via-white to-[#FAF1D6]/25 text-[#2B1A12] rounded-3xl p-6 sm:p-8 shadow-xl border border-[#E8DED4] hover:border-[#C59B27]/40 transition-all flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#E8DED4]">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-[#C59B27]" />
+                  <div className="w-8 h-8 rounded-lg bg-[#C59B27]/10 flex items-center justify-center border border-[#C59B27]/25">
+                    <Sparkles className="w-4 h-4 text-[#C59B27]" />
+                  </div>
                   <h3 className="font-[family-name:var(--font-tiro-bangla)] text-lg font-bold text-[#2B1A12] tracking-wide">
                     {t.calculator.resultHeading}
                   </h3>
                 </div>
-                <span className="text-xs font-semibold text-[#C59B27] bg-[#C59B27]/10 px-2.5 py-1 rounded-full border border-[#C59B27]/30 font-[family-name:var(--font-hind-siliguri)]">
+                <span className="text-xs font-semibold text-[#C59B27] bg-[#C59B27]/10 px-3 py-1 rounded-full border border-[#C59B27]/30 font-[family-name:var(--font-hind-siliguri)] shadow-sm">
                   {language === 'bn' ? 'সরাসরি প্রাক্কলন' : 'Live Estimate'}
                 </span>
               </div>
@@ -588,12 +590,12 @@ export function CftCalculator({
                   </div>
                   <div className="flex justify-between items-center text-sm text-[#7A6A5F]">
                     <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.ratePerCft}</span>
-                    <span className="text-[#2B1A12] font-mono">{formatPrice(effectiveSawnRate)}</span>
+                    <span className="text-[#2B1A12] font-mono font-semibold">{formatPrice(effectiveSawnRate)}</span>
                   </div>
 
-                  <div className="pt-4 border-t border-[#E8DED4]">
-                    <span className="text-xs text-[#7A6A5F] block mb-1 font-[family-name:var(--font-hind-siliguri)]">{t.calculator.totalCost}</span>
-                    <span className="text-3xl sm:text-4xl font-black text-[#C59B27]">
+                  <div className="pt-4 border-t border-[#E8DED4] bg-white/90 p-4 rounded-2xl border border-[#E8DED4] shadow-sm">
+                    <span className="text-xs text-[#7A6A5F] block mb-1 font-[family-name:var(--font-hind-siliguri)] font-semibold">{t.calculator.totalCost}</span>
+                    <span className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-[#2B1A12] via-[#C59B27] to-[#B07818] bg-clip-text text-transparent">
                       {formatPrice(sawnResult.totalPrice)}
                     </span>
                   </div>
@@ -613,12 +615,12 @@ export function CftCalculator({
                   </div>
                   <div className="flex justify-between items-center text-sm text-[#7A6A5F]">
                     <span className="font-[family-name:var(--font-hind-siliguri)]">{t.calculator.ratePerCft}</span>
-                    <span className="text-[#2B1A12] font-mono">{formatPrice(effectiveLogRate)}</span>
+                    <span className="text-[#2B1A12] font-mono font-semibold">{formatPrice(effectiveLogRate)}</span>
                   </div>
 
-                  <div className="pt-4 border-t border-[#E8DED4]">
-                    <span className="text-xs text-[#7A6A5F] block mb-1 font-[family-name:var(--font-hind-siliguri)]">{t.calculator.totalCost}</span>
-                    <span className="text-3xl sm:text-4xl font-black text-[#C59B27]">
+                  <div className="pt-4 border-t border-[#E8DED4] bg-white/90 p-4 rounded-2xl border border-[#E8DED4] shadow-sm">
+                    <span className="text-xs text-[#7A6A5F] block mb-1 font-[family-name:var(--font-hind-siliguri)] font-semibold">{t.calculator.totalCost}</span>
+                    <span className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-[#2B1A12] via-[#C59B27] to-[#B07818] bg-clip-text text-transparent">
                       {formatPrice(logResult.totalPrice)}
                     </span>
                   </div>
@@ -651,12 +653,12 @@ export function CftCalculator({
                     </div>
                   )}
 
-                  <div className="pt-4 border-t border-[#E8DED4]">
+                  <div className="pt-4 border-t border-[#E8DED4] bg-white/90 p-4 rounded-2xl border border-[#E8DED4] shadow-sm">
                     <div className="flex justify-between items-baseline mb-1">
-                      <span className="text-xs text-[#7A6A5F] font-[family-name:var(--font-hind-siliguri)]">{t.calculator.frameCostPerPiece}</span>
-                      <span className="text-base font-bold text-[#2B1A12]">{formatPrice(frameResult.costPerFrame)}</span>
+                      <span className="text-xs text-[#7A6A5F] font-[family-name:var(--font-hind-siliguri)] font-semibold">{t.calculator.frameCostPerPiece}</span>
+                      <span className="text-sm font-bold text-[#2B1A12]">{formatPrice(frameResult.costPerFrame)}</span>
                     </div>
-                    <div className="text-2xl sm:text-3xl font-black text-[#C59B27]">
+                    <div className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-[#2B1A12] via-[#C59B27] to-[#B07818] bg-clip-text text-transparent">
                       {formatPrice(frameResult.totalCost)}
                     </div>
                   </div>

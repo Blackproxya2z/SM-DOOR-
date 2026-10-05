@@ -203,7 +203,7 @@ export function ProductCatalog({
     return (
       <div
         key={product.id}
-        className="group relative flex flex-col justify-between bg-white rounded-2xl overflow-hidden border border-[#E8DED4] shadow-md hover:shadow-xl hover:border-[#C59B27] hover:-translate-y-1 transition-all duration-300"
+        className="group relative flex flex-col justify-between bg-white rounded-2xl overflow-hidden border border-[#E8DED4] shadow-md hover:shadow-[0_16px_36px_-10px_rgba(43,26,18,0.12)] hover:border-[#C59B27] hover:-translate-y-1.5 transition-all duration-300"
       >
         {/* Product Image: Fixed 4:3 Aspect Ratio with Next.js Image & Blur Shimmer */}
         <div 
@@ -434,14 +434,14 @@ export function ProductCatalog({
               onClick={() => setSelectedCategory('all')}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 ${
                 selectedCategory === 'all'
-                  ? 'bg-[#2B1A12] text-white shadow-md'
-                  : 'bg-[#F4ECE1] text-[#7A6A5F] hover:bg-[#E8DED4]'
+                  ? 'bg-[#2B1A12] text-white shadow-md ring-2 ring-[#C59B27]/50'
+                  : 'bg-[#F4ECE1] text-[#7A6A5F] hover:bg-[#E8DED4] hover:text-[#2B1A12]'
               }`}
             >
               <span>{language === 'bn' ? 'সকল ক্যাটাগরি' : 'All Categories'}</span>
-              <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+              <span className={`text-[10px] px-2 py-0.5 rounded-full ${
                 selectedCategory === 'all' 
-                  ? 'bg-[#C59B27] text-white font-extrabold' 
+                  ? 'bg-[#C59B27] text-white font-extrabold shadow-sm' 
                   : 'bg-[#E8DED4] text-[#2B1A12]'
               }`}>
                 {products.length}
@@ -458,14 +458,14 @@ export function ProductCatalog({
                   onClick={() => handleCategoryClick(cat.id)}
                   className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${
                     isActive
-                      ? 'bg-[#2B1A12] text-white shadow-md'
-                      : 'bg-[#F4ECE1] text-[#7A6A5F] hover:bg-[#E8DED4]'
+                      ? 'bg-[#2B1A12] text-white shadow-md ring-2 ring-[#C59B27]/50'
+                      : 'bg-[#F4ECE1] text-[#7A6A5F] hover:bg-[#E8DED4] hover:text-[#2B1A12]'
                   }`}
                 >
                   <span>{language === 'bn' ? cat.labelBn : cat.labelEn}</span>
-                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full ${
                     isActive 
-                      ? 'bg-[#C59B27] text-white font-extrabold' 
+                      ? 'bg-[#C59B27] text-white font-extrabold shadow-sm' 
                       : 'bg-[#E8DED4] text-[#2B1A12]'
                   }`}>
                     {catCount}
