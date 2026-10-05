@@ -4,6 +4,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { QuoteProvider } from "@/context/QuoteContext";
 import { RealtimeSyncProvider } from "@/context/RealtimeSyncContext";
+import { getSiteUrl } from "@/lib/site";
 
 const tiroBangla = Tiro_Bangla({
   subsets: ["bengali"],
@@ -28,7 +29,7 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://smdoorbd.com";
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

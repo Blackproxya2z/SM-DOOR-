@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { FloatingActions } from "@/components/FloatingActions";
 import { ProductDetailView } from "@/components/ProductDetailView";
+import { getSiteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 
 interface ProductPageProps {
@@ -82,7 +83,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
       "priceCurrency": "BDT",
       "price": product.defaultPrice,
       "availability": product.stockStatus === "in_stock" ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
-      "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://smdoorbd.com'}/doors/${product.slug}`,
+      "url": `${getSiteUrl()}/doors/${product.slug}`,
     },
   };
 

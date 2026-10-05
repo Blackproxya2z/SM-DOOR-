@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
 import { db } from '@/lib/db';
 import { CATEGORIES } from '@/lib/categories';
+import { getSiteUrl } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://smdoorbd.com';
+  const baseUrl = getSiteUrl();
   const products = db.getProducts();
   const speciesList = db.getSpecies();
 
